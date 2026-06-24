@@ -142,7 +142,7 @@ export function FeatureBento() {
           <EditableText as="span" mark={false} slot="home_seller_bento_eyebrow" fallback="tudo num lugar só" />
         </p>
         <h2 className="fl-display text-4xl text-[#F5F1E8] sm:text-5xl md:text-6xl">
-          <EditableText as="span" slot="home_seller_bento_heading" fallback="Vender, ensinar, *aprender e ganhar.*" />
+          <EditableText as="span" slot="home_seller_bento_heading" fallback="Criar, vender, *faturar.*" />
         </h2>
         <DoodleArrow dir="left" className="absolute -right-4 top-2 hidden h-10 w-20 text-[#C8102E] lg:block" />
       </div>

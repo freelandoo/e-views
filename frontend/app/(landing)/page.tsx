@@ -10,9 +10,9 @@ import {
 } from "@/components/home/landing"
 import { RevealMount } from "@/components/home/landing/RevealMount"
 
-const TITLE = "E-Views — Venda serviços, cursos e produtos, e ganhe como afiliado"
+const TITLE = "E-Views — Venda seu conteúdo, faça lives e venda cursos e produtos"
 const DESCRIPTION =
-  "A E-Views conecta quem quer ganhar dinheiro com quem precisa aprender, criar, comprar e empreender. Ofereça serviços, crie cursos de graça, venda produtos, abra sua lojinha, divulgue como influenciador e ganhe indicando."
+  "Na E-Views você monetiza do seu jeito: venda conteúdo exclusivo, faça lives e receba gifts, crie e venda cursos e abra sua loja de produtos, do digital ao físico. Você no controle, comece de graça."
 
 export const metadata: Metadata = {
   title: TITLE,

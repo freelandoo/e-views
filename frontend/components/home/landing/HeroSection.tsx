@@ -53,7 +53,7 @@ export function HeroSection() {
             <EditableText
               as="span"
               slot="home_seller_hero_headline"
-              fallback="Venda serviços, cursos, produtos e *ganhe* como afiliado."
+              fallback="Venda conteúdo, faça lives e *fature* com cursos e produtos."
             />
             <Spark className="absolute -right-1 -top-5 hidden h-9 w-9 text-[#C8102E] md:block" />
           </motion.h1>
@@ -63,17 +63,17 @@ export function HeroSection() {
               as="span"
               mark={false}
               slot="home_seller_hero_subcopy"
-              fallback="A E-Views conecta quem quer *ganhar dinheiro* com quem precisa aprender, criar, comprar e empreender. Onde quiser."
+              fallback="Na E-Views você *monetiza tudo*: conteúdo exclusivo, lives com gifts, cursos e produtos. Do digital ao físico. Você no controle."
             />
           </motion.p>
 
           <motion.div variants={item} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <GoldButton href={LINKS.cadastro} className="group">
-              <EditableText as="span" slot="home_seller_hero_cta_primary" fallback="Começar agora" />
+              <EditableText as="span" slot="home_seller_hero_cta_primary" fallback="Criar minha conta" />
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </GoldButton>
             <OutlineButton href={LINKS.marketplace}>
-              <EditableText as="span" slot="home_seller_hero_cta_secondary" fallback="Conhecer o marketplace" />
+              <EditableText as="span" slot="home_seller_hero_cta_secondary" fallback="Explorar criadores" />
             </OutlineButton>
           </motion.div>
 
@@ -81,8 +81,8 @@ export function HeroSection() {
             <div className="flex items-center gap-3">
               <AvatarStack count={5} />
               <span className="text-sm text-[#9A938A]">
-                <EditableText as="span" className="font-bold text-[#F5F1E8]" slot="home_seller_hero_proof_count" fallback="+10 mil pessoas" />{" "}
-                <EditableText as="span" slot="home_seller_hero_proof_text" fallback="já estão ganhando" />
+                <EditableText as="span" className="font-bold text-[#F5F1E8]" slot="home_seller_hero_proof_count" fallback="+10 mil criadores" />{" "}
+                <EditableText as="span" slot="home_seller_hero_proof_text" fallback="já faturam aqui" />
               </span>
             </div>
             <StickerNote rotate={-4} className="hidden sm:inline-block">

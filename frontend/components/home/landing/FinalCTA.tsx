@@ -36,7 +36,7 @@ export function FinalCTA() {
             <EditableText
               as="span"
               slot="home_seller_final_headline"
-              fallback="Serviços, cursos, produtos, afiliados, influenciadores e oportunidades. *Tudo em um só lugar.*"
+              fallback="Conteúdo, lives, cursos e produtos. *Tudo em um só lugar.*"
             />
           </h2>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-[#C9C2B6]">
@@ -44,7 +44,7 @@ export function FinalCTA() {
               as="span"
               mark={false}
               slot="home_seller_final_subcopy"
-              fallback="A E-Views é para quem quer vender, ensinar, aprender e ganhar mais todos os dias."
+              fallback="A E-Views é pra quem cria, faz live, ensina e vende. E fatura todos os dias."
             />
           </p>
           <GoldButton href={LINKS.cadastro} className="group mt-8 px-7 py-4 text-base">
