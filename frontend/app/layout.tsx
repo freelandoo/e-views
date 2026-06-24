@@ -76,7 +76,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#FFC600",
+  themeColor: "#000000",
 }
 
 // IMPORTANTE (F3.S5): este layout NÃO pode ler cookies()/headers() — isso
