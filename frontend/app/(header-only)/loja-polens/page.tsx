@@ -241,7 +241,7 @@ function LojaPolensContent() {
       <section className="mx-auto grid max-w-7xl gap-8 px-4 py-10 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-14">
         <div className="flex min-h-[480px] flex-col justify-between">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#F2B705]">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#C8102E]">
               <Sparkles className="h-3.5 w-3.5" />
               {t("eyebrow", "Pacotes de Poléns")}
             </div>
@@ -257,7 +257,7 @@ function LojaPolensContent() {
             <div className="rounded-2xl border-2 border-[#F5F1E8]/10 bg-[#1D1810] p-5">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#9A938A]">{t("currentBalance", "Saldo atual")}</p>
               <div className="mt-2 flex items-baseline gap-2">
-                <Hexagon className="h-5 w-5 fill-[#F2B705] text-[#F2B705]" />
+                <Hexagon className="h-5 w-5 fill-[#C8102E] text-[#C8102E]" />
                 <span className="text-3xl font-black tabular-nums tracking-tight text-[#F5F1E8]">
                   {wallet ? fmtNumber(wallet.balance, locale) : "—"}
                 </span>
@@ -281,13 +281,13 @@ function LojaPolensContent() {
               className="absolute inset-0 h-full w-full object-cover"
             />
           ) : (
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_15%,rgba(242,183,5,0.32),transparent_38%),linear-gradient(135deg,#141009,#2a2212)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_15%,rgba(200, 16, 46,0.32),transparent_38%),linear-gradient(135deg,#141009,#2a2212)]" />
           )}
           <div className="absolute inset-0 bg-gradient-to-r from-[#141009]/85 via-[#141009]/45 to-[#141009]/10" />
           <div className="absolute inset-x-5 top-5 rounded-2xl border border-[#F5F1E8]/12 bg-[#0b0804]/45 p-4 text-[#F5F1E8] backdrop-blur">
             <div className="flex items-center gap-3">
-              <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl border border-[#F2B705]/25 bg-[#F2B705]/12 text-[#F2B705]">
-                <Hexagon className="h-7 w-7 fill-[#F2B705] text-[#F2B705]" />
+              <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl border border-[#C8102E]/25 bg-[#C8102E]/12 text-[#C8102E]">
+                <Hexagon className="h-7 w-7 fill-[#C8102E] text-[#C8102E]" />
               </div>
               <div className="min-w-0">
                 <p className="truncate text-lg font-bold">{featured?.name || t("featuredPackage", "Pacote em destaque")}</p>
@@ -300,7 +300,7 @@ function LojaPolensContent() {
           <div className="absolute bottom-0 left-0 right-0 p-6 text-[#F5F1E8]">
             {featured ? (
               <>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#F2B705]/40 bg-[#F2B705]/15 px-3 py-1 text-xs font-bold text-[#F2B705] backdrop-blur">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#C8102E]/40 bg-[#C8102E]/15 px-3 py-1 text-xs font-bold text-[#C8102E] backdrop-blur">
                   <Sparkles className="h-3.5 w-3.5" />
                   {fmtBRL(featured.price_cents)}
                 </span>
@@ -323,10 +323,10 @@ function LojaPolensContent() {
 
       {/* Booster de XP (nível 5) — UI nova nasce reta (.fl-sharp) */}
       <section className="fl-sharp mx-auto max-w-7xl px-4 pb-4 md:px-8">
-        <div className="overflow-hidden border-2 border-[#F2B705]/40 bg-[#1D1810]">
+        <div className="overflow-hidden border-2 border-[#C8102E]/40 bg-[#1D1810]">
           <div className="grid gap-6 p-6 md:grid-cols-[1.2fr_1fr] md:p-8">
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#F2B705]">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#C8102E]">
                 <Rocket className="h-3.5 w-3.5" />
                 {t("boosterEyebrow", "Atalho")}
               </div>
@@ -355,7 +355,7 @@ function LojaPolensContent() {
                     id="boost-profile"
                     value={boostProfileId}
                     onChange={(e) => setBoostProfileId(e.target.value)}
-                    className="h-11 w-full border-2 border-[#F5F1E8]/12 bg-[#141009] px-3 text-sm text-[#F5F1E8] outline-none transition focus:border-[#F2B705]"
+                    className="h-11 w-full border-2 border-[#F5F1E8]/12 bg-[#141009] px-3 text-sm text-[#F5F1E8] outline-none transition focus:border-[#C8102E]"
                   >
                     {boostProfiles.map((p) => (
                       <option key={p.id_profile} value={p.id_profile}>
@@ -367,7 +367,7 @@ function LojaPolensContent() {
                     type="button"
                     onClick={() => void buyBooster()}
                     disabled={boostBuying}
-                    className="inline-flex items-center justify-center gap-2 bg-[#F2B705] px-5 py-3 text-sm font-bold text-[#1A1505] transition hover:bg-[#ffc81f] active:scale-[0.99] disabled:opacity-60"
+                    className="inline-flex items-center justify-center gap-2 bg-[#C8102E] px-5 py-3 text-sm font-bold text-[#1A1505] transition hover:bg-[#E03250] active:scale-[0.99] disabled:opacity-60"
                   >
                     {boostBuying ? <Loader2 className="h-4 w-4 animate-spin" /> : <Rocket className="h-4 w-4" />}
                     {t("boosterCta", "Impulsionar ao nível 5")} · {fmtBRL(1000, locale)}
@@ -387,7 +387,7 @@ function LojaPolensContent() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={t("searchPackage", "Buscar pacote")}
-              className="h-11 w-full rounded-full border-2 border-[#F5F1E8]/12 bg-[#1D1810] pl-10 pr-4 text-sm text-[#F5F1E8] placeholder:text-[#9A938A] outline-none transition focus:border-[#F2B705]"
+              className="h-11 w-full rounded-full border-2 border-[#F5F1E8]/12 bg-[#1D1810] pl-10 pr-4 text-sm text-[#F5F1E8] placeholder:text-[#9A938A] outline-none transition focus:border-[#C8102E]"
             />
           </div>
           <p className="text-xs text-[#9A938A]">
@@ -429,7 +429,7 @@ function LojaPolensContent() {
                   className={cn(
                     "group relative cursor-pointer overflow-hidden rounded-[1.5rem] border-2 bg-[#1D1810] transition active:scale-[0.99]",
                     "aspect-[9/16]",
-                    isSelected ? "border-[#F2B705] ring-2 ring-[#F2B705]/30" : "border-[#F5F1E8]/10 hover:border-[#F5F1E8]/30"
+                    isSelected ? "border-[#C8102E] ring-2 ring-[#C8102E]/30" : "border-[#F5F1E8]/10 hover:border-[#F5F1E8]/30"
                   )}
                   style={{ animation: `fade-in .42s cubic-bezier(.16,1,.3,1) both ${index * 55}ms` }}
                 >
@@ -442,7 +442,7 @@ function LojaPolensContent() {
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center bg-[linear-gradient(135deg,#141009,#2a2212)]">
-                      <Hexagon className="h-20 w-20 fill-[#F2B705]/80 text-[#F2B705]" />
+                      <Hexagon className="h-20 w-20 fill-[#C8102E]/80 text-[#C8102E]" />
                     </div>
                   )}
 
@@ -450,7 +450,7 @@ function LojaPolensContent() {
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-[#141009]/90 via-[#141009]/55 to-transparent" />
 
                   {p.bonus_polens > 0 && (
-                    <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full border border-[#F2B705]/50 bg-[#F2B705] px-2.5 py-1 text-xs font-bold text-[#1A1505] shadow-sm">
+                    <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full border border-[#C8102E]/50 bg-[#C8102E] px-2.5 py-1 text-xs font-bold text-[#1A1505] shadow-sm">
                       <Sparkles className="h-3 w-3" />
                       +{fmtNumber(p.bonus_polens, locale)} {t("bonus", "bônus")}
                     </span>
@@ -465,8 +465,8 @@ function LojaPolensContent() {
                         </p>
                       </div>
                       <div className="shrink-0 text-right">
-                        <div className="flex items-center gap-1 text-[#F2B705]">
-                          <Hexagon className="h-4 w-4 fill-[#F2B705] text-[#F2B705]" />
+                        <div className="flex items-center gap-1 text-[#C8102E]">
+                          <Hexagon className="h-4 w-4 fill-[#C8102E] text-[#C8102E]" />
                           <span className="text-base font-black tabular-nums tracking-tight">{fmtNumber(total, locale)}</span>
                         </div>
                         <p className="mt-0.5 text-[10px] uppercase tracking-wide text-[#F5F1E8]/60">{t("polens", "Poléns")}</p>
@@ -482,7 +482,7 @@ function LojaPolensContent() {
                           void buy(p)
                         }}
                         disabled={buyingId !== null}
-                        className="inline-flex items-center rounded-full bg-[#F2B705] px-3 py-1.5 text-sm font-bold text-[#1A1505] transition hover:bg-[#ffc81f] active:scale-[0.98] disabled:opacity-60"
+                        className="inline-flex items-center rounded-full bg-[#C8102E] px-3 py-1.5 text-sm font-bold text-[#1A1505] transition hover:bg-[#E03250] active:scale-[0.98] disabled:opacity-60"
                       >
                         {buyingId === p.id ? (
                           <Loader2 className="mr-1.5 h-4 w-4 animate-spin" />

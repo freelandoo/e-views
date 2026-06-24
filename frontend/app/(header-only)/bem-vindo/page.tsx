@@ -158,7 +158,7 @@ function TourInner() {
           {STEPS.map((s, i) => (
             <span
               key={s.id}
-              className={`h-2 transition-all ${i <= step ? "w-8 bg-[#F2B705]" : "w-2 bg-[#F5F1E8]/20"}`}
+              className={`h-2 transition-all ${i <= step ? "w-8 bg-[#C8102E]" : "w-2 bg-[#F5F1E8]/20"}`}
             />
           ))}
           <span className="ml-3 text-sm text-[#9A938A]">
@@ -193,7 +193,7 @@ function TourInner() {
               const Icon = item.icon
               return (
                 <li key={item.slot} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center bg-[#0B0B0D] text-[#F2B705]">
+                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center bg-[#0B0B0D] text-[#C8102E]">
                     <Icon className="h-[18px] w-[18px]" />
                   </span>
                   <EditableText

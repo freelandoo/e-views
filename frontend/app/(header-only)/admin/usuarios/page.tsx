@@ -76,7 +76,7 @@ function subscriptionStatusBadge(status: string | null) {
   if (!status) return <span className="text-xs text-muted-foreground">—</span>
   const map: Record<string, { label: string; className: string }> = {
     active:   { label: "Ativa",    className: "bg-green-500/20 text-green-400 border-green-500/30" },
-    past_due: { label: "Atrasada", className: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30" },
+    past_due: { label: "Atrasada", className: "bg-red-600/20 text-red-600 border-red-600/30" },
     pending:  { label: "Pendente", className: "bg-blue-500/20 text-blue-400 border-blue-500/30" },
     canceled: { label: "Cancelada",className: "bg-red-500/20 text-red-400 border-red-500/30" },
     expired:  { label: "Expirada", className: "bg-gray-500/20 text-gray-400 border-gray-500/30" },

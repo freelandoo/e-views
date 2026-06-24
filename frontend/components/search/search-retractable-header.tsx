@@ -109,12 +109,12 @@ export function SearchRetractableHeader({
     >
       <div className="fl-root pointer-events-auto relative border-b-2 border-[#0B0B0D] bg-[#0b0804]/95 backdrop-blur-md">
         {/* faixa dourada inferior — assinatura tabloide */}
-        <div aria-hidden className="absolute inset-x-0 -bottom-[2px] h-[2px] bg-[#F2B705]" />
+        <div aria-hidden className="absolute inset-x-0 -bottom-[2px] h-[2px] bg-[#C8102E]" />
 
         <div className="relative flex items-center gap-2 px-4 pb-3 pt-3 sm:gap-3 sm:px-6">
           <Link
             href="/"
-            className="fl-display shrink-0 text-2xl leading-none text-[#F2B705] transition-transform hover:-translate-y-0.5 sm:text-[1.7rem]"
+            className="fl-display shrink-0 text-2xl leading-none text-[#C8102E] transition-transform hover:-translate-y-0.5 sm:text-[1.7rem]"
             aria-label="Freelandoo"
           >
             freelandoo
@@ -200,7 +200,7 @@ export function SearchRetractableHeader({
                   className={cn(
                     "inline-flex h-9 shrink-0 items-center gap-1.5 border-2 px-3 text-[11px] font-extrabold uppercase tracking-[0.1em] transition-transform hover:-translate-y-0.5",
                     premiumOnly
-                      ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D]"
+                      ? "border-[#0B0B0D] bg-[#C8102E] text-white shadow-[3px_3px_0_0_#0B0B0D]"
                       : "border-[#F1EDE2]/25 bg-transparent text-[#F1EDE2] hover:border-[#F1EDE2]"
                   )}
                 >
@@ -236,7 +236,7 @@ interface PillProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 function Pill({ label, active, accent, disabled, icon, ...rest }: PillProps) {
-  const tint = accent || "#F2B705"
+  const tint = accent || "#C8102E"
   const activeStyle: React.CSSProperties = active
     ? { background: tint, borderColor: "#0B0B0D", color: "#0B0B0D" }
     : {}

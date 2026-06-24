@@ -87,7 +87,7 @@ export function ActionConsentModal({
                 type="checkbox"
                 checked={checked}
                 onChange={(e) => setChecked(e.target.checked)}
-                className="mt-0.5 h-4 w-4 accent-[#F2B705]"
+                className="mt-0.5 h-4 w-4 accent-[#C8102E]"
               />
               <span>Li e concordo com os termos acima.</span>
             </label>
@@ -104,7 +104,7 @@ export function ActionConsentModal({
                 type="button"
                 disabled={!checked}
                 onClick={() => def && onAccept(def.key)}
-                className="rounded-full bg-[#F2B705] px-5 py-2 text-sm font-bold text-[#1A1505] transition hover:brightness-105 active:scale-[0.98] disabled:opacity-50"
+                className="rounded-full bg-[#C8102E] px-5 py-2 text-sm font-bold text-[#1A1505] transition hover:brightness-105 active:scale-[0.98] disabled:opacity-50"
               >
                 Aceitar e continuar
               </button>

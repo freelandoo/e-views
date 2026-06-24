@@ -40,7 +40,7 @@ function useReveal() {
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className="border border-[#2A2218] rounded-xl overflow-hidden hover:border-[#F2B705]/20 transition-colors">
+    <div className="border border-[#2A2218] rounded-xl overflow-hidden hover:border-[#C8102E]/20 transition-colors">
       <button
         className="w-full flex items-center justify-between px-6 py-4 text-left font-medium text-[#F5F1E8] hover:bg-[#1D1810]/50 transition-colors gap-4"
         onClick={() => setOpen((o) => !o)}
@@ -73,7 +73,7 @@ export function CentralDeAjudaContent() {
     <main className="flex-1 bg-[#0b0804]">
       {/* HERO */}
       <section className="relative overflow-hidden py-20 md:py-28">
-        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[300px] w-[700px] rounded-full bg-[#F2B705]/5 blur-[100px]" />
+        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[300px] w-[700px] rounded-full bg-[#C8102E]/5 blur-[100px]" />
         <div className="container mx-auto px-4 relative text-center max-w-2xl">
           <h1 className="fl-display text-5xl md:text-6xl text-[#F5F1E8] mb-4" data-reveal>
             {t("hero.title", "Central de ajuda")}
@@ -87,7 +87,7 @@ export function CentralDeAjudaContent() {
               placeholder={t("search.placeholder", "Busque uma dúvida...")}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-[#1D1810] border border-[#2A2218] rounded-xl px-5 py-4 text-[#F5F1E8] placeholder:text-[#9A938A] focus:outline-none focus:border-[#F2B705]/50 focus:ring-2 focus:ring-[#F2B705]/10 transition-all pr-12"
+              className="w-full bg-[#1D1810] border border-[#2A2218] rounded-xl px-5 py-4 text-[#F5F1E8] placeholder:text-[#9A938A] focus:outline-none focus:border-[#C8102E]/50 focus:ring-2 focus:ring-[#C8102E]/10 transition-all pr-12"
             />
             <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#9A938A]">⌕</span>
           </div>
@@ -101,7 +101,7 @@ export function CentralDeAjudaContent() {
             {categories.map((cat, i) => (
               <button
                 key={cat}
-                className="bg-[#1D1810] border border-[#2A2218] rounded-full px-4 py-2 text-sm text-[#F5F1E8] hover:border-[#F2B705]/40 hover:text-[#F2B705] transition-all"
+                className="bg-[#1D1810] border border-[#2A2218] rounded-full px-4 py-2 text-sm text-[#F5F1E8] hover:border-[#C8102E]/40 hover:text-[#C8102E] transition-all"
                 onClick={() => setSearch(cat)}
                 data-card
               >
@@ -120,7 +120,7 @@ export function CentralDeAjudaContent() {
               <span className="text-sm text-[#9A938A]">
                 {filtered.length} {filtered.length === 1 ? t("results.singular", "resultado") : t("results.plural", "resultados")} {t("results.for", "para")} &quot;{search}&quot;
               </span>
-              <button onClick={() => setSearch("")} className="text-xs text-[#F2B705] hover:underline">
+              <button onClick={() => setSearch("")} className="text-xs text-[#C8102E] hover:underline">
                 {t("results.clear", "limpar")}
               </button>
             </div>
@@ -152,10 +152,10 @@ export function CentralDeAjudaContent() {
               {t("support.description", "Fale com a Freelandoo pelo e-mail ou WhatsApp abaixo.")}
             </p>
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <a href="https://wa.me/5511962757599" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-[#F2B705] text-black font-semibold px-6 py-3 rounded-lg hover:bg-[#F2B705]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
+              <a href="https://wa.me/5511962757599" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-[#C8102E] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#C8102E]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
                 {t("support.ctaWhatsapp", "WhatsApp (11) 96275-7599")}
               </a>
-              <a href="mailto:freelandoogroup@gmail.com" className="inline-flex items-center border border-[#2A2218] text-[#F5F1E8] font-semibold px-6 py-3 rounded-lg hover:border-[#F2B705]/50 transition-all">
+              <a href="mailto:freelandoogroup@gmail.com" className="inline-flex items-center border border-[#2A2218] text-[#F5F1E8] font-semibold px-6 py-3 rounded-lg hover:border-[#C8102E]/50 transition-all">
                 {t("support.ctaEmail", "freelandoogroup@gmail.com")}
               </a>
             </div>

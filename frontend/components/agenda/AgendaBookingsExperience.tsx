@@ -129,7 +129,7 @@ export function AgendaBookingsExperience({
           className,
         )}
       >
-        <Loader2 className="size-8 animate-spin text-[#F2B705]" aria-hidden />
+        <Loader2 className="size-8 animate-spin text-[#C8102E]" aria-hidden />
       </div>
     )
   }
@@ -157,7 +157,7 @@ export function AgendaBookingsExperience({
             href={settingsHref}
             aria-label={t("configureAgenda", "Configurar agenda")}
             title={t("configureAgenda", "Configurar agenda")}
-            className="flex items-center justify-center border-2 border-[#F1EDE2]/25 px-3 py-3 text-[#F1EDE2] transition hover:border-[#F2B705] hover:bg-[#F2B705]/10 hover:text-[#F2B705]"
+            className="flex items-center justify-center border-2 border-[#F1EDE2]/25 px-3 py-3 text-[#F1EDE2] transition hover:border-[#C8102E] hover:bg-[#C8102E]/10 hover:text-[#C8102E]"
           >
             <Settings className="size-4" aria-hidden />
           </Link>
@@ -168,7 +168,7 @@ export function AgendaBookingsExperience({
           className={cn(
             "flex flex-1 items-center justify-center gap-2 border-2 px-4 py-3 text-[11px] font-extrabold uppercase tracking-[0.12em] transition lg:hidden",
             mobileAgendaTab === "calendar"
-              ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D]"
+              ? "border-[#0B0B0D] bg-[#C8102E] text-white shadow-[3px_3px_0_0_#0B0B0D]"
               : "border-[#F1EDE2]/25 bg-transparent text-[#F1EDE2] hover:border-[#F1EDE2]",
           )}
         >
@@ -181,7 +181,7 @@ export function AgendaBookingsExperience({
           className={cn(
             "flex flex-1 items-center justify-center gap-2 border-2 px-4 py-3 text-[11px] font-extrabold uppercase tracking-[0.12em] transition lg:hidden",
             mobileAgendaTab === "list"
-              ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D]"
+              ? "border-[#0B0B0D] bg-[#C8102E] text-white shadow-[3px_3px_0_0_#0B0B0D]"
               : "border-[#F1EDE2]/25 bg-transparent text-[#F1EDE2] hover:border-[#F1EDE2]",
           )}
         >

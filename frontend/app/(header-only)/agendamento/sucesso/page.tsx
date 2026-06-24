@@ -38,7 +38,7 @@ function BookingSuccessContent() {
 
           <Link
             href="/"
-            className="mt-7 inline-flex items-center justify-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-5 py-2.5 text-[11px] font-black uppercase tracking-[0.14em] text-[#0B0B0D] shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#0B0B0D]"
+            className="mt-7 inline-flex items-center justify-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-5 py-2.5 text-[11px] font-black uppercase tracking-[0.14em] text-white shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#0B0B0D]"
           >
             <ArrowLeft className="h-4 w-4" />
             {t("backToHome", "Voltar para o início")}
@@ -54,7 +54,7 @@ export default function BookingSuccessPage() {
     <Suspense
       fallback={
         <div className="fl-root flex min-h-[100dvh] items-center justify-center bg-[#0b0804]">
-          <div className="h-10 w-10 animate-spin rounded-full border-2 border-[#6B6354] border-t-[#F2B705]" />
+          <div className="h-10 w-10 animate-spin rounded-full border-2 border-[#6B6354] border-t-[#C8102E]" />
         </div>
       }
     >

@@ -192,7 +192,7 @@ export function PortfolioItemModal({ item, profileId, onClose, onLikeChange }: P
                 href={item.project_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-bold text-[#E0A500] hover:underline"
+                className="inline-flex items-center gap-1.5 text-sm font-bold text-[#9B0F24] hover:underline"
               >
                 <ExternalLink className="h-3.5 w-3.5" />
                 {t("viewProject", "Ver projeto")}

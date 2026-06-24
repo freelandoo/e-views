@@ -195,7 +195,7 @@ interface Creator {
   is_premium?: boolean
 }
 
-const DEFAULT_ACCENT = "#fbbf24"
+const DEFAULT_ACCENT = "#C8102E"
 
 function useMachineAccent(activeMachine: CatalogMachine | null) {
   return useMemo(() => {
@@ -526,7 +526,7 @@ function SearchPageInner() {
             <button
               type="button"
               onClick={clearAll}
-              className="mt-5 inline-flex items-center border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.1em] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D] transition-transform hover:-translate-y-0.5"
+              className="mt-5 inline-flex items-center border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.1em] text-white shadow-[3px_3px_0_0_#0B0B0D] transition-transform hover:-translate-y-0.5"
             >
               {t("clearFiltersButton", "Limpar filtros")}
             </button>
@@ -556,7 +556,7 @@ function SearchPageInner() {
                     className={cn(
                       "inline-flex shrink-0 items-center gap-1 border-2 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.08em] transition-transform hover:-translate-y-0.5",
                       hasActiveSubfilters(productSubfilters)
-                        ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[2px_2px_0_0_#0B0B0D]"
+                        ? "border-[#0B0B0D] bg-[#C8102E] text-white shadow-[2px_2px_0_0_#0B0B0D]"
                         : "border-[#F1EDE2]/40 bg-transparent text-[#F1EDE2] hover:border-[#F1EDE2]",
                     )}
                   >
@@ -570,7 +570,7 @@ function SearchPageInner() {
                   className={cn(
                     "shrink-0 border-2 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.08em] transition-transform hover:-translate-y-0.5",
                     productCategoryId == null
-                      ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[2px_2px_0_0_#0B0B0D]"
+                      ? "border-[#0B0B0D] bg-[#C8102E] text-white shadow-[2px_2px_0_0_#0B0B0D]"
                       : "border-[#F1EDE2]/20 bg-transparent text-[#C9C2B6] hover:border-[#F1EDE2] hover:text-[#F1EDE2]",
                   )}
                 >
@@ -594,7 +594,7 @@ function SearchPageInner() {
                       className={cn(
                         "shrink-0 border-2 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.08em] transition-transform hover:-translate-y-0.5",
                         active
-                          ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[2px_2px_0_0_#0B0B0D]"
+                          ? "border-[#0B0B0D] bg-[#C8102E] text-white shadow-[2px_2px_0_0_#0B0B0D]"
                           : "border-[#F1EDE2]/20 bg-transparent text-[#C9C2B6] hover:border-[#F1EDE2] hover:text-[#F1EDE2]",
                       )}
                     >
@@ -678,7 +678,7 @@ function SearchPageInner() {
         type="button"
         data-tour="search-open-chamado"
         onClick={() => setOpenChamadoOpen(true)}
-        className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-3 text-sm font-extrabold uppercase tracking-wide text-[#0B0B0D] shadow-[4px_4px_0_0_#0B0B0D] transition-transform hover:-translate-y-0.5 active:translate-x-px active:translate-y-px sm:bottom-7 sm:right-7"
+        className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-3 text-sm font-extrabold uppercase tracking-wide text-white shadow-[4px_4px_0_0_#0B0B0D] transition-transform hover:-translate-y-0.5 active:translate-x-px active:translate-y-px sm:bottom-7 sm:right-7"
         aria-label={t("openTicket", "Abrir chamado")}
       >
         <MessageSquarePlus className="h-4 w-4" />

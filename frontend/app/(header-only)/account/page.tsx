@@ -1539,7 +1539,7 @@ export default function PerfilPage() {
           <span className="inline-flex items-center gap-1">
             <span className="text-[#9A938A] uppercase tracking-wide">{t("countUnread", "Não lidas")}</span>
             <span
-              className={`font-semibold tabular-nums ${unreadMessages > 0 ? "text-[#F2B705]" : "text-[#F5F1E8]"}`}
+              className={`font-semibold tabular-nums ${unreadMessages > 0 ? "text-[#C8102E]" : "text-[#F5F1E8]"}`}
             >
               {unreadMessages}
             </span>
@@ -1561,7 +1561,7 @@ export default function PerfilPage() {
                   className="h-full w-full object-cover"
                 />
               ) : (
-                <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(242,183,5,0.28),transparent_36%),linear-gradient(135deg,#1d1810,#141009)]" />
+                <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(200, 16, 46,0.28),transparent_36%),linear-gradient(135deg,#1d1810,#141009)]" />
               )}
 
               {/* sininho de notificações (só na /account) + configurações */}
@@ -1573,7 +1573,7 @@ export default function PerfilPage() {
                   aria-label={t("openAccountMenu", "Abrir menu da conta")}
                   aria-haspopup="dialog"
                   aria-expanded={dropsideOpen}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#F1EDE2] text-[#0B0B0D] shadow-[2px_2px_0_0_#0B0B0D] transition hover:bg-[#F2B705] active:translate-x-px active:translate-y-px"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#F1EDE2] text-white shadow-[2px_2px_0_0_#0B0B0D] transition hover:bg-[#C8102E] active:translate-x-px active:translate-y-px"
                   title={t("openSettings", "Abrir configurações")}
                 >
                   <Settings className="h-4 w-4" />
@@ -1590,7 +1590,7 @@ export default function PerfilPage() {
                     onClick={() => setIsUploadModalOpen(true)}
                     aria-label={t("changeAvatar", "Trocar foto de perfil")}
                     title={t("changeAvatar", "Trocar foto de perfil")}
-                    className="group relative flex aspect-[4/5] w-24 shrink-0 -rotate-3 items-center justify-center overflow-hidden rounded-xl border-4 border-[#F1EDE2] bg-[#F2B705]/15 shadow-[6px_6px_0_0_#F2B705] ring-2 ring-[#0B0B0D] transition-transform duration-300 hover:rotate-0 md:w-28"
+                    className="group relative flex aspect-[4/5] w-24 shrink-0 -rotate-3 items-center justify-center overflow-hidden rounded-xl border-4 border-[#F1EDE2] bg-[#C8102E]/15 shadow-[6px_6px_0_0_#C8102E] ring-2 ring-[#0B0B0D] transition-transform duration-300 hover:rotate-0 md:w-28"
                   >
                     <Avatar className="h-full w-full rounded-none">
                       {perfil.avatar && (
@@ -1600,7 +1600,7 @@ export default function PerfilPage() {
                           className="rounded-none object-cover"
                         />
                       )}
-                      <AvatarFallback className="rounded-none bg-[#F2B705]/15 text-2xl font-semibold text-[#0B0B0D]">
+                      <AvatarFallback className="rounded-none bg-[#C8102E]/15 text-2xl font-semibold text-white">
                         {getInitials(perfil.nome)}
                       </AvatarFallback>
                     </Avatar>
@@ -1671,7 +1671,7 @@ export default function PerfilPage() {
                           : "/account/parental"
                       )
                     }
-                    className="inline-flex items-center gap-1.5 rounded-full border-2 border-[#E0A500]/60 bg-[#F2B705]/15 px-2.5 py-1 text-[11px] font-bold text-[#8a6d00] transition hover:bg-[#F2B705]/30"
+                    className="inline-flex items-center gap-1.5 rounded-full border-2 border-[#9B0F24]/60 bg-[#C8102E]/15 px-2.5 py-1 text-[11px] font-bold text-[#8a6d00] transition hover:bg-[#C8102E]/30"
                   >
                     <ShieldCheck className="h-3 w-3" />
                     {perfil.is_minor === true ? t("supervised", "Supervisionada") : t("parental", "Parental")}
@@ -1682,7 +1682,7 @@ export default function PerfilPage() {
                     <button
                       onClick={() => handleCopyCoupon(perfil.coupon_code!)}
                       data-tour="account-coupon"
-                      className="inline-flex items-center gap-1.5 rounded-full border-2 border-dashed border-[#E0A500]/60 bg-[#F2B705]/12 px-2.5 py-1 font-mono text-[11px] font-bold tracking-widest text-[#8a6d00] transition hover:bg-[#F2B705]/25"
+                      className="inline-flex items-center gap-1.5 rounded-full border-2 border-dashed border-[#9B0F24]/60 bg-[#C8102E]/12 px-2.5 py-1 font-mono text-[11px] font-bold tracking-widest text-[#8a6d00] transition hover:bg-[#C8102E]/25"
                     >
                       {couponCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
                       {perfil.coupon_code}
@@ -1695,7 +1695,7 @@ export default function PerfilPage() {
                       onClick={handleGenerateCoupon}
                       disabled={isGeneratingCoupon}
                       data-tour="account-coupon"
-                      className="inline-flex items-center gap-1.5 rounded-full border-2 border-[#0B0B0D]/25 bg-[#0B0B0D]/[0.04] px-2.5 py-1 text-[11px] font-bold text-[#2b2b2e] transition hover:bg-[#F2B705]/20 disabled:opacity-50"
+                      className="inline-flex items-center gap-1.5 rounded-full border-2 border-[#0B0B0D]/25 bg-[#0B0B0D]/[0.04] px-2.5 py-1 text-[11px] font-bold text-[#2b2b2e] transition hover:bg-[#C8102E]/20 disabled:opacity-50"
                     >
                       {isGeneratingCoupon ? t("generating", "Gerando...") : t("generateCoupon", "Gerar cupom")}
                     </button>
@@ -1708,12 +1708,12 @@ export default function PerfilPage() {
                   type="button"
                   onClick={() => router.push("/mensagens?tab=os")}
                   aria-label={t("openMessages", "Abrir mensagens")}
-                  className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#0B0B0D]/20 bg-[#0B0B0D]/[0.03] text-[#0B0B0D] transition hover:bg-[#F2B705]/20"
+                  className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#0B0B0D]/20 bg-[#0B0B0D]/[0.03] text-white transition hover:bg-[#C8102E]/20"
                   title={t("messages", "Mensagens")}
                 >
                   <MessageCircle className="h-4 w-4" />
                   {unreadMessages > 0 && (
-                    <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-[#E0A500] ring-2 ring-[#F1EDE2]" />
+                    <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-[#9B0F24] ring-2 ring-[#F1EDE2]" />
                   )}
                 </button>
                 <button
@@ -1721,7 +1721,7 @@ export default function PerfilPage() {
                   onClick={() => router.push("/account/xp")}
                   aria-label={t("viewMetricsAria", "Ver métricas e XP")}
                   title={t("metrics", "Métricas")}
-                  className="inline-flex h-9 items-center gap-1.5 rounded-full border-2 border-[#0B0B0D]/20 bg-[#0B0B0D]/[0.03] px-3 text-[12px] font-bold text-[#0B0B0D] transition hover:bg-[#F2B705]/20"
+                  className="inline-flex h-9 items-center gap-1.5 rounded-full border-2 border-[#0B0B0D]/20 bg-[#0B0B0D]/[0.03] px-3 text-[12px] font-bold text-white transition hover:bg-[#C8102E]/20"
                 >
                   <BarChart3 className="h-4 w-4" />
                   {t("metrics", "Métricas")}
@@ -1731,7 +1731,7 @@ export default function PerfilPage() {
                   onClick={() => router.push("/account/gerenciamento")}
                   aria-label={t("mgmtButtonAria", "Gerenciamento da conta: subperfis, serviços, cursos e produtos")}
                   title={t("mgmtButton", "Gerenciar")}
-                  className="inline-flex h-9 items-center gap-1.5 rounded-full border-2 border-[#0B0B0D]/20 bg-[#0B0B0D]/[0.03] px-3 text-[12px] font-bold text-[#0B0B0D] transition hover:bg-[#F2B705]/20"
+                  className="inline-flex h-9 items-center gap-1.5 rounded-full border-2 border-[#0B0B0D]/20 bg-[#0B0B0D]/[0.03] px-3 text-[12px] font-bold text-white transition hover:bg-[#C8102E]/20"
                 >
                   <FolderCog className="h-4 w-4" />
                   {t("mgmtButton", "Gerenciar")}
@@ -1741,7 +1741,7 @@ export default function PerfilPage() {
                   onClick={() => router.push("/wallet")}
                   aria-label={t("openWallet", "Abrir minha Carteira")}
                   title={t("myWallet", "Minha Carteira")}
-                  className="inline-flex h-9 items-center gap-1.5 rounded-full border-2 border-[#0B0B0D]/20 bg-[#0B0B0D]/[0.03] px-3 text-[12px] font-bold text-[#0B0B0D] transition hover:bg-[#F2B705]/20"
+                  className="inline-flex h-9 items-center gap-1.5 rounded-full border-2 border-[#0B0B0D]/20 bg-[#0B0B0D]/[0.03] px-3 text-[12px] font-bold text-white transition hover:bg-[#C8102E]/20"
                 >
                   <Wallet className="h-4 w-4" />
                   {t("wallet", "Carteira")}
@@ -1914,8 +1914,8 @@ export default function PerfilPage() {
                 </div>
               ) : (
                 <div className="rounded-2xl border-2 border-dashed border-[#F5F1E8]/15 bg-[#F5F1E8]/[0.02] py-12 text-center">
-                  <div className="mx-auto mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#F2B705]/15">
-                    <User className="h-8 w-8 text-[#F2B705]" />
+                  <div className="mx-auto mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#C8102E]/15">
+                    <User className="h-8 w-8 text-[#C8102E]" />
                   </div>
                   <p className="fl-display text-xl text-[#F5F1E8]">{t("noProfileCreated", "Nenhum perfil criado")}</p>
                   <p className="mt-1 mb-5 text-sm text-[#9A938A]">{t("createFirstProfile", "Crie seu primeiro perfil para começar")}</p>
@@ -1937,7 +1937,7 @@ export default function PerfilPage() {
                 <div className="flex justify-end">
                   <Link
                     href="/search?tab=communities"
-                    className="inline-flex items-center gap-1.5 rounded-full border-2 border-[#F5F1E8]/25 px-4 py-2 text-[13px] font-bold text-[#F5F1E8] transition hover:border-[#F2B705] hover:text-[#F2B705]"
+                    className="inline-flex items-center gap-1.5 rounded-full border-2 border-[#F5F1E8]/25 px-4 py-2 text-[13px] font-bold text-[#F5F1E8] transition hover:border-[#C8102E] hover:text-[#C8102E]"
                   >
                     <Users className="h-3.5 w-3.5" />
                     {t("browseByEnxame", "Buscar por enxame")}
@@ -1957,7 +1957,7 @@ export default function PerfilPage() {
                   <p className="text-sm text-[#9A938A]">
                     {t("noCommunitiesYet", "Você ainda não participa de nenhuma comunidade.")}
                   </p>
-                  <Link href="/comunidades" className="mt-2 inline-block text-sm font-bold text-[#F2B705] hover:underline">
+                  <Link href="/comunidades" className="mt-2 inline-block text-sm font-bold text-[#C8102E] hover:underline">
                     {t("createOrJoinCommunity", "Criar ou entrar em uma comunidade")}
                   </Link>
                 </div>
@@ -2176,7 +2176,7 @@ export default function PerfilPage() {
             <div className="space-y-6 py-4">
               {/* Avatar Atual ou Iniciais */}
               <div className="flex flex-col items-center gap-4">
-                <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-full border-2 border-[#0B0B0D] bg-[radial-gradient(circle_at_30%_25%,rgba(242,183,5,0.35),transparent_60%),#1d1810] shadow-[4px_4px_0_0_#0B0B0D]">
+                <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-full border-2 border-[#0B0B0D] bg-[radial-gradient(circle_at_30%_25%,rgba(200, 16, 46,0.35),transparent_60%),#1d1810] shadow-[4px_4px_0_0_#0B0B0D]">
                   {perfil?.avatar ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
@@ -2321,7 +2321,7 @@ export default function PerfilPage() {
                     {t("emailVerified", "Email verificado")}
                   </span>
                 ) : (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-[#E0A500]/40 bg-[#F2B705]/15 px-2.5 py-1 text-[11px] font-bold text-[#8a6d00]">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-[#9B0F24]/40 bg-[#C8102E]/15 px-2.5 py-1 text-[11px] font-bold text-[#8a6d00]">
                     <AlertCircle className="h-3 w-3" />
                     {t("emailNotVerified", "Não verificado")}
                   </span>
@@ -2528,7 +2528,7 @@ export default function PerfilPage() {
 
           <div className="space-y-4">
             {!uploadingMedia ? (
-              <div className="cursor-pointer rounded-xl border-2 border-dashed border-[#0B0B0D]/30 p-8 text-center transition-colors hover:border-[#E0A500] hover:bg-[#F2B705]/[0.06]" onClick={() => document.getElementById("media-input")?.click()}>
+              <div className="cursor-pointer rounded-xl border-2 border-dashed border-[#0B0B0D]/30 p-8 text-center transition-colors hover:border-[#9B0F24] hover:bg-[#C8102E]/[0.06]" onClick={() => document.getElementById("media-input")?.click()}>
                 <Upload className="mx-auto mb-2 h-8 w-8 text-[#8a6d00]" />
                 <p className="font-bold text-[#0B0B0D]">{t("clickOrDragMedia", "Clique para adicionar ou arraste uma imagem/vídeo")}</p>
                 <p className="text-sm text-[#5b554b]">{t("maxMediaSize", "Máximo 100MB")}</p>

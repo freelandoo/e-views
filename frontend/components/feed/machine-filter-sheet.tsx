@@ -41,7 +41,7 @@ export function MachineFilterSheet({
           onClick={() => onChange(null)}
         />
         {active.map((m) => {
-          const accent = m.color_accent || "#fbbf24"
+          const accent = m.color_accent || "#C8102E"
           return (
             <Option
               key={m.id_machine}

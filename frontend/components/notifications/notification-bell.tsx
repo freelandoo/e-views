@@ -30,13 +30,13 @@ export function NotificationBell({ className }: { className?: string }) {
         aria-label={active ? `${t("title", "Notificações")} (${unread})` : t("title", "Notificações")}
         aria-expanded={open}
         className={cn(
-          "relative inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#F1EDE2] text-[#0B0B0D] shadow-[2px_2px_0_0_#0B0B0D] transition hover:bg-[#F2B705] active:translate-x-px active:translate-y-px",
+          "relative inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#F1EDE2] text-white shadow-[2px_2px_0_0_#0B0B0D] transition hover:bg-[#C8102E] active:translate-x-px active:translate-y-px",
           className,
         )}
       >
         <Bell className="h-4 w-4" strokeWidth={2} />
         {active && (
-          <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#E0A500] px-1 text-[9px] font-bold text-[#0B0B0D] ring-2 ring-[#1d1810]">
+          <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#9B0F24] px-1 text-[9px] font-bold text-[#0B0B0D] ring-2 ring-[#1d1810]">
             {unread > 9 ? "9+" : unread}
           </span>
         )}

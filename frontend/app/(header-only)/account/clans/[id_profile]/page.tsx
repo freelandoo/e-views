@@ -611,7 +611,7 @@ export default function ManageClanPage({
                   <div className="text-sm font-medium flex items-center gap-1">
                     {m.display_name}
                     {m.role === "owner" && (
-                      <Crown className="size-3 text-yellow-500" />
+                      <Crown className="size-3 text-red-600" />
                     )}
                   </div>
                   <div className="text-xs text-muted-foreground">@{m.username}</div>
@@ -994,7 +994,7 @@ export default function ManageClanPage({
                       </div>
                       <div className="rounded-md border p-2">
                         <div className="text-xs text-muted-foreground">{t("payoutStatusPaid", "Pago")}</div>
-                        <div className="text-sm font-bold text-[#E0A500]">{formatMoney(sum("pago"))}</div>
+                        <div className="text-sm font-bold text-[#9B0F24]">{formatMoney(sum("pago"))}</div>
                       </div>
                     </div>
                   )

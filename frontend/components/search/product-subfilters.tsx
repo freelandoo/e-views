@@ -238,7 +238,7 @@ function SubfilterField({
                   active ? "border-[#0B0B0D] ring-2 ring-offset-1" : "border-[#0B0B0D]/30",
                 )}
                 style={{
-                  background: c.hex || "conic-gradient(#E0312D,#F2B705,#2E9E44,#2E62D9,#7B3FE4,#E0312D)",
+                  background: c.hex || "conic-gradient(#E0312D,#C8102E,#2E9E44,#2E62D9,#7B3FE4,#E0312D)",
                   ...(active ? ({ "--tw-ring-color": accent } as React.CSSProperties) : {}),
                 }}
               />

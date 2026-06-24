@@ -40,7 +40,7 @@ export default function ComprimirPage() {
     <PageShell>
       <Section className="py-10 sm:py-14">
         <div className="mx-auto max-w-2xl">
-          <p className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#F2B705]">
+          <p className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#C8102E]">
             {t("eyebrow", "Ferramenta")}
           </p>
           <h1 className="fl-display text-4xl leading-[0.95] text-[#F5F1E8] sm:text-5xl">
@@ -61,7 +61,7 @@ export default function ComprimirPage() {
               className={cn(
                 "inline-flex items-center gap-2 rounded-full border-2 px-4 py-2 text-sm font-bold transition",
                 tab === "image"
-                  ? "border-[#F2B705] bg-[#F2B705] text-[#1A1505]"
+                  ? "border-[#C8102E] bg-[#C8102E] text-[#1A1505]"
                   : "border-[#F5F1E8]/20 text-[#C9C2B6] hover:border-[#F5F1E8]/40",
               )}
             >
@@ -73,7 +73,7 @@ export default function ComprimirPage() {
               className={cn(
                 "inline-flex items-center gap-2 rounded-full border-2 px-4 py-2 text-sm font-bold transition",
                 tab === "video"
-                  ? "border-[#F2B705] bg-[#F2B705] text-[#1A1505]"
+                  ? "border-[#C8102E] bg-[#C8102E] text-[#1A1505]"
                   : "border-[#F5F1E8]/20 text-[#C9C2B6] hover:border-[#F5F1E8]/40",
               )}
             >
@@ -195,7 +195,7 @@ function ImagePanel() {
             {busy ? (
               <Loader2 className="h-9 w-9 animate-spin text-[#0B0B0D]" />
             ) : (
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#F2B705]">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#C8102E]">
                 <UploadCloud className="h-5 w-5 text-[#1A1505]" />
               </span>
             )}
@@ -223,7 +223,7 @@ function ImagePanel() {
             <button
               type="button"
               onClick={download}
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-2.5 text-sm font-extrabold text-[#1A1505] shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-2.5 text-sm font-extrabold text-[#1A1505] shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5"
             >
               <ArrowDownToLine className="h-4 w-4" /> {t("download", "Baixar imagem")}
             </button>
@@ -328,7 +328,7 @@ function VideoPanel() {
             <a
               href={result.download_url}
               download
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-2.5 text-sm font-extrabold text-[#1A1505] shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-2.5 text-sm font-extrabold text-[#1A1505] shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5"
             >
               <ArrowDownToLine className="h-4 w-4" /> {t("downloadVideo", "Baixar vídeo")}
             </a>
@@ -385,7 +385,7 @@ function VideoPanel() {
               </>
             ) : (
               <>
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#F2B705]">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#C8102E]">
                   <UploadCloud className="h-5 w-5 text-[#1A1505]" />
                 </span>
                 <p className="text-sm font-bold text-[#0B0B0D]">

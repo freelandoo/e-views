@@ -59,7 +59,7 @@ interface FilterRailProps {
 
 function machineAccent(m: CatalogMachine): string {
   const seed = MACHINES.find((x) => x.id === m.slug)
-  return seed?.colors.accent || m.color_accent || "#F2B705"
+  return seed?.colors.accent || m.color_accent || "#C8102E"
 }
 
 export function FilterRail(props: FilterRailProps) {
@@ -163,7 +163,7 @@ export function FilterRail(props: FilterRailProps) {
         className={cn(
           "flex w-full items-center gap-2 border-2 px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.08em] transition-transform hover:-translate-y-0.5",
           premiumOnly
-            ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[2px_2px_0_0_#0B0B0D]"
+            ? "border-[#0B0B0D] bg-[#C8102E] text-white shadow-[2px_2px_0_0_#0B0B0D]"
             : "border-[#0B0B0D]/30 bg-white/50 text-[#0B0B0D] hover:border-[#0B0B0D]"
         )}
       >
@@ -190,7 +190,7 @@ export function FilterRail(props: FilterRailProps) {
             <button
               type="button"
               onClick={onClearAll}
-              className="inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#F2B705] transition hover:text-[#F1EDE2]"
+              className="inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#C8102E] transition hover:text-[#F1EDE2]"
             >
               <X className="h-3 w-3" /> {t("clearButton", "Limpar")}
             </button>
@@ -273,7 +273,7 @@ export function FilterRail(props: FilterRailProps) {
         {isEnxameTab && !showEnxameDrill && (
           <>
             <RailSection title={t("enxamesSection", "Enxames")} defaultOpen>
-              <RailOption label={t("allMale", "Todos")} active={selectedMachineId == null} accent="#F2B705" onClick={() => { onMachineChange(null); onCategoryChange(null); setEnxameDrill(false) }} />
+              <RailOption label={t("allMale", "Todos")} active={selectedMachineId == null} accent="#C8102E" onClick={() => { onMachineChange(null); onCategoryChange(null); setEnxameDrill(false) }} />
               {machines.map((m) => {
                 const tint = machineAccent(m)
                 const active = m.id_machine === selectedMachineId
@@ -308,7 +308,7 @@ export function FilterRail(props: FilterRailProps) {
         {isCommunitiesTab && (
           <>
             <RailSection title={t("enxamesSection", "Enxames")} defaultOpen>
-              <RailOption label={t("allMale", "Todos")} active={selectedMachineId == null} accent="#F2B705" onClick={() => onMachineChange(null)} />
+              <RailOption label={t("allMale", "Todos")} active={selectedMachineId == null} accent="#C8102E" onClick={() => onMachineChange(null)} />
               {machines.map((m) => {
                 const tint = machineAccent(m)
                 const active = m.id_machine === selectedMachineId

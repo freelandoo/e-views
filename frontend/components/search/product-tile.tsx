@@ -61,7 +61,7 @@ export function ProductTile({ p }: { p: ProductTileItem }) {
         <h3 className="line-clamp-2 text-[13px] font-bold leading-tight text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.75)]">
           {p.name}
         </h3>
-        <p className="text-[15px] font-black tracking-tight text-[#F2B705] drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">
+        <p className="text-[15px] font-black tracking-tight text-[#C8102E] drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">
           {formatBRL(p.price_amount)}
         </p>
         <p className="line-clamp-1 text-[10px] text-white/70 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">

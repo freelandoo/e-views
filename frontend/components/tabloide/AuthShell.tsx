@@ -40,7 +40,7 @@ export function AuthShell({
     <div className="fl-root fl-paper-texture relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden px-5 py-10">
       {/* Ambiente: colmeia + doodles ao fundo (decorativo) */}
       <HoneycombField opacity={0.05} />
-      <HiveDoodle className="pointer-events-none absolute -right-12 -top-12 h-56 w-56 text-[#F2B705]/10" />
+      <HiveDoodle className="pointer-events-none absolute -right-12 -top-12 h-56 w-56 text-[#C8102E]/10" />
       <Halftone className="pointer-events-none absolute bottom-10 left-10 h-28 w-36 opacity-[0.10]" />
 
       <Link href="/" className="relative mb-6 flex items-center gap-2" aria-label="Freelandoo">
@@ -51,7 +51,7 @@ export function AuthShell({
       {(eyebrow || asideTitle) && (
         <div className="relative mb-6 max-w-md text-center">
           {eyebrow && (
-            <div className="mb-2 text-xs font-bold uppercase tracking-[0.3em] text-[#F2B705]">{eyebrow}</div>
+            <div className="mb-2 text-xs font-bold uppercase tracking-[0.3em] text-[#C8102E]">{eyebrow}</div>
           )}
           {asideTitle && (
             <h1 className="fl-display text-3xl leading-[0.95] text-[#F5F1E8] sm:text-4xl">
@@ -90,7 +90,7 @@ export function AuthCard({
   className?: string
 }) {
   const toneBg = {
-    gold: "bg-[#F2B705] text-[#1A1505]",
+    gold: "bg-[#C8102E] text-[#1A1505]",
     green: "bg-[#16a34a] text-white",
     red: "bg-[#dc2626] text-white",
   }[iconTone]

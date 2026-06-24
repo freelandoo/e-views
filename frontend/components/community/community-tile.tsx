@@ -23,7 +23,7 @@ export type CommunityTileData = {
 
 // Mesma paleta de accent da página da comunidade (detalhe recolorível).
 const ACCENT_HEX: Record<string, string> = {
-  gold: "#F2B705", magenta: "#ff1f8e", cyan: "#16c8e8", purple: "#a06bff",
+  gold: "#C8102E", magenta: "#ff1f8e", cyan: "#16c8e8", purple: "#a06bff",
   leaf: "#4fc95a", red: "#ff5a44", orange: "#ff8c2e", gray: "#b8b1a6",
 }
 function accentOf(c: CommunityTileData): string {
@@ -75,7 +75,7 @@ export function CommunityTile({ community }: { community: CommunityTileData }) {
 
         {/* avatar sobreposto */}
         <span
-          className="absolute bottom-2 left-2 inline-flex h-11 w-11 items-center justify-center overflow-hidden border-2 border-[#0B0B0D] bg-[#1D1810] text-xs font-bold text-[#F2B705]"
+          className="absolute bottom-2 left-2 inline-flex h-11 w-11 items-center justify-center overflow-hidden border-2 border-[#0B0B0D] bg-[#1D1810] text-xs font-bold text-[#C8102E]"
           style={{ outline: `2px solid ${accent}`, outlineOffset: "1px" }}
         >
           {community.avatar_url ? (

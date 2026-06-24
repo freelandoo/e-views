@@ -1199,7 +1199,7 @@ export default function MensagensClient() {
         >
           <div className="flex items-center justify-between gap-2 border-b-2 border-[#F1EDE2]/12 px-4 py-3.5">
             <div className="min-w-0">
-              <h2 className="fl-display text-3xl leading-none text-[#F2B705]">
+              <h2 className="fl-display text-3xl leading-none text-[#C8102E]">
                 {t("messagesHeaderTitle", "Mensagens")}
               </h2>
               <p className="mt-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#8a8275]">
@@ -1212,7 +1212,7 @@ export default function MensagensClient() {
                   type="button"
                   onClick={() => setCreateGroupOpen(true)}
                   disabled={!actorId}
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 text-black shadow-[0_8px_20px_-6px_rgba(250,204,21,0.5)] transition-transform hover:scale-105 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-red-600 to-amber-500 text-black shadow-[0_8px_20px_-6px_rgba(250,204,21,0.5)] transition-transform hover:scale-105 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
                   title={t("createGroupButtonTooltip", "Criar grupo")}
                   aria-label={t("createGroupButtonTooltip", "Criar grupo")}
                 >
@@ -1230,7 +1230,7 @@ export default function MensagensClient() {
                 <DropdownMenuTrigger asChild>
                   <button
                     type="button"
-                    className="inline-flex h-8 items-center gap-1.5 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 px-3 text-xs font-semibold text-black shadow-[0_8px_20px_-6px_rgba(250,204,21,0.5)] transition-transform hover:scale-105"
+                    className="inline-flex h-8 items-center gap-1.5 rounded-full bg-gradient-to-br from-red-600 to-amber-500 px-3 text-xs font-semibold text-black shadow-[0_8px_20px_-6px_rgba(250,204,21,0.5)] transition-transform hover:scale-105"
                     title={t("openChamadoButtonTooltip", "Abrir chamado")}
                     aria-label={t("openChamadoButtonTooltip", "Abrir chamado")}
                   >
@@ -1303,7 +1303,7 @@ export default function MensagensClient() {
           <div className={cn("flex-1 overflow-y-auto", tab !== "conv" && "hidden")}>
             {/* Search inline pra encontrar perfis/clans pra começar nova conversa */}
             <div className="sticky top-0 z-10 border-b-2 border-[#F1EDE2]/10 bg-[#0b0804]/85 px-3 py-2.5 backdrop-blur">
-              <div className="flex items-center gap-2 rounded-[4px] border-2 border-[#F1EDE2]/15 bg-[#1D1810] px-3 py-2 transition-colors focus-within:border-[#F2B705]">
+              <div className="flex items-center gap-2 rounded-[4px] border-2 border-[#F1EDE2]/15 bg-[#1D1810] px-3 py-2 transition-colors focus-within:border-[#C8102E]">
                 <Search className="h-3.5 w-3.5 shrink-0 text-[#8a8275]" />
                 <input
                   type="text"
@@ -1407,13 +1407,13 @@ export default function MensagensClient() {
                       className={cn(
                         "group flex w-full items-center gap-3 border-2 border-[#0B0B0D] bg-[#F1EDE2] px-3 py-3 text-left transition-transform duration-200 hover:-translate-y-0.5 hover:-rotate-[0.3deg]",
                         isActive
-                          ? "-translate-y-0.5 shadow-[6px_6px_0_0_#F2B705]"
-                          : "shadow-[4px_4px_0_0_#0B0B0D] hover:shadow-[7px_7px_0_0_#F2B705]"
+                          ? "-translate-y-0.5 shadow-[6px_6px_0_0_#C8102E]"
+                          : "shadow-[4px_4px_0_0_#0B0B0D] hover:shadow-[7px_7px_0_0_#C8102E]"
                       )}
                     >
                       <div
                         className="relative shrink-0 rotate-[-2deg] overflow-hidden border-2 border-[#0B0B0D]"
-                        style={{ outline: "2px solid #F2B705", outlineOffset: "1px" }}
+                        style={{ outline: "2px solid #C8102E", outlineOffset: "1px" }}
                       >
                         {isGroup ? (
                           <div className="flex h-11 w-11 items-center justify-center bg-[#1D1810]">
@@ -1421,13 +1421,13 @@ export default function MensagensClient() {
                               // eslint-disable-next-line @next/next/no-img-element
                               <img src={c.cover_url} alt={title} className="h-full w-full object-cover" />
                             ) : (
-                              <Users className="h-5 w-5 text-[#F2B705]" />
+                              <Users className="h-5 w-5 text-[#C8102E]" />
                             )}
                           </div>
                         ) : (
                           <Avatar className="h-11 w-11 rounded-none">
                             <AvatarImage src={c.other_entity?.avatar_url || undefined} className="object-cover" />
-                            <AvatarFallback className="rounded-none bg-[#1D1810] text-xs font-bold text-[#F2B705]">
+                            <AvatarFallback className="rounded-none bg-[#1D1810] text-xs font-bold text-[#C8102E]">
                               {entityInitials(c.other_entity?.display_name)}
                             </AvatarFallback>
                           </Avatar>
@@ -1437,7 +1437,7 @@ export default function MensagensClient() {
                         <div className="flex items-center justify-between gap-2">
                           <span className="fl-display inline-flex items-center gap-1.5 truncate text-lg leading-none text-[#0B0B0D]">
                             {isClanChat && (
-                              <Pin className="h-3.5 w-3.5 shrink-0 fill-[#F2B705] text-[#0B0B0D]" />
+                              <Pin className="h-3.5 w-3.5 shrink-0 fill-[#C8102E] text-[#0B0B0D]" />
                             )}
                             {title}
                             {isGroup && c.member_count != null && (
@@ -1457,7 +1457,7 @@ export default function MensagensClient() {
                             {c.last_message_preview || t("noMessagesYet", "Sem mensagens ainda")}
                           </span>
                           {c.unread_count > 0 && (
-                            <span className="ml-auto inline-flex h-5 min-w-[20px] items-center justify-center border-2 border-[#0B0B0D] bg-[#F2B705] px-1 text-[10px] font-black tabular-nums text-[#0B0B0D]">
+                            <span className="ml-auto inline-flex h-5 min-w-[20px] items-center justify-center border-2 border-[#0B0B0D] bg-[#C8102E] px-1 text-[10px] font-black tabular-nums text-white">
                               {c.unread_count > 99 ? "99+" : c.unread_count}
                             </span>
                           )}
@@ -1818,7 +1818,7 @@ export default function MensagensClient() {
                                     className={cn(
                                       "relative px-4 py-2.5 text-sm leading-relaxed break-words shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]",
                                       mine
-                                        ? "rounded-3xl rounded-br-md bg-gradient-to-br from-yellow-400 to-amber-500 text-[#141009] shadow-[0_8px_24px_-12px_rgba(250,204,21,0.5),inset_0_1px_0_rgba(255,255,255,0.35)]"
+                                        ? "rounded-3xl rounded-br-md bg-gradient-to-br from-red-600 to-amber-500 text-[#141009] shadow-[0_8px_24px_-12px_rgba(250,204,21,0.5),inset_0_1px_0_rgba(255,255,255,0.35)]"
                                         : "rounded-3xl rounded-bl-md bg-white/[0.06] text-white ring-1 ring-white/10 backdrop-blur-md"
                                     )}
                                   >
@@ -1850,7 +1850,7 @@ export default function MensagensClient() {
                       {t("conversationClosedStatus", "Conversa encerrada — {status}.").replace("{status}", osStatusLabel(osCurrentStatus || activeOsChat.response_status, t).toLowerCase())}
                     </div>
                   ) : (
-                    <div className="flex items-end gap-2 rounded-2xl border border-white/10 bg-white/[0.03] p-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] focus-within:border-yellow-400/40 focus-within:bg-white/[0.05]">
+                    <div className="flex items-end gap-2 rounded-2xl border border-white/10 bg-white/[0.03] p-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] focus-within:border-red-600/40 focus-within:bg-white/[0.05]">
                       <OfferingPickerButton
                         onPick={(md) =>
                           setOsComposer((c) => {
@@ -1884,7 +1884,7 @@ export default function MensagensClient() {
                         whileTap={{ scale: 0.94 }}
                         transition={SPRING}
                         aria-label={t("sendMessageAriaLabel", "Enviar")}
-                        className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400 to-amber-500 text-[#141009] shadow-[0_8px_20px_-8px_rgba(250,204,21,0.55)] transition disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
+                        className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-red-600 to-amber-500 text-[#141009] shadow-[0_8px_20px_-8px_rgba(250,204,21,0.55)] transition disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
                       >
                         {osSending ? (
                           <Loader2 className="h-4 w-4 animate-spin" />
@@ -2017,7 +2017,7 @@ export default function MensagensClient() {
                                     "relative text-sm leading-relaxed shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]",
                                     m.kind === "audio" ? "" : "px-4 py-2.5 break-words",
                                     mine
-                                      ? "rounded-3xl rounded-br-md bg-gradient-to-br from-yellow-400 to-amber-500 text-[#141009] shadow-[0_8px_24px_-12px_rgba(250,204,21,0.5),inset_0_1px_0_rgba(255,255,255,0.35)]"
+                                      ? "rounded-3xl rounded-br-md bg-gradient-to-br from-red-600 to-amber-500 text-[#141009] shadow-[0_8px_24px_-12px_rgba(250,204,21,0.5),inset_0_1px_0_rgba(255,255,255,0.35)]"
                                       : "rounded-3xl rounded-bl-md bg-white/[0.06] text-white ring-1 ring-white/10 backdrop-blur-md"
                                   )}
                                 >
@@ -2064,7 +2064,7 @@ export default function MensagensClient() {
                     auto-expande visualmente conforme o state interno e o
                     composer de texto some via display:none quando ativo. */}
                 <div className={cn(
-                  "flex items-end gap-2 rounded-2xl border border-white/10 bg-white/[0.03] p-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] focus-within:border-yellow-400/40 focus-within:bg-white/[0.05]",
+                  "flex items-end gap-2 rounded-2xl border border-white/10 bg-white/[0.03] p-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] focus-within:border-red-600/40 focus-within:bg-white/[0.05]",
                   audioRecorderActive && canSendAudio && "border-0 bg-transparent p-0 shadow-none focus-within:border-0 focus-within:bg-transparent",
                 )}>
                   <div className={cn("flex flex-1 items-end gap-2", audioRecorderActive && canSendAudio && "hidden")}>
@@ -2093,7 +2093,7 @@ export default function MensagensClient() {
                       whileTap={{ scale: 0.94 }}
                       transition={SPRING}
                       aria-label={t("sendMessageAriaLabel", "Enviar")}
-                      className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400 to-amber-500 text-[#141009] shadow-[0_8px_20px_-8px_rgba(250,204,21,0.55)] transition disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
+                      className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-red-600 to-amber-500 text-[#141009] shadow-[0_8px_20px_-8px_rgba(250,204,21,0.55)] transition disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
                     >
                       {sending ? (
                         <Loader2 className="h-4 w-4 animate-spin" />
@@ -2280,7 +2280,7 @@ function EmptyConversations() {
   const t = useTranslations("Messages")
   return (
     <div className="flex flex-col items-center justify-center px-6 py-12 text-center">
-      <span className="mb-4 inline-flex h-14 w-14 items-center justify-center border-2 border-[#F1EDE2]/15 bg-[#1D1810] text-[#F2B705]">
+      <span className="mb-4 inline-flex h-14 w-14 items-center justify-center border-2 border-[#F1EDE2]/15 bg-[#1D1810] text-[#C8102E]">
         <MessageCircle className="h-7 w-7" />
       </span>
       <p className="fl-display text-2xl leading-none text-[#F5F1E8]">{t("noConversationsMessage", "Nenhuma conversa")}</p>
@@ -2295,7 +2295,7 @@ function EmptyThread() {
   const t = useTranslations("Messages")
   return (
     <div className="flex flex-1 flex-col items-center justify-center px-6 text-center">
-      <span className="mb-4 inline-flex h-16 w-16 items-center justify-center border-2 border-[#F1EDE2]/15 bg-[#1D1810] text-[#F2B705]">
+      <span className="mb-4 inline-flex h-16 w-16 items-center justify-center border-2 border-[#F1EDE2]/15 bg-[#1D1810] text-[#C8102E]">
         <MessageCircle className="h-8 w-8" />
       </span>
       <p className="fl-display max-w-md text-3xl leading-[0.95] text-[#F5F1E8]">{t("selectConversationHint", "Selecione uma conversa para ler.")}</p>
@@ -2378,14 +2378,14 @@ function TabBtn({
       className={cn(
         "relative flex min-w-0 flex-1 items-center justify-center gap-1 px-1.5 py-2.5 text-[10px] font-black uppercase tracking-[0.06em] transition-colors",
         active
-          ? "-mb-[2px] border-b-[3px] border-[#F2B705] text-[#F2B705]"
+          ? "-mb-[2px] border-b-[3px] border-[#C8102E] text-[#C8102E]"
           : "border-b-[3px] border-transparent text-[#9A938A] hover:text-[#F5F1E8]"
       )}
     >
       <span className="relative shrink-0">
         {icon}
         {badge && (
-          <span className="absolute -right-1.5 -top-1.5 h-2 w-2 rounded-full bg-[#F2B705] ring-2 ring-[#141009]" />
+          <span className="absolute -right-1.5 -top-1.5 h-2 w-2 rounded-full bg-[#C8102E] ring-2 ring-[#141009]" />
         )}
       </span>
       <span className="hidden truncate lg:inline">{label}</span>
@@ -2457,7 +2457,7 @@ function MachineList({
           </span>
           {hasUnread && (
             <span
-              className="h-2 w-2 shrink-0 rounded-full bg-[#F2B705]"
+              className="h-2 w-2 shrink-0 rounded-full bg-[#C8102E]"
               aria-label={t("machineHasUnread", "Conversa nova")}
             />
           )}

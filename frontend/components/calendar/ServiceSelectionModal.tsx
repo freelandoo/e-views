@@ -163,7 +163,7 @@ export function ServiceSelectionModal({
                   <div className="rounded-xl border border-zinc-700 bg-zinc-800/40 p-4">
                     <div className="flex items-baseline justify-between gap-2">
                       <span className="text-sm font-semibold text-zinc-100">{selected.name}</span>
-                      <span className="text-sm font-bold text-yellow-400">{formatBRL(selected.price_amount)}</span>
+                      <span className="text-sm font-bold text-red-600">{formatBRL(selected.price_amount)}</span>
                     </div>
                     <p className="mt-2 text-xs text-zinc-500">{selected.duration_minutes} min</p>
                   </div>
@@ -185,13 +185,13 @@ export function ServiceSelectionModal({
                         onClick={() => setSelectedId(s.id_profile_service)}
                         className={`w-full rounded-xl border p-4 text-left transition-all ${
                           selectedId === s.id_profile_service
-                            ? "border-yellow-400 bg-yellow-400/10 shadow-md"
+                            ? "border-red-600 bg-red-600/10 shadow-md"
                             : "border-zinc-700 bg-zinc-800/50 hover:border-zinc-500"
                         }`}
                       >
                         <div className="flex items-baseline justify-between gap-2">
                           <span className="text-sm font-semibold text-zinc-100">{s.name}</span>
-                          <span className="text-sm font-bold text-yellow-400">{formatBRL(s.price_amount)}</span>
+                          <span className="text-sm font-bold text-red-600">{formatBRL(s.price_amount)}</span>
                         </div>
                         {s.description && <p className="mt-1 text-xs text-zinc-400">{s.description}</p>}
                         <p className="mt-2 text-xs text-zinc-500">{s.duration_minutes} min</p>
@@ -221,7 +221,7 @@ export function ServiceSelectionModal({
                     placeholder="WhatsApp (opcional)"
                     value={whatsapp}
                     onChange={e => setWhatsapp(e.target.value)}
-                    className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 focus:border-yellow-400 outline-none"
+                    className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 focus:border-red-600 outline-none"
                   />
                 </>
               ) : (
@@ -253,7 +253,7 @@ export function ServiceSelectionModal({
                           placeholder="E-mail"
                           value={loginEmail}
                           onChange={(e) => setLoginEmail(e.target.value)}
-                          className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 focus:border-yellow-400 outline-none"
+                          className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 focus:border-red-600 outline-none"
                         />
                         <input
                           type="password"
@@ -261,7 +261,7 @@ export function ServiceSelectionModal({
                           placeholder="Senha"
                           value={loginPassword}
                           onChange={(e) => setLoginPassword(e.target.value)}
-                          className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 focus:border-yellow-400 outline-none"
+                          className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 focus:border-red-600 outline-none"
                         />
                         {loginError && (
                           <p className="text-xs text-red-400">{loginError}</p>
@@ -277,7 +277,7 @@ export function ServiceSelectionModal({
                           <button
                             type="submit"
                             disabled={loginSubmitting}
-                            className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-yellow-400 px-3 py-2 text-xs font-semibold text-zinc-900 hover:bg-yellow-300 disabled:opacity-50"
+                            className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-red-600 px-3 py-2 text-xs font-semibold text-zinc-900 hover:bg-red-500 disabled:opacity-50"
                           >
                             {loginSubmitting && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
                             Entrar
@@ -288,7 +288,7 @@ export function ServiceSelectionModal({
 
                     <p className="text-[11px] text-zinc-500 text-center">
                       Sem conta?{" "}
-                      <a href={`/cadastro?next=${encodeURIComponent(typeof window !== "undefined" ? window.location.pathname + window.location.search : "/")}`} className="text-yellow-400 hover:underline">
+                      <a href={`/cadastro?next=${encodeURIComponent(typeof window !== "undefined" ? window.location.pathname + window.location.search : "/")}`} className="text-red-600 hover:underline">
                         Cadastre-se
                       </a>
                     </p>
@@ -308,7 +308,7 @@ export function ServiceSelectionModal({
         <div className="flex items-center justify-between gap-3 p-6 border-t border-zinc-800 bg-zinc-900/50">
           {selected ? (
             <span className="text-sm text-zinc-400">
-              Total: <strong className="text-yellow-400">{formatBRL(selected.price_amount)}</strong>
+              Total: <strong className="text-red-600">{formatBRL(selected.price_amount)}</strong>
             </span>
           ) : <span />}
           <div className="flex gap-2">
@@ -319,7 +319,7 @@ export function ServiceSelectionModal({
             <button
               onClick={handleConfirm}
               disabled={!selectedId || !isLoggedIn || submitting}
-              className="flex items-center gap-2 px-5 py-2 bg-yellow-400 hover:bg-yellow-300 text-zinc-900 rounded-lg text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-5 py-2 bg-red-600 hover:bg-red-500 text-zinc-900 rounded-lg text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {submitting && <Loader2 className="w-4 h-4 animate-spin" />}
               {isLoggedIn ? "Escolher e pagar" : "Entrar para agendar"}

@@ -24,7 +24,7 @@ import {
 } from "@/components/home/landing/primitives"
 
 export const TABLOID_ACTION_CLASSES =
-  "inline-flex items-center justify-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-5 py-2.5 text-[11px] font-black uppercase tracking-[0.14em] text-[#0B0B0D] shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#0B0B0D] disabled:cursor-not-allowed disabled:opacity-55"
+  "inline-flex items-center justify-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-5 py-2.5 text-[11px] font-black uppercase tracking-[0.14em] text-white shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#0B0B0D] disabled:cursor-not-allowed disabled:opacity-55"
 
 export const TABLOID_OUTLINE_ACTION_CLASSES =
   "inline-flex items-center justify-center gap-2 border-2 border-[#F1EDE2]/30 bg-transparent px-5 py-2.5 text-[11px] font-black uppercase tracking-[0.14em] text-[#F1EDE2] transition hover:border-[#F1EDE2] hover:bg-[#F1EDE2]/6 disabled:cursor-not-allowed disabled:opacity-55"
@@ -106,7 +106,7 @@ export function PageHero({
         {kicker && (
           <div
             className={cn(
-              "mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#F2B705]",
+              "mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#C8102E]",
             )}
           >
             {kicker}
@@ -135,7 +135,7 @@ export function PageHero({
         {doodle && !centered && (
           <DoodleArrow
             dir="down-right"
-            className="absolute -right-2 top-2 hidden h-10 w-20 text-[#F2B705]/80 lg:block"
+            className="absolute -right-2 top-2 hidden h-10 w-20 text-[#C8102E]/80 lg:block"
           />
         )}
       </div>
@@ -171,25 +171,25 @@ export function TabloidPageIntro({
       <Halftone className="absolute right-0 top-3 hidden h-24 w-28 opacity-[0.1] md:block" />
       {back && <div className="mb-5">{back}</div>}
       {eyebrow && (
-        <p className="fl-marker mb-1 text-2xl font-bold leading-none text-[#F2B705] md:text-3xl">
+        <p className="fl-marker mb-1 text-2xl font-bold leading-none text-[#C8102E] md:text-3xl">
           {eyebrow}
         </p>
       )}
       {compact ? (
         <div className="relative">
-          <Spark className="absolute -left-4 -top-5 hidden h-7 w-7 text-[#F2B705] sm:block md:-left-7" />
-          <h1 className="fl-display block max-w-3xl break-words text-4xl leading-[0.95] text-[#F2B705] sm:text-5xl md:text-[3.4rem]">
+          <Spark className="absolute -left-4 -top-5 hidden h-7 w-7 text-[#C8102E] sm:block md:-left-7" />
+          <h1 className="fl-display block max-w-3xl break-words text-4xl leading-[0.95] text-[#C8102E] sm:text-5xl md:text-[3.4rem]">
             {title}
           </h1>
-          <Underline className="mt-2 h-4 w-40 text-[#F2B705]" />
+          <Underline className="mt-2 h-4 w-40 text-[#C8102E]" />
         </div>
       ) : (
         <h1 className="relative inline-block">
-          <span className="fl-display block text-[18vw] leading-[0.86] text-[#F2B705] sm:text-[6.8rem] md:text-[8.4rem]">
+          <span className="fl-display block text-[18vw] leading-[0.86] text-[#C8102E] sm:text-[6.8rem] md:text-[8.4rem]">
             {title}
           </span>
-          <Underline className="absolute -bottom-4 left-0 h-5 w-full text-[#F2B705]" />
-          <Spark className="absolute -left-4 -top-5 h-8 w-8 text-[#F2B705] md:-left-8" />
+          <Underline className="absolute -bottom-4 left-0 h-5 w-full text-[#C8102E]" />
+          <Spark className="absolute -left-4 -top-5 h-8 w-8 text-[#C8102E] md:-left-8" />
         </h1>
       )}
       {subtitle && (
@@ -266,7 +266,7 @@ export function EmptyState({
   return (
     <StateCard className={className}>
       {icon && (
-        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#F2B705]/12 text-[#F2B705]">
+        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#C8102E]/12 text-[#C8102E]">
           {icon}
         </div>
       )}
@@ -291,7 +291,7 @@ export function LoadingState({
     <StateCard className={className}>
       <span
         aria-hidden
-        className="mb-5 inline-block h-10 w-10 animate-spin rounded-full border-[3px] border-[#F5F1E8]/15 border-t-[#F2B705]"
+        className="mb-5 inline-block h-10 w-10 animate-spin rounded-full border-[3px] border-[#F5F1E8]/15 border-t-[#C8102E]"
       />
       <p className="fl-marker text-xl text-[#C9C2B6]">{label}</p>
       <span className="sr-only" role="status">{label}</span>
@@ -321,8 +321,8 @@ export function ErrorState({
   className?: string
 }) {
   return (
-    <StateCard className={cn("border-[#F2B705]/25", className)}>
-      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#F2B705]/12 text-3xl">
+    <StateCard className={cn("border-[#C8102E]/25", className)}>
+      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#C8102E]/12 text-3xl">
         ⚠️
       </div>
       <h3 className="fl-display text-2xl text-[#F5F1E8]">{title}</h3>
@@ -355,7 +355,7 @@ export function Prose({ children, className }: { children: ReactNode; className?
         "[&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-[#F5F1E8]",
         "[&_p]:mb-4 [&_p]:leading-relaxed",
         "[&_ul]:mb-4 [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-5",
-        "[&_a]:text-[#F2B705] [&_a]:underline-offset-2 hover:[&_a]:underline",
+        "[&_a]:text-[#C8102E] [&_a]:underline-offset-2 hover:[&_a]:underline",
         className,
       )}
     >

@@ -87,7 +87,7 @@ export function RetractableProfileHeader({ name, children, progress, addMenu }: 
         {clampedProgress !== null && (
           <div className="h-[3px] w-full bg-[#F5F1E8]/10">
             <div
-              className="h-full bg-[#F2B705] transition-[width] duration-700 ease-out"
+              className="h-full bg-[#C8102E] transition-[width] duration-700 ease-out"
               style={{ width: `${clampedProgress}%` }}
             />
           </div>

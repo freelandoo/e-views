@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils"
 
 const GREEN = "#16B79A"
 const GREEN_DEEP = "#00876B"
-const AMBER = "#F2B705"
+const AMBER = "#C8102E"
 const RED = "#C0392B"
 
 // Emissão de recibo desligada por ora (função órfã — código/endpoints preservados).

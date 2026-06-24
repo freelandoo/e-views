@@ -35,9 +35,9 @@ export function CarreirasContent() {
     <main className="flex-1 bg-[#0b0804]">
       {/* HERO */}
       <section className="relative overflow-hidden py-24 md:py-36">
-        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-[#F2B705]/5 blur-[120px]" />
+        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-[#C8102E]/5 blur-[120px]" />
         <div className="container mx-auto px-4 relative max-w-3xl">
-          <div className="inline-flex items-center rounded-full border border-[#F2B705]/20 bg-[#F2B705]/5 px-4 py-1.5 text-sm text-[#F2B705] mb-6" data-reveal>
+          <div className="inline-flex items-center rounded-full border border-[#C8102E]/20 bg-[#C8102E]/5 px-4 py-1.5 text-sm text-[#C8102E] mb-6" data-reveal>
             {t("hero.badge", "Carreiras")}
           </div>
           <h1 className="fl-display text-5xl md:text-6xl lg:text-7xl text-[#F5F1E8] leading-tight mb-6" data-reveal>
@@ -50,7 +50,7 @@ export function CarreirasContent() {
             {t("hero.description", "A Freelandoo está em crescimento. Talvez ainda não tenhamos vagas abertas, mas queremos manter uma porta aberta para pessoas que se identificam com nossa visão.")}
           </p>
           <div data-reveal>
-            <Link href="/cadastro" className="inline-flex items-center bg-[#F2B705] text-black font-semibold px-6 py-3 rounded-lg hover:bg-[#F2B705]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
+            <Link href="/cadastro" className="inline-flex items-center bg-[#C8102E] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#C8102E]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
               {t("hero.cta", "Fale com a Freelandoo")}
             </Link>
           </div>
@@ -69,7 +69,7 @@ export function CarreirasContent() {
           <div className="mb-4 text-sm font-medium text-[#F5F1E8]" data-reveal>{t("building.label", "Estamos desenvolvendo recursos como:")}</div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3" data-stagger>
             {building.map((item, i) => (
-              <div key={item} className="bg-[#1D1810] border border-[#2A2218] rounded-lg px-4 py-3 text-sm text-[#F5F1E8] hover:border-[#F2B705]/20 transition-colors" data-card>
+              <div key={item} className="bg-[#1D1810] border border-[#2A2218] rounded-lg px-4 py-3 text-sm text-[#F5F1E8] hover:border-[#C8102E]/20 transition-colors" data-card>
                 {t(`building.items.${i}`, item)}
               </div>
             ))}
@@ -85,9 +85,9 @@ export function CarreirasContent() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-stagger>
             {roles.map((role, i) => (
-              <div key={role.title} className="bg-[#1D1810] border border-[#2A2218] rounded-xl p-6 hover:border-[#F2B705]/30 hover:shadow-[0_0_30px_rgba(242,196,9,0.06)] transition-all" data-card>
-                <div className="w-8 h-8 bg-[#F2B705]/10 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-[#F2B705] text-sm">◆</span>
+              <div key={role.title} className="bg-[#1D1810] border border-[#2A2218] rounded-xl p-6 hover:border-[#C8102E]/30 hover:shadow-[0_0_30px_rgba(242,196,9,0.06)] transition-all" data-card>
+                <div className="w-8 h-8 bg-[#C8102E]/10 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-[#C8102E] text-sm">◆</span>
                 </div>
                 <h3 className="font-semibold text-[#F5F1E8] mb-2">{t(`roles.${i}.title`, role.title)}</h3>
                 <p className="text-sm text-[#9A938A] leading-relaxed">{t(`roles.${i}.text`, role.text)}</p>
@@ -110,7 +110,7 @@ export function CarreirasContent() {
             <p className="text-[#9A938A] mb-8 text-sm leading-relaxed">
               {t("status.note", "Se você acredita que pode contribuir com tecnologia, produto, design, marketing, comunidade ou parcerias, acompanhe a evolução da plataforma.")}
             </p>
-            <Link href="/cadastro" className="inline-flex items-center bg-[#F2B705] text-black font-semibold px-6 py-3 rounded-lg hover:bg-[#F2B705]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
+            <Link href="/cadastro" className="inline-flex items-center bg-[#C8102E] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#C8102E]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
               {t("status.cta", "Entrar em contato")}
             </Link>
           </div>

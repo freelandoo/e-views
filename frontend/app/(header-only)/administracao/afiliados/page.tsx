@@ -98,9 +98,9 @@ function formatDate(iso?: string | null) {
 
 const STATUS_BADGE: Record<string, string> = {
   ACTIVE: "bg-green-500/20 text-green-300",
-  PAUSED: "bg-yellow-500/20 text-yellow-300",
+  PAUSED: "bg-red-600/20 text-red-500",
   BLOCKED: "bg-red-500/20 text-red-300",
-  PENDING: "bg-yellow-500/20 text-yellow-300",
+  PENDING: "bg-red-600/20 text-red-500",
   APPROVED: "bg-blue-500/20 text-blue-300",
   PAID: "bg-green-500/20 text-green-300",
   REVERSED: "bg-red-500/20 text-red-300",
@@ -384,7 +384,7 @@ function AffiliatesSection() {
                     <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-green-500" />Ativo</span>
                   </SelectItem>
                   <SelectItem value="PAUSED">
-                    <span className="flex items-center gap-2"><Pause className="h-4 w-4 text-yellow-500" />Pausado</span>
+                    <span className="flex items-center gap-2"><Pause className="h-4 w-4 text-red-600" />Pausado</span>
                   </SelectItem>
                   <SelectItem value="BLOCKED">
                     <span className="flex items-center gap-2"><Ban className="h-4 w-4 text-red-500" />Bloqueado</span>

@@ -72,7 +72,7 @@ export function FreelancerTile({ creator, featured = false }: FreelancerTileProp
   const tx = useTaxonomy()
   const isPremium = featured || !!creator.is_premium
   const colors = getMachineColors(creator.machine_slug)
-  const accent = colors?.accent || "#fbbf24"
+  const accent = colors?.accent || "#C8102E"
 
   const handleClick = () => {
     if (creator.is_clan) {

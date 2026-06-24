@@ -97,11 +97,11 @@ export function ProfilePublicProductsSection({ profileId }: ProfilePublicProduct
           return (
             <li
               key={p.id_profile_product}
-              className="group relative flex h-full min-h-0 w-full min-w-0 flex-col overflow-hidden rounded-xl border-2 border-[#0B0B0D] bg-[#F1EDE2] text-left shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#F2B705]"
+              className="group relative flex h-full min-h-0 w-full min-w-0 flex-col overflow-hidden rounded-xl border-2 border-[#0B0B0D] bg-[#F1EDE2] text-left shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#C8102E]"
             >
               <Link
                 href={`/p/${profileId}/produto/${p.id_profile_product}`}
-                className="flex h-full flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F2B705]"
+                className="flex h-full flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8102E]"
               >
                 <div className="relative aspect-[4/5] w-full shrink-0 border-b-2 border-[#0B0B0D] bg-[#1d1810]">
                   {outOfStock && (
@@ -114,7 +114,7 @@ export function ProfilePublicProductsSection({ profileId }: ProfilePublicProduct
                     <img src={img} alt={p.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#2a2212] to-[#141009]">
-                      <Package className="h-11 w-11 text-[#F2B705]/40 sm:h-12 sm:w-12" aria-hidden />
+                      <Package className="h-11 w-11 text-[#C8102E]/40 sm:h-12 sm:w-12" aria-hidden />
                     </div>
                   )}
                 </div>
@@ -134,7 +134,7 @@ export function ProfilePublicProductsSection({ profileId }: ProfilePublicProduct
                         R$ {integer}
                         <span className="align-top text-[10px] font-semibold text-[#0B0B0D]/75 md:text-xs">,{cents}</span>
                       </p>
-                      <span className="shrink-0 rounded-full border-2 border-[#0B0B0D] bg-[#F2B705] px-2.5 py-1.5 text-center text-[9px] font-bold uppercase tracking-wider text-[#1A1505] md:px-3 md:text-[10px]">
+                      <span className="shrink-0 rounded-full border-2 border-[#0B0B0D] bg-[#C8102E] px-2.5 py-1.5 text-center text-[9px] font-bold uppercase tracking-wider text-[#1A1505] md:px-3 md:text-[10px]">
                         {t("view", "Ver")}
                       </span>
                     </div>

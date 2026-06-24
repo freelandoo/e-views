@@ -11,7 +11,7 @@ export function DailyLimitProgress({ limits }: { limits: PolenLimits | null }) {
       </div>
       <div className="h-2 overflow-hidden rounded-full bg-white/10">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-amber-400 to-yellow-200"
+          className="h-full rounded-full bg-gradient-to-r from-amber-400 to-red-300"
           style={{ width: `${adsPct}%` }}
         />
       </div>

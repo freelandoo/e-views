@@ -477,7 +477,7 @@ export default function ParentalPage() {
                         minor.status === "active"
                           ? "bg-green-500/15 text-green-400"
                           : minor.status === "suspended"
-                            ? "bg-yellow-500/15 text-yellow-400"
+                            ? "bg-red-600/15 text-red-600"
                             : "bg-red-500/15 text-red-400"
                       }`}
                     >

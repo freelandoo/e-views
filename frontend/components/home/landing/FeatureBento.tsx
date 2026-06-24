@@ -55,10 +55,10 @@ function BentoVisual({ item, t }: { item: BentoItem; t: T }) {
       return (
         <div className="flex items-center justify-between bg-[#14110B] px-3 py-3 text-[#FAF7F0]">
           <div>
-            <div className="text-[10px] font-bold uppercase tracking-wide text-[#F2B705]">{t("bentoVSejaAfiliado", "Seja um afiliado")}</div>
+            <div className="text-[10px] font-bold uppercase tracking-wide text-[#C8102E]">{t("bentoVSejaAfiliado", "Seja um afiliado")}</div>
             <div className="text-sm font-black">FREELANDOO!</div>
           </div>
-          <span className="bg-[#F2B705] px-2.5 py-1 text-[11px] font-black text-[#1A1505]">{t("bentoVAte70", "até 70%")}</span>
+          <span className="bg-[#C8102E] px-2.5 py-1 text-[11px] font-black text-[#1A1505]">{t("bentoVAte70", "até 70%")}</span>
         </div>
       )
     case "video":
@@ -84,8 +84,8 @@ function BentoVisual({ item, t }: { item: BentoItem; t: T }) {
       }
       return (
         <div className="flex gap-2">
-          {["#F2B705", "#EC4899", "#10B981"].map((c, i) => (
-            <div key={i} className="aspect-[9/16] flex-1 p-[2px]" style={{ background: `linear-gradient(135deg, ${c}, #E0A500)` }}>
+          {["#C8102E", "#EC4899", "#10B981"].map((c, i) => (
+            <div key={i} className="aspect-[9/16] flex-1 p-[2px]" style={{ background: `linear-gradient(135deg, ${c}, #9B0F24)` }}>
               <div className="h-full w-full" style={{ background: "linear-gradient(160deg,#241f18,#15120e)" }} />
             </div>
           ))}
@@ -123,10 +123,10 @@ function BentoVisual({ item, t }: { item: BentoItem; t: T }) {
     default:
       return (
         <div className="flex items-center gap-3 bg-[#FAF7F0] px-3 py-3">
-          <span className="flex h-10 w-10 items-center justify-center bg-[#F2B705]/15 text-[#E0A500]">
+          <span className="flex h-10 w-10 items-center justify-center bg-[#C8102E]/15 text-[#9B0F24]">
             <Icon name={item.icon ?? "star"} className="h-5 w-5" />
           </span>
-          <Star className="h-4 w-4 text-[#F2B705]" />
+          <Star className="h-4 w-4 text-[#C8102E]" />
           <span className="text-xs font-semibold text-[#6B6457]">{t("bentoVPronto", "Pronto para usar")}</span>
         </div>
       )
@@ -138,13 +138,13 @@ export function FeatureBento() {
   return (
     <Section id="recursos">
       <div className="relative mb-12 max-w-2xl">
-        <p className="fl-marker mb-1 text-2xl font-bold text-[#F2B705]">
+        <p className="fl-marker mb-1 text-2xl font-bold text-[#C8102E]">
           <EditableText as="span" mark={false} slot="home_seller_bento_eyebrow" fallback="tudo num lugar só" />
         </p>
         <h2 className="fl-display text-4xl text-[#F5F1E8] sm:text-5xl md:text-6xl">
           <EditableText as="span" slot="home_seller_bento_heading" fallback="Vender, ensinar, *aprender e ganhar.*" />
         </h2>
-        <DoodleArrow dir="left" className="absolute -right-4 top-2 hidden h-10 w-20 text-[#F2B705] lg:block" />
+        <DoodleArrow dir="left" className="absolute -right-4 top-2 hidden h-10 w-20 text-[#C8102E] lg:block" />
       </div>
 
       <div data-stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-12">
@@ -160,7 +160,7 @@ export function FeatureBento() {
               {item.n % 3 === 0 && <WashiTape className="-right-3 top-5" off rotate={12} />}
               {isPhoto && <div className="relative mb-4"><BentoVisual item={item} t={t} /></div>}
               <div className="relative flex items-start gap-3">
-                <span className="fl-display shrink-0 text-4xl text-[#F2B705]">{String(item.n).padStart(2, "0")}</span>
+                <span className="fl-display shrink-0 text-4xl text-[#C8102E]">{String(item.n).padStart(2, "0")}</span>
                 <div>
                   <h3 className="text-base font-black uppercase tracking-wide text-[#0B0B0D]">{t(`bento${item.n}Title`, item.title)}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-[#6B6457]">{t(`bento${item.n}Desc`, item.desc)}</p>

@@ -259,7 +259,7 @@ export function GoLiveOverlay({ open, onClose, onLiveStarted, onLiveEnded }: GoL
                 onClick={() => setShowFilters((s) => !s)}
                 className={cn(
                   "flex h-9 w-9 items-center justify-center rounded-full backdrop-blur transition",
-                  showFilters ? "bg-yellow-400 text-black" : "bg-black/50 text-white hover:bg-black/70",
+                  showFilters ? "bg-red-600 text-black" : "bg-black/50 text-white hover:bg-black/70",
                 )}
                 aria-label="Filtros"
               >
@@ -326,11 +326,11 @@ export function GoLiveOverlay({ open, onClose, onLiveStarted, onLiveEnded }: GoL
                 <span
                   className={cn(
                     "h-12 w-12 rounded-2xl ring-2 transition",
-                    presetId === p.id ? "ring-yellow-400" : "ring-white/20",
+                    presetId === p.id ? "ring-red-600" : "ring-white/20",
                   )}
                   style={{ background: p.swatch }}
                 />
-                <span className={cn("text-[10px] font-medium", presetId === p.id ? "text-yellow-300" : "text-white/70")}>
+                <span className={cn("text-[10px] font-medium", presetId === p.id ? "text-red-500" : "text-white/70")}>
                   {p.label}
                 </span>
               </button>
@@ -359,7 +359,7 @@ export function GoLiveOverlay({ open, onClose, onLiveStarted, onLiveEnded }: GoL
               <p className="text-[11px] font-semibold uppercase tracking-wider text-white/50">Transmitir como</p>
               {loadingProfiles ? (
                 <div className="flex items-center gap-2 text-sm text-white/60">
-                  <Loader2 className="h-4 w-4 animate-spin text-yellow-300" /> Carregando perfis…
+                  <Loader2 className="h-4 w-4 animate-spin text-red-500" /> Carregando perfis…
                 </div>
               ) : profiles.length === 0 ? (
                 <p className="rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-sm text-white/60">

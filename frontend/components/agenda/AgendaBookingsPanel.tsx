@@ -75,7 +75,7 @@ const UI_STATUS_LABEL: Record<UiStatusKey, { key: string; pt: string }> = {
 /* Pílulas de status no papel (cores semânticas do tabloide). */
 const UI_STATUS_CLASS: Record<UiStatusKey, string> = {
   confirmed: "bg-[#00876B] text-white",
-  in_progress: "bg-[#F2B705] text-[#0B0B0D]",
+  in_progress: "bg-[#C8102E] text-white",
   completed: "bg-[#0B0B0D] text-[#F1EDE2]",
   canceled: "bg-[#9A3412] text-white",
 }
@@ -123,7 +123,7 @@ export function AgendaBookingsPanel({
       <header className="flex flex-col gap-4 border-b-2 border-[#F1EDE2]/12 px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-w-0 space-y-1">
           <div className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#9A938A]">
-            <Sparkles className="size-3.5 text-[#F2B705]" aria-hidden />
+            <Sparkles className="size-3.5 text-[#C8102E]" aria-hidden />
             {t("bookingsEyebrow", "Agendamentos")}
           </div>
           <h2 className="fl-display truncate text-2xl leading-none text-[#F1EDE2]">
@@ -152,7 +152,7 @@ export function AgendaBookingsPanel({
               <button
                 type="button"
                 onClick={onGoCurrentWeek}
-                className="border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.1em] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D] transition-transform hover:-translate-y-0.5"
+                className="border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.1em] text-white shadow-[3px_3px_0_0_#0B0B0D] transition-transform hover:-translate-y-0.5"
               >
                 {t("thisWeek", "Esta semana")}
               </button>
@@ -247,10 +247,10 @@ function BookingCard({
   const waLink = waReminderLink(b, t)
 
   return (
-    <article className="group relative overflow-hidden border-2 border-[#0B0B0D] bg-[#F1EDE2] p-4 shadow-[4px_4px_0_0_#0B0B0D] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#F2B705]">
+    <article className="group relative overflow-hidden border-2 border-[#0B0B0D] bg-[#F1EDE2] p-4 shadow-[4px_4px_0_0_#0B0B0D] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#C8102E]">
       <div className="flex gap-4">
-        <Avatar className="size-12 shrink-0 rounded-none border-2 border-[#0B0B0D]" style={{ outline: "2px solid #F2B705", outlineOffset: "1px" }}>
-          <AvatarFallback className="rounded-none bg-[#1D1810] text-xs font-bold text-[#F2B705]">
+        <Avatar className="size-12 shrink-0 rounded-none border-2 border-[#0B0B0D]" style={{ outline: "2px solid #C8102E", outlineOffset: "1px" }}>
+          <AvatarFallback className="rounded-none bg-[#1D1810] text-xs font-bold text-[#C8102E]">
             {initials(displayName)}
           </AvatarFallback>
         </Avatar>
@@ -259,7 +259,7 @@ function BookingCard({
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="min-w-0">
               {compactTime ? (
-                <p className="font-mono text-sm font-bold tabular-nums text-[#E0A500]">
+                <p className="font-mono text-sm font-bold tabular-nums text-[#9B0F24]">
                   {timeLabel}{" "}
                   <span className="font-sans text-[#6B6457]">—</span>{" "}
                   <span className="font-sans font-bold text-[#0B0B0D]">{serviceName}</span>
@@ -267,7 +267,7 @@ function BookingCard({
               ) : (
                 <>
                   <p className="text-xs font-semibold text-[#6B6457]">
-                    <Clock className="mr-1 inline size-3.5 align-text-bottom text-[#E0A500]" />
+                    <Clock className="mr-1 inline size-3.5 align-text-bottom text-[#9B0F24]" />
                     <span className="tabular-nums text-[#0B0B0D]">{timeLabel}</span>
                     <span className="mx-2 text-[#6B6457]">·</span>
                     <span>{dur} {minLabel}</span>
@@ -279,7 +279,7 @@ function BookingCard({
                 {b.client_profile_id ? (
                   <Link
                     href={`/freelancer/${b.client_profile_id}`}
-                    className="truncate text-sm font-bold text-[#E0A500] underline-offset-2 hover:underline"
+                    className="truncate text-sm font-bold text-[#9B0F24] underline-offset-2 hover:underline"
                   >
                     {displayName}
                   </Link>
@@ -302,7 +302,7 @@ function BookingCard({
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t-2 border-[#0B0B0D]/12 pt-3 text-xs text-[#6B6457]">
             <span>
               {t("amount", "Valor")}{" "}
-              <strong className="font-extrabold tabular-nums text-[#E0A500]">{formatAgendaBRL(amount)}</strong>
+              <strong className="font-extrabold tabular-nums text-[#9B0F24]">{formatAgendaBRL(amount)}</strong>
             </span>
 
             {/* Status do lembrete / confirmação do cliente */}

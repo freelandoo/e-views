@@ -42,7 +42,7 @@ interface PayoutSummary {
 const STATUS = {
   aguardando: { label: "Aguardando (8d)", labelKey: "balanceWaiting", icon: Clock,         color: "text-amber-600",   bg: "bg-amber-50 dark:bg-amber-950/30",     border: "border-amber-200 dark:border-amber-800" },
   aprovado:   { label: "Liberado",        labelKey: "balanceReleased", icon: CheckCircle2,  color: "text-emerald-600", bg: "bg-emerald-50 dark:bg-emerald-950/30", border: "border-emerald-200 dark:border-emerald-800" },
-  pago:       { label: "Pago",            labelKey: "balancePaid", icon: CheckCircle2,  color: "text-[#F2B705]",     bg: "bg-[#F2B705]/10",                        border: "border-[#F2B705]/30" },
+  pago:       { label: "Pago",            labelKey: "balancePaid", icon: CheckCircle2,  color: "text-[#C8102E]",     bg: "bg-[#C8102E]/10",                        border: "border-[#C8102E]/30" },
   revertido:  { label: "Revertido",       labelKey: "balanceReverted", icon: RotateCcw,     color: "text-rose-600",    bg: "bg-rose-50 dark:bg-rose-950/30",       border: "border-rose-200 dark:border-rose-800" },
 } as const
 
@@ -122,7 +122,7 @@ export function BookingPayoutsSection() {
       className="rounded-2xl border border-[#2A2218] bg-[#1D1810] p-5"
     >
       <header className="mb-4 flex items-center gap-2">
-        <Calendar className="h-4 w-4 text-[#F2B705]" aria-hidden />
+        <Calendar className="h-4 w-4 text-[#C8102E]" aria-hidden />
         <p className="text-xs font-medium uppercase tracking-widest text-[#9A938A]">
           {t("bookingBalance", "Saldo de agendamentos")}
         </p>
@@ -207,7 +207,7 @@ function SummaryTile({
   const toneClass = {
     amber:   "border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-200",
     emerald: "border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-200",
-    primary: "border-[#F2B705]/30 bg-[#F2B705]/10 text-[#F2B705]",
+    primary: "border-[#C8102E]/30 bg-[#C8102E]/10 text-[#C8102E]",
     muted:   "border-[#2A2218] bg-[#2A2218]/30 text-[#9A938A]",
   }[tone]
   return (

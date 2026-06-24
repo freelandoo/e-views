@@ -413,7 +413,7 @@ export function MessagesSection() {
                 <div className="flex items-center gap-3 border-b border-white/[0.06] px-5 py-3.5">
                   <div
                     className="h-8 w-8 rounded-full"
-                    style={{ background: "linear-gradient(135deg,#f2c409,#d97706)" }}
+                    style={{ background: "linear-gradient(135deg,#C8102E,#d97706)" }}
                     aria-hidden
                   />
                   <div className="min-w-0">
@@ -539,7 +539,7 @@ export function AcompanharClansSection() {
               </div>
 
               <div className="mt-5 flex -space-x-2">
-                {["#f2c409", "#0ea5e9", "#fb7185", "#34d399", "#a78bfa"].map((c) => (
+                {["#C8102E", "#0ea5e9", "#fb7185", "#34d399", "#a78bfa"].map((c) => (
                   <span
                     key={c}
                     className="h-9 w-9 rounded-full ring-2 ring-zinc-950"

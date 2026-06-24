@@ -51,7 +51,7 @@ export default function SucessoPage() {
   return (
     <Suspense fallback={
       <main className="fl-root flex flex-1 items-center justify-center bg-[#0b0804] px-4 py-16">
-        <div className="h-10 w-10 animate-spin rounded-full border-2 border-[#6B6354] border-t-[#F2B705]" />
+        <div className="h-10 w-10 animate-spin rounded-full border-2 border-[#6B6354] border-t-[#C8102E]" />
       </main>
     }>
       <SucessoContent />

@@ -102,7 +102,7 @@ function TopList({ rows, loading, empty }: { rows: TopRow[]; loading: boolean; e
               <span
                 className={`flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold ${
                   rank === 1
-                    ? "border-2 border-[#0B0B0D] bg-[#F2B705] text-[#1A1505]"
+                    ? "border-2 border-[#0B0B0D] bg-[#C8102E] text-[#1A1505]"
                     : rank === 2
                     ? "bg-[#0B0B0D]/20 text-[#0B0B0D]"
                     : rank === 3
@@ -120,7 +120,7 @@ function TopList({ rows, loading, empty }: { rows: TopRow[]; loading: boolean; e
                   className="h-9 w-9 rounded-full border-2 border-[#0B0B0D] object-cover"
                 />
               ) : (
-                <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#F2B705]/20 text-xs font-bold text-[#0B0B0D]">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#C8102E]/20 text-xs font-bold text-white">
                   {initials || "?"}
                 </div>
               )}
@@ -134,7 +134,7 @@ function TopList({ rows, loading, empty }: { rows: TopRow[]; loading: boolean; e
               </div>
               <div className="hidden flex-col items-end text-[10px] text-[#5b554b] sm:flex">
                 <span className="flex items-center gap-1">
-                  <Star className="h-3 w-3 text-[#E0A500]" />
+                  <Star className="h-3 w-3 text-[#9B0F24]" />
                   {r.avg_rating && Number(r.avg_rating) > 0 ? Number(r.avg_rating).toFixed(1) : "—"}
                 </span>
                 <span className="flex items-center gap-2">
@@ -255,7 +255,7 @@ export function RankingBadgeModal({ profileId, onClose }: Props) {
       <div className="w-full max-w-2xl max-h-[90vh] flex flex-col rounded-2xl bg-[#F1EDE2] border-2 border-[#0B0B0D] text-[#0B0B0D] shadow-[8px_8px_0_0_#0B0B0D] overflow-hidden">
         <div className="flex items-center justify-between px-6 py-4 border-b-2 border-[#0B0B0D]/15">
           <div className="flex items-center gap-2">
-            <Trophy className="h-5 w-5 text-[#E0A500]" />
+            <Trophy className="h-5 w-5 text-[#9B0F24]" />
             <h2 className="fl-display text-xl text-[#0B0B0D]">{t("rankingTop10", "Ranking — Top 10")}</h2>
           </div>
           <button
@@ -291,7 +291,7 @@ export function RankingBadgeModal({ profileId, onClose }: Props) {
                     onClick={() => setTab(key)}
                     className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition ${
                       active
-                        ? "border-2 border-[#0B0B0D] bg-[#F2B705] text-[#1A1505]"
+                        ? "border-2 border-[#0B0B0D] bg-[#C8102E] text-[#1A1505]"
                         : "border-2 border-transparent bg-[#0B0B0D]/[0.05] text-[#5b554b] hover:bg-[#0B0B0D]/[0.1] hover:text-[#0B0B0D]"
                     }`}
                   >

@@ -91,7 +91,7 @@ export default function CursosPage() {
           {steps.map((s, i) => (
             <TornPaperCard key={s.title} variant={i % 2 === 0 ? "1" : "2"} className="p-6">
               <div className="mb-3 flex items-center gap-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F2B705]/15 text-[#F2B705]">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#C8102E]/15 text-[#C8102E]">
                   {s.icon}
                 </span>
                 <span className="fl-display text-xl text-[#1D1810]">{String(i + 1).padStart(2, "0")}</span>

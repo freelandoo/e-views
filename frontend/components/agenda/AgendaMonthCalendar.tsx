@@ -83,9 +83,9 @@ export function AgendaMonthCalendar({
             "fl-display flex justify-center px-1 pb-3 pt-1 text-xl capitalize tracking-wide text-[#0B0B0D]",
           nav: "flex items-center justify-between gap-1 absolute inset-x-2 top-2",
           button_previous:
-            "inline-flex size-8 items-center justify-center border-2 border-[#0B0B0D] bg-transparent text-[#0B0B0D] transition hover:bg-[#F2B705]",
+            "inline-flex size-8 items-center justify-center border-2 border-[#0B0B0D] bg-transparent text-white transition hover:bg-[#C8102E]",
           button_next:
-            "inline-flex size-8 items-center justify-center border-2 border-[#0B0B0D] bg-transparent text-[#0B0B0D] transition hover:bg-[#F2B705]",
+            "inline-flex size-8 items-center justify-center border-2 border-[#0B0B0D] bg-transparent text-white transition hover:bg-[#C8102E]",
           month_grid: "w-full border-collapse table-fixed",
           weekdays: "",
           weekday:
@@ -93,7 +93,7 @@ export function AgendaMonthCalendar({
           week: "",
           day: "p-0 align-middle text-center",
           day_button:
-            "relative mx-auto flex size-10 items-center justify-center text-sm font-bold text-[#0B0B0D] transition-all duration-150 hover:bg-[#F2B705]/30 active:scale-[0.96]",
+            "relative mx-auto flex size-10 items-center justify-center text-sm font-bold text-white transition-all duration-150 hover:bg-[#C8102E]/30 active:scale-[0.96]",
           outside: "opacity-30",
           disabled: "opacity-25 pointer-events-none",
         }}
@@ -102,8 +102,8 @@ export function AgendaMonthCalendar({
         .agenda-premium-calendar .rdp-root {
           position: relative;
           padding-top: 2.25rem;
-          --rdp-accent-color: #f2b705;
-          --rdp-accent-background-color: rgba(242, 183, 5, 0.16);
+          --rdp-accent-color: #C8102E;
+          --rdp-accent-background-color: rgba(200, 16, 46, 0.16);
           font-size: 13px;
         }
         .agenda-premium-calendar .rdp-month {
@@ -132,23 +132,23 @@ export function AgendaMonthCalendar({
           z-index: 1;
           outline: 2px solid #0b0b0d;
           outline-offset: -2px;
-          box-shadow: inset 0 0 0 3px #f2b705 !important;
+          box-shadow: inset 0 0 0 3px #C8102E !important;
           font-weight: 800 !important;
           color: #0b0b0d !important;
         }
         .agenda-premium-calendar td.agenda-cal-today.agenda-cal-in-week:not(.agenda-cal-selected)
           .rdp-day_button,
         .agenda-premium-calendar td[data-today].agenda-cal-in-week:not([data-selected]) .rdp-day_button {
-          background: rgba(242, 183, 5, 0.22) !important;
+          background: rgba(200, 16, 46, 0.22) !important;
         }
         .agenda-premium-calendar .agenda-cal-selected .rdp-day_button {
-          background: #f2b705 !important;
+          background: #C8102E !important;
           color: #0b0b0d !important;
           font-weight: 800;
           box-shadow: 3px 3px 0 0 #0b0b0d;
         }
         .agenda-premium-calendar .agenda-cal-in-week:not(.agenda-cal-selected) .rdp-day_button {
-          background: rgba(242, 183, 5, 0.14);
+          background: rgba(200, 16, 46, 0.14);
           color: #0b0b0d;
         }
         .agenda-premium-calendar .agenda-cal-sparse:not(.agenda-cal-selected) .rdp-day_button::after {

@@ -33,7 +33,7 @@ export const COLOR_SWATCHES: { name: string; hex: string }[] = [
   { name: "cinza", hex: "#8E8E93" },
   { name: "vermelho", hex: "#E0312D" },
   { name: "laranja", hex: "#F2742C" },
-  { name: "amarelo", hex: "#F2B705" },
+  { name: "amarelo", hex: "#C8102E" },
   { name: "verde", hex: "#2E9E44" },
   { name: "azul", hex: "#2E62D9" },
   { name: "roxo", hex: "#7B3FE4" },

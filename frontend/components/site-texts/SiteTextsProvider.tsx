@@ -80,7 +80,7 @@ export function SiteTextsProvider({ children }: { children: React.ReactNode }) {
         <button
           type="button"
           onClick={() => setEditMode((v) => !v)}
-          className="fixed bottom-5 right-5 z-[125] inline-flex items-center gap-2 rounded-full border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-2.5 text-sm font-bold text-[#0B0B0D] shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5"
+          className="fixed bottom-5 right-5 z-[125] inline-flex items-center gap-2 rounded-full border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-2.5 text-sm font-bold text-white shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5"
         >
           {editMode ? <Check className="h-4 w-4" /> : <Pencil className="h-4 w-4" />}
           {editMode ? "Concluir edição" : "Editar textos"}
@@ -106,7 +106,7 @@ export function SiteTextsProvider({ children }: { children: React.ReactNode }) {
               onChange={(e) => setDraft(e.target.value)}
               rows={4}
               autoFocus
-              className="w-full resize-y border-2 border-[#0B0B0D] bg-white p-2 text-sm text-[#0B0B0D] outline-none focus:border-[#E0A500]"
+              className="w-full resize-y border-2 border-[#0B0B0D] bg-white p-2 text-sm text-[#0B0B0D] outline-none focus:border-[#9B0F24]"
             />
             <p className="mt-1 text-[11px] text-[#5b554b]">
               Use *asteriscos* para destacar uma palavra em amarelo.
@@ -123,7 +123,7 @@ export function SiteTextsProvider({ children }: { children: React.ReactNode }) {
                 type="button"
                 onClick={save}
                 disabled={saving || !draft.trim()}
-                className="rounded-full bg-[#F2B705] px-4 py-1.5 text-xs font-bold text-[#1A1505] transition hover:brightness-105 disabled:opacity-50"
+                className="rounded-full bg-[#C8102E] px-4 py-1.5 text-xs font-bold text-[#1A1505] transition hover:brightness-105 disabled:opacity-50"
               >
                 {saving ? "Salvando…" : "Salvar"}
               </button>

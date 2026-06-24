@@ -399,7 +399,7 @@ export function CommentsPanel({
                           aria-label={liked ? t("unlikeComment", "Descurtir comentário") : t("likeComment", "Curtir comentário")}
                           className={cn(
                             "inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 transition hover:bg-white/5 active:scale-95",
-                            liked ? "text-yellow-400" : "text-white/55 hover:text-white",
+                            liked ? "text-red-600" : "text-white/55 hover:text-white",
                           )}
                         >
                           <Heart

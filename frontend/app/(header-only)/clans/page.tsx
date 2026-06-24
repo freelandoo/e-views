@@ -66,7 +66,7 @@ export default function ClansVitrinePage() {
   }, [])
 
   const inputCls =
-    "h-11 w-full rounded-xl border-2 border-[#F5F1E8]/12 bg-[#1D1810] px-4 text-sm text-[#F5F1E8] placeholder:text-[#9A938A] outline-none transition focus:border-[#F2B705]"
+    "h-11 w-full rounded-xl border-2 border-[#F5F1E8]/12 bg-[#1D1810] px-4 text-sm text-[#F5F1E8] placeholder:text-[#9A938A] outline-none transition focus:border-[#C8102E]"
 
   return (
     <PageShell>
@@ -113,7 +113,7 @@ export default function ClansVitrinePage() {
               onClick={load}
               disabled={loading}
               aria-label="Buscar"
-              className="flex h-11 w-full items-center justify-center rounded-xl bg-[#F2B705] text-[#1A1505] transition hover:bg-[#ffc81f] disabled:opacity-60"
+              className="flex h-11 w-full items-center justify-center rounded-xl bg-[#C8102E] text-[#1A1505] transition hover:bg-[#E03250] disabled:opacity-60"
             >
               <Search className="h-4 w-4" />
             </button>
@@ -180,7 +180,7 @@ export default function ClansVitrinePage() {
                     </span>
                     {c.ratings_count > 0 && (
                       <span className="flex items-center gap-1">
-                        <Star className="size-3 fill-[#F2B705] text-[#F2B705]" /> {Number(c.avg_rating).toFixed(1)} ({c.ratings_count})
+                        <Star className="size-3 fill-[#C8102E] text-[#C8102E]" /> {Number(c.avg_rating).toFixed(1)} ({c.ratings_count})
                       </span>
                     )}
                     <span className="ml-auto font-black text-[#0B0B0D]">

@@ -614,7 +614,7 @@ export function ScheduleBookingModal({
                     }}
                     className={`flex flex-col items-center rounded-xl py-2 text-[11px] font-bold transition sm:py-2.5 sm:text-xs ${
                       active
-                        ? "border-2 border-[#0B0B0D] bg-[#F2B705] text-[#1A1505]"
+                        ? "border-2 border-[#0B0B0D] bg-[#C8102E] text-[#1A1505]"
                         : "border-2 border-[#0B0B0D]/15 bg-[#0B0B0D]/[0.03] text-[#0B0B0D] hover:bg-[#0B0B0D]/[0.08]"
                     }`}
                   >
@@ -636,7 +636,7 @@ export function ScheduleBookingModal({
           </div>
 
           <div className="mt-6 flex items-start gap-2 border-b-2 border-[#0B0B0D]/15 pb-4">
-            <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[#E0A500]" aria-hidden />
+            <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[#9B0F24]" aria-hidden />
             <div>
               <p className="text-sm font-bold capitalize text-[#0B0B0D]">{selectedDateLong}</p>
               <p className="text-xs text-[#5b554b]">{t("availableTimes", "Horários disponíveis")}</p>
@@ -683,7 +683,7 @@ export function ScheduleBookingModal({
                         !selectable
                           ? "cursor-not-allowed border-[#0B0B0D]/10 bg-[#0B0B0D]/[0.02] opacity-50"
                           : selected
-                            ? "border-[#0B0B0D] bg-[#F2B705]/25"
+                            ? "border-[#0B0B0D] bg-[#C8102E]/25"
                             : "border-[#0B0B0D]/20 bg-[#0B0B0D]/[0.03] hover:border-[#0B0B0D]"
                       }`}
                     >
@@ -717,7 +717,7 @@ export function ScheduleBookingModal({
         <footer className="flex shrink-0 flex-col gap-3 border-t-2 border-[#0B0B0D]/15 bg-[#e8e2d4] p-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex min-w-0 items-center gap-3">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#F1EDE2]">
-              <Scissors className="h-5 w-5 text-[#E0A500]" aria-hidden />
+              <Scissors className="h-5 w-5 text-[#9B0F24]" aria-hidden />
             </div>
             <div className="min-w-0">
               <p className="text-[10px] font-bold uppercase tracking-wide text-[#5b554b]">

@@ -587,7 +587,7 @@ export function CameraStudio({ open, profileId, kind, caption, onClose, onPosted
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-4 bg-gradient-to-b from-neutral-950 to-black px-8 text-center"
               >
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow-400/15 text-yellow-300">
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-600/15 text-red-500">
                   <Sparkles className="h-7 w-7" />
                 </span>
                 {phase === "permission" && (
@@ -608,7 +608,7 @@ export function CameraStudio({ open, profileId, kind, caption, onClose, onPosted
                         </button>
                       </div>
                     )}
-                    <button onClick={() => boot(facing, micOn)} className="rounded-xl bg-gradient-to-r from-yellow-400 to-amber-500 px-6 py-2.5 text-sm font-semibold text-black">
+                    <button onClick={() => boot(facing, micOn)} className="rounded-xl bg-gradient-to-r from-red-600 to-amber-500 px-6 py-2.5 text-sm font-semibold text-black">
                       Permitir câmera
                     </button>
                   </>
@@ -631,7 +631,7 @@ export function CameraStudio({ open, profileId, kind, caption, onClose, onPosted
                       <h3 className="text-lg font-semibold text-white">Câmera indisponível aqui</h3>
                       <p className="mt-1 text-sm text-white/55">Seu navegador não suporta a câmera com filtros. Use a opção de enviar um arquivo de vídeo.</p>
                     </div>
-                    <button onClick={closeAll} className="rounded-xl bg-gradient-to-r from-yellow-400 to-amber-500 px-6 py-2.5 text-sm font-semibold text-black">
+                    <button onClick={closeAll} className="rounded-xl bg-gradient-to-r from-red-600 to-amber-500 px-6 py-2.5 text-sm font-semibold text-black">
                       <Upload className="mr-1.5 inline h-4 w-4" />Enviar arquivo
                     </button>
                   </>
@@ -643,11 +643,11 @@ export function CameraStudio({ open, profileId, kind, caption, onClose, onPosted
           {/* PUBLISHING overlay */}
           {phase === "publishing" && (
             <div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-4 bg-black/70 backdrop-blur-sm">
-              <Loader2 className="h-8 w-8 animate-spin text-yellow-300" />
+              <Loader2 className="h-8 w-8 animate-spin text-red-500" />
               <div className="w-56">
                 <div className="mb-1 flex justify-between text-xs text-white/70"><span>Publicando…</span><span>{Math.round(progress * 100)}%</span></div>
                 <div className="h-1.5 overflow-hidden rounded-full bg-white/15">
-                  <div className="h-full bg-gradient-to-r from-yellow-400 to-amber-500 transition-all" style={{ width: `${progress * 100}%` }} />
+                  <div className="h-full bg-gradient-to-r from-red-600 to-amber-500 transition-all" style={{ width: `${progress * 100}%` }} />
                 </div>
               </div>
             </div>
@@ -735,7 +735,7 @@ export function CameraStudio({ open, profileId, kind, caption, onClose, onPosted
                           </Tile>
                         ))}
                         <Tile active={overlay.watermark} onClick={() => setOverlay((o) => ({ ...o, watermark: !o.watermark }))} label="Marca">
-                          <span className="text-lg font-extrabold text-yellow-400">f</span>
+                          <span className="text-lg font-extrabold text-red-600">f</span>
                         </Tile>
                         {STICKER_CHARS.map((c) => (
                           <Tile key={c} active={false} onClick={() => addSticker(c)} label="sticker">
@@ -752,7 +752,7 @@ export function CameraStudio({ open, profileId, kind, caption, onClose, onPosted
 
                     {faceLoading && (panelTab === "rostos" || panelTab === "maquiagem") && (
                       <span className="flex h-14 w-14 shrink-0 items-center justify-center">
-                        <Loader2 className="h-5 w-5 animate-spin text-yellow-300" />
+                        <Loader2 className="h-5 w-5 animate-spin text-red-500" />
                       </span>
                     )}
                   </div>
@@ -766,7 +766,7 @@ export function CameraStudio({ open, profileId, kind, caption, onClose, onPosted
                         aria-label={id}
                         className={cn(
                           "rounded-full p-2.5 backdrop-blur transition",
-                          panelTab === id ? "bg-yellow-400/25 text-yellow-300" : "bg-black/30 text-white/70"
+                          panelTab === id ? "bg-red-600/25 text-red-500" : "bg-black/30 text-white/70"
                         )}
                       >
                         <Icon className="h-5 w-5" />
@@ -783,14 +783,14 @@ export function CameraStudio({ open, profileId, kind, caption, onClose, onPosted
                 <button onClick={() => (recording ? stopRecording() : startRecording())} className="relative flex h-[76px] w-[76px] items-center justify-center" aria-label={recording ? "Parar" : "Gravar"}>
                   <svg className="absolute inset-0 -rotate-90" viewBox="0 0 76 76">
                     <circle cx="38" cy="38" r="34" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="4" />
-                    {recording && <circle cx="38" cy="38" r="34" fill="none" stroke="#facc15" strokeWidth="4" strokeLinecap="round" strokeDasharray={2 * Math.PI * 34} strokeDashoffset={2 * Math.PI * 34 * (1 - progressPct / 100)} />}
+                    {recording && <circle cx="38" cy="38" r="34" fill="none" stroke="#C8102E" strokeWidth="4" strokeLinecap="round" strokeDasharray={2 * Math.PI * 34} strokeDashoffset={2 * Math.PI * 34 * (1 - progressPct / 100)} />}
                   </svg>
                   {recording ? (
-                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-yellow-400 ring-4 ring-white/30">
+                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-red-600 ring-4 ring-white/30">
                       <span className="h-6 w-6 rounded-[6px] bg-black" />
                     </span>
                   ) : (
-                    <span className="relative h-14 w-14 overflow-hidden rounded-full bg-yellow-400 ring-4 ring-white/30">
+                    <span className="relative h-14 w-14 overflow-hidden rounded-full bg-red-600 ring-4 ring-white/30">
                       <Image src="/freelandoo-logo.png" alt="Gravar" fill sizes="56px" className="object-cover" />
                     </span>
                   )}
@@ -798,7 +798,7 @@ export function CameraStudio({ open, profileId, kind, caption, onClose, onPosted
                 {!recording && (
                   <button
                     onClick={() => setPanelTab((t) => (t ? null : "filtros"))}
-                    className={cn("absolute right-7 top-1/2 -translate-y-1/2 rounded-full p-3.5 backdrop-blur-md transition", panelTab ? "bg-yellow-400/25 text-yellow-300" : "bg-white/15 text-white")}
+                    className={cn("absolute right-7 top-1/2 -translate-y-1/2 rounded-full p-3.5 backdrop-blur-md transition", panelTab ? "bg-red-600/25 text-red-500" : "bg-white/15 text-white")}
                     aria-label={panelTab ? "Fechar efeitos" : "Efeitos"}
                   >
                     {panelTab ? <X className="h-5 w-5" /> : <Palette className="h-5 w-5" />}
@@ -819,7 +819,7 @@ export function CameraStudio({ open, profileId, kind, caption, onClose, onPosted
               <button onClick={reRecord} className="inline-flex items-center gap-1.5 rounded-xl border border-white/15 px-5 py-2.5 text-sm font-medium text-white">
                 <RotateCcw className="h-4 w-4" />Regravar
               </button>
-              <button onClick={publish} className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-yellow-400 to-amber-500 px-6 py-2.5 text-sm font-semibold text-black">
+              <button onClick={publish} className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-500 px-6 py-2.5 text-sm font-semibold text-black">
                 <Check className="h-4 w-4" />Publicar story
               </button>
             </div>
@@ -846,7 +846,7 @@ function Slider({ label, value, min, max, onChange }: { label: string; value: nu
   return (
     <label className="flex items-center gap-3 text-[11px] text-white/85">
       <span className="w-20 shrink-0" style={LABEL_SHADOW}>{label}</span>
-      <input type="range" min={min} max={max} step={0.01} value={value} onChange={(e) => onChange(Number(e.target.value))} className="h-1 flex-1 accent-yellow-400 drop-shadow" />
+      <input type="range" min={min} max={max} step={0.01} value={value} onChange={(e) => onChange(Number(e.target.value))} className="h-1 flex-1 accent-red-600 drop-shadow" />
     </label>
   )
 }
@@ -878,7 +878,7 @@ function Tile({ active, onClick, label, children }: { active: boolean; onClick: 
       aria-label={label}
       className={cn(
         "flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-black/40 ring-2 backdrop-blur transition",
-        active ? "ring-yellow-400" : "ring-white/20"
+        active ? "ring-red-600" : "ring-white/20"
       )}
     >
       {children}
@@ -893,8 +893,8 @@ function FramePreview({ id }: { id: FrameStyle }) {
   if (id === "tabloide")
     return (
       <span className="relative h-9 w-9 bg-neutral-800">
-        <span className="absolute inset-x-0 top-0 h-1.5 bg-yellow-400" />
-        <span className="absolute inset-x-0 bottom-0 h-1.5 bg-yellow-400" />
+        <span className="absolute inset-x-0 top-0 h-1.5 bg-red-600" />
+        <span className="absolute inset-x-0 bottom-0 h-1.5 bg-red-600" />
       </span>
     )
   return <span className="h-9 w-8 border-[3px] border-b-[10px] border-white bg-neutral-700" /> // polaroid

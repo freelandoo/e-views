@@ -66,7 +66,7 @@ type Benchmark = { position: number; total: number; percentile: number | null; e
 // recolore os DETALHES (accent): ícones, aba ativa, barra de progresso, botão
 // entrar, destaques. A base (fundo, cards, texto) é fixa.
 const ACCENTS: { key: string; labelKey: string; fallback: string; hex: string }[] = [
-  { key: "gold", labelKey: "accentGold", fallback: "Dourado", hex: "#F2B705" },
+  { key: "gold", labelKey: "accentGold", fallback: "Dourado", hex: "#C8102E" },
   { key: "magenta", labelKey: "accentMagenta", fallback: "Magenta", hex: "#ff1f8e" },
   { key: "cyan", labelKey: "accentCyan", fallback: "Ciano", hex: "#16c8e8" },
   { key: "purple", labelKey: "accentPurple", fallback: "Roxo", hex: "#a06bff" },
@@ -413,7 +413,7 @@ export default function CommunityDetailPage() {
       <div className="min-h-[100dvh] bg-[#0b0804]">
         <div className="mx-auto max-w-md px-5 py-24 text-center">
           <p className="fl-display text-2xl text-[#F5F1E8]">{t("notFound", "Comunidade não encontrada.")}</p>
-          <Link href="/comunidades" className="mt-4 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-[#F2B705]">
+          <Link href="/comunidades" className="mt-4 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-[#C8102E]">
             <ArrowLeft className="h-4 w-4" /> {t("back", "Voltar")}
           </Link>
         </div>
@@ -456,7 +456,7 @@ export default function CommunityDetailPage() {
               </div>
             )}
             <button type="button" onClick={() => setEdit((e) => !e)}
-              className="inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#0B0B0D]">
+              className="inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.14em] text-white">
               {edit ? <><Eye className="h-4 w-4" /> {t("viewPublic", "Ver como público")}</> : <><ScrollText className="h-4 w-4" /> {t("edit", "Editar")}</>}
             </button>
           </div>
@@ -474,7 +474,7 @@ export default function CommunityDetailPage() {
             <div className="absolute inset-0" style={{ background: `linear-gradient(180deg, transparent 40%, #0b0804cc 100%)` }} />
             {showAsLeaderEdit && <ImageDrop label={t("changeBanner", "Trocar capa")} busy={uploading === "banner"} onFile={(f) => uploadImage("banner", f)} />}
             {community.enxame_name && (
-              <span className="absolute left-4 top-4 z-20 -rotate-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#0B0B0D]">
+              <span className="absolute left-4 top-4 z-20 -rotate-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.18em] text-white">
                 {tx.enxame(null, community.enxame_name)}
               </span>
             )}
@@ -561,7 +561,7 @@ export default function CommunityDetailPage() {
                     🏆 {t("goalPrizeNote", "100 poléns pro 1º lugar")} · {t("goalMinMembers", "mín. 5 membros")} {community.member_count < 5 ? `(${community.member_count}/5)` : ""}
                   </p>
                   <div className="flex gap-2 pt-1">
-                    <button type="button" disabled={savingGoal || community.member_count < 5} onClick={saveGoal} className="inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.12em] text-[#0B0B0D] disabled:opacity-50">
+                    <button type="button" disabled={savingGoal || community.member_count < 5} onClick={saveGoal} className="inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.12em] text-white disabled:opacity-50">
                       {savingGoal ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />} {t("goalStart", "Iniciar temporada")}
                     </button>
                     {goal && <button type="button" onClick={removeGoal} className="inline-flex items-center gap-2 border-2 border-[#ff5a44]/60 px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.12em] text-[#ff7a6a]"><Trash2 className="h-4 w-4" /> {t("goalRemove", "Remover")}</button>}
@@ -624,7 +624,7 @@ export default function CommunityDetailPage() {
                       <input type="checkbox" checked={annPin} onChange={(e) => setAnnPin(e.target.checked)} /> <Pin className="h-3 w-3" /> {t("muralPin", "Fixar")}
                     </label>
                     <button type="button" disabled={postingAnn || !annBody.trim()} onClick={postAnnouncement}
-                      className="ml-auto inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.12em] text-[#0B0B0D] disabled:opacity-50">
+                      className="ml-auto inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.12em] text-white disabled:opacity-50">
                       {postingAnn ? <Loader2 className="h-4 w-4 animate-spin" /> : <Megaphone className="h-4 w-4" />} {t("muralPost", "Publicar")}
                     </button>
                   </div>
@@ -829,7 +829,7 @@ export default function CommunityDetailPage() {
             <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.12em] text-[#9A938A]"><Hash className="h-4 w-4" /> {community.display_name}</span>
             {actionMsg && <span className="text-xs font-bold text-[#F5F1E8]/80">{actionMsg}</span>}
             <button type="button" onClick={saveAll} disabled={saving}
-              className="ml-auto inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-5 py-2 text-sm font-extrabold uppercase tracking-[0.14em] text-[#0B0B0D] disabled:opacity-60">
+              className="ml-auto inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-5 py-2 text-sm font-extrabold uppercase tracking-[0.14em] text-white disabled:opacity-60">
               {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />} {t("save", "Salvar")}
             </button>
           </div>
@@ -841,7 +841,7 @@ export default function CommunityDetailPage() {
         <div className="fixed inset-0 z-[80] grid place-items-center bg-black/70 p-4" onClick={() => !postingRecado && setRecadoOpen(false)}>
           <div className="w-full max-w-md border-2 border-[#0B0B0D] bg-[#15120E]" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between border-b-2 border-[#F5F1E8]/12 px-4 py-3">
-              <span className="inline-flex items-center gap-2 fl-display text-lg text-[#F2B705]"><MessageSquare className="h-4 w-4" /> {t("recadoTitle", "Novo recado")}</span>
+              <span className="inline-flex items-center gap-2 fl-display text-lg text-[#C8102E]"><MessageSquare className="h-4 w-4" /> {t("recadoTitle", "Novo recado")}</span>
               <button type="button" onClick={() => setRecadoOpen(false)} aria-label={t("cancel", "Cancelar")} className="grid h-8 w-8 place-items-center text-[#9A938A] hover:text-[#F5F1E8]"><X className="h-5 w-5" /></button>
             </div>
             <div className="px-4 py-4">
@@ -853,7 +853,7 @@ export default function CommunityDetailPage() {
                 <span className="text-[10px] tabular-nums text-[#9A938A]/70">{recadoBody.length}/2000</span>
               </div>
               <button type="button" disabled={postingRecado || !recadoBody.trim()} onClick={postRecado}
-                className="mt-3 flex w-full items-center justify-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-2.5 text-sm font-extrabold uppercase tracking-[0.12em] text-[#0B0B0D] disabled:opacity-50">
+                className="mt-3 flex w-full items-center justify-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-2.5 text-sm font-extrabold uppercase tracking-[0.12em] text-white disabled:opacity-50">
                 {postingRecado ? <Loader2 className="h-4 w-4 animate-spin" /> : <MessageSquare className="h-4 w-4" />} {t("recadoPublish", "Publicar recado")}
               </button>
             </div>

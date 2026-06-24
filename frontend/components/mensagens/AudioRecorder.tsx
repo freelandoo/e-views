@@ -309,7 +309,7 @@ export function AudioRecorder({
           aria-label={t("startRecordingAriaLabel", "Gravar áudio")}
           title={t("startRecordingAriaLabel", "Gravar áudio")}
           className={cn(
-            "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/65 transition-colors hover:bg-white/[0.08] hover:text-yellow-300",
+            "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/65 transition-colors hover:bg-white/[0.08] hover:text-red-500",
             disabled && "cursor-not-allowed opacity-40"
           )}
         >
@@ -366,7 +366,7 @@ export function AudioRecorder({
       initial={{ opacity: 0, scale: 0.96 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={SPRING}
-      className="flex w-full items-center gap-2 rounded-xl border border-yellow-400/30 bg-yellow-400/[0.05] px-3 py-2"
+      className="flex w-full items-center gap-2 rounded-xl border border-red-600/30 bg-red-600/[0.05] px-3 py-2"
     >
       {previewUrl && (
         <audio
@@ -383,14 +383,14 @@ export function AudioRecorder({
         type="button"
         onClick={togglePlay}
         aria-label={playing ? t("pauseAudioAriaLabel", "Pausar") : t("playAudioAriaLabel", "Tocar")}
-        className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/[0.08] text-yellow-300 transition hover:bg-white/[0.14]"
+        className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/[0.08] text-red-500 transition hover:bg-white/[0.14]"
       >
         {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4 translate-x-px" />}
       </button>
       <div className="flex-1 min-w-0">
         <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/10">
           <div
-            className="h-full bg-gradient-to-r from-yellow-400 to-amber-500 transition-[width] duration-150"
+            className="h-full bg-gradient-to-r from-red-600 to-amber-500 transition-[width] duration-150"
             style={{ width: `${Math.min(100, progress * 100)}%` }}
           />
         </div>
@@ -420,7 +420,7 @@ export function AudioRecorder({
         whileTap={{ scale: 0.94 }}
         transition={SPRING}
         aria-label={t("sendAudioAriaLabel", "Enviar áudio")}
-        className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400 to-amber-500 text-neutral-950 shadow-[0_8px_20px_-8px_rgba(250,204,21,0.55)] transition disabled:cursor-not-allowed disabled:opacity-50"
+        className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-red-600 to-amber-500 text-neutral-950 shadow-[0_8px_20px_-8px_rgba(250,204,21,0.55)] transition disabled:cursor-not-allowed disabled:opacity-50"
       >
         {state === "uploading" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
       </motion.button>
@@ -512,7 +512,7 @@ export function AudioMessage({ src, durationSeconds, mine }: AudioMessageProps) 
           <div
             className={cn(
               "h-full transition-[width] duration-150",
-              mine ? "bg-neutral-950" : "bg-gradient-to-r from-yellow-400 to-amber-500"
+              mine ? "bg-neutral-950" : "bg-gradient-to-r from-red-600 to-amber-500"
             )}
             style={{ width: `${Math.min(100, progress * 100)}%` }}
           />

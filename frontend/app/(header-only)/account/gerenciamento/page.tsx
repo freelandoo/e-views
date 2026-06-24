@@ -275,7 +275,7 @@ export default function AccountManagementPage() {
         <div className="mb-8">
           <Link
             href="/account"
-            className="inline-flex items-center gap-1.5 text-[12px] font-bold uppercase tracking-[0.12em] text-[#C9C2B6]/70 transition hover:text-[#F2B705]"
+            className="inline-flex items-center gap-1.5 text-[12px] font-bold uppercase tracking-[0.12em] text-[#C9C2B6]/70 transition hover:text-[#C8102E]"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             {t("mgmtBackToAccount", "Voltar pra conta")}
@@ -291,11 +291,11 @@ export default function AccountManagementPage() {
               <a
                 key={key}
                 href={`#mgmt-${key}`}
-                className="inline-flex items-center gap-1.5 border-2 border-[#F1EDE2]/20 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#F1EDE2] transition hover:border-[#F2B705] hover:text-[#F2B705]"
+                className="inline-flex items-center gap-1.5 border-2 border-[#F1EDE2]/20 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#F1EDE2] transition hover:border-[#C8102E] hover:text-[#C8102E]"
               >
                 <Icon className="h-3.5 w-3.5" />
                 {title}
-                <span className="tabular-nums text-[#F2B705]">{count}</span>
+                <span className="tabular-nums text-[#C8102E]">{count}</span>
               </a>
             ))}
           </div>
@@ -515,9 +515,9 @@ function Section({
   return (
     <section id={id} className="scroll-mt-24">
       <header className="mb-3 flex items-center gap-2">
-        <span className="flex h-7 w-7 items-center justify-center bg-[#F2B705] text-[#0B0B0D]">{icon}</span>
+        <span className="flex h-7 w-7 items-center justify-center bg-[#C8102E] text-white">{icon}</span>
         <h2 className="fl-display text-2xl text-[#F1EDE2] md:text-3xl">{title}</h2>
-        <span className="ml-1 text-sm font-extrabold tabular-nums text-[#F2B705]">{count}</span>
+        <span className="ml-1 text-sm font-extrabold tabular-nums text-[#C8102E]">{count}</span>
       </header>
       {count === 0 ? (
         <div className="border-2 border-dashed border-[#F1EDE2]/15 p-5 text-center text-xs font-bold uppercase tracking-[0.12em] text-[#C9C2B6]/50">
@@ -557,7 +557,7 @@ function Row({
           // eslint-disable-next-line @next/next/no-img-element
           <img src={image} alt={title} loading="lazy" className="h-full w-full object-cover" />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-sm font-bold text-[#F2B705]">{fallback}</div>
+          <div className="flex h-full w-full items-center justify-center text-sm font-bold text-[#C8102E]">{fallback}</div>
         )}
       </div>
 
@@ -569,7 +569,7 @@ function Row({
               key={badge.label}
               className={cn(
                 "px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-[0.1em]",
-                badge.tone === "yellow" ? "bg-[#F2B705] text-[#0B0B0D]" : "bg-[#0B0B0D]/10 text-[#6B6457]",
+                badge.tone === "yellow" ? "bg-[#C8102E] text-white" : "bg-[#0B0B0D]/10 text-[#6B6457]",
               )}
             >
               {badge.label}
@@ -584,7 +584,7 @@ function Row({
           type="button"
           onClick={onEdit}
           disabled={editLoading}
-          className="inline-flex h-9 items-center gap-1.5 border-2 border-[#0B0B0D] bg-[#FBF8F1] px-2.5 text-[11px] font-extrabold uppercase tracking-[0.1em] text-[#0B0B0D] transition hover:-translate-y-0.5 hover:bg-[#F2B705] disabled:opacity-60 md:px-3"
+          className="inline-flex h-9 items-center gap-1.5 border-2 border-[#0B0B0D] bg-[#FBF8F1] px-2.5 text-[11px] font-extrabold uppercase tracking-[0.1em] text-white transition hover:-translate-y-0.5 hover:bg-[#C8102E] disabled:opacity-60 md:px-3"
         >
           {editLoading ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <PencilLine className="h-3.5 w-3.5" />}
           <span className="hidden sm:inline">{t("mgmtEdit", "Editar")}</span>

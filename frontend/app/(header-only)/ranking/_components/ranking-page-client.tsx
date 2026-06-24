@@ -181,7 +181,7 @@ function rowHref(row: RankingRow) {
 function activeMachineTheme(machine: CatalogMachine | null | undefined) {
   const seed = findSeedMachine(String(machine?.slug ?? ""))
   return {
-    accent: machine?.color_accent || seed?.colors.accent || "#e6b800",
+    accent: machine?.color_accent || seed?.colors.accent || "#C8102E",
     ring: machine?.color_ring || seed?.colors.ring || "rgba(230,184,0,0.55)",
     glow: machine?.color_glow || seed?.colors.glow || "rgba(230,184,0,0.35)",
   }
@@ -394,21 +394,21 @@ export function RankingPageClient() {
         <div className="md:col-span-12">
           <div data-ranking-hero className="mb-4 flex flex-wrap items-center gap-3">
             <span className="inline-flex items-center gap-2 bg-[#0B0B0D] px-3 py-1.5 text-[#F1EDE2]">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-[#F2B705]" />
+              <span className="h-2 w-2 animate-pulse rounded-full bg-[#C8102E]" />
               <span className="text-[11px] font-extrabold uppercase tracking-[0.2em]">{t("badgeRanking", "Ranking Freelandoo")}</span>
             </span>
-            <span className="fl-marker text-2xl text-[#F2B705]">{t("updatesEvery2h", "atualiza a cada 2h")}</span>
+            <span className="fl-marker text-2xl text-[#C8102E]">{t("updatesEvery2h", "atualiza a cada 2h")}</span>
           </div>
 
           <h1 className="relative">
             <span data-ranking-hero className="fl-display block text-[13vw] leading-[0.88] text-[#F1EDE2] sm:text-[9vw] lg:text-[5.5rem]">
               {t("heroLine1", "Os líderes")}
             </span>
-            <span data-ranking-hero className="fl-display relative z-10 block text-[13vw] leading-[0.88] text-[#F2B705] sm:text-[9vw] lg:text-[5.5rem]">
+            <span data-ranking-hero className="fl-display relative z-10 block text-[13vw] leading-[0.88] text-[#C8102E] sm:text-[9vw] lg:text-[5.5rem]">
               {t("heroLine2", "do momento.")}
-              <Underline className="absolute -bottom-3 left-0 h-5 w-[58%] text-[#F2B705]" />
+              <Underline className="absolute -bottom-3 left-0 h-5 w-[58%] text-[#C8102E]" />
             </span>
-            <Spark className="absolute -left-1 -top-5 h-9 w-9 text-[#F2B705] md:-left-7" />
+            <Spark className="absolute -left-1 -top-5 h-9 w-9 text-[#C8102E] md:-left-7" />
           </h1>
 
           <p data-ranking-hero className="mt-7 max-w-xl text-pretty text-base font-medium leading-relaxed text-[#C9C2B6] md:text-lg">
@@ -440,7 +440,7 @@ export function RankingPageClient() {
                     className={cn(
                       "inline-flex h-10 items-center gap-2 border-2 px-4 text-[11px] font-extrabold uppercase tracking-[0.12em] transition-transform hover:-translate-y-0.5",
                       active
-                        ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[4px_4px_0_0_#0B0B0D]"
+                        ? "border-[#0B0B0D] bg-[#C8102E] text-white shadow-[4px_4px_0_0_#0B0B0D]"
                         : "border-[#F1EDE2]/25 bg-transparent text-[#F1EDE2] hover:border-[#F1EDE2]"
                     )}
                   >
@@ -463,7 +463,7 @@ export function RankingPageClient() {
                     onClick={() => setMachineSlug(String(machine.slug))}
                     className={cn(
                       "h-9 shrink-0 border-2 px-3 text-[11px] font-extrabold uppercase tracking-[0.1em] transition",
-                      active ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D]" : "border-[#F1EDE2]/20 text-[#C9C2B6] hover:border-[#F1EDE2]/50"
+                      active ? "border-[#0B0B0D] bg-[#C8102E] text-white" : "border-[#F1EDE2]/20 text-[#C9C2B6] hover:border-[#F1EDE2]/50"
                     )}
                   >
                     {tx.enxame(machine.slug, machine.name)}
@@ -507,7 +507,7 @@ export function RankingPageClient() {
                   type="button"
                   className="inline-flex h-11 w-fit items-center gap-2 border-2 border-[#F1EDE2]/25 px-4 text-sm font-extrabold uppercase tracking-[0.1em] text-[#F1EDE2] transition hover:border-[#F1EDE2]"
                 >
-                  <MapPin className="h-4 w-4 text-[#F2B705]" />
+                  <MapPin className="h-4 w-4 text-[#C8102E]" />
                   {regionName && regionState ? `${regionName}, ${regionState}` : t("regionPlaceholder", "Região")}
                 </button>
               }
@@ -522,7 +522,7 @@ export function RankingPageClient() {
                   onClick={() => setCommMachineId(null)}
                   className={cn(
                     "h-9 shrink-0 border-2 px-3 text-[11px] font-extrabold uppercase tracking-[0.1em] transition",
-                    commMachineId == null ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D]" : "border-[#F1EDE2]/20 text-[#C9C2B6] hover:border-[#F1EDE2]/50"
+                    commMachineId == null ? "border-[#0B0B0D] bg-[#C8102E] text-white" : "border-[#F1EDE2]/20 text-[#C9C2B6] hover:border-[#F1EDE2]/50"
                   )}
                 >
                   {t("allEnxames", "Todos")}
@@ -536,7 +536,7 @@ export function RankingPageClient() {
                       onClick={() => setCommMachineId(active ? null : machine.id_machine)}
                       className={cn(
                         "h-9 shrink-0 border-2 px-3 text-[11px] font-extrabold uppercase tracking-[0.1em] transition",
-                        active ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D]" : "border-[#F1EDE2]/20 text-[#C9C2B6] hover:border-[#F1EDE2]/50"
+                        active ? "border-[#0B0B0D] bg-[#C8102E] text-white" : "border-[#F1EDE2]/20 text-[#C9C2B6] hover:border-[#F1EDE2]/50"
                       )}
                     >
                       {tx.enxame(machine.slug, machine.name)}
@@ -559,7 +559,7 @@ export function RankingPageClient() {
                     type="button"
                     className="inline-flex h-11 w-fit items-center gap-2 border-2 border-[#F1EDE2]/25 px-4 text-sm font-extrabold uppercase tracking-[0.1em] text-[#F1EDE2] transition hover:border-[#F1EDE2]"
                   >
-                    <MapPin className="h-4 w-4 text-[#F2B705]" />
+                    <MapPin className="h-4 w-4 text-[#C8102E]" />
                     {regionName && regionState ? `${regionName}, ${regionState}` : t("allRegions", "Todas as regiões")}
                   </button>
                 }
@@ -573,7 +573,7 @@ export function RankingPageClient() {
       <section className="mx-auto w-full max-w-6xl px-5 pt-20 md:px-8 md:pt-24">
         <div className="relative mb-4 flex items-end justify-between">
           <div className="relative">
-            <p className="fl-marker text-2xl text-[#F2B705]">{t("podiumEyebrow", "o topo da temporada")}</p>
+            <p className="fl-marker text-2xl text-[#C8102E]">{t("podiumEyebrow", "o topo da temporada")}</p>
             <h2 className="fl-display text-4xl text-[#F1EDE2] md:text-5xl">{t("podiumHeading", "O pódio.")}</h2>
           </div>
           <span className="hidden text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#C9C2B6]/50 sm:block">{t("top3", "Top 3")} · {scopeLabel}</span>
@@ -594,7 +594,7 @@ export function RankingPageClient() {
           <div className="relative">
             <h2 className="fl-display text-4xl text-[#F1EDE2] md:text-6xl">{t("listHeading", "A lista inteira")}</h2>
             <p className="mt-2 fl-marker text-2xl text-[#C9C2B6]/80">{scopeLabel}</p>
-            <Underline className="absolute -bottom-3 left-0 h-4 w-44 text-[#F2B705]" />
+            <Underline className="absolute -bottom-3 left-0 h-4 w-44 text-[#C8102E]" />
           </div>
           <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#C9C2B6]/50">{t("top10", "Top 10")}</span>
         </div>
@@ -658,23 +658,23 @@ function RankingRowCard({
     <Link
       data-ranking-row
       href={rowHref(row)}
-      className="group relative flex items-center gap-3 border-2 border-[#0B0B0D] bg-[#F1EDE2] px-3 py-3 shadow-[5px_5px_0_0_#0B0B0D] transition-transform duration-200 hover:-translate-y-1 hover:-rotate-[0.4deg] hover:shadow-[8px_8px_0_0_#F2B705] md:gap-5 md:px-5 md:py-4"
+      className="group relative flex items-center gap-3 border-2 border-[#0B0B0D] bg-[#F1EDE2] px-3 py-3 shadow-[5px_5px_0_0_#0B0B0D] transition-transform duration-200 hover:-translate-y-1 hover:-rotate-[0.4deg] hover:shadow-[8px_8px_0_0_#C8102E] md:gap-5 md:px-5 md:py-4"
     >
       <div className="flex w-9 shrink-0 justify-center md:w-12">
         <span className="fl-display text-3xl text-[#0B0B0D] md:text-4xl">{rank}</span>
       </div>
 
-      <div className="relative shrink-0 rotate-[-2deg] overflow-hidden border-2 border-[#0B0B0D]" style={{ outline: "2px solid #F2B705", outlineOffset: "1px" }}>
+      <div className="relative shrink-0 rotate-[-2deg] overflow-hidden border-2 border-[#0B0B0D]" style={{ outline: "2px solid #C8102E", outlineOffset: "1px" }}>
         <Avatar className="h-12 w-12 rounded-none md:h-14 md:w-14">
           {row.avatar_url && <AvatarImage src={row.avatar_url} alt={row.display_name} className="object-cover" />}
-          <AvatarFallback className="rounded-none bg-[#1D1810] text-xs font-bold text-[#F2B705]">{initials}</AvatarFallback>
+          <AvatarFallback className="rounded-none bg-[#1D1810] text-xs font-bold text-[#C8102E]">{initials}</AvatarFallback>
         </Avatar>
       </div>
 
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
           <h4 className="fl-display truncate text-xl leading-none text-[#0B0B0D] md:text-2xl">{row.display_name}</h4>
-          <span className={cn("hidden -rotate-1 px-1.5 py-0.5 text-[8px] font-extrabold uppercase tracking-[0.12em] sm:inline-block", row.is_clan || row.is_community ? "bg-[#F2B705] text-[#0B0B0D]" : "bg-[#0B0B0D] text-[#F1EDE2]")}>
+          <span className={cn("hidden -rotate-1 px-1.5 py-0.5 text-[8px] font-extrabold uppercase tracking-[0.12em] sm:inline-block", row.is_clan || row.is_community ? "bg-[#C8102E] text-white" : "bg-[#0B0B0D] text-[#F1EDE2]")}>
             {row.is_community ? t("badgeCommunity", "Comunidade") : row.is_clan ? t("badgeClan", "Clan") : t("badgePerfil", "Perfil")}
           </span>
           {level > 0 && (
@@ -685,17 +685,17 @@ function RankingRowCard({
         </div>
         <p className="truncate text-[11px] font-semibold text-[#6B6457]">{meta}</p>
         <div className="mt-1.5 flex items-center gap-2 md:gap-4">
-          <Stat className="hidden md:inline-flex" icon={<Star className="h-3.5 w-3.5 text-[#E0A500]" />} value={row.avg_rating ? Number(row.avg_rating).toFixed(1) : "0.0"} />
+          <Stat className="hidden md:inline-flex" icon={<Star className="h-3.5 w-3.5 text-[#9B0F24]" />} value={row.avg_rating ? Number(row.avg_rating).toFixed(1) : "0.0"} />
           <Stat className="hidden md:inline-flex" icon={<Eye className="h-3.5 w-3.5 text-[#6B6457]" />} value={<AnimatedNumber value={row.visits_count ?? 0} compact />} />
           <RankingSocialActions summary={summary} onLike={onLike} onComments={onComments} />
         </div>
       </div>
 
       <div className="flex shrink-0 flex-col items-end">
-        <div className="fl-display text-2xl leading-none text-[#E0A500] md:text-4xl">{numberFormatter.format(Math.round(points))}</div>
+        <div className="fl-display text-2xl leading-none text-[#9B0F24] md:text-4xl">{numberFormatter.format(Math.round(points))}</div>
         <div className="mt-1 flex items-center gap-1 text-[8px] font-bold uppercase tracking-[0.14em] text-[#6B6457]">
           {t("pontos", "pontos")}
-          <ArrowUpRight className="h-3.5 w-3.5 text-[#0B0B0D]/40 transition group-hover:text-[#E0A500]" />
+          <ArrowUpRight className="h-3.5 w-3.5 text-[#0B0B0D]/40 transition group-hover:text-[#9B0F24]" />
         </div>
       </div>
     </Link>
@@ -725,7 +725,7 @@ function RankingEmpty() {
   const t = useTranslations("Ranking")
   return (
     <div className="flex min-h-[300px] flex-col items-center justify-center border-2 border-dashed border-[#F1EDE2]/15 text-center">
-      <div className="flex h-12 w-12 items-center justify-center bg-[#F2B705] text-[#0B0B0D]">
+      <div className="flex h-12 w-12 items-center justify-center bg-[#C8102E] text-white">
         <Trophy className="h-6 w-6" />
       </div>
       <p className="mt-4 fl-display text-2xl text-[#F1EDE2]">{t("emptyTitle", "Ninguém no ranking ainda.")}</p>

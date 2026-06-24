@@ -46,7 +46,7 @@ export function MiniCalendar({ selectedWeekStart, onWeekChange, month, onMonthCh
       />
       <style jsx global>{`
         .freelandoo-mini-calendar .rdp-root {
-          --rdp-accent-color: #facc15;
+          --rdp-accent-color: #C8102E;
           --rdp-accent-background-color: rgba(250, 204, 21, 0.15);
           --rdp-day_button-width: 32px;
           --rdp-day_button-height: 32px;
@@ -70,14 +70,14 @@ export function MiniCalendar({ selectedWeekStart, onWeekChange, month, onMonthCh
         }
         .freelandoo-mini-calendar .rdp-day_button:hover:not([disabled]) {
           background: rgba(250, 204, 21, 0.12);
-          color: #facc15;
+          color: #C8102E;
         }
         .freelandoo-mini-calendar .freelandoo-week-day .rdp-day_button {
           background: rgba(250, 204, 21, 0.18);
           color: #fde68a;
         }
         .freelandoo-mini-calendar .freelandoo-week-day-selected .rdp-day_button {
-          background: #facc15 !important;
+          background: #C8102E !important;
           color: #18181b !important;
           font-weight: 700;
         }
@@ -94,7 +94,7 @@ export function MiniCalendar({ selectedWeekStart, onWeekChange, month, onMonthCh
         .freelandoo-mini-calendar .rdp-button_previous:hover,
         .freelandoo-mini-calendar .rdp-button_next:hover {
           background: rgba(250, 204, 21, 0.12);
-          color: #facc15;
+          color: #C8102E;
         }
       `}</style>
     </div>

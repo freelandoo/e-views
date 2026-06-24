@@ -103,7 +103,7 @@ const TAG_COLOR_CLASSES: Record<string, string> = {
   red:     "border-red-400/25 bg-red-400/10 text-red-300",
   blue:    "border-blue-400/25 bg-blue-400/10 text-blue-300",
   green:   "border-green-400/25 bg-green-400/10 text-green-300",
-  yellow:  "border-yellow-400/25 bg-yellow-400/10 text-yellow-300",
+  yellow:  "border-red-600/25 bg-red-600/10 text-red-500",
   orange:  "border-orange-400/25 bg-orange-400/10 text-orange-300",
 }
 

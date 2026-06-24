@@ -21,7 +21,7 @@ type Eligibility = {
 }
 
 const inputCls =
-  "h-11 w-full rounded-xl border-2 border-[#F5F1E8]/10 bg-[#0B0B0D]/40 px-4 text-sm text-[#F5F1E8] placeholder:text-[#F5F1E8]/40 outline-none focus:border-[#F2B705]/60"
+  "h-11 w-full rounded-xl border-2 border-[#F5F1E8]/10 bg-[#0B0B0D]/40 px-4 text-sm text-[#F5F1E8] placeholder:text-[#F5F1E8]/40 outline-none focus:border-[#C8102E]/60"
 
 export default function CreateCommunityPage() {
   const t = useTranslations("Community")
@@ -147,13 +147,13 @@ export default function CreateCommunityPage() {
             <textarea className={`${inputCls} h-24 py-2`} value={bio} onChange={(e) => setBio(e.target.value)} maxLength={200} />
           </div>
 
-          {msg ? <p className="rounded-lg bg-[#F2B705]/15 px-3 py-2 text-sm text-[#F5F1E8]">{msg}</p> : null}
+          {msg ? <p className="rounded-lg bg-[#C8102E]/15 px-3 py-2 text-sm text-[#F5F1E8]">{msg}</p> : null}
 
           {capReached ? (
-            <div className="rounded-2xl border-2 border-[#F2B705]/30 bg-[#1D1810]/60 p-4">
-              <p className="flex items-center gap-2 text-sm font-semibold text-[#F2B705]"><Ticket className="h-4 w-4" /> {t("slotTitle", "Ingresso de Comunidade")}</p>
+            <div className="rounded-2xl border-2 border-[#C8102E]/30 bg-[#1D1810]/60 p-4">
+              <p className="flex items-center gap-2 text-sm font-semibold text-[#C8102E]"><Ticket className="h-4 w-4" /> {t("slotTitle", "Ingresso de Comunidade")}</p>
               <p className="mt-1 text-sm text-[#F5F1E8]/70">{t("slotDesc", "Por R$100 você libera +1 comunidade para criar e +1 para participar (máximo de 3).")}</p>
-              <button type="button" disabled={buyingSlot} onClick={buySlot} className="mt-3 inline-flex items-center gap-2 rounded-xl bg-[#F2B705] px-5 py-2.5 text-sm font-bold text-[#1A1505] disabled:opacity-60">
+              <button type="button" disabled={buyingSlot} onClick={buySlot} className="mt-3 inline-flex items-center gap-2 rounded-xl bg-[#C8102E] px-5 py-2.5 text-sm font-bold text-[#1A1505] disabled:opacity-60">
                 <Ticket className="h-4 w-4" /> {t("slotBuy", "Comprar ingresso (R$100)")}
               </button>
             </div>
@@ -162,7 +162,7 @@ export default function CreateCommunityPage() {
               type="button"
               disabled={submitting || !levelOk}
               onClick={submit}
-              className="inline-flex items-center gap-2 rounded-xl bg-[#F2B705] px-6 py-2.5 text-sm font-bold text-[#1A1505] disabled:opacity-60"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#C8102E] px-6 py-2.5 text-sm font-bold text-[#1A1505] disabled:opacity-60"
             >
               <Plus className="h-4 w-4" /> {submitting ? t("creating", "Criando...") : t("createButton", "Criar")}
             </button>

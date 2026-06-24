@@ -296,7 +296,7 @@ export function ProfileHeadCard({
       return { label: t("statusActive", "ativo"), className: "bg-[#16683f] text-[#ECFDF3]" }
     if (profile.is_paid && !profile.is_visible)
       return { label: t("statusDraftBadge", "rascunho"), className: "bg-[#0B0B0D] text-[#F1EDE2]" }
-    return { label: t("statusUnpublished", "não publicado"), className: "bg-[#F2B705] text-[#1A1505]" }
+    return { label: t("statusUnpublished", "não publicado"), className: "bg-[#C8102E] text-[#1A1505]" }
   }, [isOwnProfile, isPublished, profile.is_paid, profile.is_visible, t])
 
   const socials = (profile.social_media || []).filter((s) => s.is_active !== false)
@@ -328,7 +328,7 @@ export function ProfileHeadCard({
               className="object-cover"
             />
           ) : (
-            <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(242,183,5,0.30),transparent_38%),linear-gradient(135deg,#2a2212,#141009)]" />
+            <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(200, 16, 46,0.30),transparent_38%),linear-gradient(135deg,#2a2212,#141009)]" />
           )}
           {statusBadge && (
             <div className="absolute right-3 top-3">
@@ -343,7 +343,7 @@ export function ProfileHeadCard({
             </div>
           )}
           {profile.manifestation?.tag_label && !isClan && (
-            <div className="absolute left-3 top-3 inline-flex max-w-[calc(100%-1.5rem)] items-center gap-1.5 rounded-full border-2 border-[#0B0B0D] bg-[#0B0B0D] px-3 py-1.5 text-xs font-bold text-[#F2B705] shadow-[2px_2px_0_0_rgba(242,183,5,0.5)]">
+            <div className="absolute left-3 top-3 inline-flex max-w-[calc(100%-1.5rem)] items-center gap-1.5 rounded-full border-2 border-[#0B0B0D] bg-[#0B0B0D] px-3 py-1.5 text-xs font-bold text-[#C8102E] shadow-[2px_2px_0_0_rgba(200, 16, 46,0.5)]">
               <Sparkles className="h-3.5 w-3.5 shrink-0" />
               <span className="truncate">{profile.manifestation.tag_label}</span>
             </div>
@@ -363,7 +363,7 @@ export function ProfileHeadCard({
                   disabled={uploadingAvatar}
                   aria-label={t("changeAvatar", "Trocar foto de perfil")}
                   title={t("changeAvatar", "Trocar foto de perfil")}
-                  className="group relative flex aspect-[4/5] w-24 -rotate-3 items-center justify-center overflow-hidden rounded-xl border-4 border-[#0B0B0D] bg-[#F2B705]/15 shadow-[6px_6px_0_0_#F2B705] transition-transform duration-300 hover:rotate-0 disabled:opacity-70 md:w-32"
+                  className="group relative flex aspect-[4/5] w-24 -rotate-3 items-center justify-center overflow-hidden rounded-xl border-4 border-[#0B0B0D] bg-[#C8102E]/15 shadow-[6px_6px_0_0_#C8102E] transition-transform duration-300 hover:rotate-0 disabled:opacity-70 md:w-32"
                 >
                   {avatarSrc ? (
                     /* eslint-disable-next-line @next/next/no-img-element */
@@ -381,7 +381,7 @@ export function ProfileHeadCard({
                   </span>
                 </button>
               ) : (
-                <div className="relative flex aspect-[4/5] w-24 -rotate-3 items-center justify-center overflow-hidden rounded-xl border-4 border-[#0B0B0D] bg-[#F2B705]/15 shadow-[6px_6px_0_0_#F2B705] md:w-32">
+                <div className="relative flex aspect-[4/5] w-24 -rotate-3 items-center justify-center overflow-hidden rounded-xl border-4 border-[#0B0B0D] bg-[#C8102E]/15 shadow-[6px_6px_0_0_#C8102E] md:w-32">
                   {avatarSrc ? (
                     /* eslint-disable-next-line @next/next/no-img-element */
                     <img src={avatarSrc} alt={displayName} className="h-full w-full object-cover" />
@@ -634,7 +634,7 @@ function HeadInfo({
 }) {
   return (
     <div className="flex min-w-0 items-center gap-1.5 text-[#2b2b2e]">
-      <Icon className="h-3 w-3 shrink-0 text-[#E0A500]" />
+      <Icon className="h-3 w-3 shrink-0 text-[#9B0F24]" />
       <span className="truncate text-[11px] font-medium md:text-xs">{value}</span>
     </div>
   )
@@ -663,7 +663,7 @@ function IconAction({
   const baseClass = cn(
     "relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-[#0B0B0D] transition active:scale-[0.96]",
     accent
-      ? "bg-[#F2B705] text-[#1A1505] shadow-[2px_2px_0_0_#0B0B0D] hover:bg-[#ffc81f]"
+      ? "bg-[#C8102E] text-[#1A1505] shadow-[2px_2px_0_0_#0B0B0D] hover:bg-[#E03250]"
       : "bg-[#F1EDE2] text-[#0B0B0D] hover:bg-[#0B0B0D] hover:text-[#F1EDE2]",
   )
   const body = (
@@ -745,7 +745,7 @@ function SocialIcons({ socials, socialFallback }: { socials: ProfileSocialLink[]
           rel="noopener noreferrer"
           title={social.desc_social_media_type || socialFallback}
           aria-label={social.desc_social_media_type || socialFallback}
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[11px] border-2 border-[#0B0B0D] bg-[#F1EDE2] text-[#E0A500] shadow-[2px_2px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:bg-[#0B0B0D] hover:text-[#F2B705] hover:shadow-[3px_3px_0_0_#0B0B0D]"
+          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[11px] border-2 border-[#0B0B0D] bg-[#F1EDE2] text-[#9B0F24] shadow-[2px_2px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:bg-[#0B0B0D] hover:text-[#C8102E] hover:shadow-[3px_3px_0_0_#0B0B0D]"
         >
           {getSocialIcon(social.icon)}
         </a>
@@ -762,10 +762,10 @@ function MuralPill({ onClick, hasNew, label, ariaLabel }: { onClick: () => void;
       className="group relative inline-flex items-center gap-2 rounded-full border-2 border-[#0B0B0D] bg-[#F1EDE2] px-3 py-1.5 text-[12px] font-bold text-[#0B0B0D] transition hover:bg-[#0B0B0D] hover:text-[#F1EDE2]"
       aria-label={ariaLabel}
     >
-      <Megaphone className="h-3.5 w-3.5 text-[#E0A500] group-hover:text-[#F2B705]" />
+      <Megaphone className="h-3.5 w-3.5 text-[#9B0F24] group-hover:text-[#C8102E]" />
       <span>{label}</span>
       {hasNew && (
-        <span className="ml-0.5 inline-flex h-2 w-2 rounded-full bg-[#F2B705] shadow-[0_0_0_2px_#F1EDE2]" />
+        <span className="ml-0.5 inline-flex h-2 w-2 rounded-full bg-[#C8102E] shadow-[0_0_0_2px_#F1EDE2]" />
       )}
     </button>
   )

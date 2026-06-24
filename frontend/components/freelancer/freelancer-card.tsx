@@ -123,11 +123,11 @@ export function FreelancerCard({ creator, featured = false }: FreelancerCardProp
   // Cores derivadas do enxame; dark anchor garante o fade escuro no rodapé.
   const premiumGradient = colors
     ? `linear-gradient(160deg, color-mix(in srgb, ${colors.accent} 30%, #ffffff) 0%, ${colors.accent} 38%, ${colors.from} 78%, color-mix(in srgb, ${colors.from} 55%, #1a1a1a) 100%)`
-    : "linear-gradient(160deg, #fde047 0%, #facc15 42%, #ca8a04 100%)"
+    : "linear-gradient(160deg, #E03250 0%, #C8102E 42%, #ca8a04 100%)"
 
   const cardStyle: React.CSSProperties = isPremium
     ? {
-        borderColor: colors?.accent ?? "#facc15",
+        borderColor: colors?.accent ?? "#C8102E",
         background: premiumGradient,
         boxShadow: colors
           ? [
@@ -355,7 +355,7 @@ export function FreelancerCard({ creator, featured = false }: FreelancerCardProp
                 }
               : isPremium
                 ? {
-                    background: "linear-gradient(180deg, #facc15 0%, #854d0e 100%)",
+                    background: "linear-gradient(180deg, #C8102E 0%, #854d0e 100%)",
                     color: "#ffffff",
                     boxShadow:
                       "0 6px 20px -4px rgba(250,204,21,0.55), inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(0,0,0,0.35)",

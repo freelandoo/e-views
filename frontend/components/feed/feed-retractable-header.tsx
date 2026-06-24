@@ -80,7 +80,7 @@ export function FeedRetractableHeader({
     >
       <div className="fl-root pointer-events-auto relative border-b-2 border-[#0B0B0D] bg-[#0b0804]/95 backdrop-blur-md">
         {/* faixa dourada inferior — assinatura tabloide */}
-        <div aria-hidden className="absolute inset-x-0 -bottom-[2px] h-[2px] bg-[#F2B705]" />
+        <div aria-hidden className="absolute inset-x-0 -bottom-[2px] h-[2px] bg-[#C8102E]" />
 
         <div className="relative flex items-center gap-2 px-4 pb-3 pt-3 sm:gap-3 sm:px-6">
           <DropdownMenu>
@@ -88,7 +88,7 @@ export function FeedRetractableHeader({
               <button
                 type="button"
                 aria-label={t("createLabel", "Criar")}
-                className="inline-flex h-9 w-9 shrink-0 items-center justify-center border-2 border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[2px_2px_0_0_#0B0B0D] transition hover:bg-[#ffc81f] active:translate-x-px active:translate-y-px"
+                className="inline-flex h-9 w-9 shrink-0 items-center justify-center border-2 border-[#0B0B0D] bg-[#C8102E] text-white shadow-[2px_2px_0_0_#0B0B0D] transition hover:bg-[#E03250] active:translate-x-px active:translate-y-px"
               >
                 <Plus className="h-5 w-5" strokeWidth={2.5} />
               </button>
@@ -173,7 +173,7 @@ interface PillProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Pill = function Pill({ label, active, accent, icon, ...rest }: PillProps) {
-  const tint = accent || "#F2B705"
+  const tint = accent || "#C8102E"
   const activeStyle: React.CSSProperties = active
     ? { background: tint, borderColor: "#0B0B0D", color: "#0B0B0D" }
     : {}

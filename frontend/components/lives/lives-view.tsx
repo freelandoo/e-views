@@ -64,7 +64,7 @@ export function LivesView({ onBack }: LivesViewProps) {
           <button
             type="button"
             onClick={() => router.push("/account")}
-            className="mt-5 w-full rounded-full bg-yellow-400 px-6 py-3 text-sm font-bold text-zinc-950 transition hover:bg-yellow-300"
+            className="mt-5 w-full rounded-full bg-red-600 px-6 py-3 text-sm font-bold text-zinc-950 transition hover:bg-red-500"
           >
             {t("soonClose", "Fechar")}
           </button>

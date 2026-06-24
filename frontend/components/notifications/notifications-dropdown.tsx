@@ -138,7 +138,7 @@ export function NotificationsDropdown({ open, anchorRef, onClose, onUnreadCountC
           <button
             type="button"
             onClick={markAll}
-            className="text-[11px] font-semibold text-[#F2B705] transition hover:text-[#ffc81f]"
+            className="text-[11px] font-semibold text-[#C8102E] transition hover:text-[#E03250]"
           >
             {t("markAllShort", "Marcar todas")}
           </button>

@@ -129,7 +129,7 @@ export default function AdminTourPage() {
             </section>
 
             <div className="flex items-center justify-between">
-              <Link href="/bem-vindo?rever=1" className="inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-2 text-sm font-bold text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D] transition hover:-translate-y-0.5">
+              <Link href="/bem-vindo?rever=1" className="inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-2 text-sm font-bold text-white shadow-[3px_3px_0_0_#0B0B0D] transition hover:-translate-y-0.5">
                 <Compass className="h-4 w-4" /> Abrir o tour agora
               </Link>
               <span className="text-xs text-muted-foreground">
@@ -155,7 +155,7 @@ function Toggle({ on, onClick }: { on: boolean; onClick: () => void }) {
       type="button"
       onClick={onClick}
       aria-pressed={on}
-      className={`relative h-7 w-12 shrink-0 border-2 border-[#0B0B0D] transition ${on ? "bg-[#F2B705]" : "bg-[#0E0B06]"}`}
+      className={`relative h-7 w-12 shrink-0 border-2 border-[#0B0B0D] transition ${on ? "bg-[#C8102E]" : "bg-[#0E0B06]"}`}
     >
       <span className={`absolute top-0.5 h-5 w-5 bg-[#F1EDE2] transition-all ${on ? "left-[22px]" : "left-0.5"}`} />
     </button>
@@ -169,11 +169,11 @@ function Choice({ label, desc, active, disabled, onClick }: { label: string; des
       onClick={onClick}
       disabled={disabled}
       className={`border-2 p-3 text-left transition disabled:cursor-not-allowed ${
-        active ? "border-[#F2B705] bg-[#F2B705]/10" : "border-[#0B0B0D] bg-[#0E0B06] hover:border-[#F1EDE2]/30"
+        active ? "border-[#C8102E] bg-[#C8102E]/10" : "border-[#0B0B0D] bg-[#0E0B06] hover:border-[#F1EDE2]/30"
       }`}
     >
       <span className="flex items-center gap-2 text-sm font-bold text-[#F1EDE2]">
-        {active && <Check className="h-4 w-4 text-[#F2B705]" />}
+        {active && <Check className="h-4 w-4 text-[#C8102E]" />}
         {label}
       </span>
       <span className="mt-0.5 block text-xs text-[#F1EDE2]/55">{desc}</span>

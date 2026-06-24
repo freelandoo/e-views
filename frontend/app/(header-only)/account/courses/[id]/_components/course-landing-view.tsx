@@ -502,7 +502,7 @@ export function CourseLandingView({ courseId }: Props) {
 
           {savingField && (
             <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-white/45">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#F2B705]" />
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#C8102E]" />
               {t("saving", "Salvando...")}
             </span>
           )}
@@ -541,7 +541,7 @@ export function CourseLandingView({ courseId }: Props) {
 
           {/* Painel editável (tabloide) — tudo editável in-place pelo dono */}
           <div className="relative mt-5 border-2 border-white/12 bg-[#15100A] p-5 shadow-[6px_6px_0_0_rgba(0,0,0,0.5)] md:p-6">
-            <p className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-[#F2B705]">
+            <p className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-[#C8102E]">
               <Sparkles className="h-3 w-3" />
               {t("courseEditorEyebrow", "Curso Freelandoo · edite tudo aqui")}
             </p>
@@ -563,7 +563,7 @@ export function CourseLandingView({ courseId }: Props) {
               onBlur={(e) => saveField("short_description", e.target.value)}
               placeholder={t("courseShortPlaceholder", "Uma frase que resume a proposta do curso (opcional)")}
               maxLength={280}
-              className="mt-3 w-full border-b border-white/10 bg-transparent pb-1.5 text-sm text-white/75 outline-none placeholder:text-white/30 focus:border-[#F2B705]/50"
+              className="mt-3 w-full border-b border-white/10 bg-transparent pb-1.5 text-sm text-white/75 outline-none placeholder:text-white/30 focus:border-[#C8102E]/50"
             />
 
             {/* Meta pills (contadores) */}
@@ -593,7 +593,7 @@ export function CourseLandingView({ courseId }: Props) {
                 onBlur={(e) => saveField("description", e.target.value)}
                 rows={4}
                 placeholder={t("courseFullDescriptionPlaceholder", "Conte o que o aluno vai aprender, pra quem é o curso, o que ele precisa saber antes…")}
-                className="w-full resize-y border-2 border-white/10 bg-[#0E0B06] p-3 text-sm leading-relaxed text-white/80 outline-none placeholder:text-white/30 focus:border-[#F2B705]/40"
+                className="w-full resize-y border-2 border-white/10 bg-[#0E0B06] p-3 text-sm leading-relaxed text-white/80 outline-none placeholder:text-white/30 focus:border-[#C8102E]/40"
               />
             </div>
 
@@ -603,8 +603,8 @@ export function CourseLandingView({ courseId }: Props) {
                 <label className="mb-1 block text-[10px] font-bold uppercase tracking-[0.18em] text-white/40">
                   {t("priceLabel", "Preço")}
                 </label>
-                <div className="flex items-center border-2 border-white/12 bg-[#0E0B06] px-3 focus-within:border-[#F2B705]/50">
-                  <span className="fl-display text-lg text-[#F2B705]">R$</span>
+                <div className="flex items-center border-2 border-white/12 bg-[#0E0B06] px-3 focus-within:border-[#C8102E]/50">
+                  <span className="fl-display text-lg text-[#C8102E]">R$</span>
                   <input
                     value={form.price_text}
                     onChange={(e) => setForm((f) => ({ ...f, price_text: e.target.value }))}
@@ -626,7 +626,7 @@ export function CourseLandingView({ courseId }: Props) {
                   </label>
                   {clanInfo ? (
                     // Curso de clan: o vínculo é fixo (definido ao criar pelo clan).
-                    <div className="flex h-[46px] items-center gap-2 border-2 border-[#F2B705]/30 bg-[#F2B705]/10 px-3 text-sm font-semibold text-[#F2B705]">
+                    <div className="flex h-[46px] items-center gap-2 border-2 border-[#C8102E]/30 bg-[#C8102E]/10 px-3 text-sm font-semibold text-[#C8102E]">
                       <Users className="h-4 w-4" />
                       {t("clanPrefix", "Clan:")} {clanInfo.name}
                     </div>
@@ -638,7 +638,7 @@ export function CourseLandingView({ courseId }: Props) {
                         setForm((f) => ({ ...f, profile_id: v }))
                         void saveField("profile_id", v)
                       }}
-                      className="h-[46px] w-full border-2 border-white/12 bg-[#0E0B06] px-3 text-sm text-white outline-none focus:border-[#F2B705]/40"
+                      className="h-[46px] w-full border-2 border-white/12 bg-[#0E0B06] px-3 text-sm text-white outline-none focus:border-[#C8102E]/40"
                     >
                       <option value="">{t("noLinkedProfile", "Sem perfil vinculado")}</option>
                       {profileOptions.map((p) => (
@@ -679,7 +679,7 @@ export function CourseLandingView({ courseId }: Props) {
                         key={m.id_member_profile}
                         className={`flex cursor-pointer items-center gap-3 border-2 p-2.5 transition-colors ${
                           checked
-                            ? "border-[#F2B705]/60 bg-[#F2B705]/10"
+                            ? "border-[#C8102E]/60 bg-[#C8102E]/10"
                             : "border-white/10 bg-white/[0.02] hover:bg-white/[0.05]"
                         }`}
                       >
@@ -688,7 +688,7 @@ export function CourseLandingView({ courseId }: Props) {
                           checked={checked}
                           disabled={savingMembers}
                           onChange={() => toggleMember(m.id_member_profile)}
-                          className="h-4 w-4 accent-[#F2B705]"
+                          className="h-4 w-4 accent-[#C8102E]"
                         />
                         {m.avatar_url ? (
                           // eslint-disable-next-line @next/next/no-img-element

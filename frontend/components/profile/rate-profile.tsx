@@ -88,8 +88,8 @@ export function RateProfile({ profileId }: Props) {
                   <Star
                     className="h-7 w-7"
                     style={{
-                      fill: filled ? "#E0A500" : "transparent",
-                      color: filled ? "#E0A500" : "rgba(11,11,13,0.3)",
+                      fill: filled ? "#9B0F24" : "transparent",
+                      color: filled ? "#9B0F24" : "rgba(11,11,13,0.3)",
                     }}
                   />
                 </button>

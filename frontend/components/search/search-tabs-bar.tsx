@@ -36,7 +36,7 @@ export function SearchTabsBar({ tab, onTabChange }: Props) {
               className={cn(
                 "group flex flex-1 items-center justify-center gap-1.5 border-2 py-2.5 text-[11px] font-extrabold uppercase tracking-[0.12em] transition-transform hover:-translate-y-0.5",
                 active
-                  ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D]"
+                  ? "border-[#0B0B0D] bg-[#C8102E] text-white shadow-[3px_3px_0_0_#0B0B0D]"
                   : "border-[#F1EDE2]/20 bg-transparent text-[#C9C2B6] hover:border-[#F1EDE2] hover:text-[#F1EDE2]",
               )}
             >

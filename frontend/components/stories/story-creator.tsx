@@ -213,7 +213,7 @@ export function StoryCreator({ open, initialKind = "rest", onClose, onPosted }: 
                 "flex h-9 w-9 items-center justify-center rounded-xl",
                 effectiveKind === "trampo"
                   ? "bg-gradient-to-br from-amber-400/30 to-orange-500/20 text-amber-300"
-                  : "bg-gradient-to-br from-yellow-400/25 to-amber-500/15 text-yellow-300"
+                  : "bg-gradient-to-br from-red-600/25 to-amber-500/15 text-red-500"
               )}
             >
               <Sparkles className="h-4 w-4" />
@@ -241,7 +241,7 @@ export function StoryCreator({ open, initialKind = "rest", onClose, onPosted }: 
             <Label>{t("subprofileLabel", "Subperfil")}</Label>
             {loadingProfiles ? (
               <div className="flex items-center gap-2 text-sm text-white/60">
-                <Loader2 className="h-4 w-4 animate-spin text-yellow-300" />
+                <Loader2 className="h-4 w-4 animate-spin text-red-500" />
                 {t("loadingProfiles", "Carregando perfis…")}
               </div>
             ) : profiles.length === 0 ? (
@@ -262,11 +262,11 @@ export function StoryCreator({ open, initialKind = "rest", onClose, onPosted }: 
                       className={cn(
                         "flex w-[82px] shrink-0 flex-col items-center gap-1.5 rounded-2xl border p-2.5 text-center transition-colors",
                         isSel
-                          ? "border-yellow-400/60 bg-gradient-to-br from-yellow-400/15 to-amber-500/[0.06] shadow-[0_8px_24px_-12px_rgba(250,204,21,0.4)]"
+                          ? "border-red-600/60 bg-gradient-to-br from-red-600/15 to-amber-500/[0.06] shadow-[0_8px_24px_-12px_rgba(250,204,21,0.4)]"
                           : "border-white/10 bg-white/[0.03] hover:border-white/25"
                       )}
                     >
-                      <Avatar className={cn("h-12 w-12 ring-2 transition", isSel ? "ring-yellow-400/60" : "ring-transparent")}>
+                      <Avatar className={cn("h-12 w-12 ring-2 transition", isSel ? "ring-red-600/60" : "ring-transparent")}>
                         {p.avatar_url && <AvatarImage src={p.avatar_url} alt={p.display_name} />}
                         <AvatarFallback className="bg-zinc-800 text-[10px] text-white/80">
                           {p.display_name?.[0]?.toUpperCase() || "?"}
@@ -321,7 +321,7 @@ export function StoryCreator({ open, initialKind = "rest", onClose, onPosted }: 
               <button
                 type="button"
                 onClick={() => setCameraOpen(true)}
-                className="mb-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-yellow-400/30 bg-gradient-to-r from-yellow-400/10 to-amber-500/[0.06] px-4 py-2.5 text-sm font-semibold text-yellow-200 transition hover:border-yellow-400/50 hover:from-yellow-400/15"
+                className="mb-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-red-600/30 bg-gradient-to-r from-red-600/10 to-amber-500/[0.06] px-4 py-2.5 text-sm font-semibold text-red-300 transition hover:border-red-600/50 hover:from-red-600/15"
               >
                 <Video className="h-4 w-4" />
                 {t("recordWithCamera", "Gravar com a câmera (filtros)")}
@@ -338,7 +338,7 @@ export function StoryCreator({ open, initialKind = "rest", onClose, onPosted }: 
                   transition={SPRING}
                   className="relative mx-auto w-full aspect-[9/16] max-w-[260px] max-h-[460px] overflow-hidden rounded-2xl ring-1 ring-white/10 bg-black shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]"
                 >
-                  <div className="pointer-events-none absolute inset-0 z-10 rounded-2xl bg-gradient-to-tr from-yellow-400/0 via-amber-300/[0.06] to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 z-10 rounded-2xl bg-gradient-to-tr from-red-600/0 via-amber-300/[0.06] to-transparent" />
                   <video
                     src={previewUrl}
                     className="h-full w-full object-cover"
@@ -373,7 +373,7 @@ export function StoryCreator({ open, initialKind = "rest", onClose, onPosted }: 
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
                   transition={SPRING}
-                  className="group relative mx-auto flex w-full aspect-[9/16] max-w-[260px] max-h-[460px] cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl border border-dashed border-white/15 bg-white/[0.02] transition-all hover:border-yellow-400/40 hover:bg-yellow-400/[0.04]"
+                  className="group relative mx-auto flex w-full aspect-[9/16] max-w-[260px] max-h-[460px] cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl border border-dashed border-white/15 bg-white/[0.02] transition-all hover:border-red-600/40 hover:bg-red-600/[0.04]"
                   onDragOver={(e) => e.preventDefault()}
                   onDrop={handleDrop}
                 >
@@ -390,7 +390,7 @@ export function StoryCreator({ open, initialKind = "rest", onClose, onPosted }: 
                     transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
                     className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/[0.06] ring-1 ring-white/10"
                   >
-                    <Video className="h-5 w-5 text-yellow-300" />
+                    <Video className="h-5 w-5 text-red-500" />
                   </motion.div>
                   <span className="px-6 text-center text-sm font-medium text-white/85">
                     {t("videoDragDropText", "Toque ou arraste seu vídeo 9:16")}
@@ -417,7 +417,7 @@ export function StoryCreator({ open, initialKind = "rest", onClose, onPosted }: 
               onChange={(e) => setCaption(e.target.value.slice(0, MAX_CAPTION))}
               placeholder={t("captionPlaceholder", "Diga algo curto…")}
               rows={2}
-              className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-sm text-white placeholder:text-white/30 transition focus:border-yellow-400/40 focus:outline-none focus:ring-2 focus:ring-yellow-400/20"
+              className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-sm text-white placeholder:text-white/30 transition focus:border-red-600/40 focus:outline-none focus:ring-2 focus:ring-red-600/20"
             />
           </section>
 
@@ -452,7 +452,7 @@ export function StoryCreator({ open, initialKind = "rest", onClose, onPosted }: 
             disabled={!file || !selectedProfileId || submitting}
             whileTap={{ scale: 0.97 }}
             transition={SPRING}
-            className="ml-auto inline-flex h-10 items-center gap-2 rounded-xl bg-gradient-to-r from-yellow-400 to-amber-500 px-5 text-sm font-semibold text-black shadow-[0_8px_24px_-8px_rgba(250,204,21,0.55)] transition hover:from-yellow-300 hover:to-amber-400 disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
+            className="ml-auto inline-flex h-10 items-center gap-2 rounded-xl bg-gradient-to-r from-red-600 to-amber-500 px-5 text-sm font-semibold text-black shadow-[0_8px_24px_-8px_rgba(250,204,21,0.55)] transition hover:from-red-500 hover:to-amber-400 disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
           >
             {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
             {submitting ? t("publishingStatus", "Publicando…") : t("publishButton", "Publicar story")}
@@ -511,7 +511,7 @@ function ChannelButton({
       className={cn(
         "rounded-2xl border p-3 text-left transition-colors",
         active
-          ? "border-yellow-400/60 bg-gradient-to-br from-yellow-400/15 to-amber-500/[0.06] text-yellow-200 shadow-[0_8px_24px_-12px_rgba(250,204,21,0.4)]"
+          ? "border-red-600/60 bg-gradient-to-br from-red-600/15 to-amber-500/[0.06] text-red-300 shadow-[0_8px_24px_-12px_rgba(250,204,21,0.4)]"
           : "border-white/10 bg-white/[0.03] text-white/85 hover:border-white/25",
         disabled && "cursor-not-allowed opacity-40"
       )}

@@ -55,7 +55,7 @@ export function EditableText({
     as,
     {
       className: cn(
-        "cursor-pointer rounded outline-dashed outline-2 outline-offset-2 outline-[#E0A500] transition hover:bg-[#F2B705]/15",
+        "cursor-pointer rounded outline-dashed outline-2 outline-offset-2 outline-[#9B0F24] transition hover:bg-[#C8102E]/15",
         className,
       ),
       title: "Clique para editar (admin)",

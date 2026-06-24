@@ -6,7 +6,7 @@ export default function ResetPasswordPage() {
     <Suspense
       fallback={
         <div className="fl-root fl-paper-texture flex min-h-[100dvh] items-center justify-center">
-          <div className="h-9 w-9 animate-spin rounded-full border-[3px] border-[#F5F1E8]/15 border-t-[#F2B705]" />
+          <div className="h-9 w-9 animate-spin rounded-full border-[3px] border-[#F5F1E8]/15 border-t-[#C8102E]" />
         </div>
       }
     >

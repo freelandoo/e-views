@@ -93,7 +93,7 @@ export function AudioPicker({ value, onChange }: AudioPickerProps) {
             </div>
             <button
               type="button" onClick={() => { audioRef.current?.pause(); setPreviewId(null); onChange(null) }}
-              className="border-2 border-[#0B0B0D] bg-[#1D1810] px-2 py-1 text-[#F2B705]" aria-label={t("audio.remove", "Remover música")}
+              className="border-2 border-[#0B0B0D] bg-[#1D1810] px-2 py-1 text-[#C8102E]" aria-label={t("audio.remove", "Remover música")}
             >
               <X className="h-3.5 w-3.5" />
             </button>
@@ -106,7 +106,7 @@ export function AudioPicker({ value, onChange }: AudioPickerProps) {
               <input
                 type="range" min={0} max={maxStartMs} step={500} value={Math.min(startMs, maxStartMs)}
                 onChange={(e) => onChange({ trackId: selected.id_audio_track, title: selected.title, artist: selected.artist, startMs: Number(e.target.value) })}
-                className="mt-1 w-full accent-[#F2B705]"
+                className="mt-1 w-full accent-[#C8102E]"
               />
             </div>
           )}
@@ -125,7 +125,7 @@ export function AudioPicker({ value, onChange }: AudioPickerProps) {
       {/* Lista */}
       {loading ? (
         <div className="flex items-center justify-center gap-2 py-8 text-sm text-[#a89f8d]">
-          <Loader2 className="h-4 w-4 animate-spin text-[#F2B705]" /> {t("loading", "Carregando…")}
+          <Loader2 className="h-4 w-4 animate-spin text-[#C8102E]" /> {t("loading", "Carregando…")}
         </div>
       ) : error ? (
         <div className="flex flex-col items-center gap-1 py-8 text-center">
@@ -147,14 +147,14 @@ export function AudioPicker({ value, onChange }: AudioPickerProps) {
                 <div
                   className={cn(
                     "flex items-center gap-2 border-2 border-[#0B0B0D] px-2 py-1.5 transition",
-                    active ? "bg-[#F2B705]" : "bg-[#1D1810]",
+                    active ? "bg-[#C8102E]" : "bg-[#1D1810]",
                   )}
                 >
                   <button
                     type="button" onClick={() => togglePreview(track)} disabled={!track.audio_url}
                     className={cn(
                       "grid h-8 w-8 shrink-0 place-items-center border-2 border-[#0B0B0D]",
-                      active ? "bg-[#0B0B0D] text-[#F2B705]" : "bg-[#F1EDE2] text-[#0B0B0D]",
+                      active ? "bg-[#0B0B0D] text-[#C8102E]" : "bg-[#F1EDE2] text-[#0B0B0D]",
                       !track.audio_url && "opacity-40",
                     )}
                     aria-label={playing ? t("audio.pausePreview", "Pausar prévia") : t("audio.playPreview", "Ouvir prévia")}

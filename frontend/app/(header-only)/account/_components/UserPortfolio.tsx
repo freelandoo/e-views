@@ -540,7 +540,7 @@ export function UserPortfolio({
   const tabBtn = (active: boolean) =>
     `inline-flex h-8 items-center justify-center gap-1.5 border-b-2 px-3 text-[11px] font-semibold uppercase tracking-wide transition ${
       active
-        ? "border-[#F2B705] bg-[#F2B705]/10 text-[#F2B705]"
+        ? "border-[#C8102E] bg-[#C8102E]/10 text-[#C8102E]"
         : "border-transparent text-[#9A938A] hover:bg-[#F5F1E8]/[0.04] hover:text-[#F5F1E8]"
     }`
 
@@ -649,7 +649,7 @@ export function UserPortfolio({
             <ImageIcon className="h-8 w-8 opacity-60" />
           </div>
           <p className="text-sm font-medium">{emptyLabel}</p>
-          <button type="button" onClick={handleAddItem} className="mt-2 text-sm font-bold text-[#F2B705] hover:underline">
+          <button type="button" onClick={handleAddItem} className="mt-2 text-sm font-bold text-[#C8102E] hover:underline">
             {tr("addFirstItem", "Adicionar o primeiro item")}
           </button>
         </div>
@@ -788,7 +788,7 @@ export function UserPortfolio({
                     <div className="flex items-center gap-2 shrink-0">
                       <span
                         className={`flex items-center gap-1 text-xs ${
-                          item.liked_by_me ? "text-[#F2B705]" : "text-[#9A938A]"
+                          item.liked_by_me ? "text-[#C8102E]" : "text-[#9A938A]"
                         }`}
                         title={`${item.likes_count ?? 0} curtidas`}
                       >
@@ -866,7 +866,7 @@ export function UserPortfolio({
           <div className="relative overflow-y-auto max-h-[92vh] [scrollbar-width:thin]">
             <DialogHeader className="px-6 pt-6 pb-3 border-b-2 border-[#0B0B0D]/15">
               <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-xl border-2 border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D]">
+                <span className="flex h-9 w-9 items-center justify-center rounded-xl border-2 border-[#0B0B0D] bg-[#C8102E] text-white">
                   <Sparkles className="h-4 w-4" />
                 </span>
                 <div className="min-w-0">
@@ -913,7 +913,7 @@ export function UserPortfolio({
                           portfolioTab === "bees" ? "aspect-[9/16] max-w-[260px]" : "aspect-[4/5]"
                         } max-h-[460px] overflow-hidden rounded-2xl ring-1 ring-white/10 bg-black shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]`}
                       >
-                        <div className="pointer-events-none absolute inset-0 z-10 rounded-2xl bg-gradient-to-tr from-yellow-400/0 via-amber-300/[0.04] to-transparent" />
+                        <div className="pointer-events-none absolute inset-0 z-10 rounded-2xl bg-gradient-to-tr from-red-600/0 via-amber-300/[0.04] to-transparent" />
                         {portfolioTab === "bees" ? (
                           <video
                             src={pendingPreview}
@@ -963,7 +963,7 @@ export function UserPortfolio({
                         transition={{ type: "spring", stiffness: 220, damping: 26 }}
                         className={`group relative mx-auto flex w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed border-[#0B0B0D]/25 bg-[#0B0B0D]/[0.03] ${
                           portfolioTab === "bees" ? "aspect-[9/16] max-w-[260px]" : "aspect-[4/5]"
-                        } max-h-[460px] transition-all hover:border-[#E0A500] hover:bg-[#F2B705]/[0.08]`}
+                        } max-h-[460px] transition-all hover:border-[#9B0F24] hover:bg-[#C8102E]/[0.08]`}
                         onDragOver={(e) => e.preventDefault()}
                         onDrop={handlePendingFileDrop}
                       >
@@ -986,7 +986,7 @@ export function UserPortfolio({
                               ? { repeat: Infinity, duration: 1, ease: "linear" }
                               : { repeat: Infinity, duration: 2.4, ease: "easeInOut" }
                           }
-                          className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-[#0B0B0D] bg-[#F2B705]/20"
+                          className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-[#0B0B0D] bg-[#C8102E]/20"
                         >
                           {processingMedia ? (
                             <Loader2 className="h-5 w-5 text-[#8a6d00]" />
@@ -1201,7 +1201,7 @@ function SavedSection() {
           onClick={() => setSavedKind("feed")}
           className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition ${
             savedKind === "feed"
-              ? "bg-[#F2B705]/15 text-[#F2B705]"
+              ? "bg-[#C8102E]/15 text-[#C8102E]"
               : "text-[#9A938A] hover:text-[#F5F1E8]"
           }`}
         >
@@ -1213,7 +1213,7 @@ function SavedSection() {
           onClick={() => setSavedKind("bees")}
           className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition ${
             savedKind === "bees"
-              ? "bg-[#F2B705]/15 text-[#F2B705]"
+              ? "bg-[#C8102E]/15 text-[#C8102E]"
               : "text-[#9A938A] hover:text-[#F5F1E8]"
           }`}
         >

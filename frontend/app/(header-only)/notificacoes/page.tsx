@@ -103,7 +103,7 @@ export default function NotificationsPage() {
             <button
               type="button"
               onClick={markAll}
-              className="ml-auto text-xs font-bold text-[#F2B705] transition hover:text-[#ffc81f]"
+              className="ml-auto text-xs font-bold text-[#C8102E] transition hover:text-[#E03250]"
             >
               {t("markAllRead", "Marcar todas como lidas")}
             </button>

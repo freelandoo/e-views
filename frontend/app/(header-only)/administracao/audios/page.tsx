@@ -87,7 +87,7 @@ export default function AdminAudiosPage() {
       <div className="mx-auto max-w-5xl">
         <header className="mb-6 flex items-end justify-between border-b-2 border-[#F1EDE2]/12 pb-4">
           <div>
-            <h1 className="fl-display text-4xl leading-none text-[#F2B705]">Biblioteca de áudio</h1>
+            <h1 className="fl-display text-4xl leading-none text-[#C8102E]">Biblioteca de áudio</h1>
             <p className="mt-1 text-[11px] font-black uppercase tracking-[0.16em] text-[#a89f8d]">
               Faixas do composer · Post · Bee · Story
             </p>
@@ -107,11 +107,11 @@ export default function AdminAudiosPage() {
 
         {loading ? (
           <div className="flex justify-center py-16">
-            <span className="h-8 w-8 animate-spin rounded-full border-[3px] border-[#F1EDE2]/15 border-t-[#F2B705]" />
+            <span className="h-8 w-8 animate-spin rounded-full border-[3px] border-[#F1EDE2]/15 border-t-[#C8102E]" />
           </div>
         ) : tracks.length === 0 ? (
-          <div className="grid place-items-center border-2 border-dashed border-[#F2B705]/60 py-16 text-center">
-            <div className="fl-display text-2xl uppercase text-[#F2B705]">Sem faixas ainda</div>
+          <div className="grid place-items-center border-2 border-dashed border-[#C8102E]/60 py-16 text-center">
+            <div className="fl-display text-2xl uppercase text-[#C8102E]">Sem faixas ainda</div>
             <p className="mt-2 max-w-sm text-sm text-[#a89f8d]">
               Suba MP3/AAC royalty-free. Título, artista, capa e duração. A aba Música do composer
               fica vazia até você adicionar a primeira faixa.
@@ -137,7 +137,7 @@ export default function AdminAudiosPage() {
                 {t.audio_url && <audio src={t.audio_url} controls className="h-8 w-40 max-w-[40vw]" preload="none" />}
                 <button
                   type="button" onClick={() => toggleActive(t)}
-                  className={`border-2 border-[#0B0B0D] px-2 py-1 text-[9px] font-black uppercase tracking-[0.06em] ${t.is_active ? "bg-[#F2B705]" : "bg-[#e8e2d4] text-[#6B6457]"}`}
+                  className={`border-2 border-[#0B0B0D] px-2 py-1 text-[9px] font-black uppercase tracking-[0.06em] ${t.is_active ? "bg-[#C8102E]" : "bg-[#e8e2d4] text-[#6B6457]"}`}
                 >
                   {t.is_active ? "Ativa" : "Oculta"}
                 </button>
@@ -149,7 +149,7 @@ export default function AdminAudiosPage() {
                 </button>
                 <button
                   type="button" onClick={() => remove(t.id_audio_track)}
-                  className="border-2 border-[#0B0B0D] bg-[#1D1810] px-2 py-1 text-[9px] font-black uppercase tracking-[0.06em] text-[#F2B705]"
+                  className="border-2 border-[#0B0B0D] bg-[#1D1810] px-2 py-1 text-[9px] font-black uppercase tracking-[0.06em] text-[#C8102E]"
                 >
                   Excluir
                 </button>
@@ -218,7 +218,7 @@ function TrackModal({ editing, onClose, onSaved }: { editing: AudioTrack | null;
   return (
     <div className="fixed inset-0 z-50 grid place-items-center bg-black/70 p-4" onClick={onClose}>
       <div
-        className="w-full max-w-md border-2 border-[#0B0B0D] bg-[#F1EDE2] p-5 text-[#0B0B0D] shadow-[8px_8px_0_0_#F2B705]"
+        className="w-full max-w-md border-2 border-[#0B0B0D] bg-[#F1EDE2] p-5 text-[#0B0B0D] shadow-[8px_8px_0_0_#C8102E]"
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="fl-display mb-4 text-2xl uppercase">{editing ? "Editar faixa" : "Nova faixa"}</h2>

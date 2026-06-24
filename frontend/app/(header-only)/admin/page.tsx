@@ -186,15 +186,15 @@ export default function AdminPage() {
                         <button
                           type="button"
                           onClick={() => router.push(card.href)}
-                          className="group flex w-full items-center gap-3 border-2 border-[#0B0B0D] bg-[#1D1810] px-3 py-3 text-left shadow-[4px_4px_0_0_#0B0B0D] transition-transform duration-200 hover:-translate-y-0.5 hover:-rotate-[0.3deg] hover:shadow-[7px_7px_0_0_#F2B705]"
+                          className="group flex w-full items-center gap-3 border-2 border-[#0B0B0D] bg-[#1D1810] px-3 py-3 text-left shadow-[4px_4px_0_0_#0B0B0D] transition-transform duration-200 hover:-translate-y-0.5 hover:-rotate-[0.3deg] hover:shadow-[7px_7px_0_0_#C8102E]"
                         >
                           {/* caixa do ícone rotacionada (igual avatar das conversas) */}
                           <div
                             className="relative shrink-0 rotate-[-2deg] overflow-hidden border-2 border-[#0B0B0D]"
-                            style={{ outline: "2px solid #F2B705", outlineOffset: "1px" }}
+                            style={{ outline: "2px solid #C8102E", outlineOffset: "1px" }}
                           >
                             <div className="flex h-11 w-11 items-center justify-center bg-[#0E0B06]">
-                              <Icon className={`h-5 w-5 ${card.iconClass ?? "text-[#F2B705]"}`} />
+                              <Icon className={`h-5 w-5 ${card.iconClass ?? "text-[#C8102E]"}`} />
                             </div>
                           </div>
                           <div className="min-w-0 flex-1">
@@ -203,7 +203,7 @@ export default function AdminPage() {
                                 {card.title}
                               </span>
                               {card.badge && (
-                                <span className="shrink-0 border-2 border-[#0B0B0D] bg-[#F2B705] px-1.5 text-[10px] font-black uppercase tracking-wide text-[#0B0B0D]">
+                                <span className="shrink-0 border-2 border-[#0B0B0D] bg-[#C8102E] px-1.5 text-[10px] font-black uppercase tracking-wide text-white">
                                   {card.badge}
                                 </span>
                               )}

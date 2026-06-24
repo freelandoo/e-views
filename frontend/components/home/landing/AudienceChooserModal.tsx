@@ -108,9 +108,9 @@ export function AudienceChooserModal() {
               <button
                 type="button"
                 onClick={chooseBuyer}
-                className="group flex flex-col items-start gap-3 border-2 border-[#0B0B0D] bg-white p-5 text-left transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#F2B705] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0D]"
+                className="group flex flex-col items-start gap-3 border-2 border-[#0B0B0D] bg-white p-5 text-left transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#C8102E] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0D]"
               >
-                <span className="inline-flex h-11 w-11 items-center justify-center border-2 border-[#0B0B0D] bg-[#F2B705]">
+                <span className="inline-flex h-11 w-11 items-center justify-center border-2 border-[#0B0B0D] bg-[#C8102E]">
                   <Search className="h-5 w-5 text-[#0B0B0D]" />
                 </span>
                 <span className="text-lg font-bold leading-snug text-[#0B0B0D]">
@@ -122,10 +122,10 @@ export function AudienceChooserModal() {
               <button
                 type="button"
                 onClick={chooseSeller}
-                className="group flex flex-col items-start gap-3 border-2 border-[#0B0B0D] bg-white p-5 text-left transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#F2B705] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0D]"
+                className="group flex flex-col items-start gap-3 border-2 border-[#0B0B0D] bg-white p-5 text-left transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#C8102E] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0D]"
               >
                 <span className="inline-flex h-11 w-11 items-center justify-center border-2 border-[#0B0B0D] bg-[#0B0B0D]">
-                  <Sparkles className="h-5 w-5 text-[#F2B705]" />
+                  <Sparkles className="h-5 w-5 text-[#C8102E]" />
                 </span>
                 <span className="text-lg font-bold leading-snug text-[#0B0B0D]">
                   Sou profissional ou influenciador e quero ganhar dinheiro

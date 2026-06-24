@@ -54,7 +54,7 @@ const TAG_COLOR_CLASSES: Record<string, string> = {
   red:     "border-red-300/40 bg-red-500/15 text-red-100",
   blue:    "border-blue-300/40 bg-blue-500/15 text-blue-100",
   green:   "border-green-300/40 bg-green-500/15 text-green-100",
-  yellow:  "border-yellow-300/40 bg-yellow-500/15 text-yellow-100",
+  yellow:  "border-red-500/40 bg-red-600/15 text-red-200",
   orange:  "border-orange-300/40 bg-orange-500/15 text-orange-100",
 }
 
@@ -381,7 +381,7 @@ export default function ManifestacaoPage() {
           actions={
             <>
               {token && (
-                <span className="inline-flex items-center gap-1.5 border-2 border-[#0B0B0D] bg-[#F2B705] px-3 py-1.5 text-xs font-black uppercase tracking-wider text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D]">
+                <span className="inline-flex items-center gap-1.5 border-2 border-[#0B0B0D] bg-[#C8102E] px-3 py-1.5 text-xs font-black uppercase tracking-wider text-white shadow-[3px_3px_0_0_#0B0B0D]">
                   <Coins className="h-3.5 w-3.5" />
                   {polens == null ? "—" : polens.toLocaleString(locale)} {t("polens", "Poléns")}
                   <Link href="/loja-polens" className="ml-1 underline underline-offset-2">
@@ -404,7 +404,7 @@ export default function ManifestacaoPage() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={t("searchPlaceholder", "Buscar por nome ou estado")}
-              className="h-11 w-full rounded-none border-2 border-[#F5F1E8]/12 bg-[#1D1810] pl-10 pr-4 text-sm text-[#F5F1E8] placeholder:text-[#9A938A] shadow-[3px_3px_0_0_rgba(0,0,0,0.4)] outline-none transition focus:border-[#F2B705]"
+              className="h-11 w-full rounded-none border-2 border-[#F5F1E8]/12 bg-[#1D1810] pl-10 pr-4 text-sm text-[#F5F1E8] placeholder:text-[#9A938A] shadow-[3px_3px_0_0_rgba(0,0,0,0.4)] outline-none transition focus:border-[#C8102E]"
             />
           </div>
           <div className="flex gap-2 overflow-x-auto pb-1">
@@ -415,7 +415,7 @@ export default function ManifestacaoPage() {
                 className={cn(
                   "h-10 shrink-0 rounded-none border-2 px-4 text-xs font-black uppercase tracking-wider transition active:translate-x-[1px] active:translate-y-[1px]",
                   filter === f.id
-                    ? "border-[#0B0B0D] bg-[#F2B705] text-[#1A1505] shadow-[3px_3px_0_0_#0B0B0D]"
+                    ? "border-[#0B0B0D] bg-[#C8102E] text-[#1A1505] shadow-[3px_3px_0_0_#0B0B0D]"
                     : "border-[#F5F1E8]/12 bg-[#1D1810] text-[#C9C2B6] hover:border-[#F5F1E8]/30",
                 )}
               >
@@ -447,7 +447,7 @@ export default function ManifestacaoPage() {
                     key={o.id}
                     className={cn(
                       "flex flex-col overflow-hidden border-2 bg-[#15100A] shadow-[4px_4px_0_0_rgba(0,0,0,0.5)]",
-                      isActive ? "border-[#F2B705]" : "border-[#F5F1E8]/14",
+                      isActive ? "border-[#C8102E]" : "border-[#F5F1E8]/14",
                     )}
                   >
                     <div className="relative aspect-[16/7] w-full overflow-hidden bg-[#141009]">
@@ -487,7 +487,7 @@ export default function ManifestacaoPage() {
                             type="button"
                             onClick={() => applyProductId(o.product_id)}
                             disabled={busy != null}
-                            className="inline-flex w-full items-center justify-center gap-1.5 rounded-none border-2 border-[#0B0B0D] bg-[#F2B705] px-3 py-2 text-[11px] font-black uppercase tracking-wider text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_#0B0B0D] disabled:opacity-55"
+                            className="inline-flex w-full items-center justify-center gap-1.5 rounded-none border-2 border-[#0B0B0D] bg-[#C8102E] px-3 py-2 text-[11px] font-black uppercase tracking-wider text-white shadow-[3px_3px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_#0B0B0D] disabled:opacity-55"
                           >
                             {applying ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <BadgeCheck className="h-3.5 w-3.5" />}
                             {t("apply", "Aplicar")}
@@ -550,7 +550,7 @@ export default function ManifestacaoPage() {
                       setPreviewId(p.id)
                     }
                   }}
-                  className="group relative flex cursor-pointer flex-col overflow-hidden rounded-none border-2 border-[#F5F1E8]/12 bg-[#1D1810] shadow-[4px_4px_0_0_rgba(0,0,0,0.5)] transition-all duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:border-[#F2B705] hover:shadow-[8px_8px_0_0_#F2B705]"
+                  className="group relative flex cursor-pointer flex-col overflow-hidden rounded-none border-2 border-[#F5F1E8]/12 bg-[#1D1810] shadow-[4px_4px_0_0_rgba(0,0,0,0.5)] transition-all duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:border-[#C8102E] hover:shadow-[8px_8px_0_0_#C8102E]"
                   style={{
                     animation: `fade-in .42s cubic-bezier(.16,1,.3,1) both ${index * 45}ms`,
                   }}
@@ -597,7 +597,7 @@ export default function ManifestacaoPage() {
                     )}
 
                     <div className="mt-auto flex items-center justify-between gap-2 border-t border-[#F5F1E8]/8 pt-2">
-                      <span className="fl-display text-base text-[#F2B705]">
+                      <span className="fl-display text-base text-[#C8102E]">
                         {p.price_cents > 0
                           ? fmtBRL(p.price_cents, locale)
                           : p.price_polens > 0
@@ -774,7 +774,7 @@ export default function ManifestacaoPage() {
             <div
               className={cn(
                 "grid h-11 w-11 place-items-center rounded-full text-white",
-                feedback.ok ? "bg-[#16a34a]" : "bg-[#F2B705] !text-[#1A1505]",
+                feedback.ok ? "bg-[#16a34a]" : "bg-[#C8102E] !text-[#1A1505]",
               )}
             >
               {feedback.ok ? (

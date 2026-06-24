@@ -167,11 +167,11 @@ export function PhotoFrame({
         <Image src={src} alt={alt} fill sizes="(max-width:768px) 90vw, 480px" className="object-cover" priority={priority} />
       ) : (
         <div aria-label={alt} role="img" className="absolute inset-0">
-          <div className="absolute inset-0" style={{ background: "radial-gradient(120% 100% at 70% 8%, rgba(242,183,5,0.28), transparent 52%), linear-gradient(160deg,#2a2212,#141009)" }} />
+          <div className="absolute inset-0" style={{ background: "radial-gradient(120% 100% at 70% 8%, rgba(200, 16, 46,0.28), transparent 52%), linear-gradient(160deg,#2a2212,#141009)" }} />
           <div aria-hidden className="absolute inset-0 fl-dots opacity-[0.12]" />
           <div aria-hidden className="absolute inset-0 fl-grain opacity-10" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <Icon name={icon} className="h-10 w-10 text-[#F2B705]/45" />
+            <Icon name={icon} className="h-10 w-10 text-[#C8102E]/45" />
           </div>
         </div>
       )}
@@ -196,7 +196,7 @@ export function StickerNote({
 
 /* ── Pilha de avatares (prova social) ─────────────────────────────────────── */
 export function AvatarStack({ count = 5, className }: { count?: number; className?: string }) {
-  const tints = ["#F2B705", "#EC4899", "#0EA5E9", "#10B981", "#A855F7", "#F97316"]
+  const tints = ["#C8102E", "#EC4899", "#0EA5E9", "#10B981", "#A855F7", "#F97316"]
   return (
     <div className={cn("flex -space-x-2.5", className)}>
       {Array.from({ length: count }).map((_, i) => (
@@ -241,7 +241,7 @@ export function Badge({
 }: { children: ReactNode; className?: string; tone?: "ink" | "gold" | "paper" | "outline" }) {
   const tones = {
     ink: "bg-[#14110B] text-[#FAF7F0]",
-    gold: "bg-[#F2B705] text-[#1A1505]",
+    gold: "bg-[#C8102E] text-[#1A1505]",
     paper: "bg-white text-[#14110B]",
     outline: "border border-[#F5F1E8]/25 text-[#F5F1E8]",
   }
@@ -255,7 +255,7 @@ export function Badge({
 export function Sticker({ children, className, rotate = -6 }: { children: ReactNode; className?: string; rotate?: number }) {
   return (
     <span
-      className={cn("inline-flex items-center justify-center bg-[#F2B705] px-3 py-1 text-sm font-black text-[#1A1505] shadow-[0_6px_16px_-8px_rgba(242,183,5,0.9)]", className)}
+      className={cn("inline-flex items-center justify-center bg-[#C8102E] px-3 py-1 text-sm font-black text-[#1A1505] shadow-[0_6px_16px_-8px_rgba(200, 16, 46,0.9)]", className)}
       style={{ transform: `rotate(${rotate}deg)` }}
     >
       {children}
@@ -265,14 +265,14 @@ export function Sticker({ children, className, rotate = -6 }: { children: ReactN
 
 /* Número grande dourado (estilo "01") para bento/carrossel */
 export function BigNumber({ n, className }: { n: number; className?: string }) {
-  return <span className={cn("fl-display text-[#F2B705]", className)}>{String(n).padStart(2, "0")}</span>
+  return <span className={cn("fl-display text-[#C8102E]", className)}>{String(n).padStart(2, "0")}</span>
 }
 
 export function DeckCounter({ current, total, className }: { current: number; total: number; className?: string }) {
   const pad = (n: number) => String(n).padStart(2, "0")
   return (
     <div className={cn("flex items-baseline gap-1 font-mono tabular-nums", className)}>
-      <span className="fl-display text-4xl text-[#F2B705]">{pad(current)}</span>
+      <span className="fl-display text-4xl text-[#C8102E]">{pad(current)}</span>
       <span className="text-sm text-[#9A938A]">/ {pad(total)}</span>
     </div>
   )

@@ -31,7 +31,7 @@ import { getToken } from "@/lib/auth"
 import { useTranslations } from "@/components/i18n/I18nProvider"
 import type { FeedFilters, FeedPost, FeedResponse } from "@/lib/types/portfolio-feed"
 
-const DEFAULT_ACCENT = "#F2B705"
+const DEFAULT_ACCENT = "#C8102E"
 const PAGE_LIMIT = 12
 const PREFETCH_REMAINING_RATIO = 0.6
 
@@ -309,7 +309,7 @@ function FeedPageInner() {
             )}
             {!hasMore && items.length > 0 && (
               <div className="fl-root py-10 text-center">
-                <span className="fl-marker text-2xl text-[#F2B705]">
+                <span className="fl-marker text-2xl text-[#C8102E]">
                   {t("feedEndMessage", "Você chegou ao fim do feed.")}
                 </span>
               </div>

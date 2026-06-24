@@ -28,9 +28,9 @@ export function ComunidadeContent() {
     <main className="flex-1 bg-[#0b0804]">
       {/* HERO */}
       <section className="relative overflow-hidden py-24 md:py-32">
-        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-[#F2B705]/5 blur-[120px]" />
+        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-[#C8102E]/5 blur-[120px]" />
         <div className="container mx-auto px-4 relative max-w-3xl">
-          <div className="inline-flex items-center rounded-full border border-[#F2B705]/20 bg-[#F2B705]/5 px-4 py-1.5 text-sm text-[#F2B705] mb-6" data-reveal>
+          <div className="inline-flex items-center rounded-full border border-[#C8102E]/20 bg-[#C8102E]/5 px-4 py-1.5 text-sm text-[#C8102E] mb-6" data-reveal>
             {t("hero.badge", "Comunidade")}
           </div>
           <h1 className="fl-display text-5xl md:text-6xl lg:text-7xl text-[#F5F1E8] leading-tight mb-6" data-reveal>
@@ -43,7 +43,7 @@ export function ComunidadeContent() {
             {t("hero.description", "Mais do que uma vitrine, a Freelandoo está construindo uma rede de profissionais conectados por enxames, interesses, serviços e oportunidades.")}
           </p>
           <div data-reveal>
-            <Link href="/cadastro" className="inline-flex items-center bg-[#F2B705] text-black font-semibold px-6 py-3 rounded-lg hover:bg-[#F2B705]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
+            <Link href="/cadastro" className="inline-flex items-center bg-[#C8102E] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#C8102E]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
               {t("hero.cta", "Entrar na comunidade")}
             </Link>
           </div>
@@ -61,9 +61,9 @@ export function ComunidadeContent() {
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" data-stagger>
             {connectionCards.map((card, i) => (
-              <div key={card.title} className="bg-[#1D1810] border border-[#2A2218] rounded-xl p-6 hover:border-[#F2B705]/30 hover:shadow-[0_0_30px_rgba(242,196,9,0.06)] transition-all" data-card>
-                <div className="w-10 h-10 bg-[#F2B705]/10 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-[#F2B705]">◆</span>
+              <div key={card.title} className="bg-[#1D1810] border border-[#2A2218] rounded-xl p-6 hover:border-[#C8102E]/30 hover:shadow-[0_0_30px_rgba(242,196,9,0.06)] transition-all" data-card>
+                <div className="w-10 h-10 bg-[#C8102E]/10 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-[#C8102E]">◆</span>
                 </div>
                 <h3 className="font-semibold text-[#F5F1E8] mb-2">{t(`cards.${i}.title`, card.title)}</h3>
                 <p className="text-sm text-[#9A938A] leading-relaxed">{t(`cards.${i}.text`, card.text)}</p>
@@ -84,7 +84,7 @@ export function ComunidadeContent() {
           </p>
           <div className="flex flex-wrap gap-3" data-stagger>
             {forWhom.map((tag, i) => (
-              <span key={tag} className="bg-[#1D1810] border border-[#2A2218] rounded-full px-4 py-2 text-sm text-[#F5F1E8] hover:border-[#F2B705]/40 hover:text-[#F2B705] transition-all cursor-default capitalize" data-card>
+              <span key={tag} className="bg-[#1D1810] border border-[#2A2218] rounded-full px-4 py-2 text-sm text-[#F5F1E8] hover:border-[#C8102E]/40 hover:text-[#C8102E] transition-all cursor-default capitalize" data-card>
                 {t(`audience.tags.${i}`, tag)}
               </span>
             ))}
@@ -106,7 +106,7 @@ export function ComunidadeContent() {
               href="https://www.instagram.com/printtei_/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center border border-[#2A2218] text-[#F5F1E8] font-medium px-6 py-3 rounded-lg hover:border-[#F2B705]/40 transition-all"
+              className="inline-flex items-center border border-[#2A2218] text-[#F5F1E8] font-medium px-6 py-3 rounded-lg hover:border-[#C8102E]/40 transition-all"
             >
               {t("status.cta", "Acompanhar novidades")}
             </a>

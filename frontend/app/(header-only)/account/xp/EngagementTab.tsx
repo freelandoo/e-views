@@ -86,7 +86,7 @@ function KpiCard({
   return (
     <div className="flex aspect-square flex-col justify-between border-2 border-[#F5F1E8]/12 bg-[#15100A] p-3 shadow-[3px_3px_0_0_rgba(0,0,0,0.5)] sm:aspect-auto sm:p-4">
       <div className="flex items-center gap-1.5 text-[#9A938A]">
-        <Icon className="h-3.5 w-3.5 shrink-0 text-[#F2B705]" />
+        <Icon className="h-3.5 w-3.5 shrink-0 text-[#C8102E]" />
         <span className="text-[9px] font-bold uppercase leading-tight tracking-[0.12em] sm:text-[10px] sm:tracking-[0.18em]">{label}</span>
       </div>
       <div>
@@ -100,7 +100,7 @@ function KpiCard({
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
     <div className="mb-3 flex items-center gap-3">
-      <span className="fl-display inline-block -rotate-1 bg-[#F2B705] px-2.5 py-0.5 text-base text-[#1A1505] shadow-[3px_3px_0_0_rgba(0,0,0,0.45)] sm:px-3 sm:py-1 sm:text-lg">
+      <span className="fl-display inline-block -rotate-1 bg-[#C8102E] px-2.5 py-0.5 text-base text-[#1A1505] shadow-[3px_3px_0_0_rgba(0,0,0,0.45)] sm:px-3 sm:py-1 sm:text-lg">
         {children}
       </span>
       <span className="h-[2px] flex-1 bg-[#F5F1E8]/12" />
@@ -126,7 +126,7 @@ function BarRow({
       <div className="h-3 flex-1 overflow-hidden rounded-full border border-[#F5F1E8]/10 bg-[#0E0B06]">
         <div
           className="h-full transition-all duration-700"
-          style={{ width: `${pct}%`, background: color || "#F2B705" }}
+          style={{ width: `${pct}%`, background: color || "#C8102E" }}
         />
       </div>
       <span className="fl-display w-20 shrink-0 text-right text-base text-[#F5F1E8]">
@@ -189,8 +189,8 @@ export default function EngagementTab({
             onClick={() => setRange(r.value)}
             className={`rounded-md border-2 px-4 py-1.5 text-sm font-bold transition ${
               range === r.value
-                ? "border-[#F2B705] bg-[#F2B705] text-[#1A1505] shadow-[3px_3px_0_0_rgba(0,0,0,0.4)]"
-                : "border-[#F5F1E8]/15 bg-[#1D1810] text-[#C9C2B6] hover:border-[#F2B705]/40"
+                ? "border-[#C8102E] bg-[#C8102E] text-[#1A1505] shadow-[3px_3px_0_0_rgba(0,0,0,0.4)]"
+                : "border-[#F5F1E8]/15 bg-[#1D1810] text-[#C9C2B6] hover:border-[#C8102E]/40"
             }`}
           >
             {r.days} {t("daysWord", "dias")}
@@ -236,7 +236,7 @@ export default function EngagementTab({
                 const Icon = M.icon
                 return (
                   <div key={k} className="flex flex-col items-center gap-1 text-center">
-                    <Icon className="h-5 w-5 text-[#F2B705]" />
+                    <Icon className="h-5 w-5 text-[#C8102E]" />
                     <span className="fl-display text-xl leading-none text-[#F5F1E8] sm:text-2xl">
                       {fmt(data.views.by_channel[k], intlTag)}
                     </span>
@@ -260,7 +260,7 @@ export default function EngagementTab({
                 { icon: UserPlus, label: t("newFollowersLabel", "Novos seguidores"), value: data.interactions.new_followers },
               ].map((it) => (
                 <div key={it.label} title={it.label} className="flex items-center justify-center gap-1.5">
-                  <it.icon className="h-5 w-5 shrink-0 text-[#F2B705]" />
+                  <it.icon className="h-5 w-5 shrink-0 text-[#C8102E]" />
                   <span className="fl-display text-xl leading-none text-[#F5F1E8]">{fmt(it.value, intlTag)}</span>
                 </div>
               ))}
@@ -285,10 +285,10 @@ export default function EngagementTab({
                         <div className="grid h-full w-full place-items-center text-[#5A554C]"><Film className="h-5 w-5" /></div>
                       )}
                     </div>
-                    <span className="absolute left-1 top-1 rounded bg-[#1A1505]/85 px-1 py-0.5 text-[8px] font-bold uppercase tracking-wide text-[#F2B705]">
+                    <span className="absolute left-1 top-1 rounded bg-[#1A1505]/85 px-1 py-0.5 text-[8px] font-bold uppercase tracking-wide text-[#C8102E]">
                       {KIND_LABEL[c.kind] ? t(KIND_LABEL[c.kind].labelKey, KIND_LABEL[c.kind].label) : c.kind}
                     </span>
-                    <span className="absolute bottom-1 left-1 inline-flex items-center gap-1 rounded bg-[#1A1505]/85 px-1 py-0.5 text-[8px] font-bold text-[#F2B705]">
+                    <span className="absolute bottom-1 left-1 inline-flex items-center gap-1 rounded bg-[#1A1505]/85 px-1 py-0.5 text-[8px] font-bold text-[#C8102E]">
                       <Eye className="h-2.5 w-2.5" />{fmt(c.views, intlTag)}
                     </span>
                   </div>
@@ -322,7 +322,7 @@ export default function EngagementTab({
                   data.by_enxame.map((e) => (
                     <BarRow key={e.id_machine} label={tx.enxame(null, e.name)} icon={Network}
                       value={e.count} max={data.by_enxame[0].count}
-                      color={e.color_ring || "#F2B705"} />
+                      color={e.color_ring || "#C8102E"} />
                   ))
                 )}
               </div>
@@ -338,7 +338,7 @@ export default function EngagementTab({
                 {data.active_hours.map((h) => (
                   <div
                     key={h.hour}
-                    className="flex-1 bg-[#F2B705]"
+                    className="flex-1 bg-[#C8102E]"
                     style={{ height: `${Math.max(2, (h.count / maxHour) * 100)}%`, opacity: h.count ? 1 : 0.18 }}
                     title={`${h.hour}h — ${fmt(h.count, intlTag)} views`}
                   />
@@ -364,7 +364,7 @@ export default function EngagementTab({
             <div className="grid gap-3 sm:grid-cols-2">
               <div className="border-2 border-[#F5F1E8]/12 bg-[#15100A] p-5 shadow-[4px_4px_0_0_rgba(0,0,0,0.5)]">
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9A938A]">{t("followersLabel", "Acompanham")}</p>
-                <p className="fl-display mt-1 text-4xl leading-none text-[#F2B705]">{fmt(data.followers.total, intlTag)}</p>
+                <p className="fl-display mt-1 text-4xl leading-none text-[#C8102E]">{fmt(data.followers.total, intlTag)}</p>
                 <p className="mt-1 text-xs text-[#9A938A]">
                   {scope === "account" ? t("followersAllProfiles", "Seguidores de todos os seus perfis") : t("followersThisProfile", "Seguidores deste perfil")}
                 </p>

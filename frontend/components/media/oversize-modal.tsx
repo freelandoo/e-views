@@ -40,7 +40,7 @@ export function OversizeModal({
           <X className="h-5 w-5" />
         </button>
 
-        <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#F2B705]">
+        <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#C8102E]">
           <AlertTriangle className="h-5 w-5 text-[#1A1505]" />
         </span>
         <h2 className="fl-display mt-3 text-2xl text-[#0B0B0D]">{t("oversizeTitle", "Arquivo muito grande")}</h2>
@@ -55,7 +55,7 @@ export function OversizeModal({
           <Link
             href="/comprimir"
             target="_blank"
-            className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-2.5 text-sm font-extrabold text-[#1A1505] shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-2.5 text-sm font-extrabold text-[#1A1505] shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5"
           >
             <Wand2 className="h-4 w-4" /> {t("compressCta", "Comprimir mídia")}
           </Link>

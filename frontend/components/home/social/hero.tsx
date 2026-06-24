@@ -142,7 +142,7 @@ function HeroBentoVisual() {
           <div className="flex items-center gap-3 px-4 pt-4">
             <div
               className="h-9 w-9 shrink-0 rounded-full"
-              style={{ background: "linear-gradient(135deg, #f2c409, #d97706)" }}
+              style={{ background: "linear-gradient(135deg, #C8102E, #d97706)" }}
               aria-hidden
             />
             <div className="min-w-0 flex-1">
@@ -232,7 +232,7 @@ function HeroBentoVisual() {
           <p className="mt-2 text-sm font-semibold text-white">{t("hero.mock.clanName", "Casa Áurea Studio")}</p>
           <p className="text-[11px] text-white/50">{t("hero.mock.clanDescription", "Edição & motion - 6 perfis")}</p>
           <div className="mt-3 flex -space-x-1.5">
-            {["#f2c409", "#0ea5e9", "#fb7185", "#34d399"].map((c) => (
+            {["#C8102E", "#0ea5e9", "#fb7185", "#34d399"].map((c) => (
               <span
                 key={c}
                 className="h-6 w-6 rounded-full ring-2 ring-zinc-950"

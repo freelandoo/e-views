@@ -131,7 +131,7 @@ export function OfferingPickerButton({ origin, onPick, disabled }: OfferingPicke
         title={t("attachOfferingTitle", "Anexar produto, serviço ou curso")}
         aria-label={t("attachOfferingTitle", "Anexar produto, serviço ou curso")}
         className={cn(
-          "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/65 transition-colors hover:bg-white/[0.08] hover:text-yellow-300",
+          "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/65 transition-colors hover:bg-white/[0.08] hover:text-red-500",
           disabled && "cursor-not-allowed opacity-40",
         )}
       >
@@ -174,7 +174,7 @@ export function OfferingPickerButton({ origin, onPick, disabled }: OfferingPicke
                       <button
                         type="button"
                         onClick={() => fetchType("product")}
-                        className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-left transition hover:border-yellow-400/40 hover:bg-white/[0.06]"
+                        className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-left transition hover:border-red-600/40 hover:bg-white/[0.06]"
                       >
                         <ProductIcon className="h-4 w-4 text-emerald-300" />
                         <div className="min-w-0 flex-1">
@@ -187,7 +187,7 @@ export function OfferingPickerButton({ origin, onPick, disabled }: OfferingPicke
                       <button
                         type="button"
                         onClick={() => fetchType("service")}
-                        className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-left transition hover:border-yellow-400/40 hover:bg-white/[0.06]"
+                        className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-left transition hover:border-red-600/40 hover:bg-white/[0.06]"
                       >
                         <ServiceIcon className="h-4 w-4 text-sky-300" />
                         <div className="min-w-0 flex-1">
@@ -200,7 +200,7 @@ export function OfferingPickerButton({ origin, onPick, disabled }: OfferingPicke
                       <button
                         type="button"
                         onClick={() => fetchType("course")}
-                        className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-left transition hover:border-yellow-400/40 hover:bg-white/[0.06]"
+                        className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-left transition hover:border-red-600/40 hover:bg-white/[0.06]"
                       >
                         <CourseIcon className="h-4 w-4 text-amber-300" />
                         <div className="min-w-0 flex-1">

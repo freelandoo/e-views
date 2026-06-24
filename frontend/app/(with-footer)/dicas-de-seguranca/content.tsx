@@ -42,9 +42,9 @@ export function DicasDeSegurancaContent() {
     <main className="flex-1 bg-[#0b0804]">
       {/* HERO */}
       <section className="relative overflow-hidden py-20 md:py-28">
-        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[350px] w-[700px] rounded-full bg-[#F2B705]/5 blur-[100px]" />
+        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[350px] w-[700px] rounded-full bg-[#C8102E]/5 blur-[100px]" />
         <div className="container mx-auto px-4 relative max-w-3xl">
-          <div className="inline-flex items-center rounded-full border border-[#F2B705]/20 bg-[#F2B705]/5 px-4 py-1.5 text-sm text-[#F2B705] mb-6" data-reveal>
+          <div className="inline-flex items-center rounded-full border border-[#C8102E]/20 bg-[#C8102E]/5 px-4 py-1.5 text-sm text-[#C8102E] mb-6" data-reveal>
             {t("hero.badge", "Segurança")}
           </div>
           <h1 className="fl-display text-5xl md:text-6xl text-[#F5F1E8] leading-tight mb-6" data-reveal>
@@ -67,8 +67,8 @@ export function DicasDeSegurancaContent() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5" data-stagger>
             {clientTips.map((tip, i) => (
-              <div key={tip.title} className="bg-[#1D1810] border border-[#2A2218] rounded-xl p-6 hover:border-[#F2B705]/20 transition-all" data-card>
-                <div className="text-[#F2B705]/40 text-xs font-mono mb-3">{String(i + 1).padStart(2, "0")}</div>
+              <div key={tip.title} className="bg-[#1D1810] border border-[#2A2218] rounded-xl p-6 hover:border-[#C8102E]/20 transition-all" data-card>
+                <div className="text-[#C8102E]/40 text-xs font-mono mb-3">{String(i + 1).padStart(2, "0")}</div>
                 <h3 className="font-semibold text-[#F5F1E8] mb-2">{t(`client.tips.${i}.title`, tip.title)}</h3>
                 <p className="text-sm text-[#9A938A] leading-relaxed">{t(`client.tips.${i}.text`, tip.text)}</p>
               </div>
@@ -85,8 +85,8 @@ export function DicasDeSegurancaContent() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5" data-stagger>
             {proTips.map((tip, i) => (
-              <div key={tip.title} className="bg-[#1D1810] border border-[#2A2218] rounded-xl p-6 hover:border-[#F2B705]/20 transition-all" data-card>
-                <div className="text-[#F2B705]/40 text-xs font-mono mb-3">{String(i + 1).padStart(2, "0")}</div>
+              <div key={tip.title} className="bg-[#1D1810] border border-[#2A2218] rounded-xl p-6 hover:border-[#C8102E]/20 transition-all" data-card>
+                <div className="text-[#C8102E]/40 text-xs font-mono mb-3">{String(i + 1).padStart(2, "0")}</div>
                 <h3 className="font-semibold text-[#F5F1E8] mb-2">{t(`pro.tips.${i}.title`, tip.title)}</h3>
                 <p className="text-sm text-[#9A938A] leading-relaxed">{t(`pro.tips.${i}.text`, tip.text)}</p>
               </div>
@@ -107,7 +107,7 @@ export function DicasDeSegurancaContent() {
           <div className="flex flex-wrap gap-3" data-stagger>
             {freelandooDoes.map((item, i) => (
               <div key={item} className="flex items-center gap-2 bg-[#1D1810] border border-[#2A2218] rounded-full px-4 py-2" data-card>
-                <span className="text-[#F2B705] font-bold text-xs">✓</span>
+                <span className="text-[#C8102E] font-bold text-xs">✓</span>
                 <span className="text-sm text-[#F5F1E8]">{t(`role.items.${i}`, item)}</span>
               </div>
             ))}
@@ -117,7 +117,7 @@ export function DicasDeSegurancaContent() {
 
       {/* CTA FINAL */}
       <section className="py-20 md:py-28 relative overflow-hidden">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[600px] rounded-full bg-[#F2B705]/5 blur-[100px]" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[600px] rounded-full bg-[#C8102E]/5 blur-[100px]" />
         <div className="container mx-auto px-4 text-center relative">
           <h2 className="text-3xl font-bold text-[#F5F1E8] mb-4" data-reveal>
             {t("final.title", "Contrate e anuncie com mais clareza")}
@@ -126,7 +126,7 @@ export function DicasDeSegurancaContent() {
             {t("final.description", "Use as informações disponíveis, converse com cuidado e combine tudo antes de avançar.")}
           </p>
           <div data-reveal>
-            <Link href="/search" className="inline-flex items-center bg-[#F2B705] text-black font-semibold px-8 py-4 rounded-lg hover:bg-[#F2B705]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all text-lg">
+            <Link href="/search" className="inline-flex items-center bg-[#C8102E] text-white font-semibold px-8 py-4 rounded-lg hover:bg-[#C8102E]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all text-lg">
               {t("final.cta", "Encontrar profissionais")}
             </Link>
           </div>

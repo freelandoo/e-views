@@ -200,7 +200,7 @@ export function RankingSocialActions({
           "inline-flex items-center gap-1 border px-1.5 py-0.5 font-extrabold tabular-nums transition hover:-translate-y-0.5",
           compact ? "text-[10px]" : "text-[11px]",
           summary.viewer_has_liked
-            ? "border-[#0B0B0D] bg-[#0B0B0D] text-[#F2B705]"
+            ? "border-[#0B0B0D] bg-[#0B0B0D] text-[#C8102E]"
             : "border-[#0B0B0D]/25 bg-transparent text-[#0B0B0D] hover:border-[#0B0B0D]",
         )}
       >
@@ -426,8 +426,8 @@ export function RankingSocialPanel({
         aria-label={target.display_name}
         className={cn(
           "absolute bottom-0 left-0 right-0 flex max-h-[88dvh] flex-col overflow-hidden border-2 border-[#0B0B0D] bg-[#F1EDE2]",
-          "shadow-[0_-10px_0_0_#F2B705]",
-          "md:bottom-auto md:left-auto md:top-0 md:h-full md:max-h-none md:w-[460px] md:shadow-[-10px_0_0_0_#F2B705]",
+          "shadow-[0_-10px_0_0_#C8102E]",
+          "md:bottom-auto md:left-auto md:top-0 md:h-full md:max-h-none md:w-[460px] md:shadow-[-10px_0_0_0_#C8102E]",
         )}
       >
         <header className="border-b-2 border-[#0B0B0D] bg-[#FBF8F1] p-4">
@@ -435,18 +435,18 @@ export function RankingSocialPanel({
             <Link
               href={target.href}
               className="shrink-0 rotate-[-2deg] border-2 border-[#0B0B0D]"
-              style={{ outline: "2px solid #F2B705", outlineOffset: "1px" }}
+              style={{ outline: "2px solid #C8102E", outlineOffset: "1px" }}
             >
               <Avatar className="h-16 w-16 rounded-none">
                 {target.avatar_url && <AvatarImage src={target.avatar_url} alt={target.display_name} className="object-cover" />}
-                <AvatarFallback className="rounded-none bg-[#1D1810] text-2xl font-bold text-[#F2B705]">
+                <AvatarFallback className="rounded-none bg-[#1D1810] text-2xl font-bold text-[#C8102E]">
                   {getInitials(target.display_name)}
                 </AvatarFallback>
               </Avatar>
             </Link>
             <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="bg-[#F2B705] px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-[0.14em] text-[#0B0B0D]">
+                <span className="bg-[#C8102E] px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-[0.14em] text-white">
                   {t("panelRankBadge", "#{n} no ranking").replace("{n}", String(target.rank))}
                 </span>
                 <span className="bg-[#0B0B0D] px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-[0.14em] text-[#F1EDE2]">
@@ -478,7 +478,7 @@ export function RankingSocialPanel({
               onClick={() => onToggleLike(target.id_profile)}
               className={cn(
                 "inline-flex h-11 items-center justify-center gap-2 border-2 border-[#0B0B0D] px-3 text-xs font-extrabold uppercase tracking-[0.12em] shadow-[3px_3px_0_0_#0B0B0D] transition hover:-translate-y-0.5",
-                summary.viewer_has_liked ? "bg-[#0B0B0D] text-[#F2B705]" : "bg-[#FBF8F1] text-[#0B0B0D]",
+                summary.viewer_has_liked ? "bg-[#0B0B0D] text-[#C8102E]" : "bg-[#FBF8F1] text-[#0B0B0D]",
               )}
             >
               <Heart className={cn("h-4 w-4", summary.viewer_has_liked && "fill-current")} strokeWidth={3} />
@@ -487,13 +487,13 @@ export function RankingSocialPanel({
 
             <Link
               href={target.href}
-              className="inline-flex h-11 items-center justify-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-3 text-xs font-extrabold uppercase tracking-[0.12em] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D] transition hover:-translate-y-0.5"
+              className="inline-flex h-11 items-center justify-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-3 text-xs font-extrabold uppercase tracking-[0.12em] text-white shadow-[3px_3px_0_0_#0B0B0D] transition hover:-translate-y-0.5"
             >
               {t("panelViewProfile", "Ver perfil")}
             </Link>
           </div>
 
-          <div className="mt-3 flex items-center gap-2 bg-[#F2B705] px-2 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#0B0B0D]">
+          <div className="mt-3 flex items-center gap-2 bg-[#C8102E] px-2 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.12em] text-white">
             <MessageSquare className="h-3.5 w-3.5" strokeWidth={3} />
             {t("panelNote", "curtidas e comentários saem pela sua conta, não por subperfil")}
           </div>
@@ -524,7 +524,7 @@ export function RankingSocialPanel({
                         {comment.user.avatar_url && (
                           <AvatarImage src={comment.user.avatar_url} alt={displayName} className="object-cover" />
                         )}
-                        <AvatarFallback className="rounded-none bg-[#1D1810] text-base font-bold text-[#F2B705]">
+                        <AvatarFallback className="rounded-none bg-[#1D1810] text-base font-bold text-[#C8102E]">
                           {getInitials(displayName)}
                         </AvatarFallback>
                       </Avatar>
@@ -593,13 +593,13 @@ export function RankingSocialPanel({
               onChange={(event) => setDraft(event.target.value.slice(0, 1000))}
               placeholder={t("commentPlaceholder", "Escreva seu comentário...")}
               rows={2}
-              className="min-h-12 flex-1 resize-none border-2 border-[#0B0B0D] bg-[#F1EDE2] px-3 py-2 text-sm font-semibold text-[#0B0B0D] outline-none placeholder:text-[#6B6457]/50 focus:ring-4 focus:ring-[#F2B705]/30"
+              className="min-h-12 flex-1 resize-none border-2 border-[#0B0B0D] bg-[#F1EDE2] px-3 py-2 text-sm font-semibold text-[#0B0B0D] outline-none placeholder:text-[#6B6457]/50 focus:ring-4 focus:ring-[#C8102E]/30"
             />
             <button
               type="submit"
               disabled={submitting || draft.trim().length === 0}
               aria-label={t("commentSendAria", "Enviar comentário")}
-              className="inline-flex h-auto w-12 shrink-0 items-center justify-center border-2 border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D] transition hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-55"
+              className="inline-flex h-auto w-12 shrink-0 items-center justify-center border-2 border-[#0B0B0D] bg-[#C8102E] text-white shadow-[3px_3px_0_0_#0B0B0D] transition hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-55"
             >
               {submitting ? <Loader2 className="h-5 w-5 animate-spin" /> : <Send className="h-5 w-5" strokeWidth={3} />}
             </button>

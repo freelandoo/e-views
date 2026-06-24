@@ -242,11 +242,11 @@ export function AgendamentoConfig() {
               </div>
               <div className="flex justify-between text-xs">
                 <span className="text-muted-foreground">Taxa Stripe ({feePercent.toFixed(2)}%)</span>
-                <span className="text-yellow-500">+ {preview.fmt(preview.stripe)}</span>
+                <span className="text-red-600">+ {preview.fmt(preview.stripe)}</span>
               </div>
               <div className="flex justify-between text-xs">
                 <span className="text-muted-foreground">Taxa de serviço (fixo)</span>
-                <span className="text-yellow-500">+ {preview.fmt(preview.service)}</span>
+                <span className="text-red-600">+ {preview.fmt(preview.service)}</span>
               </div>
               <div className="flex justify-between border-t border-border pt-2 font-semibold">
                 <span className="text-foreground">Cliente paga</span>

@@ -216,7 +216,7 @@ export function NotificationList({ items, onMarkRead, emptyHint }: NotificationL
               onClick={() => isUnread && onMarkRead?.(item.id_notification)}
               className={cn(
                 "flex items-center gap-3 px-4 py-3 transition hover:bg-[#F5F1E8]/[0.04]",
-                isUnread && "bg-[#F2B705]/[0.06]"
+                isUnread && "bg-[#C8102E]/[0.06]"
               )}
             >
               <div className="relative">
@@ -228,7 +228,7 @@ export function NotificationList({ items, onMarkRead, emptyHint }: NotificationL
                     {initials(name)}
                   </AvatarFallback>
                 </Avatar>
-                <span className="absolute -bottom-0.5 -right-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#F2B705] text-[#1A1505] ring-2 ring-[#15120E]">
+                <span className="absolute -bottom-0.5 -right-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#C8102E] text-[#1A1505] ring-2 ring-[#15120E]">
                   {iconFor(item.type)}
                 </span>
               </div>
@@ -237,7 +237,7 @@ export function NotificationList({ items, onMarkRead, emptyHint }: NotificationL
                 <p className="mt-0.5 text-[11px] text-[#9A938A]">{relativeTime(item.created_at, t)}</p>
               </div>
               {isUnread && (
-                <span className="h-2 w-2 shrink-0 rounded-full bg-[#F2B705]" aria-hidden />
+                <span className="h-2 w-2 shrink-0 rounded-full bg-[#C8102E]" aria-hidden />
               )}
             </Link>
           </li>

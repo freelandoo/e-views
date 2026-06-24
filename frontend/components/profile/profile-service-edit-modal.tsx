@@ -554,7 +554,7 @@ export function ProfileServiceEditModal({
                 )}
                 <div className="flex justify-between border-t-2 border-[#0B0B0D]/15 pt-2 text-sm font-bold">
                   <span className="text-[#0B0B0D]">{t("clientWillPay", "Cliente pagará")}</span>
-                  <span className="font-mono text-[#E0A500]">{centsToReais(clientPays)}</span>
+                  <span className="font-mono text-[#9B0F24]">{centsToReais(clientPays)}</span>
                 </div>
               </div>
             )
@@ -581,7 +581,7 @@ export function ProfileServiceEditModal({
                       key={m.id_member_profile}
                       className={`flex cursor-pointer items-center gap-3 rounded-lg border-2 p-2.5 transition-colors ${
                         checked
-                          ? "border-[#0B0B0D] bg-[#F2B705]/15"
+                          ? "border-[#0B0B0D] bg-[#C8102E]/15"
                           : "border-[#0B0B0D]/15 bg-[#0B0B0D]/[0.03] hover:bg-[#0B0B0D]/[0.06]"
                       }`}
                     >
@@ -589,13 +589,13 @@ export function ProfileServiceEditModal({
                         type="checkbox"
                         checked={checked}
                         onChange={() => toggleMember(m.id_member_profile)}
-                        className="h-4 w-4 rounded border-[#0B0B0D]/40 text-[#E0A500] accent-[#E0A500]"
+                        className="h-4 w-4 rounded border-[#0B0B0D]/40 text-[#9B0F24] accent-[#9B0F24]"
                       />
                       <Avatar className="size-7 border-2 border-[#0B0B0D]">
                         {m.avatar_url && (
                           <AvatarImage src={m.avatar_url} alt={m.display_name} className="object-cover" />
                         )}
-                        <AvatarFallback className="bg-[#F2B705]/20 text-xs text-[#0B0B0D]">{getInitials(m.display_name)}</AvatarFallback>
+                        <AvatarFallback className="bg-[#C8102E]/20 text-xs text-white">{getInitials(m.display_name)}</AvatarFallback>
                       </Avatar>
                       <div className="min-w-0 flex-1">
                         <div className="truncate text-sm font-bold text-[#0B0B0D]">{m.display_name}</div>
@@ -646,7 +646,7 @@ export function ProfileServiceEditModal({
                         onDragEnd={handleDragEnd}
                         className={`group relative aspect-square overflow-hidden rounded-lg border-2 transition-all ${
                           dragOverIdx === idx
-                            ? "border-[#E0A500] ring-2 ring-[#E0A500]/30"
+                            ? "border-[#9B0F24] ring-2 ring-[#9B0F24]/30"
                             : "border-[#0B0B0D]/20"
                         } ${dragIdx === idx ? "opacity-40" : ""}`}
                       >
@@ -681,7 +681,7 @@ export function ProfileServiceEditModal({
                         type="button"
                         onClick={() => fileInputRef.current?.click()}
                         disabled={uploading}
-                        className="flex aspect-square flex-col items-center justify-center gap-1 rounded-lg border-2 border-dashed border-[#0B0B0D]/30 text-[#5b554b] transition-colors hover:border-[#E0A500] hover:text-[#E0A500] disabled:opacity-50"
+                        className="flex aspect-square flex-col items-center justify-center gap-1 rounded-lg border-2 border-dashed border-[#0B0B0D]/30 text-[#5b554b] transition-colors hover:border-[#9B0F24] hover:text-[#9B0F24] disabled:opacity-50"
                       >
                         {uploading ? (
                           <Loader2 className="h-5 w-5 animate-spin" />
@@ -717,7 +717,7 @@ export function ProfileServiceEditModal({
               type="checkbox"
               checked={serviceForm.is_active}
               onChange={(e) => setServiceForm((f) => ({ ...f, is_active: e.target.checked }))}
-              className="h-4 w-4 rounded border-[#0B0B0D]/40 text-[#E0A500] accent-[#E0A500]"
+              className="h-4 w-4 rounded border-[#0B0B0D]/40 text-[#9B0F24] accent-[#9B0F24]"
             />
             <span className="text-sm font-medium text-[#0B0B0D]">{t("activeVisibleToClients", "Ativo (visível para clientes)")}</span>
           </label>

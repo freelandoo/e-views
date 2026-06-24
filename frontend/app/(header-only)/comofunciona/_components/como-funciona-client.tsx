@@ -42,7 +42,7 @@ const MACHINES: MachineCard[] = [
     name: "Enxame de Transporte",
     description: "Motoristas, entregas, logística e mudanças para mover pessoas e cargas.",
     examples: ["Motoboy", "Caminhoneiro", "Entregador de Aplicativo", "Operador de Logística"],
-    colors: { from: "#d97706", to: "#f59e0b", glow: "rgba(245,158,11,0.5)", accent: "#F2B705" },
+    colors: { from: "#d97706", to: "#f59e0b", glow: "rgba(245,158,11,0.5)", accent: "#C8102E" },
   },
   {
     id: "artistas",
@@ -126,7 +126,7 @@ const MACHINES: MachineCard[] = [
     name: "Enxame de Eventos",
     description: "Produção, gastronomia, animação e estrutura para festas e eventos.",
     examples: ["Cerimonialista", "DJ", "Bartender", "Fotógrafo de Eventos"],
-    colors: { from: "#ca8a04", to: "#eab308", glow: "rgba(234,179,8,0.5)", accent: "#facc15" },
+    colors: { from: "#ca8a04", to: "#eab308", glow: "rgba(234,179,8,0.5)", accent: "#C8102E" },
   },
 ]
 
@@ -140,7 +140,7 @@ const useIsomorphicLayoutEffect =
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-block mb-4 px-3 py-1 text-xs font-bold tracking-widest uppercase rounded-full"
-      style={{ background: "rgba(242,183,5,0.12)", color: "#F2B705", border: "1px solid rgba(242,183,5,0.25)" }}>
+      style={{ background: "rgba(200, 16, 46,0.12)", color: "#C8102E", border: "1px solid rgba(200, 16, 46,0.25)" }}>
       {children}
     </span>
   )
@@ -174,8 +174,8 @@ function GlowCard({ children, className = "", style = {} }: { children: React.Re
         ...style,
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLDivElement).style.border = "1px solid rgba(242,183,5,0.3)"
-        ;(e.currentTarget as HTMLDivElement).style.boxShadow = "0 0 30px rgba(242,183,5,0.08)"
+        (e.currentTarget as HTMLDivElement).style.border = "1px solid rgba(200, 16, 46,0.3)"
+        ;(e.currentTarget as HTMLDivElement).style.boxShadow = "0 0 30px rgba(200, 16, 46,0.08)"
       }}
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLDivElement).style.border = "1px solid rgba(255,255,255,0.08)"
@@ -190,7 +190,7 @@ function GlowCard({ children, className = "", style = {} }: { children: React.Re
 function NumberBadge({ n }: { n: number }) {
   return (
     <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold shrink-0 mb-4"
-      style={{ background: "rgba(242,183,5,0.15)", color: "#F2B705", border: "1px solid rgba(242,183,5,0.3)" }}>
+      style={{ background: "rgba(200, 16, 46,0.15)", color: "#C8102E", border: "1px solid rgba(200, 16, 46,0.3)" }}>
       {n}
     </div>
   )
@@ -199,7 +199,7 @@ function NumberBadge({ n }: { n: number }) {
 function IconBadge({ icon: Icon }: { icon: React.ElementType }) {
   return (
     <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-      style={{ background: "rgba(242,183,5,0.12)", color: "#F2B705" }}>
+      style={{ background: "rgba(200, 16, 46,0.12)", color: "#C8102E" }}>
       <Icon size={18} />
     </div>
   )
@@ -214,23 +214,23 @@ function CTAButton({ href, children, primary = false }: { href: string; children
       className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200"
       style={
         primary
-          ? { background: "#F2B705", color: "#141009", boxShadow: "0 0 20px rgba(242,183,5,0.3)" }
-          : { background: "transparent", color: "#F2B705", border: "1px solid rgba(242,183,5,0.4)" }
+          ? { background: "#C8102E", color: "#141009", boxShadow: "0 0 20px rgba(200, 16, 46,0.3)" }
+          : { background: "transparent", color: "#C8102E", border: "1px solid rgba(200, 16, 46,0.4)" }
       }
       onMouseEnter={(e) => {
         const el = e.currentTarget as HTMLAnchorElement
         if (primary) {
-          el.style.boxShadow = "0 0 36px rgba(242,183,5,0.55)"
+          el.style.boxShadow = "0 0 36px rgba(200, 16, 46,0.55)"
           el.style.transform = "translateY(-1px)"
         } else {
-          el.style.background = "rgba(242,183,5,0.1)"
+          el.style.background = "rgba(200, 16, 46,0.1)"
           el.style.transform = "translateY(-1px)"
         }
       }}
       onMouseLeave={(e) => {
         const el = e.currentTarget as HTMLAnchorElement
-        el.style.boxShadow = primary ? "0 0 20px rgba(242,183,5,0.3)" : "none"
-        el.style.background = primary ? "#F2B705" : "transparent"
+        el.style.boxShadow = primary ? "0 0 20px rgba(200, 16, 46,0.3)" : "none"
+        el.style.background = primary ? "#C8102E" : "transparent"
         el.style.transform = "translateY(0)"
       }}
     >
@@ -302,7 +302,7 @@ export function ComoFuncionaClient() {
   const pageBg = { background: "#0b0804" }
   const sectionStyle = { borderTop: "1px solid rgba(255,255,255,0.06)" }
   const dimText = { color: "#C9C2B6" }
-  const yellow = "#F2B705"
+  const yellow = "#C8102E"
 
   // ─── Render ────────────────────────────────────────────────────────────────
   return (
@@ -317,17 +317,17 @@ export function ComoFuncionaClient() {
       >
         {/* Background grid */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: "linear-gradient(rgba(242,183,5,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(242,183,5,0.04) 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(rgba(200, 16, 46,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 16, 46,0.04) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }} />
         {/* Glow blob */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full pointer-events-none" style={{
-          background: "radial-gradient(ellipse, rgba(242,183,5,0.07) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(200, 16, 46,0.07) 0%, transparent 70%)",
         }} />
 
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full text-xs font-semibold tracking-widest uppercase"
-            style={{ background: "rgba(242,183,5,0.1)", color: yellow, border: "1px solid rgba(242,183,5,0.2)" }}>
+            style={{ background: "rgba(200, 16, 46,0.1)", color: yellow, border: "1px solid rgba(200, 16, 46,0.2)" }}>
             <Zap size={12} />
             Como funciona
           </div>
@@ -335,7 +335,7 @@ export function ComoFuncionaClient() {
           <h1
             ref={heroTitleRef}
             className="fl-display text-6xl tracking-tight leading-[0.86] md:text-8xl lg:text-9xl text-white"
-            style={{ textShadow: "0 0 80px rgba(242,183,5,0.15)" }}
+            style={{ textShadow: "0 0 80px rgba(200, 16, 46,0.15)" }}
           >
             Como funciona a{" "}
             <span style={{ color: yellow }}>Freelandoo</span>
@@ -453,7 +453,7 @@ export function ComoFuncionaClient() {
       {/* ════════════════════════════════════════════════════════════
           SEÇÃO 4 — PARA QUEM ANUNCIA
       ════════════════════════════════════════════════════════════ */}
-      <section ref={section4Ref} className="px-4 py-14 md:py-20" style={{ ...sectionStyle, background: "rgba(242,183,5,0.02)" }}>
+      <section ref={section4Ref} className="px-4 py-14 md:py-20" style={{ ...sectionStyle, background: "rgba(200, 16, 46,0.02)" }}>
         <div className="max-w-6xl mx-auto">
           <div className="section-header mb-10">
             <SectionLabel>Para quem anuncia</SectionLabel>
@@ -482,7 +482,7 @@ export function ComoFuncionaClient() {
             ))}
           </div>
 
-          <div className="mb-10 p-4 rounded-xl text-sm max-w-2xl" style={{ background: "rgba(242,183,5,0.06)", border: "1px solid rgba(242,183,5,0.15)", color: "#C9C2B6" }}>
+          <div className="mb-10 p-4 rounded-xl text-sm max-w-2xl" style={{ background: "rgba(200, 16, 46,0.06)", border: "1px solid rgba(200, 16, 46,0.15)", color: "#C9C2B6" }}>
             <strong style={{ color: yellow }}>Importante:</strong> A ativação aumenta sua exposição dentro da plataforma,
             mas não garante contratação. A negociação acontece diretamente entre cliente e profissional.
           </div>
@@ -628,7 +628,7 @@ export function ComoFuncionaClient() {
       {/* ════════════════════════════════════════════════════════════
           SEÇÃO 8 — AFILIADOS E CUPONS
       ════════════════════════════════════════════════════════════ */}
-      <section ref={section8Ref} className="px-4 py-14 md:py-20" style={{ ...sectionStyle, background: "rgba(242,183,5,0.015)" }}>
+      <section ref={section8Ref} className="px-4 py-14 md:py-20" style={{ ...sectionStyle, background: "rgba(200, 16, 46,0.015)" }}>
         <div className="max-w-6xl mx-auto">
           <div className="section-header mb-10">
             <SectionLabel>Cupons e afiliados</SectionLabel>
@@ -750,7 +750,7 @@ export function ComoFuncionaClient() {
                 ].map((step, i) => (
                   <div key={step} className="flow-step flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-                      style={{ background: "rgba(242,183,5,0.15)", color: yellow }}>
+                      style={{ background: "rgba(200, 16, 46,0.15)", color: yellow }}>
                       {i + 1}
                     </div>
                     <span className="text-sm" style={dimText}>{step}</span>
@@ -778,7 +778,7 @@ export function ComoFuncionaClient() {
                 ].map((step, i) => (
                   <div key={step} className="flow-step flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-                      style={{ background: "rgba(242,183,5,0.15)", color: yellow }}>
+                      style={{ background: "rgba(200, 16, 46,0.15)", color: yellow }}>
                       {i + 1}
                     </div>
                     <span className="text-sm" style={dimText}>{step}</span>
@@ -841,7 +841,7 @@ export function ComoFuncionaClient() {
         {/* Glow */}
         <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
           <div className="w-[800px] h-[400px] rounded-full" style={{
-            background: "radial-gradient(ellipse, rgba(242,183,5,0.06) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse, rgba(200, 16, 46,0.06) 0%, transparent 70%)",
           }} />
         </div>
 

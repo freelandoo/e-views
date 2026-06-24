@@ -627,7 +627,7 @@ export default function AdminAfiliadosPage() {
                                 })()
                             : l.status === "REVERSED"
                               ? "bg-orange-500/15 text-orange-500 border-orange-500/30"
-                              : "bg-yellow-500/15 text-yellow-500 border-yellow-500/30"
+                              : "bg-red-600/15 text-red-600 border-red-600/30"
                       return (
                         <Fragment key={l.id_conversion}>
                           <tr

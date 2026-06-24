@@ -146,7 +146,7 @@ export default function AcceptTermsPage() {
               type="checkbox"
               checked={accepted}
               onChange={(e) => setAccepted(e.target.checked)}
-              className="mt-1 h-4 w-4 accent-[#F2B705]"
+              className="mt-1 h-4 w-4 accent-[#C8102E]"
             />
             <span className="text-[#3a352d]">
               {t(

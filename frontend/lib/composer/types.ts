@@ -60,7 +60,7 @@ export const TEXT_FONTS: Record<TextFontId, { label: string; cssVar: string; can
 }
 
 /** Cores disponíveis p/ texto/caixa (paleta tabloide). */
-export const TEXT_COLORS = ["#F2B705", "#0B0B0D", "#F1EDE2", "#1d4ed8", "#c2371f"] as const
+export const TEXT_COLORS = ["#C8102E", "#0B0B0D", "#F1EDE2", "#1d4ed8", "#c2371f"] as const
 
 /** Camada de texto sobreposto (queimada no canvas). Posição/tamanho relativos (0..1). */
 export interface TextLayer {

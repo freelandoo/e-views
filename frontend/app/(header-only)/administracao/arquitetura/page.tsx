@@ -410,7 +410,7 @@ function CurateModal({ fn, onClose, onSaved }: { fn: ArchFn; onClose: () => void
         </div>
 
         {/* Narração da função prática — em destaque (fundo amarelo, letras pretas) */}
-        <div className="mb-4 rounded-lg bg-yellow-400 px-4 py-3 text-black">
+        <div className="mb-4 rounded-lg bg-red-600 px-4 py-3 text-black">
           <p className="mb-0.5 text-[10px] font-bold uppercase tracking-wide text-black/60">O que essa função faz</p>
           <p className="text-sm font-medium leading-snug">
             {effectiveDesc || <span className="italic opacity-60">Sem descrição — escreva uma abaixo.</span>}

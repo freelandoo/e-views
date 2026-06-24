@@ -12,14 +12,14 @@ export function MoneyPathCards() {
   return (
     <Section id="caminhos" className="pt-4">
       <div className="relative mb-14 text-center">
-        <Squiggle className="absolute -top-3 left-1/4 hidden h-7 w-20 text-[#F2B705]/70 md:block" />
-        <p className="fl-marker mb-1 text-2xl font-bold text-[#F2B705]">
+        <Squiggle className="absolute -top-3 left-1/4 hidden h-7 w-20 text-[#C8102E]/70 md:block" />
+        <p className="fl-marker mb-1 text-2xl font-bold text-[#C8102E]">
           <EditableText as="span" mark={false} slot="home_seller_paths_eyebrow" fallback="escolha o seu" />
         </p>
         <h2 className="fl-display mx-auto max-w-2xl text-4xl text-[#F5F1E8] sm:text-5xl md:text-6xl">
           <EditableText as="span" slot="home_seller_paths_heading" fallback="Seu caminho dentro da *Freelandoo.*" />
         </h2>
-        <DoodleArrow dir="down-right" className="absolute -right-2 top-0 hidden h-10 w-20 text-[#F2B705] lg:block" />
+        <DoodleArrow dir="down-right" className="absolute -right-2 top-0 hidden h-10 w-20 text-[#C8102E] lg:block" />
       </div>
 
       <div data-stagger className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-5">
@@ -40,7 +40,7 @@ export function MoneyPathCards() {
                 }
               />
               <Halftone className="absolute right-2 top-2 h-10 w-10 opacity-30" />
-              <span className="absolute -bottom-5 left-4 flex h-12 w-12 items-center justify-center border-2 border-[#0B0B0D] bg-[#F2B705] text-[#1A1505]">
+              <span className="absolute -bottom-5 left-4 flex h-12 w-12 items-center justify-center border-2 border-[#0B0B0D] bg-[#C8102E] text-[#1A1505]">
                 <Icon name={p.icon} className="h-6 w-6" />
               </span>
             </div>

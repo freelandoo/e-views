@@ -17,7 +17,7 @@ export function EmptyFeedState({
   onReset,
   onClearLevel,
   levelFiltered = false,
-  accent = "#fbbf24",
+  accent = "#C8102E",
 }: EmptyFeedStateProps) {
   const t = useTranslations("Feed")
   return (

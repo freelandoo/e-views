@@ -99,7 +99,7 @@ export function CoursesGrid({ machineId, categoryId, q, priceFilter = "all" }: P
     <div className="mx-auto grid w-full max-w-[640px] grid-cols-2 gap-px bg-white/[0.03] pb-6 md:max-w-[760px] lg:max-w-none lg:grid-cols-3">
       {visible.map((c) => {
         const href = c.slug ? `/cursos/${c.slug}` : `/cursos/${c.id}`
-        const accent = c.machine_accent || "#fbbf24"
+        const accent = c.machine_accent || "#C8102E"
         return (
           <Link
             key={c.id}

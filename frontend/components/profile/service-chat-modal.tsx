@@ -293,7 +293,7 @@ export function ServiceChatModal({
           </button>
           <Avatar className="h-9 w-9 shrink-0 border-2 border-[#0B0B0D]">
             {peerAvatar && <AvatarImage src={peerAvatar} alt={peerName} />}
-            <AvatarFallback className="bg-[#F2B705]/20 text-xs text-[#0B0B0D]">{initials(peerName)}</AvatarFallback>
+            <AvatarFallback className="bg-[#C8102E]/20 text-xs text-white">{initials(peerName)}</AvatarFallback>
           </Avatar>
           <div className="min-w-0 flex-1">
             <p className="text-sm font-bold truncate text-[#0B0B0D]">{peerName}</p>
@@ -320,7 +320,7 @@ export function ServiceChatModal({
                   </span>
                 )}
                 {previewRequest.categoryName && (
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] border-2 border-[#0B0B0D] bg-[#F2B705] text-[#1A1505]">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] border-2 border-[#0B0B0D] bg-[#C8102E] text-[#1A1505]">
                     {previewRequest.categoryName}
                   </span>
                 )}

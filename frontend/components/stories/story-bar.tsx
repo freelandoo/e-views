@@ -52,7 +52,7 @@ function initials(name: string | null | undefined) {
  * Faixa horizontal de stories. Square avatars com borda metálica na cor
  * do enxame quando há story não-visto, transparente quando não tem.
  */
-export function StoryBar({ kind, defaultAccent = "#fbbf24", onOpenProfile, onCreate, showCreateSlot }: StoryBarProps) {
+export function StoryBar({ kind, defaultAccent = "#C8102E", onOpenProfile, onCreate, showCreateSlot }: StoryBarProps) {
   const t = useTranslations("Stories")
   const [entries, setEntries] = useState<StoryBarEntry[]>([])
   const [loading, setLoading] = useState(true)

@@ -300,7 +300,7 @@ export default function AgendaPageClient({
   if (loading) {
     return (
       <div className="fl-root fl-paper-texture flex min-h-[100dvh] items-center justify-center">
-        <div className="h-10 w-10 animate-spin rounded-full border-[3px] border-[#F1EDE2]/15 border-t-[#F2B705]" />
+        <div className="h-10 w-10 animate-spin rounded-full border-[3px] border-[#F1EDE2]/15 border-t-[#C8102E]" />
       </div>
     )
   }
@@ -316,14 +316,14 @@ export default function AgendaPageClient({
         >
           <ArrowLeft className="h-4 w-4" /> {t("back", "Voltar")}
         </button>
-        <p className="fl-marker text-2xl text-[#F2B705]">
+        <p className="fl-marker text-2xl text-[#C8102E]">
           {isClan ? t("clanEyebrow", "agenda do clan") : t("eyebrow", "a sua agenda")}
         </p>
         <h1 className="relative inline-block">
-          <span className="fl-display block text-[16vw] leading-[0.86] text-[#F2B705] sm:text-[11vw] lg:text-[6.5rem]">
+          <span className="fl-display block text-[16vw] leading-[0.86] text-[#C8102E] sm:text-[11vw] lg:text-[6.5rem]">
             {isClan ? t("clanTitle", "Operação") : t("title", "Agenda")}<span style={{ color: PAPER }}>.</span>
           </span>
-          <Underline className="absolute -bottom-3 left-0 h-4 w-full text-[#F2B705]" />
+          <Underline className="absolute -bottom-3 left-0 h-4 w-full text-[#C8102E]" />
         </h1>
         <p className="mt-6 max-w-2xl text-sm font-bold leading-relaxed text-[#C9C2B6]">
           {t("subtitle", "Disponibilidade, serviços e visão clara dos seus compromissos.")}
@@ -356,7 +356,7 @@ export default function AgendaPageClient({
                 className={cn(
                   "inline-flex items-center gap-2 border-2 px-3 py-2.5 text-[11px] font-extrabold uppercase tracking-[0.1em] transition lg:w-full",
                   activeTab === key
-                    ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D]"
+                    ? "border-[#0B0B0D] bg-[#C8102E] text-white shadow-[3px_3px_0_0_#0B0B0D]"
                     : "border-[#F1EDE2]/25 bg-transparent text-[#F1EDE2] hover:border-[#F1EDE2]",
                 )}
               >
@@ -396,7 +396,7 @@ export default function AgendaPageClient({
                         type="checkbox"
                         checked={rule.is_enabled}
                         onChange={e => { const next = [...rules]; next[i] = { ...rule, is_enabled: e.target.checked }; setRules(next) }}
-                        className="h-3.5 w-3.5 border-[#0B0B0D]/40 accent-[#F2B705]"
+                        className="h-3.5 w-3.5 border-[#0B0B0D]/40 accent-[#C8102E]"
                       />
                       <span className={cn(
                         "text-[11px] font-extrabold uppercase tracking-[0.12em]",
@@ -465,7 +465,7 @@ export default function AgendaPageClient({
                 <button
                   onClick={saveRules}
                   disabled={saving}
-                  className="inline-flex items-center gap-1.5 border-2 border-[#0B0B0D] bg-[#F2B705] px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.1em] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D] transition-transform hover:-translate-y-0.5 disabled:opacity-50"
+                  className="inline-flex items-center gap-1.5 border-2 border-[#0B0B0D] bg-[#C8102E] px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.1em] text-white shadow-[3px_3px_0_0_#0B0B0D] transition-transform hover:-translate-y-0.5 disabled:opacity-50"
                 >
                   <Save className="h-3.5 w-3.5" />
                   {saving ? t("saving", "Salvando…") : t("save", "Salvar")}
@@ -477,7 +477,7 @@ export default function AgendaPageClient({
                   <Calendar className="h-3.5 w-3.5" />
                   {t("exceptions", "Exceções")}
                   {overrides.length > 0 && (
-                    <span className="ml-0.5 inline-flex items-center justify-center bg-[#0B0B0D] px-1.5 text-[10px] font-mono text-[#F2B705]">
+                    <span className="ml-0.5 inline-flex items-center justify-center bg-[#0B0B0D] px-1.5 text-[10px] font-mono text-[#C8102E]">
                       {overrides.length}
                     </span>
                   )}
@@ -504,7 +504,7 @@ export default function AgendaPageClient({
                   onClick={() => saveReminder({ enabled: !reminderEnabled })}
                   className={cn(
                     "relative h-7 w-12 shrink-0 border-2 border-[#0B0B0D] transition",
-                    reminderEnabled ? "bg-[#F2B705]" : "bg-white",
+                    reminderEnabled ? "bg-[#C8102E]" : "bg-white",
                   )}
                   aria-label={t("reminderEnabledLabel", "Enviar lembrete")}
                 >
@@ -545,7 +545,7 @@ export default function AgendaPageClient({
                 </div>
                 <button
                   onClick={openNewService}
-                  className="inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.1em] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D] transition-transform hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.1em] text-white shadow-[3px_3px_0_0_#0B0B0D] transition-transform hover:-translate-y-0.5"
                 >
                   <Plus className="h-4 w-4" />{t("addService", "Adicionar serviço")}
                 </button>
@@ -578,7 +578,7 @@ export default function AgendaPageClient({
                           {s.description && <p className="mt-0.5 text-xs text-[#6B6457]">{s.description}</p>}
                           <div className="mt-2 flex flex-wrap gap-3 text-xs text-[#6B6457]">
                             <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5" />{s.duration_minutes} {minLabel}</span>
-                            <span className="font-extrabold text-[#E0A500]">{centsToReais(s.price_amount)}</span>
+                            <span className="font-extrabold text-[#9B0F24]">{centsToReais(s.price_amount)}</span>
                             {perMember !== null && (
                               <span className="text-[#6B6457]">
                                 {t("perMember", "{value}/membro").replace("{value}", centsToReais(perMember))}
@@ -690,7 +690,7 @@ export default function AgendaPageClient({
                     className={cn(MODAL_FIELD, "w-full")} />
                 </div>
                 <button onClick={saveOverride} disabled={saving}
-                  className="inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.1em] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D] transition-transform hover:-translate-y-0.5 disabled:opacity-50">
+                  className="inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.1em] text-white shadow-[3px_3px_0_0_#0B0B0D] transition-transform hover:-translate-y-0.5 disabled:opacity-50">
                   <Plus className="h-4 w-4" />{t("add", "Adicionar")}
                 </button>
               </div>

@@ -33,8 +33,8 @@ export function AvatarRatingStar({ profileId }: Props) {
               key={i}
               className="h-4 w-4"
               style={{
-                fill: filled ? "#E0A500" : "transparent",
-                color: filled ? "#E0A500" : "rgba(11,11,13,0.25)",
+                fill: filled ? "#9B0F24" : "transparent",
+                color: filled ? "#9B0F24" : "rgba(11,11,13,0.25)",
               }}
             />
           )

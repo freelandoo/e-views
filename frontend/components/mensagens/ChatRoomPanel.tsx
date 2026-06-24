@@ -571,7 +571,7 @@ export function ChatRoomPanel({
                           className={cn(
                             "relative px-4 py-2.5 text-sm leading-relaxed break-words shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]",
                             mine
-                              ? "rounded-3xl rounded-br-md bg-gradient-to-br from-yellow-400 to-amber-500 text-[#141009] shadow-[0_8px_24px_-12px_rgba(250,204,21,0.5),inset_0_1px_0_rgba(255,255,255,0.35)]"
+                              ? "rounded-3xl rounded-br-md bg-gradient-to-br from-red-600 to-amber-500 text-[#141009] shadow-[0_8px_24px_-12px_rgba(250,204,21,0.5),inset_0_1px_0_rgba(255,255,255,0.35)]"
                               : "rounded-3xl rounded-bl-md bg-white/[0.06] text-white ring-1 ring-white/10 backdrop-blur-md"
                           )}
                         >
@@ -631,7 +631,7 @@ export function ChatRoomPanel({
             </motion.div>
           )}
         </AnimatePresence>
-        <div className="flex items-end gap-2 rounded-2xl border border-white/10 bg-white/[0.03] p-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] focus-within:border-yellow-400/40 focus-within:bg-white/[0.05]">
+        <div className="flex items-end gap-2 rounded-2xl border border-white/10 bg-white/[0.03] p-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] focus-within:border-red-600/40 focus-within:bg-white/[0.05]">
           <EmojiPickerButton onPick={insertEmoji} />
           <Textarea
             ref={textareaRef}
@@ -654,7 +654,7 @@ export function ChatRoomPanel({
             whileTap={{ scale: 0.94 }}
             transition={SPRING}
             aria-label={t("sendMessageAriaLabel", "Enviar")}
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400 to-amber-500 text-[#141009] shadow-[0_8px_20px_-8px_rgba(250,204,21,0.55)] transition disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-red-600 to-amber-500 text-[#141009] shadow-[0_8px_20px_-8px_rgba(250,204,21,0.55)] transition disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
           >
             {sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
           </motion.button>

@@ -12,7 +12,7 @@ type CommunityCard = CommunityTileData & {
 }
 
 const inputCls =
-  "h-11 w-full rounded-xl border-2 border-[#F5F1E8]/10 bg-[#0B0B0D]/40 px-4 text-sm text-[#F5F1E8] placeholder:text-[#F5F1E8]/40 outline-none focus:border-[#F2B705]/60"
+  "h-11 w-full rounded-xl border-2 border-[#F5F1E8]/10 bg-[#0B0B0D]/40 px-4 text-sm text-[#F5F1E8] placeholder:text-[#F5F1E8]/40 outline-none focus:border-[#C8102E]/60"
 
 export default function CommunityListPage() {
   const t = useTranslations("Community")
@@ -66,19 +66,19 @@ export default function CommunityListPage() {
             onClick={load}
             disabled={loading}
             aria-label={t("searchPlaceholder", "Buscar comunidade...")}
-            className="flex h-11 items-center justify-center rounded-xl bg-[#F2B705] px-4 text-[#1A1505] transition hover:bg-[#ffc81f] disabled:opacity-60"
+            className="flex h-11 items-center justify-center rounded-xl bg-[#C8102E] px-4 text-[#1A1505] transition hover:bg-[#E03250] disabled:opacity-60"
           >
             <Search className="h-4 w-4" />
           </button>
           <Link
             href="/search?tab=communities"
-            className="flex h-11 items-center justify-center gap-2 rounded-xl border-2 border-[#F5F1E8]/15 px-4 text-sm font-semibold text-[#F5F1E8] transition hover:border-[#F2B705] hover:text-[#F2B705]"
+            className="flex h-11 items-center justify-center gap-2 rounded-xl border-2 border-[#F5F1E8]/15 px-4 text-sm font-semibold text-[#F5F1E8] transition hover:border-[#C8102E] hover:text-[#C8102E]"
           >
             <Users className="h-4 w-4" /> {t("browseByEnxame", "Buscar por enxame")}
           </Link>
           <Link
             href="/comunidades/criar"
-            className="flex h-11 items-center justify-center gap-2 rounded-xl border-2 border-[#F2B705]/40 px-4 text-sm font-semibold text-[#F2B705] transition hover:bg-[#F2B705]/10"
+            className="flex h-11 items-center justify-center gap-2 rounded-xl border-2 border-[#C8102E]/40 px-4 text-sm font-semibold text-[#C8102E] transition hover:bg-[#C8102E]/10"
           >
             <Plus className="h-4 w-4" /> {t("create", "Criar comunidade")}
           </Link>

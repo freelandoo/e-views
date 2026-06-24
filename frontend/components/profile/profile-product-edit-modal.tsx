@@ -163,7 +163,7 @@ function ProductCardPreview({
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#2a2212] to-[#141009]">
-            <Package className="h-11 w-11 text-[#F2B705]/40" aria-hidden />
+            <Package className="h-11 w-11 text-[#C8102E]/40" aria-hidden />
           </div>
         )}
       </div>
@@ -183,7 +183,7 @@ function ProductCardPreview({
               R$ {integer}
               <span className="align-top text-[10px] font-semibold text-[#0B0B0D]/75">,{cents}</span>
             </p>
-            <span className="shrink-0 rounded-full border-2 border-[#0B0B0D] bg-[#F2B705] px-2.5 py-1.5 text-center text-[9px] font-bold uppercase tracking-wider text-[#1A1505]">
+            <span className="shrink-0 rounded-full border-2 border-[#0B0B0D] bg-[#C8102E] px-2.5 py-1.5 text-center text-[9px] font-bold uppercase tracking-wider text-[#1A1505]">
               {t("viewWord", "Ver")}
             </span>
           </div>
@@ -710,7 +710,7 @@ export function ProfileProductEditModal({
                 stockQty={previewStock}
                 coverUrl={previewCoverUrl}
               />
-              <span className="pointer-events-none absolute left-1/2 top-[28%] z-10 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full border-2 border-[#0B0B0D] bg-[#F1EDE2]/95 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wider text-[#0B0B0D] shadow-[2px_2px_0_0_#0B0B0D] transition group-hover/preview:bg-[#F2B705]">
+              <span className="pointer-events-none absolute left-1/2 top-[28%] z-10 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full border-2 border-[#0B0B0D] bg-[#F1EDE2]/95 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wider text-white shadow-[2px_2px_0_0_#0B0B0D] transition group-hover/preview:bg-[#C8102E]">
                 {uploading ? (
                   <Loader2 className="h-3 w-3 animate-spin" />
                 ) : (
@@ -821,7 +821,7 @@ export function ProfileProductEditModal({
           )}
 
           {showRest && pricingPreview && pricingPreview.display_price_cents > 0 && (
-            <div className="rounded-lg border-2 border-[#E0A500]/40 bg-[#F2B705]/10 px-3 py-2">
+            <div className="rounded-lg border-2 border-[#9B0F24]/40 bg-[#C8102E]/10 px-3 py-2">
               <p className="mb-1 text-[10px] font-bold uppercase tracking-wide text-[#b8860b]">
                 {t("finalPriceWithFees", "Preço final ao comprador (com taxas)")}
               </p>
@@ -861,7 +861,7 @@ export function ProfileProductEditModal({
                   className={cn(
                     "flex w-full items-center gap-3 border-2 px-3 py-2.5 text-left transition-transform hover:-translate-y-0.5 disabled:opacity-60",
                     pendingFile
-                      ? "border-[#0B0B0D] bg-[#F2B705]/15 shadow-[2px_2px_0_0_#0B0B0D]"
+                      ? "border-[#0B0B0D] bg-[#C8102E]/15 shadow-[2px_2px_0_0_#0B0B0D]"
                       : "border-dashed border-[#0B0B0D]/30 bg-white/50 hover:border-[#0B0B0D]",
                   )}
                 >
@@ -899,7 +899,7 @@ export function ProfileProductEditModal({
                         onDragEnd={handleDragEnd}
                         className={`group relative aspect-square overflow-hidden rounded-lg border-2 transition-all ${
                           dragOverIdx === idx
-                            ? "border-[#E0A500] ring-2 ring-[#E0A500]/30"
+                            ? "border-[#9B0F24] ring-2 ring-[#9B0F24]/30"
                             : "border-[#0B0B0D]/20"
                         } ${dragIdx === idx ? "opacity-40" : ""}`}
                       >
@@ -934,7 +934,7 @@ export function ProfileProductEditModal({
                         type="button"
                         onClick={() => fileInputRef.current?.click()}
                         disabled={uploading}
-                        className="flex aspect-square flex-col items-center justify-center gap-1 rounded-lg border-2 border-dashed border-[#0B0B0D]/30 text-[#5b554b] transition-colors hover:border-[#E0A500] hover:text-[#E0A500] disabled:opacity-50"
+                        className="flex aspect-square flex-col items-center justify-center gap-1 rounded-lg border-2 border-dashed border-[#0B0B0D]/30 text-[#5b554b] transition-colors hover:border-[#9B0F24] hover:text-[#9B0F24] disabled:opacity-50"
                       >
                         {uploading ? (
                           <Loader2 className="h-5 w-5 animate-spin" />
@@ -1007,7 +1007,7 @@ export function ProfileProductEditModal({
                           className={cn(
                             "border-2 px-2.5 py-2 text-left transition-transform hover:-translate-y-0.5",
                             active
-                              ? "border-[#0B0B0D] bg-[#F2B705] shadow-[2px_2px_0_0_#0B0B0D]"
+                              ? "border-[#0B0B0D] bg-[#C8102E] shadow-[2px_2px_0_0_#0B0B0D]"
                               : "border-[#0B0B0D]/25 bg-white/50 hover:border-[#0B0B0D]",
                           )}
                         >
@@ -1025,7 +1025,7 @@ export function ProfileProductEditModal({
                       className={cn(
                         "border-2 px-2.5 py-2 text-left transition-transform hover:-translate-y-0.5",
                         boxPresetId === "custom"
-                          ? "border-[#0B0B0D] bg-[#F2B705] shadow-[2px_2px_0_0_#0B0B0D]"
+                          ? "border-[#0B0B0D] bg-[#C8102E] shadow-[2px_2px_0_0_#0B0B0D]"
                           : "border-dashed border-[#0B0B0D]/30 bg-white/50 hover:border-[#0B0B0D]",
                       )}
                     >
@@ -1128,7 +1128,7 @@ export function ProfileProductEditModal({
               type="checkbox"
               checked={form.is_active}
               onChange={(e) => setForm((f) => ({ ...f, is_active: e.target.checked }))}
-              className="h-4 w-4 rounded border-[#0B0B0D]/40 text-[#E0A500] accent-[#E0A500]"
+              className="h-4 w-4 rounded border-[#0B0B0D]/40 text-[#9B0F24] accent-[#9B0F24]"
             />
             <span className="text-sm font-medium text-[#0B0B0D]">{t("activeVisibleInStore", "Ativo (visível na loja)")}</span>
           </label>
@@ -1242,12 +1242,12 @@ function AttributeFieldsEditor({
                       title={tx.colorName(c.name)}
                       className={
                         "h-7 w-7 rounded-full border-2 transition-transform hover:-translate-y-0.5 " +
-                        (active ? "border-[#0B0B0D] ring-2 ring-[#E0A500]" : "border-[#0B0B0D]/25")
+                        (active ? "border-[#0B0B0D] ring-2 ring-[#9B0F24]" : "border-[#0B0B0D]/25")
                       }
                       style={
                         c.hex
                           ? { background: c.hex }
-                          : { background: "conic-gradient(#E0312D,#F2B705,#2E9E44,#2E62D9,#7B3FE4,#E0312D)" }
+                          : { background: "conic-gradient(#E0312D,#C8102E,#2E9E44,#2E62D9,#7B3FE4,#E0312D)" }
                       }
                     />
                   )
@@ -1275,7 +1275,7 @@ function AttributeFieldsEditor({
                     className={
                       "border-2 px-2.5 py-1 text-[11px] font-bold transition-transform hover:-translate-y-0.5 " +
                       (active
-                        ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[2px_2px_0_0_#0B0B0D]"
+                        ? "border-[#0B0B0D] bg-[#C8102E] text-white shadow-[2px_2px_0_0_#0B0B0D]"
                         : "border-[#0B0B0D]/25 bg-white/50 text-[#3a352c] hover:border-[#0B0B0D]")
                     }
                   >
@@ -1295,7 +1295,7 @@ function AttributeFieldsEditor({
 function StepTitle({ n, title, hint }: { n: number; title: string; hint?: string }) {
   return (
     <div className="mb-2 flex flex-wrap items-center gap-2">
-      <span className="flex h-5 w-5 shrink-0 items-center justify-center border-2 border-[#0B0B0D] bg-[#F2B705] text-[11px] font-extrabold text-[#0B0B0D] shadow-[1px_1px_0_0_#0B0B0D]">
+      <span className="flex h-5 w-5 shrink-0 items-center justify-center border-2 border-[#0B0B0D] bg-[#C8102E] text-[11px] font-extrabold text-white shadow-[1px_1px_0_0_#0B0B0D]">
         {n}
       </span>
       <span className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#0B0B0D]">{title}</span>
@@ -1313,7 +1313,7 @@ function OptionChip({ label, active, onClick }: { label: string; active: boolean
       className={cn(
         "border-2 px-2.5 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.04em] transition-transform hover:-translate-y-0.5",
         active
-          ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[2px_2px_0_0_#0B0B0D]"
+          ? "border-[#0B0B0D] bg-[#C8102E] text-white shadow-[2px_2px_0_0_#0B0B0D]"
           : "border-[#0B0B0D]/25 bg-white/50 text-[#3a352c] hover:border-[#0B0B0D]",
       )}
     >

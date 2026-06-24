@@ -225,7 +225,7 @@ function TaxaPageInner() {
 
                   <button
                     type="button"
-                    className="inline-flex w-full items-center justify-center border-2 border-[#0B0B0D] bg-[#F2B705] px-5 py-3.5 text-sm font-black uppercase tracking-[0.12em] text-[#0B0B0D] shadow-[5px_5px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_#0B0B0D] disabled:cursor-not-allowed disabled:opacity-55"
+                    className="inline-flex w-full items-center justify-center border-2 border-[#0B0B0D] bg-[#C8102E] px-5 py-3.5 text-sm font-black uppercase tracking-[0.12em] text-white shadow-[5px_5px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_#0B0B0D] disabled:cursor-not-allowed disabled:opacity-55"
                     onClick={handleCheckout}
                     disabled={isLoading || !profile || !!profile?.is_published}
                   >

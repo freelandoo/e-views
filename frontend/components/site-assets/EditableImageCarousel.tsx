@@ -133,9 +133,9 @@ export function EditableImageCarousel({
                 className={cn(
                   "grid place-items-center border border-[#0B0B0D] transition",
                   isAdd
-                    ? "h-4 w-4 bg-[#F2B705] text-[#0B0B0D]"
+                    ? "h-4 w-4 bg-[#C8102E] text-white"
                     : i === activeIdx
-                      ? "h-2.5 w-5 bg-[#F2B705]"
+                      ? "h-2.5 w-5 bg-[#C8102E]"
                       : "h-2.5 w-2.5 bg-[#F1EDE2]/80",
                 )}
               >

@@ -117,7 +117,7 @@ function paintOverlay(
     ctx.drawImage(el, x, y, w, h)
     ctx.restore()
     ctx.lineWidth = Math.max(2, w * 0.02)
-    ctx.strokeStyle = "#F2B705"
+    ctx.strokeStyle = "#C8102E"
     ctx.strokeRect(x, y, w, h)
   } catch { /* frame não decodável ainda */ }
 }
@@ -568,7 +568,7 @@ export function MediaComposer({ open, mode, initialKind = "rest", initialProfile
   const addText = () => {
     const layer: TextLayer = {
       id: crypto.randomUUID(), text: "Toque para editar", font: "display",
-      color: "#0B0B0D", box: "rounded", boxColor: "#F2B705", x: 0.5, y: 0.46, size: 0.07,
+      color: "#0B0B0D", box: "rounded", boxColor: "#C8102E", x: 0.5, y: 0.46, size: 0.07,
     }
     setTextLayers((ls) => [...ls, layer])
     setActiveTextId(layer.id)
@@ -769,7 +769,7 @@ export function MediaComposer({ open, mode, initialKind = "rest", initialProfile
           >
             {step === "pick" ? <X className="h-5 w-5" /> : <ArrowLeft className="h-5 w-5" />}
           </button>
-          <h2 className="flex items-center gap-2 font-[family-name:var(--font-anton)] text-lg uppercase text-[#F2B705]">
+          <h2 className="flex items-center gap-2 font-[family-name:var(--font-anton)] text-lg uppercase text-[#C8102E]">
             {modeLabel}
             {isCarousel && (
               <span className="border-2 border-[#0B0B0D] bg-[#F1EDE2] px-1.5 py-0.5 text-[9px] font-black uppercase tracking-[0.06em] text-[#0B0B0D]">
@@ -779,7 +779,7 @@ export function MediaComposer({ open, mode, initialKind = "rest", initialProfile
             {mode === "story" && (
               <span className={cn(
                 "border-2 border-[#0B0B0D] px-1.5 py-0.5 text-[9px] font-black uppercase tracking-[0.06em]",
-                effectiveKind === "trampo" ? "bg-[#F2B705] text-[#0B0B0D]" : "bg-[#F1EDE2] text-[#0B0B0D]",
+                effectiveKind === "trampo" ? "bg-[#C8102E] text-white" : "bg-[#F1EDE2] text-white",
               )}>
                 {effectiveKind}
               </span>
@@ -839,7 +839,7 @@ export function MediaComposer({ open, mode, initialKind = "rest", initialProfile
 
               {draft.kind === "video" && videoNotice && (
                 <div className="flex items-start gap-2 border-t-2 border-[#0B0B0D] bg-[#201a10] px-4 py-2 text-[11px] font-bold text-[#d6cfbf]">
-                  <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#F2B705]" />
+                  <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#C8102E]" />
                   <span>{videoNotice}</span>
                 </div>
               )}
@@ -886,14 +886,14 @@ export function MediaComposer({ open, mode, initialKind = "rest", initialProfile
 
           {step === "publish" && (
             <div className="flex h-full flex-col items-center justify-center gap-4 px-8 text-center">
-              <span className="h-9 w-9 animate-spin rounded-full border-[3px] border-[#F1EDE2]/15 border-t-[#F2B705]" />
-              <div className="font-[family-name:var(--font-anton)] text-xl uppercase text-[#F2B705]">{t("publish.rendering", "Renderizando")}</div>
+              <span className="h-9 w-9 animate-spin rounded-full border-[3px] border-[#F1EDE2]/15 border-t-[#C8102E]" />
+              <div className="font-[family-name:var(--font-anton)] text-xl uppercase text-[#C8102E]">{t("publish.rendering", "Renderizando")}</div>
               <div className="w-56">
                 <div className="mb-1 flex justify-between text-[10px] font-black uppercase tracking-[0.1em] text-[#a89f8d]">
                   <span>{t("publish.uploading", "Enviando ao R2")}</span><span className="tabular-nums">{Math.round(progress * 100)}%</span>
                 </div>
                 <div className="h-2 overflow-hidden border-2 border-[#0B0B0D] bg-[#1D1810]">
-                  <div className="h-full bg-[#F2B705] transition-all" style={{ width: `${progress * 100}%` }} />
+                  <div className="h-full bg-[#C8102E] transition-all" style={{ width: `${progress * 100}%` }} />
                 </div>
               </div>
               {error && <p className="text-xs text-red-300">{error}</p>}
@@ -939,7 +939,7 @@ function SlideTray({
                 onClick={() => onSelect(i)}
                 className={cn(
                   "relative block h-16 w-16 overflow-hidden border-2",
-                  on ? "border-[#F2B705] shadow-[0_0_0_2px_#F2B705]" : "border-[#0B0B0D]",
+                  on ? "border-[#C8102E] shadow-[0_0_0_2px_#C8102E]" : "border-[#0B0B0D]",
                 )}
                 aria-label={t("carousel.slide", "Foto {n}").replace("{n}", String(i + 1))}
               >
@@ -982,7 +982,7 @@ function SlideTray({
           <button
             type="button"
             onClick={onAdd}
-            className="grid h-16 w-16 shrink-0 place-items-center border-2 border-dashed border-[#F2B705]/60 bg-[#1D1810] text-[#F2B705]"
+            className="grid h-16 w-16 shrink-0 place-items-center border-2 border-dashed border-[#C8102E]/60 bg-[#1D1810] text-[#C8102E]"
             aria-label={t("carousel.add", "Adicionar fotos")}
           >
             <Plus className="h-5 w-5" />
@@ -1007,7 +1007,7 @@ function StepAction({ step, disabledNext, onNext, mode }: { step: Step; disabled
       type="button" onClick={onNext} disabled={disabledNext}
       className={cn(
         "flex items-center gap-1 border-2 border-[#0B0B0D] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.1em] shadow-[2px_2px_0_0_#0B0B0D] transition",
-        disabledNext ? "cursor-not-allowed bg-[#1D1810] text-[#a89f8d]/50 shadow-none" : "bg-[#F2B705] text-[#0B0B0D] hover:-translate-y-0.5",
+        disabledNext ? "cursor-not-allowed bg-[#1D1810] text-[#a89f8d]/50 shadow-none" : "bg-[#C8102E] text-white hover:-translate-y-0.5",
       )}
     >
       {label} {step !== "details" && <ArrowRight className="h-3.5 w-3.5" />}
@@ -1019,14 +1019,14 @@ function PickStep({ onPick, onCamera, showCarouselHint, error }: { onPick: () =>
   const t = useTranslations("Composer")
   return (
     <div className="flex h-full flex-col items-center justify-center gap-4 px-8 text-center">
-      <div className="font-[family-name:var(--font-anton)] text-4xl uppercase text-[#F2B705]">{t("pick.kicker", "EXTRA!")}</div>
+      <div className="font-[family-name:var(--font-anton)] text-4xl uppercase text-[#C8102E]">{t("pick.kicker", "EXTRA!")}</div>
       <p className="max-w-xs text-sm text-[#d6cfbf]">{t("pick.description", "Toque para escolher uma foto ou vídeo da sua galeria.")}</p>
       {showCarouselHint && (
         <p className="max-w-xs text-[11px] uppercase tracking-[0.08em] text-[#a89f8d]">{t("pick.carouselHint", "Dica: escolha várias fotos para montar um carrossel.")}</p>
       )}
       <button
         type="button" onClick={onPick}
-        className="flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-5 py-2.5 text-[11px] font-black uppercase tracking-[0.12em] text-[#0B0B0D] shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#0B0B0D]"
+        className="flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-5 py-2.5 text-[11px] font-black uppercase tracking-[0.12em] text-white shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#0B0B0D]"
       >
         <ImagePlus className="h-4 w-4" /> {t("pick.selectMedia", "Selecionar mídia")}
       </button>
@@ -1047,7 +1047,7 @@ function PickStep({ onPick, onCamera, showCarouselHint, error }: { onPick: () =>
         href="/comprimir"
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-1 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.1em] text-[#a89f8d] underline-offset-2 transition hover:text-[#F2B705] hover:underline"
+        className="mt-1 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.1em] text-[#a89f8d] underline-offset-2 transition hover:text-[#C8102E] hover:underline"
       >
         <Minimize2 className="h-3.5 w-3.5" /> {t("pick.compressLink", "Arquivo grande? Comprimir mídia")}
       </a>
@@ -1085,10 +1085,10 @@ function EditPanel({
               {PRESETS.map((p) => (
                 <button
                   key={p.id} type="button" onClick={() => onPreset(p.id)}
-                  className={cn("shrink-0 text-center", presetId === p.id ? "text-[#F2B705]" : "text-[#a89f8d]")}
+                  className={cn("shrink-0 text-center", presetId === p.id ? "text-[#C8102E]" : "text-[#a89f8d]")}
                 >
                   <span
-                    className={cn("mb-1 block h-14 w-14 border-2 border-[#0B0B0D]", presetId === p.id && "shadow-[0_0_0_2px_#F2B705]")}
+                    className={cn("mb-1 block h-14 w-14 border-2 border-[#0B0B0D]", presetId === p.id && "shadow-[0_0_0_2px_#C8102E]")}
                     style={{ background: p.swatch }}
                   />
                   <span className="text-[9px] font-black uppercase tracking-[0.04em]">{p.label}</span>
@@ -1117,7 +1117,7 @@ function EditPanel({
             key={tb.id} type="button" onClick={() => onTab(tb.id)}
             className={cn(
               "flex flex-1 flex-col items-center gap-1 py-2.5 text-[9px] font-black uppercase tracking-[0.05em] transition",
-              tab === tb.id ? "bg-[#F2B705] text-[#0B0B0D]" : "text-[#a89f8d]",
+              tab === tb.id ? "bg-[#C8102E] text-white" : "text-[#a89f8d]",
             )}
           >
             {tb.icon}{tb.label}
@@ -1155,7 +1155,7 @@ function TextEditor({
         )}
         <button
           type="button" onClick={onAdd}
-          className="flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-2 text-[11px] font-black uppercase tracking-[0.1em] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D] transition hover:-translate-y-0.5"
+          className="flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-2 text-[11px] font-black uppercase tracking-[0.1em] text-white shadow-[3px_3px_0_0_#0B0B0D] transition hover:-translate-y-0.5"
         >
           <Type className="h-4 w-4" /> {t("text.add", "Adicionar texto")}
         </button>
@@ -1182,7 +1182,7 @@ function TextEditor({
               style={{ fontFamily: f.cssVar }}
               className={cn(
                 "flex-1 border-2 border-[#0B0B0D] px-2 py-1.5 text-sm",
-                active.font === id ? "bg-[#F2B705] text-[#0B0B0D]" : "bg-[#F1EDE2] text-[#0B0B0D]",
+                active.font === id ? "bg-[#C8102E] text-white" : "bg-[#F1EDE2] text-white",
               )}
             >
               {f.label}
@@ -1198,7 +1198,7 @@ function TextEditor({
               key={b} type="button" onClick={() => onUpdate(active.id, { box: b })}
               className={cn(
                 "flex-1 border-2 border-[#0B0B0D] px-2 py-1.5 text-[11px] font-black uppercase tracking-[0.06em]",
-                active.box === b ? "bg-[#F2B705] text-[#0B0B0D]" : "bg-[#F1EDE2] text-[#0B0B0D]",
+                active.box === b ? "bg-[#C8102E] text-white" : "bg-[#F1EDE2] text-white",
               )}
             >
               {b === "rounded" ? t("text.rounded", "Arredondada") : t("text.transparent", "Transparente")}
@@ -1221,7 +1221,7 @@ function TextEditor({
         <input
           type="range" min={0.04} max={0.16} step={0.005} value={active.size}
           onChange={(e) => onUpdate(active.id, { size: Number(e.target.value) })}
-          className="mt-1.5 w-full accent-[#F2B705]"
+          className="mt-1.5 w-full accent-[#C8102E]"
         />
       </div>
       <div className="flex gap-2 pt-1">
@@ -1233,7 +1233,7 @@ function TextEditor({
         </button>
         <button
           type="button" onClick={() => onRemove(active.id)}
-          className="border-2 border-[#0B0B0D] bg-[#1D1810] px-3 py-2 text-[#F2B705]"
+          className="border-2 border-[#0B0B0D] bg-[#1D1810] px-3 py-2 text-[#C8102E]"
           aria-label={t("text.remove", "Remover texto")}
         >
           <X className="h-4 w-4" />
@@ -1254,7 +1254,7 @@ function OverlayEditor({
       <div className="flex flex-col items-center gap-3 py-6 text-center">
         <button
           type="button" onClick={onPick}
-          className="flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-2 text-[11px] font-black uppercase tracking-[0.1em] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D] transition hover:-translate-y-0.5"
+          className="flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-2 text-[11px] font-black uppercase tracking-[0.1em] text-white shadow-[3px_3px_0_0_#0B0B0D] transition hover:-translate-y-0.5"
         >
           <Layers className="h-4 w-4" /> {t("overlay.add", "Adicionar imagem/vídeo")}
         </button>
@@ -1272,12 +1272,12 @@ function OverlayEditor({
         <input
           type="range" min={0.15} max={0.7} step={0.01} value={overlay.scale}
           onChange={(e) => onScale(Number(e.target.value))}
-          className="mt-1.5 w-full accent-[#F2B705]"
+          className="mt-1.5 w-full accent-[#C8102E]"
         />
       </div>
       <div className="flex gap-2">
         <button type="button" onClick={onPick} className="flex-1 border-2 border-[#0B0B0D] bg-[#F1EDE2] py-2 text-[11px] font-black uppercase tracking-[0.08em] text-[#0B0B0D]">{t("replace", "Trocar")}</button>
-        <button type="button" onClick={onRemove} className="border-2 border-[#0B0B0D] bg-[#1D1810] px-3 py-2 text-[#F2B705]" aria-label={t("overlay.remove", "Remover sobreposição")}><X className="h-4 w-4" /></button>
+        <button type="button" onClick={onRemove} className="border-2 border-[#0B0B0D] bg-[#1D1810] px-3 py-2 text-[#C8102E]" aria-label={t("overlay.remove", "Remover sobreposição")}><X className="h-4 w-4" /></button>
       </div>
     </div>
   )
@@ -1290,7 +1290,7 @@ function Swatches({ value, onPick }: { value: string; onPick: (c: string) => voi
       {TEXT_COLORS.map((c) => (
         <button
           key={c} type="button" onClick={() => onPick(c)} aria-label={`${t("color", "Cor")} ${c}`}
-          className={cn("h-7 w-7 border-2 border-[#0B0B0D]", value.toLowerCase() === c.toLowerCase() && "shadow-[0_0_0_2px_#F2B705]")}
+          className={cn("h-7 w-7 border-2 border-[#0B0B0D]", value.toLowerCase() === c.toLowerCase() && "shadow-[0_0_0_2px_#C8102E]")}
           style={{ background: c }}
         />
       ))}
@@ -1317,7 +1317,7 @@ function DetailsStep({
       <Label>{t("details.publishAs", "Publicar como")}</Label>
       <div className="mt-2">
         {loadingProfiles ? (
-          <div className="flex items-center gap-2 text-sm text-[#a89f8d]"><Loader2 className="h-4 w-4 animate-spin text-[#F2B705]" /> {t("details.loadingProfiles", "Carregando perfis…")}</div>
+          <div className="flex items-center gap-2 text-sm text-[#a89f8d]"><Loader2 className="h-4 w-4 animate-spin text-[#C8102E]" /> {t("details.loadingProfiles", "Carregando perfis…")}</div>
         ) : profiles.length === 0 ? (
           <p className="border-2 border-[#0B0B0D] bg-[#F1EDE2] px-3 py-2.5 text-sm text-[#0B0B0D]">{t("details.noProfiles", "Sem subperfis elegíveis. Crie um subperfil para postar.")}</p>
         ) : (
@@ -1379,7 +1379,7 @@ function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; chi
       type="button" onClick={onClick}
       className={cn(
         "border-2 border-[#0B0B0D] px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.04em] shadow-[2px_2px_0_0_#0B0B0D]",
-        on ? "bg-[#F2B705] text-[#0B0B0D]" : "bg-[#F1EDE2] text-[#0B0B0D]",
+        on ? "bg-[#C8102E] text-white" : "bg-[#F1EDE2] text-white",
       )}
     >
       {children}
@@ -1393,7 +1393,7 @@ function Adj({ label, value, onChange }: { label: string; value: number; onChang
       <input
         type="range" min={-1} max={1} step={0.01} value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="mt-1.5 w-full accent-[#F2B705]"
+        className="mt-1.5 w-full accent-[#C8102E]"
       />
     </div>
   )

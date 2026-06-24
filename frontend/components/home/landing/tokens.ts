@@ -15,8 +15,8 @@ export const FL = {
   canvas: "#15120E",
   canvas2: "#1D1914",
   ink: "#F5F1E8",
-  gold: "#F2B705",
-  goldDeep: "#E0A500",
+  gold: "#C8102E",
+  goldDeep: "#9B0F24",
   muted: "#9A938A",
 } as const
 

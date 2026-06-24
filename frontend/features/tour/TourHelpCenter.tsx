@@ -16,7 +16,7 @@ const STATUS_LABEL: Record<TourStatus, string> = {
 
 const STATUS_TONE: Record<TourStatus, string> = {
   not_started: "bg-[#2A2218] text-[#C9C2B6]",
-  in_progress: "bg-[#F2B705]/15 text-[#F2B705]",
+  in_progress: "bg-[#C8102E]/15 text-[#C8102E]",
   completed: "bg-emerald-500/15 text-emerald-300",
   skipped: "bg-[#2A2218] text-[#9A938A]",
 };
@@ -49,7 +49,7 @@ export function TourHelpCenter() {
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
           <button
             onClick={() => startTour(mainTour.tourKey)}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#F2B705] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#F2B705]/90"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#C8102E] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#C8102E]/90"
           >
             <Play className="h-4 w-4" /> Iniciar tour
           </button>
@@ -57,7 +57,7 @@ export function TourHelpCenter() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#2A2218] px-6 py-3 text-sm font-semibold text-[#F5F1E8] transition hover:border-[#F2B705]/50"
+            className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#2A2218] px-6 py-3 text-sm font-semibold text-[#F5F1E8] transition hover:border-[#C8102E]/50"
           >
             <MessageCircle className="h-4 w-4" /> Falar com suporte
           </a>
@@ -78,7 +78,7 @@ export function TourHelpCenter() {
           type="checkbox"
           checked={hideAllTours}
           onChange={(event) => setHideAllTours(event.target.checked)}
-          className="accent-[#F2B705]"
+          className="accent-[#C8102E]"
         />
         Não mostrar apresentações automaticamente
       </label>
@@ -100,13 +100,13 @@ export function TourHelpCenter() {
               <div className="flex flex-wrap items-center gap-2">
                 <button
                   onClick={() => startTour(tour.tourKey)}
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-[#F2B705] px-3 py-2 text-xs font-semibold text-black transition hover:bg-[#F2B705]/90"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-[#C8102E] px-3 py-2 text-xs font-semibold text-white transition hover:bg-[#C8102E]/90"
                 >
                   <Play className="h-3.5 w-3.5" /> Rever tour
                 </button>
                 <button
                   onClick={() => resetTour(tour.tourKey)}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-[#2A2218] px-3 py-2 text-xs font-medium text-[#C9C2B6] transition hover:border-[#F2B705]/40 hover:text-[#F5F1E8]"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-[#2A2218] px-3 py-2 text-xs font-medium text-[#C9C2B6] transition hover:border-[#C8102E]/40 hover:text-[#F5F1E8]"
                 >
                   <RotateCcw className="h-3.5 w-3.5" /> Reiniciar apresentação
                 </button>

@@ -131,7 +131,7 @@ export default function CourseLandingClient({ course }: { course: PublicCourse }
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center">
-              <GraduationCap className="h-16 w-16 text-[#F2B705]/30" />
+              <GraduationCap className="h-16 w-16 text-[#C8102E]/30" />
             </div>
           )}
         </div>
@@ -166,7 +166,7 @@ export default function CourseLandingClient({ course }: { course: PublicCourse }
         )}
 
         {/* Preço + CTA */}
-        <div className="mt-10 flex flex-col items-start gap-4 rounded-[6px] border-2 border-[#0B0B0D] bg-[#F2B705] p-6 text-[#0B0B0D] shadow-[6px_6px_0_0_#0B0B0D] md:flex-row md:items-center md:justify-between">
+        <div className="mt-10 flex flex-col items-start gap-4 rounded-[6px] border-2 border-[#0B0B0D] bg-[#C8102E] p-6 text-white shadow-[6px_6px_0_0_#0B0B0D] md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[#0B0B0D]/70">{t("priceLabel", "Valor")}</p>
             <p className="fl-display text-4xl text-[#0B0B0D]">
@@ -177,7 +177,7 @@ export default function CourseLandingClient({ course }: { course: PublicCourse }
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-[#0B0B0D] bg-transparent font-black uppercase tracking-[0.08em] text-[#0B0B0D] hover:bg-[#0B0B0D] hover:text-[#F2B705]"
+              className="border-2 border-[#0B0B0D] bg-transparent font-black uppercase tracking-[0.08em] text-[#0B0B0D] hover:bg-[#0B0B0D] hover:text-[#C8102E]"
               onClick={() => router.push(`/account/courses/${course.id}`)}
             >
               <Settings className="mr-2 h-4 w-4" />
@@ -194,7 +194,7 @@ export default function CourseLandingClient({ course }: { course: PublicCourse }
                 type="button"
                 onClick={handleBuy}
                 disabled={buying}
-                className="inline-flex items-center justify-center gap-2 border-2 border-[#F2B705] bg-[#0B0B0D] px-5 py-2.5 text-[12px] font-black uppercase tracking-[0.12em] text-[#F2B705] shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-55"
+                className="inline-flex items-center justify-center gap-2 border-2 border-[#C8102E] bg-[#0B0B0D] px-5 py-2.5 text-[12px] font-black uppercase tracking-[0.12em] text-[#C8102E] shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-55"
               >
                 <ShoppingCart className="h-4 w-4" />
                 {buying ? t("redirectingButton", "Redirecionando...") : t("buyCourseButton", "Comprar curso")}

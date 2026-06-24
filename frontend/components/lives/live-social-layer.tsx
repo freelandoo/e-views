@@ -74,7 +74,7 @@ export function LiveSocialLayer({ room, live, role }: LiveSocialLayerProps) {
                 transition={{ type: "spring", stiffness: 240, damping: 26 }}
                 className="w-fit max-w-full rounded-2xl bg-black/45 px-3 py-1.5 text-sm text-white backdrop-blur"
               >
-                <span className="mr-1.5 font-semibold text-yellow-300">{m.name}</span>
+                <span className="mr-1.5 font-semibold text-red-500">{m.name}</span>
                 <span className="text-white/90">{m.text}</span>
               </motion.div>
             ))}
@@ -95,7 +95,7 @@ export function LiveSocialLayer({ room, live, role }: LiveSocialLayerProps) {
               type="button"
               onClick={submit}
               disabled={!draft.trim()}
-              className="text-yellow-300 disabled:text-white/30"
+              className="text-red-500 disabled:text-white/30"
               aria-label="Enviar"
             >
               <Send className="h-4 w-4" />

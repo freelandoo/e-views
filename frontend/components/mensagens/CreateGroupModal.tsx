@@ -149,7 +149,7 @@ export function CreateGroupModal({ open, onOpenChange, ownerProfileId, onCreated
       <DialogContent className="sm:max-w-[600px] max-h-[92vh] flex flex-col overflow-hidden p-0 gap-0 border-white/10 bg-gradient-to-b from-neutral-950 to-black">
         <DialogHeader className="px-6 pt-6 pb-3 border-b border-white/[0.06]">
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400/25 to-amber-500/15 text-yellow-300">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-red-600/25 to-amber-500/15 text-red-500">
               <Users className="h-5 w-5" />
             </span>
             <div className="min-w-0">
@@ -169,7 +169,7 @@ export function CreateGroupModal({ open, onOpenChange, ownerProfileId, onCreated
               onChange={(e) => setName(e.target.value)}
               placeholder={t("groupNamePlaceholder", "Ex.: Equipe do projeto X")}
               maxLength={120}
-              className="h-11 rounded-xl border-white/10 bg-white/[0.03] text-sm text-white placeholder:text-white/30 focus-visible:ring-yellow-400/40"
+              className="h-11 rounded-xl border-white/10 bg-white/[0.03] text-sm text-white placeholder:text-white/30 focus-visible:ring-red-600/40"
             />
           </div>
 
@@ -188,7 +188,7 @@ export function CreateGroupModal({ open, onOpenChange, ownerProfileId, onCreated
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t("searchSubprofileInputPlaceholder", "Buscar subperfil por nome ou @username...")}
-                className="h-11 rounded-xl border-white/10 bg-white/[0.03] pl-9 text-sm text-white placeholder:text-white/30 focus-visible:ring-yellow-400/40"
+                className="h-11 rounded-xl border-white/10 bg-white/[0.03] pl-9 text-sm text-white placeholder:text-white/30 focus-visible:ring-red-600/40"
               />
             </div>
           </div>
@@ -209,7 +209,7 @@ export function CreateGroupModal({ open, onOpenChange, ownerProfileId, onCreated
                       key={m.id_profile}
                       type="button"
                       onClick={() => toggleSelect(m)}
-                      className="inline-flex items-center gap-1.5 rounded-full bg-yellow-400/[0.08] border border-yellow-400/25 px-2 py-0.5 text-[11px] text-yellow-200 hover:bg-yellow-400/[0.15]"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-red-600/[0.08] border border-red-600/25 px-2 py-0.5 text-[11px] text-red-300 hover:bg-red-600/[0.15]"
                     >
                       {m.display_name}
                       <X className="h-3 w-3" />
@@ -229,7 +229,7 @@ export function CreateGroupModal({ open, onOpenChange, ownerProfileId, onCreated
             </div>
           ) : loading ? (
             <div className="flex items-center justify-center py-14">
-              <Loader2 className="h-5 w-5 animate-spin text-yellow-300/70" />
+              <Loader2 className="h-5 w-5 animate-spin text-red-500/70" />
             </div>
           ) : options.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-14 text-center">
@@ -247,7 +247,7 @@ export function CreateGroupModal({ open, onOpenChange, ownerProfileId, onCreated
                       onClick={() => toggleSelect(opt)}
                       className={`flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition-colors ${
                         isSelected
-                          ? "bg-yellow-400/[0.08] ring-1 ring-yellow-400/30"
+                          ? "bg-red-600/[0.08] ring-1 ring-red-600/30"
                           : "hover:bg-white/[0.04]"
                       }`}
                     >
@@ -271,7 +271,7 @@ export function CreateGroupModal({ open, onOpenChange, ownerProfileId, onCreated
                       <span
                         className={`h-5 w-5 shrink-0 rounded-full border-2 transition-colors ${
                           isSelected
-                            ? "border-yellow-400 bg-yellow-400"
+                            ? "border-red-600 bg-red-600"
                             : "border-white/20"
                         }`}
                       />
@@ -301,7 +301,7 @@ export function CreateGroupModal({ open, onOpenChange, ownerProfileId, onCreated
           <Button
             onClick={handleSubmit}
             disabled={submitting || !name.trim() || !ownerProfileId}
-            className="h-10 rounded-xl bg-gradient-to-r from-yellow-400 to-amber-500 px-5 font-medium text-black hover:from-yellow-300 hover:to-amber-400 shadow-[0_8px_24px_-8px_rgba(250,204,21,0.5)]"
+            className="h-10 rounded-xl bg-gradient-to-r from-red-600 to-amber-500 px-5 font-medium text-black hover:from-red-500 hover:to-amber-400 shadow-[0_8px_24px_-8px_rgba(250,204,21,0.5)]"
           >
             {submitting ? (
               <><Loader2 className="mr-1.5 h-4 w-4 animate-spin" />{t("creatingButton", "Criando…")}</>

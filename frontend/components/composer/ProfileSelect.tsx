@@ -50,13 +50,13 @@ export function ProfileSelect({
           type="button"
           onClick={() => onSelect(account.id_profile)}
           className={cn(
-            "mb-2 flex w-full items-center gap-2.5 border-2 border-[#0B0B0D] bg-[#F2B705] px-3 py-2.5 text-left transition-transform duration-200",
+            "mb-2 flex w-full items-center gap-2.5 border-2 border-[#0B0B0D] bg-[#C8102E] px-3 py-2.5 text-left transition-transform duration-200",
             selectedId === account.id_profile
               ? "-translate-x-0.5 -translate-y-0.5 shadow-[6px_6px_0_0_#0B0B0D]"
               : "shadow-[4px_4px_0_0_#0B0B0D] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:-rotate-[0.3deg]",
           )}
         >
-          <span className="grid h-8 w-8 shrink-0 -rotate-2 place-items-center overflow-hidden border-2 border-[#0B0B0D] bg-[#0B0B0D] font-[family-name:var(--font-anton)] text-sm text-[#F2B705]">
+          <span className="grid h-8 w-8 shrink-0 -rotate-2 place-items-center overflow-hidden border-2 border-[#0B0B0D] bg-[#0B0B0D] font-[family-name:var(--font-anton)] text-sm text-[#C8102E]">
             {account.avatar_url ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={account.avatar_url} alt={account.display_name || userName || "Conta"} className="h-full w-full object-cover" />
@@ -78,8 +78,8 @@ export function ProfileSelect({
         </button>
       ) : (
         // Fallback (conta-fantasma ainda não veio do backend): rótulo dourado.
-        <div className="mb-2 flex items-center gap-2.5 border-2 border-[#0B0B0D] bg-[#F2B705] px-3 py-2.5 shadow-[4px_4px_0_0_#0B0B0D]">
-          <span className="grid h-8 w-8 -rotate-2 place-items-center border-2 border-[#0B0B0D] bg-[#0B0B0D] font-[family-name:var(--font-anton)] text-sm text-[#F2B705]">
+        <div className="mb-2 flex items-center gap-2.5 border-2 border-[#0B0B0D] bg-[#C8102E] px-3 py-2.5 shadow-[4px_4px_0_0_#0B0B0D]">
+          <span className="grid h-8 w-8 -rotate-2 place-items-center border-2 border-[#0B0B0D] bg-[#0B0B0D] font-[family-name:var(--font-anton)] text-sm text-[#C8102E]">
             {initials(userName)}
           </span>
           <div className="min-w-0">
@@ -110,11 +110,11 @@ export function ProfileSelect({
                 disabled
                   ? "cursor-not-allowed opacity-45 shadow-[4px_4px_0_0_#0B0B0D]"
                   : on
-                    ? "shadow-[6px_6px_0_0_#F2B705] -translate-x-0.5 -translate-y-0.5"
-                    : "shadow-[4px_4px_0_0_#0B0B0D] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:-rotate-[0.3deg] hover:shadow-[6px_6px_0_0_#F2B705]",
+                    ? "shadow-[6px_6px_0_0_#C8102E] -translate-x-0.5 -translate-y-0.5"
+                    : "shadow-[4px_4px_0_0_#0B0B0D] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:-rotate-[0.3deg] hover:shadow-[6px_6px_0_0_#C8102E]",
               )}
             >
-              <span className="relative grid h-7 w-7 shrink-0 -rotate-2 place-items-center overflow-hidden border-2 border-[#0B0B0D] bg-[#1D1810] font-[family-name:var(--font-anton)] text-xs text-[#F2B705]">
+              <span className="relative grid h-7 w-7 shrink-0 -rotate-2 place-items-center overflow-hidden border-2 border-[#0B0B0D] bg-[#1D1810] font-[family-name:var(--font-anton)] text-xs text-[#C8102E]">
                 {p.avatar_url ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={p.avatar_url} alt={p.display_name} className="h-full w-full object-cover" />
@@ -133,7 +133,7 @@ export function ProfileSelect({
                 )}
               </span>
               {p.is_clan && (
-                <span className="border-2 border-[#0B0B0D] bg-[#1D1810] px-1.5 py-0.5 text-[8px] font-black uppercase tracking-[0.06em] text-[#F2B705]">
+                <span className="border-2 border-[#0B0B0D] bg-[#1D1810] px-1.5 py-0.5 text-[8px] font-black uppercase tracking-[0.06em] text-[#C8102E]">
                   {t("profile.clan", "Clan")}
                 </span>
               )}

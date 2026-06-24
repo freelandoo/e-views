@@ -89,7 +89,7 @@ const KIND_META: Record<EarningKind, { labelKey: string; label: string; icon: ty
   service:   { labelKey: "kindService",   label: "Serviço",  icon: Briefcase,      accent: "from-sky-400/20 to-cyan-400/10 text-sky-300" },
   product:   { labelKey: "kindProduct",   label: "Produto",  icon: Package,        accent: "from-emerald-400/20 to-teal-400/10 text-emerald-300" },
   course:    { labelKey: "kindCourse",    label: "Curso",    icon: GraduationCap,  accent: "from-violet-400/20 to-fuchsia-400/10 text-violet-300" },
-  affiliate: { labelKey: "kindAffiliate", label: "Afiliado", icon: Users,          accent: "from-yellow-400/25 to-amber-500/15 text-yellow-300" },
+  affiliate: { labelKey: "kindAffiliate", label: "Afiliado", icon: Users,          accent: "from-red-600/25 to-amber-500/15 text-red-500" },
 }
 
 const STATUS_META: Record<EarningStatus, { labelKey: string; label: string; color: string }> = {
@@ -274,7 +274,7 @@ export default function MeusFaturamentosPage() {
             back={<TabloidBackLink href="/account">{t("back", "Voltar")}</TabloidBackLink>}
             actions={
               affiliate ? (
-                <span className="inline-flex items-center gap-2 border-2 border-[#F2B705] bg-[#F2B705]/12 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.12em] text-[#F2B705]">
+                <span className="inline-flex items-center gap-2 border-2 border-[#C8102E] bg-[#C8102E]/12 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.12em] text-[#C8102E]">
                   <Wallet className="h-3.5 w-3.5" />
                   {t("kindAffiliate", "Afiliado")} · {affiliate.status}
                 </span>
@@ -321,7 +321,7 @@ export default function MeusFaturamentosPage() {
               >
                 {loading ? (
                   <div className="flex items-center justify-center py-16">
-                    <Loader2 className="h-6 w-6 animate-spin text-yellow-300/70" />
+                    <Loader2 className="h-6 w-6 animate-spin text-red-500/70" />
                   </div>
                 ) : error ? (
                   <div className="rounded-[6px] border-2 border-red-500/30 bg-red-500/[0.06] px-4 py-3 text-sm font-bold text-red-200">{error}</div>
@@ -389,7 +389,7 @@ export default function MeusFaturamentosPage() {
               >
                 {loading ? (
                   <div className="flex items-center justify-center py-16">
-                    <Loader2 className="h-6 w-6 animate-spin text-yellow-300/70" />
+                    <Loader2 className="h-6 w-6 animate-spin text-red-500/70" />
                   </div>
                 ) : error ? (
                   <div className="rounded-[6px] border-2 border-red-500/30 bg-red-500/[0.06] px-4 py-3 text-sm font-bold text-red-200">{error}</div>
@@ -419,7 +419,7 @@ function TabPill({ icon, label, active, onClick }: {
       onClick={onClick}
       className={`inline-flex items-center gap-1.5 border-2 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.12em] transition-colors ${
         active
-          ? "border-[#0B0B0D] bg-[#F2B705] text-[#0B0B0D] shadow-[3px_3px_0_0_#0B0B0D]"
+          ? "border-[#0B0B0D] bg-[#C8102E] text-white shadow-[3px_3px_0_0_#0B0B0D]"
           : "border-[#F1EDE2]/20 text-white/55 hover:border-[#F1EDE2]/55 hover:text-white/85"
       }`}
     >
@@ -500,14 +500,14 @@ function CouponSaleRow({ sale }: { sale: CouponSale }) {
       transition={{ type: "spring", stiffness: 400, damping: 28 }}
       className="flex items-start gap-3 rounded-[6px] border-2 border-[#F1EDE2]/12 bg-[#1D1810] p-3.5 transition-colors hover:border-[#F1EDE2]/25"
     >
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] bg-gradient-to-br from-yellow-400/25 to-amber-500/15 text-yellow-300 ring-1 ring-white/10">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] bg-gradient-to-br from-red-600/25 to-amber-500/15 text-red-500 ring-1 ring-white/10">
         <ShoppingBag className="h-4 w-4" />
       </span>
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
           <span className="truncate text-sm font-medium text-white">{buyerLabel}</span>
           {sale.coupon_code && (
-            <Badge className="border-yellow-400/30 bg-yellow-400/10 text-[10px] text-yellow-200">
+            <Badge className="border-red-600/30 bg-red-600/10 text-[10px] text-red-300">
               {sale.coupon_code}
             </Badge>
           )}
@@ -576,7 +576,7 @@ function AfiliadoPanel({
       {!affiliate && (
         <Card className="border-dashed border-white/15 bg-white/[0.02]">
           <CardContent className="flex gap-3 items-start p-4">
-            <Info className="h-4 w-4 text-yellow-300 mt-0.5" />
+            <Info className="h-4 w-4 text-red-500 mt-0.5" />
             <div className="text-sm text-white/65">
               {t("affiliateNotEnrolled", "Você ainda não está cadastrado no programa de afiliados. Fale com a equipe Freelandoo para ativar sua afiliação e habilitar pagamentos.")}
             </div>
@@ -603,7 +603,7 @@ function AfiliadoPanel({
           ) : (
             <div className="flex flex-wrap gap-2">
               {coupons.map((c) => (
-                <div key={c.id_coupon} className="rounded-xl border border-yellow-400/30 bg-yellow-400/[0.05] px-3 py-2 font-mono text-sm text-yellow-200">
+                <div key={c.id_coupon} className="rounded-xl border border-red-600/30 bg-red-600/[0.05] px-3 py-2 font-mono text-sm text-red-300">
                   {c.code}
                 </div>
               ))}
@@ -667,7 +667,7 @@ function AfiliadoPanel({
             <Button
               onClick={onSavePix}
               disabled={savingPix || !affiliate}
-              className="rounded-xl bg-gradient-to-r from-yellow-400 to-amber-500 text-black hover:from-yellow-300 hover:to-amber-400"
+              className="rounded-xl bg-gradient-to-r from-red-600 to-amber-500 text-black hover:from-red-500 hover:to-amber-400"
             >
               {savingPix ? (<><Loader2 className="mr-1.5 h-4 w-4 animate-spin" />{t("saving", "Salvando...")}</>) : (<><Sparkles className="mr-1.5 h-4 w-4" />{t("save", "Salvar")}</>)}
             </Button>

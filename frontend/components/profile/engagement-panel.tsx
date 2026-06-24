@@ -43,8 +43,8 @@ function StarDisplay({ value }: { value: number }) {
             key={i}
             className="h-4 w-4"
             style={{
-              fill: full ? "#E0A500" : half ? "#E0A50088" : "transparent",
-              color: full || half ? "#E0A500" : "rgba(11,11,13,0.25)",
+              fill: full ? "#9B0F24" : half ? "#9B0F2488" : "transparent",
+              color: full || half ? "#9B0F24" : "rgba(11,11,13,0.25)",
             }}
           />
         )
@@ -71,7 +71,7 @@ function Metric({
   return (
     <div
       className={`flex flex-col gap-1 rounded-xl p-4 ${
-        highlight ? "bg-[#F2B705]/15 ring-2 ring-[#E0A500]/40" : "bg-[#0B0B0D]/[0.04] ring-1 ring-[#0B0B0D]/10"
+        highlight ? "bg-[#C8102E]/15 ring-2 ring-[#9B0F24]/40" : "bg-[#0B0B0D]/[0.04] ring-1 ring-[#0B0B0D]/10"
       }`}
     >
       <div className="flex items-center gap-2 text-[#5b554b] text-xs font-bold">
@@ -94,9 +94,9 @@ function RankBadge({ pos, label }: { pos: number | null; label: string }) {
     </div>
   )
   return (
-    <div className="flex flex-col items-center gap-1 rounded-xl bg-[#F2B705]/15 ring-2 ring-[#E0A500]/30 p-3 text-center">
+    <div className="flex flex-col items-center gap-1 rounded-xl bg-[#C8102E]/15 ring-2 ring-[#9B0F24]/30 p-3 text-center">
       <span className="text-xs text-[#5b554b]">{label}</span>
-      <span className="text-lg font-bold text-[#E0A500]">#{pos}</span>
+      <span className="text-lg font-bold text-[#9B0F24]">#{pos}</span>
     </div>
   )
 }
@@ -158,7 +158,7 @@ export function EngagementPanel({ profileId, onClose }: Props) {
             <h2 className="fl-display text-xl text-[#0B0B0D]">
               {t("profileEngagement", "Engajamento do Perfil")}
               {data?.season_number != null && (
-                <span className="ml-2 inline-flex items-center gap-1 rounded-full border-2 border-[#0B0B0D] bg-[#F2B705] px-2 py-0.5 text-[11px] font-bold text-[#1A1505] align-middle">
+                <span className="ml-2 inline-flex items-center gap-1 rounded-full border-2 border-[#0B0B0D] bg-[#C8102E] px-2 py-0.5 text-[11px] font-bold text-[#1A1505] align-middle">
                   {t("season", "Temporada")} {data.season_number}
                 </span>
               )}

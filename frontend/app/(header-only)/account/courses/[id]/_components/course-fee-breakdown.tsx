@@ -73,7 +73,7 @@ export function CourseFeeBreakdown({
   return (
     <div className="mt-3 border-2 border-white/12 bg-[#15100A] p-4 shadow-[4px_4px_0_0_rgba(0,0,0,0.45)]">
       <div className="mb-2 flex items-center justify-between">
-        <span className="fl-display text-sm uppercase tracking-wide text-[#F2B705]">
+        <span className="fl-display text-sm uppercase tracking-wide text-[#C8102E]">
           {t("whoPaysWhat", "Quem paga o quê")}
         </span>
         {loading && <Loader2 className="h-3.5 w-3.5 animate-spin text-white/40" />}
@@ -114,7 +114,7 @@ function Row({
         : "text-white/55"
   const valueCls =
     tone === "total"
-      ? "fl-display text-lg text-[#F2B705]"
+      ? "fl-display text-lg text-[#C8102E]"
       : tone === "seller"
         ? "font-bold text-emerald-300"
         : "text-white/55"

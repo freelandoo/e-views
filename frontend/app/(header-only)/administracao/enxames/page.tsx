@@ -108,7 +108,7 @@ function ChannelSlider({
   const letter = channel.toUpperCase()
   return (
     <label className="flex items-center gap-3 text-[11px] font-bold text-[#C9C2B6]">
-      <span className="w-3 shrink-0 text-[#F2B705]">{letter}</span>
+      <span className="w-3 shrink-0 text-[#C8102E]">{letter}</span>
       <input
         type="range"
         min={0}
@@ -146,7 +146,7 @@ function RgbField({ label, value, onChange }: { label: string; value: string; on
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex w-full items-center gap-2 rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] p-1.5 text-left transition hover:border-[#F2B705]/50"
+        className="flex w-full items-center gap-2 rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] p-1.5 text-left transition hover:border-[#C8102E]/50"
       >
         <span className="h-7 w-7 shrink-0 rounded border border-white/30" style={{ background: value }} />
         <span className="truncate font-mono text-[11px] text-[#C9C2B6]">{value || "—"}</span>
@@ -160,7 +160,7 @@ function RgbField({ label, value, onChange }: { label: string; value: string; on
               <input
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
-                className="h-8 flex-1 rounded border border-[#F5F1E8]/15 bg-[#1D1810] px-2 font-mono text-[11px] text-[#F5F1E8] outline-none focus:border-[#F2B705]"
+                className="h-8 flex-1 rounded border border-[#F5F1E8]/15 bg-[#1D1810] px-2 font-mono text-[11px] text-[#F5F1E8] outline-none focus:border-[#C8102E]"
               />
             </div>
             <RgbSliders value={value} onChange={onChange} />
@@ -413,7 +413,7 @@ export default function AdminEnxamesPage() {
         {/* Masthead */}
         <div className="mt-6 flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-2xl">
-            <div className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#F2B705]">
+            <div className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#C8102E]">
               <Sparkles className="h-3.5 w-3.5" />
               Governança
             </div>
@@ -493,7 +493,7 @@ export default function AdminEnxamesPage() {
                         <h2 className="fl-display flex flex-wrap items-center gap-2 text-xl leading-none text-[#F5F1E8]">
                           {m.name}
                           <span className={`inline-block rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${
-                            m.is_active ? "bg-[#F2B705] text-[#1A1505]" : "bg-[#F5F1E8]/15 text-[#C9C2B6]"
+                            m.is_active ? "bg-[#C8102E] text-[#1A1505]" : "bg-[#F5F1E8]/15 text-[#C9C2B6]"
                           }`}>
                             {m.is_active ? "Ativo" : "Desativado"}
                           </span>
@@ -526,7 +526,7 @@ export default function AdminEnxamesPage() {
                           value={selCatId}
                           onChange={(e) => setSelectedCat((p) => ({ ...p, [m.id_machine]: Number(e.target.value) }))}
                           disabled={m.categories.length === 0}
-                          className="h-10 min-w-[14rem] flex-1 rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm font-bold text-[#F5F1E8] outline-none transition focus:border-[#F2B705] disabled:opacity-50"
+                          className="h-10 min-w-[14rem] flex-1 rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm font-bold text-[#F5F1E8] outline-none transition focus:border-[#C8102E] disabled:opacity-50"
                         >
                           {m.categories.length === 0 ? (
                             <option value={0}>Nenhuma profissão ainda</option>
@@ -542,7 +542,7 @@ export default function AdminEnxamesPage() {
                         {addingCatFor === m.id_machine ? (
                           <div className="flex items-center gap-1.5">
                             <input
-                              className="h-10 w-56 rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#F2B705]"
+                              className="h-10 w-56 rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#C8102E]"
                               placeholder="Nome da profissão"
                               value={newCatName}
                               onChange={(e) => setNewCatName(e.target.value)}
@@ -572,7 +572,7 @@ export default function AdminEnxamesPage() {
                           {editingCat?.id === selCat.id_category ? (
                             <>
                               <input
-                                className="h-9 w-64 rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#F2B705]"
+                                className="h-9 w-64 rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#C8102E]"
                                 value={editingCat.value}
                                 onChange={(e) => setEditingCat({ id: selCat.id_category, value: e.target.value })}
                                 autoFocus
@@ -620,18 +620,18 @@ export default function AdminEnxamesPage() {
           <div className="space-y-4">
             <div className="space-y-1">
               <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9A938A]">Nome</p>
-              <input className="h-10 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#F2B705]"
+              <input className="h-10 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#C8102E]"
                 value={editForm.name} onChange={(e) => setEditForm((p) => ({ ...p, name: e.target.value }))} />
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1">
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9A938A]">Ícone (Lucide)</p>
-                <input className="h-10 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#F2B705]"
+                <input className="h-10 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#C8102E]"
                   value={editForm.icon_name} onChange={(e) => setEditForm((p) => ({ ...p, icon_name: e.target.value }))} placeholder="Sparkles" />
               </div>
               <div className="space-y-1">
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9A938A]">Descrição curta</p>
-                <input className="h-10 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#F2B705]"
+                <input className="h-10 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#C8102E]"
                   value={editForm.description} onChange={(e) => setEditForm((p) => ({ ...p, description: e.target.value }))} placeholder="Texto curto do card" />
               </div>
             </div>
@@ -668,7 +668,7 @@ export default function AdminEnxamesPage() {
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1">
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9A938A]">Nome</p>
-                <input className="h-10 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#F2B705]"
+                <input className="h-10 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#C8102E]"
                   value={createForm.name}
                   onChange={(e) => {
                     const name = e.target.value
@@ -678,7 +678,7 @@ export default function AdminEnxamesPage() {
               </div>
               <div className="space-y-1">
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9A938A]">Slug</p>
-                <input className="h-10 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 font-mono text-sm text-[#F5F1E8] outline-none focus:border-[#F2B705]"
+                <input className="h-10 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 font-mono text-sm text-[#F5F1E8] outline-none focus:border-[#C8102E]"
                   value={createForm.slug}
                   onChange={(e) => { setSlugTouched(true); setCreateForm((p) => ({ ...p, slug: e.target.value })) }}
                   placeholder="eventos" />
@@ -687,12 +687,12 @@ export default function AdminEnxamesPage() {
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1">
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9A938A]">Ícone (Lucide)</p>
-                <input className="h-10 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#F2B705]"
+                <input className="h-10 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#C8102E]"
                   value={createForm.icon_name} onChange={(e) => setCreateForm((p) => ({ ...p, icon_name: e.target.value }))} placeholder="Sparkles" />
               </div>
               <div className="space-y-1">
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9A938A]">Descrição curta</p>
-                <input className="h-10 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#F2B705]"
+                <input className="h-10 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-3 text-sm text-[#F5F1E8] outline-none focus:border-[#C8102E]"
                   value={createForm.description} onChange={(e) => setCreateForm((p) => ({ ...p, description: e.target.value }))} placeholder="Aparece no card da home" />
               </div>
             </div>

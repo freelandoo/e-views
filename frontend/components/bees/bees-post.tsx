@@ -313,7 +313,7 @@ export function BeesPost({
               <Heart
                 className={cn(
                   "h-7 w-7 transition-transform",
-                  liked ? "fill-current scale-110 text-yellow-400" : ""
+                  liked ? "fill-current scale-110 text-red-600" : ""
                 )}
               />
               <CounterLabel value={likesCount} />
@@ -344,7 +344,7 @@ export function BeesPost({
               <Bookmark
                 className={cn(
                   "h-7 w-7 transition-transform",
-                  bookmarked ? "fill-current scale-110 text-yellow-400" : ""
+                  bookmarked ? "fill-current scale-110 text-red-600" : ""
                 )}
               />
             </ActionButton>

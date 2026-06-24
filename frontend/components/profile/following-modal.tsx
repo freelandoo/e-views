@@ -108,7 +108,7 @@ export function FollowingModal({ open, onClose }: FollowingModalProps) {
       >
         <div className="flex items-center justify-between border-b-2 border-[#0B0B0D]/15 px-5 py-4">
           <div className="flex items-center gap-2">
-            <Users className="h-4 w-4 text-[#E0A500]" />
+            <Users className="h-4 w-4 text-[#9B0F24]" />
             <h2 className="fl-display text-xl tracking-tight text-[#0B0B0D]">
               {t("countFollowing", "Acompanhando")}
               {!loading && !error && items.length > 0 && (
@@ -158,7 +158,7 @@ export function FollowingModal({ open, onClose }: FollowingModalProps) {
                   >
                     <Avatar className="h-11 w-11 shrink-0 border-2 border-[#0B0B0D]">
                       <AvatarImage src={p.avatar_url || undefined} />
-                      <AvatarFallback className="bg-[#F2B705]/20 text-xs text-[#0B0B0D]">
+                      <AvatarFallback className="bg-[#C8102E]/20 text-xs text-white">
                         {initials(p.display_name)}
                       </AvatarFallback>
                     </Avatar>
@@ -173,7 +173,7 @@ export function FollowingModal({ open, onClose }: FollowingModalProps) {
                       )}
                     </div>
                     {p.is_clan && (
-                      <span className="shrink-0 rounded-full border-2 border-[#0B0B0D] bg-[#F2B705] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#1A1505]">
+                      <span className="shrink-0 rounded-full border-2 border-[#0B0B0D] bg-[#C8102E] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#1A1505]">
                         {t("clanLabel", "Clan")}
                       </span>
                     )}

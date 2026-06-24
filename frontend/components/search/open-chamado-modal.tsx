@@ -232,7 +232,7 @@ export function OpenChamadoModal({ open, onOpenChange, mode = "service", default
   }
 
   const trimmedMachine = selectedMachine ? tx.enxame(selectedMachine.slug, selectedMachine.name) : ""
-  const accent = selectedMachine?.color_accent || "#fbbf24"
+  const accent = selectedMachine?.color_accent || "#C8102E"
   const ModeIcon = MODE_LABELS[mode].icon
 
   const cityLine = municipio
@@ -421,10 +421,10 @@ export function OpenChamadoModal({ open, onOpenChange, mode = "service", default
                           ? "border-white/30 bg-white/[0.06] text-white"
                           : "border-white/10 bg-white/[0.02] text-white/75 hover:border-white/20 hover:text-white",
                       )}
-                      style={isActive ? { borderColor: `${m.color_accent || "#fbbf24"}88` } : undefined}
+                      style={isActive ? { borderColor: `${m.color_accent || "#C8102E"}88` } : undefined}
                     >
                       <span className="truncate font-medium">{tx.enxame(m.slug, m.name)}</span>
-                      {isActive && <Check className="h-4 w-4 shrink-0" style={{ color: m.color_accent || "#fbbf24" }} />}
+                      {isActive && <Check className="h-4 w-4 shrink-0" style={{ color: m.color_accent || "#C8102E" }} />}
                     </button>
                   )
                 })}
@@ -598,7 +598,7 @@ export function OpenChamadoModal({ open, onOpenChange, mode = "service", default
               </Button>
               <Button
                 onClick={() => setStep("compose")}
-                className="rounded-none bg-yellow-400 text-zinc-950 hover:bg-yellow-300"
+                className="rounded-none bg-red-600 text-zinc-950 hover:bg-red-500"
               >
                 {t("continue", "Continuar")}
               </Button>
@@ -651,7 +651,7 @@ export function OpenChamadoModal({ open, onOpenChange, mode = "service", default
                 <button
                   type="button"
                   onClick={() => setStep("productAttrs")}
-                  className="text-[10px] font-bold uppercase tracking-[0.08em] text-yellow-400/90 underline-offset-2 hover:underline"
+                  className="text-[10px] font-bold uppercase tracking-[0.08em] text-red-600/90 underline-offset-2 hover:underline"
                 >
                   {t("edit", "Editar")}
                 </button>
@@ -672,7 +672,7 @@ export function OpenChamadoModal({ open, onOpenChange, mode = "service", default
                   onChange={(e) => setProductTitle(e.target.value)}
                   placeholder={t("productTitlePlaceholder", "Ex: Tênis de corrida número 42")}
                   maxLength={160}
-                  className="w-full border-2 border-white/15 bg-white/[0.03] px-3 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-yellow-400/50 focus:outline-none"
+                  className="w-full border-2 border-white/15 bg-white/[0.03] px-3 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-red-600/50 focus:outline-none"
                 />
               </>
             )}
@@ -687,7 +687,7 @@ export function OpenChamadoModal({ open, onOpenChange, mode = "service", default
                   <select
                     value={estadoUf}
                     onChange={(e) => { setEstadoUf(e.target.value); setMunicipio("") }}
-                    className="h-10 w-full border-2 border-white/15 bg-white/[0.03] px-2 text-sm text-white focus:border-yellow-400/50 focus:outline-none [&>option]:bg-zinc-900 [&>option]:text-white"
+                    className="h-10 w-full border-2 border-white/15 bg-white/[0.03] px-2 text-sm text-white focus:border-red-600/50 focus:outline-none [&>option]:bg-zinc-900 [&>option]:text-white"
                   >
                     <option value="">{t("allStates", "Todos")}</option>
                     {ESTADOS_BRASIL.map((e) => (
@@ -703,7 +703,7 @@ export function OpenChamadoModal({ open, onOpenChange, mode = "service", default
                     value={municipio}
                     onChange={(e) => setMunicipio(e.target.value)}
                     disabled={!estadoUf || loadingMunicipios}
-                    className="h-10 w-full border-2 border-white/15 bg-white/[0.03] px-2 text-sm text-white focus:border-yellow-400/50 focus:outline-none disabled:opacity-40 [&>option]:bg-zinc-900 [&>option]:text-white"
+                    className="h-10 w-full border-2 border-white/15 bg-white/[0.03] px-2 text-sm text-white focus:border-red-600/50 focus:outline-none disabled:opacity-40 [&>option]:bg-zinc-900 [&>option]:text-white"
                   >
                     <option value="">{!estadoUf ? t("chooseStateFirst", "Escolha estado") : loadingMunicipios ? t("loading", "Carregando…") : t("allCities", "Todas")}</option>
                     {municipios.map((m) => (
@@ -728,7 +728,7 @@ export function OpenChamadoModal({ open, onOpenChange, mode = "service", default
                     value={minPrice}
                     onChange={(e) => setMinPrice(e.target.value)}
                     placeholder="0,00"
-                    className="h-10 w-full border-2 border-white/15 bg-white/[0.03] px-3 text-sm text-white placeholder:text-white/30 focus:border-yellow-400/50 focus:outline-none"
+                    className="h-10 w-full border-2 border-white/15 bg-white/[0.03] px-3 text-sm text-white placeholder:text-white/30 focus:border-red-600/50 focus:outline-none"
                   />
                 </div>
                 <div>
@@ -742,7 +742,7 @@ export function OpenChamadoModal({ open, onOpenChange, mode = "service", default
                     value={maxPrice}
                     onChange={(e) => setMaxPrice(e.target.value)}
                     placeholder="0,00"
-                    className="h-10 w-full border-2 border-white/15 bg-white/[0.03] px-3 text-sm text-white placeholder:text-white/30 focus:border-yellow-400/50 focus:outline-none"
+                    className="h-10 w-full border-2 border-white/15 bg-white/[0.03] px-3 text-sm text-white placeholder:text-white/30 focus:border-red-600/50 focus:outline-none"
                   />
                 </div>
               </div>
@@ -758,7 +758,7 @@ export function OpenChamadoModal({ open, onOpenChange, mode = "service", default
               placeholder={t("messagePlaceholder", "Descreva o que você precisa…")}
               rows={5}
               maxLength={4000}
-              className="w-full resize-none border-2 border-white/15 bg-white/[0.03] px-3 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-yellow-400/50 focus:outline-none"
+              className="w-full resize-none border-2 border-white/15 bg-white/[0.03] px-3 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-red-600/50 focus:outline-none"
             />
             <div className="mt-1 flex items-center justify-between text-[11px] text-white/45">
               <span>{t("minChars", "Mínimo 5 caracteres.")}</span>
@@ -787,7 +787,7 @@ export function OpenChamadoModal({ open, onOpenChange, mode = "service", default
               <Button
                 onClick={handleSend}
                 disabled={sending || description.trim().length < 5}
-                className="rounded-none bg-yellow-400 text-zinc-950 hover:bg-yellow-300"
+                className="rounded-none bg-red-600 text-zinc-950 hover:bg-red-500"
               >
                 {sending ? (
                   <>
@@ -818,7 +818,7 @@ export function OpenChamadoModal({ open, onOpenChange, mode = "service", default
                 { verb: t(MODE_LABELS[mode].verbKey, MODE_LABELS[mode].verbPt), dest: "Mensagens → O.S." }
               )}
             </p>
-            <Button onClick={() => onOpenChange(false)} className="mt-5 rounded-none bg-yellow-400 text-zinc-950 hover:bg-yellow-300">
+            <Button onClick={() => onOpenChange(false)} className="mt-5 rounded-none bg-red-600 text-zinc-950 hover:bg-red-500">
               {t("close", "Fechar")}
             </Button>
           </div>
@@ -893,7 +893,7 @@ function AttrFieldDark({
                   active ? "border-white ring-2 ring-offset-1 ring-offset-zinc-950" : "border-white/25",
                 )}
                 style={{
-                  background: c.hex || "conic-gradient(#E0312D,#F2B705,#2E9E44,#2E62D9,#7B3FE4,#E0312D)",
+                  background: c.hex || "conic-gradient(#E0312D,#C8102E,#2E9E44,#2E62D9,#7B3FE4,#E0312D)",
                   ...(active ? ({ "--tw-ring-color": accent } as React.CSSProperties) : {}),
                 }}
               />
@@ -914,7 +914,7 @@ function AttrFieldDark({
           onChange={(e) => onBrand(e.target.value)}
           maxLength={80}
           placeholder={t("searchBrandPlaceholder", "Buscar marca…")}
-          className="w-full border-2 border-white/15 bg-white/[0.03] px-2 py-1.5 text-xs text-white placeholder:text-white/30 focus:border-yellow-400/50 focus:outline-none"
+          className="w-full border-2 border-white/15 bg-white/[0.03] px-2 py-1.5 text-xs text-white placeholder:text-white/30 focus:border-red-600/50 focus:outline-none"
         />
         {field.suggestions?.length ? (
           <div className="mt-1.5 flex flex-wrap gap-1">

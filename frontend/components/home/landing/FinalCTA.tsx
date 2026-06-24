@@ -25,13 +25,13 @@ export function FinalCTA() {
             }
           />
           <WashiTape className="-left-2 top-8" rotate={-12} />
-          <Squiggle className="absolute -left-3 -top-4 h-8 w-24 text-[#F2B705]" />
-          <HiveDoodle className="absolute -bottom-4 -right-3 h-14 w-14 text-[#F2B705]" />
+          <Squiggle className="absolute -left-3 -top-4 h-8 w-24 text-[#C8102E]" />
+          <HiveDoodle className="absolute -bottom-4 -right-3 h-14 w-14 text-[#C8102E]" />
         </div>
 
         <div data-reveal className="relative">
-          <DoodleCrown className="mb-3 h-12 w-16 text-[#F2B705]" />
-          <DoodleArrow dir="left" className="absolute -right-2 -top-8 hidden h-10 w-24 text-[#F2B705] lg:block" />
+          <DoodleCrown className="mb-3 h-12 w-16 text-[#C8102E]" />
+          <DoodleArrow dir="left" className="absolute -right-2 -top-8 hidden h-10 w-24 text-[#C8102E] lg:block" />
           <h2 className="fl-display text-4xl text-[#F5F1E8] sm:text-5xl md:text-[3.4rem]">
             <EditableText
               as="span"

@@ -25,7 +25,7 @@ function StatCard({ stat, taped, slotBase }: { stat: (typeof HERO_STATS)[number]
   return (
     <div className="fl-card fl-hard relative flex items-center gap-3 px-4 py-3">
       {taped && <WashiTape className="-top-3 right-4" rotate={6} />}
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center border-2 border-[#0B0B0D] bg-[#F2B705] text-[#1A1505]">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center border-2 border-[#0B0B0D] bg-[#C8102E] text-[#1A1505]">
         <Icon name={stat.icon} className="h-5 w-5" />
       </span>
       <span className="min-w-0">
@@ -43,8 +43,8 @@ export function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden">
       <HoneycombField opacity={0.04} />
-      <DoodleArrow dir="left" className="absolute right-6 top-28 hidden h-12 w-24 text-[#F2B705] lg:block" />
-      <Squiggle className="absolute right-24 top-52 hidden h-8 w-24 text-[#F2B705]/70 lg:block" />
+      <DoodleArrow dir="left" className="absolute right-6 top-28 hidden h-12 w-24 text-[#C8102E] lg:block" />
+      <Squiggle className="absolute right-24 top-52 hidden h-8 w-24 text-[#C8102E]/70 lg:block" />
 
       <div className="mx-auto grid w-full max-w-[1180px] items-center gap-12 px-5 pb-16 pt-12 sm:px-8 md:grid-cols-[1.05fr_0.95fr] md:gap-6 md:pb-24 md:pt-16">
         {/* Texto */}
@@ -55,7 +55,7 @@ export function HeroSection() {
               slot="home_seller_hero_headline"
               fallback="Venda serviços, cursos, produtos e *ganhe* como afiliado."
             />
-            <Spark className="absolute -right-1 -top-5 hidden h-9 w-9 text-[#F2B705] md:block" />
+            <Spark className="absolute -right-1 -top-5 hidden h-9 w-9 text-[#C8102E] md:block" />
           </motion.h1>
 
           <motion.p variants={item} className="mt-6 max-w-md text-lg leading-relaxed text-[#C9C2B6]">
@@ -116,7 +116,7 @@ export function HeroSection() {
                 }
               />
               <WashiTape className="-left-2 top-6" rotate={-10} />
-              <HiveDoodle className="absolute -left-3 -top-3 h-12 w-12 text-[#F2B705]" />
+              <HiveDoodle className="absolute -left-3 -top-3 h-12 w-12 text-[#C8102E]" />
             </motion.div>
 
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-1">
@@ -127,7 +127,7 @@ export function HeroSection() {
               ))}
             </div>
           </div>
-          <DoodleArrow dir="down-right" className="absolute -left-7 -bottom-2 hidden h-10 w-20 text-[#F2B705] md:block" />
+          <DoodleArrow dir="down-right" className="absolute -left-7 -bottom-2 hidden h-10 w-20 text-[#C8102E] md:block" />
         </motion.div>
       </div>
     </section>

@@ -39,8 +39,8 @@ export function LegalDocument({
     <main className="fl-root relative flex-1 bg-[#0b0804] text-[#C9C2B6]">
       <div className="container mx-auto max-w-3xl px-4 py-12 md:py-16">
         <header className="border-b-2 border-[#F1EDE2]/12 pb-7">
-          <p className="fl-marker mb-1 text-2xl font-bold leading-none text-[#F2B705]">Documento</p>
-          <h1 className="fl-display text-4xl leading-[0.92] text-[#F2B705] sm:text-5xl">{t("title", title)}</h1>
+          <p className="fl-marker mb-1 text-2xl font-bold leading-none text-[#C8102E]">Documento</p>
+          <h1 className="fl-display text-4xl leading-[0.92] text-[#C8102E] sm:text-5xl">{t("title", title)}</h1>
           <p className="mt-3 text-[11px] font-black uppercase tracking-[0.18em] text-[#8a8275]">{t("updatedAt", updatedAt)}</p>
         </header>
 
@@ -57,7 +57,7 @@ export function LegalDocument({
               </p>
             ))}
             {section.items && (
-              <ul className="list-disc space-y-1 pl-5 leading-relaxed text-[#C9C2B6] marker:text-[#F2B705]">
+              <ul className="list-disc space-y-1 pl-5 leading-relaxed text-[#C9C2B6] marker:text-[#C8102E]">
                 {section.items.map((item, itemIndex) => (
                   <li key={item}>{t(`sections.${sectionIndex}.items.${itemIndex}`, item)}</li>
                 ))}
@@ -71,7 +71,7 @@ export function LegalDocument({
           {links.map((link, index) => (
             <span key={link.href}>
               {index === 0 ? " " : index === links.length - 1 ? ` ${t("footer.and", "e")} ` : ", "}
-              <Link href={link.href} className="font-bold text-[#F2B705] underline-offset-2 hover:underline">
+              <Link href={link.href} className="font-bold text-[#C8102E] underline-offset-2 hover:underline">
                 {t(`footer.links.${index}`, link.label)}
               </Link>
               {index === links.length - 1 ? "." : ""}

@@ -72,26 +72,26 @@ export default function ConfirmarAgendamentoPage() {
       <div className="w-full max-w-md">
         {state === "loading" && (
           <div className="flex flex-col items-center gap-3 text-[#C9C2B6]">
-            <Loader2 className="h-8 w-8 animate-spin text-[#F2B705]" />
+            <Loader2 className="h-8 w-8 animate-spin text-[#C8102E]" />
             <p className="fl-marker text-xl">{t("confirmLoading", "Carregando...")}</p>
           </div>
         )}
 
         {state === "notfound" && (
           <div className="border-2 border-dashed border-[#F1EDE2]/20 p-8 text-center">
-            <AlertCircle className="mx-auto mb-3 h-10 w-10 text-[#F2B705]" />
+            <AlertCircle className="mx-auto mb-3 h-10 w-10 text-[#C8102E]" />
             <p className="fl-display text-2xl text-[#F1EDE2]">{t("confirmNotFound", "Link inválido ou expirado.")}</p>
           </div>
         )}
 
         {state === "ok" && booking && (
           <>
-            <p className="fl-marker text-2xl text-[#F2B705]">{t("confirmEyebrow", "lembrete de horário")}</p>
+            <p className="fl-marker text-2xl text-[#C8102E]">{t("confirmEyebrow", "lembrete de horário")}</p>
             <h1 className="relative mb-6 inline-block">
-              <span className="fl-display block text-5xl leading-[0.9] text-[#F2B705]">
+              <span className="fl-display block text-5xl leading-[0.9] text-[#C8102E]">
                 {t("confirmTitle", "Seu horário")}<span className="text-[#F1EDE2]">.</span>
               </span>
-              <Underline className="absolute -bottom-2 left-0 h-3.5 w-40 text-[#F2B705]" />
+              <Underline className="absolute -bottom-2 left-0 h-3.5 w-40 text-[#C8102E]" />
             </h1>
 
             {/* Card do agendamento (papel) */}
@@ -130,7 +130,7 @@ export default function ConfirmarAgendamentoPage() {
                   type="button"
                   onClick={() => submit("confirm")}
                   disabled={submitting !== null}
-                  className="flex flex-1 items-center justify-center gap-2 border-2 border-[#0B0B0D] bg-[#F2B705] px-4 py-3 text-xs font-extrabold uppercase tracking-[0.12em] text-[#0B0B0D] shadow-[4px_4px_0_0_#0B0B0D] transition-transform hover:-translate-y-0.5 disabled:opacity-60"
+                  className="flex flex-1 items-center justify-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-3 text-xs font-extrabold uppercase tracking-[0.12em] text-white shadow-[4px_4px_0_0_#0B0B0D] transition-transform hover:-translate-y-0.5 disabled:opacity-60"
                 >
                   {submitting === "confirm" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
                   {t("confirmConfirmBtn", "Confirmar presença")}

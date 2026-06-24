@@ -74,7 +74,7 @@ export function EditableImage({
       ) : (
         fallback ?? (
           <div className="flex h-full w-full items-center justify-center bg-[#1D1810]">
-            <ImagePlus className="h-8 w-8 text-[#F2B705]/40" />
+            <ImagePlus className="h-8 w-8 text-[#C8102E]/40" />
           </div>
         )
       )}

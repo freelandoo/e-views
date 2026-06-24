@@ -40,13 +40,13 @@ export function FeatureCarousel() {
     <Section id="ganhar-mais" className="overflow-x-clip">
       {/* Título da seção (fora do card) */}
       <div className="relative mx-auto mb-10 max-w-2xl text-center">
-        <p className="fl-marker mb-1 text-2xl font-bold text-[#F2B705]">
+        <p className="fl-marker mb-1 text-2xl font-bold text-[#C8102E]">
           <EditableText as="span" mark={false} slot="home_seller_carousel_eyebrow" fallback="é rápido e fácil" />
         </p>
         <h2 className="fl-display text-4xl text-[#F5F1E8] sm:text-5xl">
           <EditableText as="span" slot="home_seller_carousel_heading" fallback="Tudo que você precisa para *ganhar mais.*" />
         </h2>
-        <DoodleArrow dir="down" className="absolute -right-2 -top-4 hidden h-9 w-16 text-[#F2B705] lg:block" />
+        <DoodleArrow dir="down" className="absolute -right-2 -top-4 hidden h-9 w-16 text-[#C8102E] lg:block" />
       </div>
 
       {/* Card de slides — full-bleed no mobile (cancela o padding da Section),
@@ -77,14 +77,14 @@ export function FeatureCarousel() {
 
         <button
           type="button" onClick={prev} aria-label={t("carouselPrev", "Banner anterior")}
-          className="absolute left-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center bg-black/30 text-[#F5F1E8] backdrop-blur-sm transition hover:bg-black/50 hover:text-[#F2B705] sm:left-4 sm:h-12 sm:w-12"
+          className="absolute left-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center bg-black/30 text-[#F5F1E8] backdrop-blur-sm transition hover:bg-black/50 hover:text-[#C8102E] sm:left-4 sm:h-12 sm:w-12"
         >
           <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
         </button>
 
         <button
           type="button" onClick={next} aria-label={t("carouselNext", "Próximo banner")}
-          className="absolute right-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center bg-black/30 text-[#F5F1E8] backdrop-blur-sm transition hover:bg-black/50 hover:text-[#F2B705] sm:right-4 sm:h-12 sm:w-12"
+          className="absolute right-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center bg-black/30 text-[#F5F1E8] backdrop-blur-sm transition hover:bg-black/50 hover:text-[#C8102E] sm:right-4 sm:h-12 sm:w-12"
         >
           <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
         </button>
@@ -96,7 +96,7 @@ export function FeatureCarousel() {
           <button
             key={s.n} type="button" onClick={() => goTo(i)} aria-label={t("carouselGoTo", "Ir para o banner {n}").replace("{n}", String(i + 1))}
             aria-current={i === selected}
-            className={`h-2 transition-all ${i === selected ? "w-6 bg-[#F2B705]" : "w-2 bg-[#F5F1E8]/25 hover:bg-[#F5F1E8]/50"}`}
+            className={`h-2 transition-all ${i === selected ? "w-6 bg-[#C8102E]" : "w-2 bg-[#F5F1E8]/25 hover:bg-[#F5F1E8]/50"}`}
           />
         ))}
       </div>

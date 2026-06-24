@@ -362,7 +362,7 @@ export default function CadastroPage() {
             return (
               <span
                 key={n}
-                className={`h-2 rounded-full transition-all ${active ? "w-8 bg-[#F2B705]" : "w-2 bg-[#F5F1E8]/20"}`}
+                className={`h-2 rounded-full transition-all ${active ? "w-8 bg-[#C8102E]" : "w-2 bg-[#F5F1E8]/20"}`}
               />
             )
           })}
@@ -387,7 +387,7 @@ export default function CadastroPage() {
                 onClick={() => chooseTrack("buyer")}
                 className="group flex flex-col rounded-2xl border-2 border-[#0B0B0D]/15 bg-white/50 p-6 text-left transition hover:border-[#0B0B0D] hover:shadow-[5px_5px_0_0_#0B0B0D]"
               >
-                <span className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#0B0B0D] text-[#F2B705]">
+                <span className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#0B0B0D] text-[#C8102E]">
                   <Search className="h-6 w-6" />
                 </span>
                 <p className="mb-1 text-lg font-black text-[#0B0B0D]">{t("intentBuyerTitle", "Preciso resolver um problema")}</p>
@@ -400,9 +400,9 @@ export default function CadastroPage() {
               <button
                 type="button"
                 onClick={() => chooseTrack("seller")}
-                className="group flex flex-col rounded-2xl border-2 border-[#F2B705] bg-[#F2B705]/10 p-6 text-left transition hover:shadow-[5px_5px_0_0_#F2B705]"
+                className="group flex flex-col rounded-2xl border-2 border-[#C8102E] bg-[#C8102E]/10 p-6 text-left transition hover:shadow-[5px_5px_0_0_#C8102E]"
               >
-                <span className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#F2B705] text-[#0B0B0D]">
+                <span className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#C8102E] text-white">
                   <TrendingUp className="h-6 w-6" />
                 </span>
                 <p className="mb-1 text-lg font-black text-[#0B0B0D]">{t("intentSellerTitle", "Quero ganhar dinheiro e/ou ser mais conhecido")}</p>
@@ -653,13 +653,13 @@ export default function CadastroPage() {
                 </select>
               </div>
 
-              <div className="rounded-xl border-2 border-[#F2B705]/40 bg-[#F2B705]/8 p-4">
+              <div className="rounded-xl border-2 border-[#C8102E]/40 bg-[#C8102E]/8 p-4">
                 <label className="flex items-start gap-2 text-sm">
                   <input
                     type="checkbox"
                     checked={acceptedTerms}
                     onChange={(e) => setAcceptedTerms(e.target.checked)}
-                    className="mt-1 h-4 w-4 accent-[#F2B705]"
+                    className="mt-1 h-4 w-4 accent-[#C8102E]"
                   />
                   <span className="text-[#3a352d]">
                     {t("acceptTermsPrefix", "Li e aceito os")}{" "}

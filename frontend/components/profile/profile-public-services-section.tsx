@@ -267,13 +267,13 @@ export function ProfilePublicServicesSection({
             return (
               <li
                 key={s.id_profile_service}
-                className="group relative flex h-full min-h-0 w-full min-w-0 flex-col overflow-hidden rounded-xl border-2 border-[#0B0B0D] bg-[#F1EDE2] text-left shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#F2B705]"
+                className="group relative flex h-full min-h-0 w-full min-w-0 flex-col overflow-hidden rounded-xl border-2 border-[#0B0B0D] bg-[#F1EDE2] text-left shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#C8102E]"
               >
                 <div className="relative aspect-[4/5] w-full shrink-0 border-b-2 border-[#0B0B0D] bg-[#1d1810]">
                   {showOwnerControls && (
                     <button
                       type="button"
-                      className="absolute right-2 top-2 z-10 cursor-pointer rounded-full border-2 border-[#0B0B0D] bg-[#F1EDE2] p-1.5 text-[#0B0B0D] transition hover:bg-[#F2B705]"
+                      className="absolute right-2 top-2 z-10 cursor-pointer rounded-full border-2 border-[#0B0B0D] bg-[#F1EDE2] p-1.5 text-white transition hover:bg-[#C8102E]"
                       onClick={(e) => {
                         e.stopPropagation()
                         openEdit(s)
@@ -288,7 +288,7 @@ export function ProfilePublicServicesSection({
                     <img src={img} alt={s.name} loading="lazy" className="h-full w-full object-cover" />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#2a2212] to-[#141009]">
-                      <Scissors className="h-11 w-11 text-[#F2B705]/40 sm:h-12 sm:w-12" aria-hidden />
+                      <Scissors className="h-11 w-11 text-[#C8102E]/40 sm:h-12 sm:w-12" aria-hidden />
                     </div>
                   )}
                 </div>
@@ -296,7 +296,7 @@ export function ProfilePublicServicesSection({
                 <div className="flex min-h-0 flex-1 flex-col p-2 md:p-3">
                   <div className="flex items-start justify-between gap-2">
                     <h3 className="min-w-0 flex-1 truncate text-xs font-bold leading-snug text-[#0B0B0D] md:text-sm">{s.name}</h3>
-                    <div className="flex shrink-0 items-center gap-0.5 text-[10px] font-bold text-[#E0A500] md:text-[11px]">
+                    <div className="flex shrink-0 items-center gap-0.5 text-[10px] font-bold text-[#9B0F24] md:text-[11px]">
                       <Clock className="h-3 w-3" aria-hidden />
                       <span className="tabular-nums">{s.duration_minutes} {t("minShort", "min")}</span>
                     </div>

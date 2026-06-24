@@ -135,7 +135,7 @@ export default function XpPage() {
       <Section className="pb-16 pt-12 sm:pt-16">
         {/* Masthead */}
         <div className="relative max-w-3xl">
-          <div className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#F2B705]">
+          <div className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#C8102E]">
             <Zap className="h-3.5 w-3.5" />
             {t("xpEyebrow", "Sua evolução na plataforma")}
           </div>
@@ -158,7 +158,7 @@ export default function XpPage() {
             <select
               value={scope}
               onChange={(e) => setScope(e.target.value)}
-              className="h-12 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-4 text-base font-bold text-[#F5F1E8] shadow-[3px_3px_0_0_rgba(0,0,0,0.4)] outline-none transition focus:border-[#F2B705]"
+              className="h-12 w-full rounded-md border-2 border-[#F5F1E8]/15 bg-[#1D1810] px-4 text-base font-bold text-[#F5F1E8] shadow-[3px_3px_0_0_rgba(0,0,0,0.4)] outline-none transition focus:border-[#C8102E]"
             >
               <option value={ACCOUNT}>
                 {t("wholeAccount", "Conta inteira")}{username ? ` · @${username}` : ""}
@@ -196,8 +196,8 @@ export default function XpPage() {
               onClick={() => setTab(tabItem.key)}
               className={`inline-flex items-center gap-2 rounded-md border-2 px-4 py-2 text-sm font-bold transition ${
                 tab === tabItem.key
-                  ? "border-[#F2B705] bg-[#F2B705] text-[#1A1505] shadow-[3px_3px_0_0_rgba(0,0,0,0.4)]"
-                  : "border-[#F5F1E8]/15 bg-[#1D1810] text-[#C9C2B6] hover:border-[#F2B705]/40"
+                  ? "border-[#C8102E] bg-[#C8102E] text-[#1A1505] shadow-[3px_3px_0_0_rgba(0,0,0,0.4)]"
+                  : "border-[#F5F1E8]/15 bg-[#1D1810] text-[#C9C2B6] hover:border-[#C8102E]/40"
               }`}
             >
               <tabItem.icon className="h-4 w-4" />
@@ -280,7 +280,7 @@ function ProfileXp({
           ready torn cut icon="zap"
           className="aspect-[4/5] w-full"
         />
-        <span className="fl-display absolute -left-2 -top-3 rotate-[-5deg] bg-[#F2B705] px-3 py-1 text-2xl text-[#1A1505] shadow-[3px_3px_0_0_rgba(0,0,0,0.5)]">
+        <span className="fl-display absolute -left-2 -top-3 rotate-[-5deg] bg-[#C8102E] px-3 py-1 text-2xl text-[#1A1505] shadow-[3px_3px_0_0_rgba(0,0,0,0.5)]">
           {t("levelShort", "NV")} {summary?.xp_level ?? 0}
         </span>
 
@@ -291,7 +291,7 @@ function ProfileXp({
           <div className="mt-4 flex items-end justify-between gap-3">
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#9A938A]">{t("levelLabel", "Nível")}</p>
-              <p className="fl-display text-6xl leading-none text-[#F2B705]">
+              <p className="fl-display text-6xl leading-none text-[#C8102E]">
                 {loading ? "—" : (summary?.xp_level ?? 0)}
               </p>
             </div>
@@ -306,11 +306,11 @@ function ProfileXp({
           {summary && (
             <div className="mt-5">
               <div className="h-3 w-full overflow-hidden rounded-full border border-[#F5F1E8]/10 bg-[#0E0B06]">
-                <div className="h-full bg-[#F2B705] transition-all duration-700" style={{ width: `${summary.xp_progress_percent}%` }} />
+                <div className="h-full bg-[#C8102E] transition-all duration-700" style={{ width: `${summary.xp_progress_percent}%` }} />
               </div>
               <p className="mt-2 text-xs text-[#C9C2B6]">
                 {summary.xp_missing > 0 ? (
-                  <>{t("xpMissingPrefix", "Faltam")} <span className="font-bold text-[#F2B705]">{Math.round(summary.xp_missing).toLocaleString(intlTag)} XP</span> {t("xpForLevel", "para o nível")} {summary.xp_level + 1}</>
+                  <>{t("xpMissingPrefix", "Faltam")} <span className="font-bold text-[#C8102E]">{Math.round(summary.xp_missing).toLocaleString(intlTag)} XP</span> {t("xpForLevel", "para o nível")} {summary.xp_level + 1}</>
                 ) : (
                   <>{t("readyNextLevel", "Pronto para o próximo nível 🎉")}</>
                 )}
@@ -323,7 +323,7 @@ function ProfileXp({
       {/* Feed dos últimos pontos */}
       <div>
         <div className="mb-4 flex items-center gap-3">
-          <span className="fl-display inline-block -rotate-1 bg-[#F2B705] px-3 py-1 text-lg text-[#1A1505] shadow-[3px_3px_0_0_rgba(0,0,0,0.45)]">
+          <span className="fl-display inline-block -rotate-1 bg-[#C8102E] px-3 py-1 text-lg text-[#1A1505] shadow-[3px_3px_0_0_rgba(0,0,0,0.45)]">
             {t("lastPoints", "Últimos pontos")}
           </span>
           <span className="h-[2px] flex-1 bg-[#F5F1E8]/12" />
@@ -359,9 +359,9 @@ function ProfileXp({
               return (
                 <li
                   key={`${item.event_type}-${item.created_at}-${i}`}
-                  className="flex items-center gap-3 rounded-md border-2 border-[#F5F1E8]/10 bg-[#1D1810] p-3 shadow-[3px_3px_0_0_rgba(0,0,0,0.35)] transition-colors hover:border-[#F2B705]/40"
+                  className="flex items-center gap-3 rounded-md border-2 border-[#F5F1E8]/10 bg-[#1D1810] p-3 shadow-[3px_3px_0_0_rgba(0,0,0,0.35)] transition-colors hover:border-[#C8102E]/40"
                 >
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-[#F2B705]/30 bg-[#F2B705]/10 text-[#F2B705]">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-[#C8102E]/30 bg-[#C8102E]/10 text-[#C8102E]">
                     <Icon className="h-5 w-5" />
                   </span>
                   <div className="min-w-0">
@@ -369,8 +369,8 @@ function ProfileXp({
                     <p className="text-xs text-[#9A938A]">{relTime(item.created_at, intlTag, t)}</p>
                   </div>
                   <span className="ml-auto inline-flex items-center gap-1 whitespace-nowrap">
-                    <BadgeCheck className="h-4 w-4 text-[#F2B705]/70" />
-                    <span className="fl-display text-xl text-[#F2B705]">+{fmtXp(item.xp_amount, intlTag)} XP</span>
+                    <BadgeCheck className="h-4 w-4 text-[#C8102E]/70" />
+                    <span className="fl-display text-xl text-[#C8102E]">+{fmtXp(item.xp_amount, intlTag)} XP</span>
                   </span>
                 </li>
               )
@@ -435,7 +435,7 @@ function AccountXpOverview({
   return (
     <div>
       <div className="mb-4 flex items-center gap-3">
-        <span className="fl-display inline-block -rotate-1 bg-[#F2B705] px-3 py-1 text-lg text-[#1A1505] shadow-[3px_3px_0_0_rgba(0,0,0,0.45)]">
+        <span className="fl-display inline-block -rotate-1 bg-[#C8102E] px-3 py-1 text-lg text-[#1A1505] shadow-[3px_3px_0_0_rgba(0,0,0,0.45)]">
           {t("xpBySubprofile", "XP por subperfil")}
         </span>
         <span className="h-[2px] flex-1 bg-[#F5F1E8]/12" />
@@ -447,7 +447,7 @@ function AccountXpOverview({
             <button
               key={p.id_profile}
               onClick={() => onSelect(p.id_profile)}
-              className="group flex items-center gap-4 border-2 border-[#F5F1E8]/12 bg-[#15100A] p-4 text-left shadow-[4px_4px_0_0_rgba(0,0,0,0.5)] transition hover:border-[#F2B705]/50"
+              className="group flex items-center gap-4 border-2 border-[#F5F1E8]/12 bg-[#15100A] p-4 text-left shadow-[4px_4px_0_0_rgba(0,0,0,0.5)] transition hover:border-[#C8102E]/50"
             >
               <div className="relative shrink-0">
                 <div className="h-16 w-16 overflow-hidden rounded-md border-2 border-[#F5F1E8]/15 bg-[#0E0B06]">
@@ -458,7 +458,7 @@ function AccountXpOverview({
                     <div className="grid h-full w-full place-items-center text-[#5A554C]"><Zap className="h-5 w-5" /></div>
                   )}
                 </div>
-                <span className="fl-display absolute -left-1.5 -top-2 rotate-[-6deg] bg-[#F2B705] px-1.5 text-xs text-[#1A1505] shadow-[2px_2px_0_0_rgba(0,0,0,0.5)]">
+                <span className="fl-display absolute -left-1.5 -top-2 rotate-[-6deg] bg-[#C8102E] px-1.5 text-xs text-[#1A1505] shadow-[2px_2px_0_0_rgba(0,0,0,0.5)]">
                   {t("levelShort", "NV")} {loading ? "—" : (s?.xp_level ?? 0)}
                 </span>
               </div>
@@ -468,7 +468,7 @@ function AccountXpOverview({
                   {loading ? t("loadingLower", "carregando…") : `${Math.round(s?.xp_total ?? 0).toLocaleString(intlTag)} XP`}
                 </p>
                 <div className="mt-2 h-2 w-full overflow-hidden rounded-full border border-[#F5F1E8]/10 bg-[#0E0B06]">
-                  <div className="h-full bg-[#F2B705] transition-all duration-700" style={{ width: `${s?.xp_progress_percent ?? 0}%` }} />
+                  <div className="h-full bg-[#C8102E] transition-all duration-700" style={{ width: `${s?.xp_progress_percent ?? 0}%` }} />
                 </div>
               </div>
             </button>

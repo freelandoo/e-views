@@ -84,15 +84,15 @@ function PodiumColumn({
   const order = rank === 1 ? "order-2" : rank === 2 ? "order-1" : "order-3"
   const width = isFirst ? "w-[40%]" : "w-[30%]"
   const pedestalH = isFirst ? "h-14 md:h-36" : rank === 2 ? "h-10 md:h-24" : "h-8 md:h-16"
-  const frame = isFirst ? "#F2B705" : "#0B0B0D"
+  const frame = isFirst ? "#C8102E" : "#0B0B0D"
 
   return (
     <div className={cn("flex min-w-0 flex-col items-center", order, width)} data-podium-col data-rank={rank}>
       <div className="relative w-full">
         {isFirst && (
           <>
-            <div className="absolute -inset-6 -z-10 rounded-full blur-3xl" style={{ background: "#F2B705", opacity: 0.25 }} />
-            <DoodleCrown className="absolute -top-7 left-1/2 z-20 h-8 w-12 -translate-x-1/2 text-[#F2B705] md:-top-11 md:h-11 md:w-16" />
+            <div className="absolute -inset-6 -z-10 rounded-full blur-3xl" style={{ background: "#C8102E", opacity: 0.25 }} />
+            <DoodleCrown className="absolute -top-7 left-1/2 z-20 h-8 w-12 -translate-x-1/2 text-[#C8102E] md:-top-11 md:h-11 md:w-16" />
           </>
         )}
 
@@ -100,7 +100,7 @@ function PodiumColumn({
         <span
           className={cn(
             "absolute -left-1.5 -top-1.5 z-20 flex h-6 w-6 rotate-[-6deg] items-center justify-center fl-display text-base md:h-12 md:w-12 md:text-3xl",
-            isFirst ? "bg-[#F2B705] text-[#0B0B0D]" : "bg-[#0B0B0D] text-[#F1EDE2]",
+            isFirst ? "bg-[#C8102E] text-white" : "bg-[#0B0B0D] text-[#F1EDE2]",
           )}
         >
           {rank}
@@ -117,7 +117,7 @@ function PodiumColumn({
                 className={cn("w-full object-cover", isFirst ? "aspect-[4/5]" : "aspect-square")}
               />
             ) : (
-              <div className={cn("flex w-full items-center justify-center bg-[#1D1810] fl-display text-5xl text-[#F2B705]", isFirst ? "aspect-[4/5]" : "aspect-square")}>
+              <div className={cn("flex w-full items-center justify-center bg-[#1D1810] fl-display text-5xl text-[#C8102E]", isFirst ? "aspect-[4/5]" : "aspect-square")}>
                 {getInitials(row.display_name)}
               </div>
             )}
@@ -126,7 +126,7 @@ function PodiumColumn({
 
         {/* Nome + score */}
         <div className="fl-card relative mt-2 p-2 text-center md:mt-3 md:p-3">
-          <span className={cn("inline-block -rotate-1 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-[0.14em]", row.is_clan || row.is_community ? "bg-[#F2B705] text-[#0B0B0D]" : "bg-[#0B0B0D] text-[#F1EDE2]")}>
+          <span className={cn("inline-block -rotate-1 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-[0.14em]", row.is_clan || row.is_community ? "bg-[#C8102E] text-white" : "bg-[#0B0B0D] text-[#F1EDE2]")}>
             {row.is_community ? t("badgeCommunity", "Comunidade") : row.is_clan ? t("badgeClan", "Clan") : t("badgePerfil", "Perfil")}
           </span>
           <Link href={rowHref(row)} className="block">
@@ -136,7 +136,7 @@ function PodiumColumn({
           </Link>
           <p className="truncate text-[9px] font-semibold text-[#6B6457] md:text-[11px]">{tag}</p>
 
-          <div className="mt-1.5 fl-display leading-none text-[#E0A500] md:mt-2">
+          <div className="mt-1.5 fl-display leading-none text-[#9B0F24] md:mt-2">
             <span className={isFirst ? "text-xl md:text-5xl" : "text-lg md:text-4xl"}>
               <AnimatedNumber value={points} compact={points >= 100000} />
             </span>
@@ -144,7 +144,7 @@ function PodiumColumn({
           <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-[#6B6457] md:text-[10px]">{t("pontos", "pontos")}</p>
 
           <div className="mt-2 flex flex-wrap items-center justify-center gap-1.5 border-t border-[#0B0B0D]/10 pt-2 md:mt-3 md:gap-2.5">
-            <Meta icon={<Star className="h-3 w-3 text-[#E0A500]" />} value={row.avg_rating ? Number(row.avg_rating).toFixed(1) : "0.0"} />
+            <Meta icon={<Star className="h-3 w-3 text-[#9B0F24]" />} value={row.avg_rating ? Number(row.avg_rating).toFixed(1) : "0.0"} />
             <Meta icon={<Eye className="h-3 w-3 text-[#6B6457]" />} value={<AnimatedNumber value={row.visits_count ?? 0} compact />} />
             {onLike && onComments && (
               <RankingSocialActions
@@ -160,7 +160,7 @@ function PodiumColumn({
 
       {/* Pedestal */}
       <div className={cn("relative mt-3 flex w-[78%] items-center justify-center md:w-full", pedestalH)}>
-        <div className={cn("absolute inset-0", isFirst ? "bg-[#F2B705]" : "bg-[#0B0B0D]")} style={{ clipPath: "polygon(6% 0, 94% 0, 100% 100%, 0 100%)" }} />
+        <div className={cn("absolute inset-0", isFirst ? "bg-[#C8102E]" : "bg-[#0B0B0D]")} style={{ clipPath: "polygon(6% 0, 94% 0, 100% 100%, 0 100%)" }} />
         <span className={cn("fl-display relative z-10 text-2xl md:text-7xl", isFirst ? "text-[#0B0B0D]/85" : "text-[#F1EDE2]/85")}>{rank}</span>
       </div>
     </div>

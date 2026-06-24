@@ -140,7 +140,7 @@ export default function ParentalRequestPage() {
                   onClick={() => setSelected(item.key)}
                   className={`flex items-start gap-2 rounded-[4px] border-2 p-3 text-left transition ${
                     isSelected
-                      ? "border-[#0B0B0D] bg-[#F2B705]/20"
+                      ? "border-[#0B0B0D] bg-[#C8102E]/20"
                       : "border-[#0B0B0D]/12 bg-white hover:border-[#0B0B0D]/35"
                   }`}
                 >

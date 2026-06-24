@@ -70,8 +70,8 @@ export function EmojiPickerButton({ onPick, className, align = "top-left" }: Emo
         aria-label={t("insertEmojiAriaLabel", "Inserir emoji")}
         aria-expanded={open}
         className={cn(
-          "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/65 transition-colors hover:bg-white/[0.08] hover:text-yellow-300",
-          open && "border-yellow-400/40 bg-yellow-400/10 text-yellow-300",
+          "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/65 transition-colors hover:bg-white/[0.08] hover:text-red-500",
+          open && "border-red-600/40 bg-red-600/10 text-red-500",
           className
         )}
       >

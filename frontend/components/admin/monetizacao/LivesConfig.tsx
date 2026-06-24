@@ -190,7 +190,7 @@ export function LivesConfig() {
 
   function addDraft() {
     setGifts((g) => [
-      { id_live_gift: "__new__", name: "", emoji: "🎁", color: "#F2B705", animation: "float", price_polens: 10, sort_order: (g[g.length - 1]?.sort_order ?? 0) + 1, is_active: true },
+      { id_live_gift: "__new__", name: "", emoji: "🎁", color: "#C8102E", animation: "float", price_polens: 10, sort_order: (g[g.length - 1]?.sort_order ?? 0) + 1, is_active: true },
       ...g,
     ])
   }

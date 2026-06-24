@@ -71,7 +71,7 @@ export function StoryPlayer({ entries, initialIndex, onClose, onProfileViewed }:
 
   const activeEntry = entries[profileIndex]
   const activeStory = stories[storyIndex]
-  const machineAccent = activeEntry?.machine?.color_accent || "#fbbf24"
+  const machineAccent = activeEntry?.machine?.color_accent || "#C8102E"
 
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const reportedRef = useRef<Set<string>>(new Set())

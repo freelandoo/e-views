@@ -41,7 +41,7 @@ const STATUS_LABEL: Record<Order["status"], { i18nKey: string; label: string; cl
   pending:   { i18nKey: "orderStatusPending",   label: "Aguardando pagamento", classes: "border-[#A16207] bg-[#FEF3C7] text-[#854D0E]" },
   paid:      { i18nKey: "orderStatusPaid",      label: "Pago",                 classes: "border-[#15803D] bg-[#DCFCE7] text-[#166534]" },
   shipped:   { i18nKey: "orderStatusShipped",   label: "Enviado",              classes: "border-[#0369A1] bg-[#E0F2FE] text-[#075985]" },
-  delivered: { i18nKey: "orderStatusDelivered", label: "Entregue",             classes: "border-[#0B0B0D] bg-[#F2B705] text-[#1A1505]" },
+  delivered: { i18nKey: "orderStatusDelivered", label: "Entregue",             classes: "border-[#0B0B0D] bg-[#C8102E] text-[#1A1505]" },
   canceled:  { i18nKey: "orderStatusCanceled",  label: "Cancelado",            classes: "border-[#52525B] bg-[#E4E4E7] text-[#3F3F46]" },
   refunded:  { i18nKey: "orderStatusRefunded",  label: "Reembolsado",          classes: "border-[#BE123C] bg-[#FFE4E6] text-[#9F1239]" },
 }
@@ -142,7 +142,7 @@ export default function ComprasPage() {
                       <img src={o.product_cover_url} alt={o.product_name} className="h-full w-full object-cover" />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center">
-                        <Package className="h-8 w-8 text-[#F2B705]" aria-hidden />
+                        <Package className="h-8 w-8 text-[#C8102E]" aria-hidden />
                       </div>
                     )}
                   </div>

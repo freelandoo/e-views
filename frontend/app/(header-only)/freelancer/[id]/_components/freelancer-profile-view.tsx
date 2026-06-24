@@ -687,7 +687,7 @@ export default function FreelancerProfileView({
                 <button
                   type="button"
                   aria-label={t("createAria", "Criar")}
-                  className="inline-flex h-7 w-7 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#F2B705] text-[#1A1505] shadow-[2px_2px_0_0_#0B0B0D] transition active:scale-[0.96]"
+                  className="inline-flex h-7 w-7 items-center justify-center rounded-full border-2 border-[#0B0B0D] bg-[#C8102E] text-[#1A1505] shadow-[2px_2px_0_0_#0B0B0D] transition active:scale-[0.96]"
                 >
                   <Plus className="h-3.5 w-3.5" />
                 </button>
@@ -828,7 +828,7 @@ export default function FreelancerProfileView({
                 title={t("tabPortfolio", "Portfólio")}
                 className={`inline-flex h-10 w-11 items-center justify-center border-b-2 transition ${
                   portfolioTab === "feed"
-                    ? "border-[#F2B705] bg-[#F2B705]/10 text-[#F2B705]"
+                    ? "border-[#C8102E] bg-[#C8102E]/10 text-[#C8102E]"
                     : "border-transparent text-[#9A938A] hover:bg-[#F5F1E8]/[0.04] hover:text-[#F5F1E8]"
                 }`}
               >
@@ -841,7 +841,7 @@ export default function FreelancerProfileView({
                 title="Bees"
                 className={`inline-flex h-10 w-11 items-center justify-center border-b-2 transition ${
                   portfolioTab === "bees"
-                    ? "border-[#F2B705] bg-[#F2B705]/10 text-[#F2B705]"
+                    ? "border-[#C8102E] bg-[#C8102E]/10 text-[#C8102E]"
                     : "border-transparent text-[#9A938A] hover:bg-[#F5F1E8]/[0.04] hover:text-[#F5F1E8]"
                 }`}
               >
@@ -852,7 +852,7 @@ export default function FreelancerProfileView({
                 onClick={() => setPortfolioTab("services")}
                 className={`inline-flex h-10 items-center justify-center gap-1.5 border-b-2 px-3 text-[11px] font-bold uppercase tracking-wide transition ${
                   portfolioTab === "services"
-                    ? "border-[#F2B705] bg-[#F2B705]/10 text-[#F2B705]"
+                    ? "border-[#C8102E] bg-[#C8102E]/10 text-[#C8102E]"
                     : "border-transparent text-[#9A938A] hover:bg-[#F5F1E8]/[0.04] hover:text-[#F5F1E8]"
                 }`}
               >
@@ -864,7 +864,7 @@ export default function FreelancerProfileView({
                 onClick={() => setPortfolioTab("courses")}
                 className={`inline-flex h-10 items-center justify-center gap-1.5 border-b-2 px-3 text-[11px] font-bold uppercase tracking-wide transition ${
                   portfolioTab === "courses"
-                    ? "border-[#F2B705] bg-[#F2B705]/10 text-[#F2B705]"
+                    ? "border-[#C8102E] bg-[#C8102E]/10 text-[#C8102E]"
                     : "border-transparent text-[#9A938A] hover:bg-[#F5F1E8]/[0.04] hover:text-[#F5F1E8]"
                 }`}
               >
@@ -877,7 +877,7 @@ export default function FreelancerProfileView({
                   onClick={() => setPortfolioTab("shop")}
                   className={`inline-flex h-10 items-center justify-center gap-1.5 border-b-2 px-3 text-[11px] font-bold uppercase tracking-wide transition ${
                     portfolioTab === "shop"
-                      ? "border-[#F2B705] bg-[#F2B705]/10 text-[#F2B705]"
+                      ? "border-[#C8102E] bg-[#C8102E]/10 text-[#C8102E]"
                       : "border-transparent text-[#9A938A] hover:bg-[#F5F1E8]/[0.04] hover:text-[#F5F1E8]"
                   }`}
                 >
@@ -985,7 +985,7 @@ export default function FreelancerProfileView({
                           </div>
                         )}
                         {isClan && item.is_clan_self && (
-                          <div className="absolute top-3 left-3 rounded-full border-2 border-[#0B0B0D] bg-[#F2B705] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#1A1505]">
+                          <div className="absolute top-3 left-3 rounded-full border-2 border-[#0B0B0D] bg-[#C8102E] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#1A1505]">
                             Clan
                           </div>
                         )}
@@ -994,7 +994,7 @@ export default function FreelancerProfileView({
                         {isOwnProfile && (
                           <div className="absolute inset-0 bg-[#0B0B0D]/65 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-3">
                             <label
-                              className="flex items-center justify-center h-10 w-10 border-2 border-[#0B0B0D] bg-[#F1EDE2] hover:bg-[#F2B705] text-[#0B0B0D] rounded-full cursor-pointer transition-colors"
+                              className="flex items-center justify-center h-10 w-10 border-2 border-[#0B0B0D] bg-[#F1EDE2] hover:bg-[#C8102E] text-white rounded-full cursor-pointer transition-colors"
                               title={t("addMedia", "Adicionar mídia")}
                             >
                               <input
@@ -1018,7 +1018,7 @@ export default function FreelancerProfileView({
                                 <button
                                   type="button"
                                   onClick={() => handleHideFromClan(item.id_portfolio_item)}
-                                  className="flex items-center gap-2 h-10 px-4 border-2 border-[#0B0B0D] bg-[#F1EDE2] hover:bg-[#F2B705] text-[#0B0B0D] rounded-full transition-colors text-sm font-bold"
+                                  className="flex items-center gap-2 h-10 px-4 border-2 border-[#0B0B0D] bg-[#F1EDE2] hover:bg-[#C8102E] text-white rounded-full transition-colors text-sm font-bold"
                                   title={t("hideFromClanTitle", "Ocultar do clan (não exclui do perfil do membro)")}
                                 >
                                   <EyeOff className="h-4 w-4" />
@@ -1029,7 +1029,7 @@ export default function FreelancerProfileView({
                                   <button
                                     type="button"
                                     onClick={() => handleEditPortfolioItem(item)}
-                                    className="flex items-center justify-center h-10 w-10 border-2 border-[#0B0B0D] bg-[#F1EDE2] hover:bg-[#F2B705] text-[#0B0B0D] rounded-full transition-colors"
+                                    className="flex items-center justify-center h-10 w-10 border-2 border-[#0B0B0D] bg-[#F1EDE2] hover:bg-[#C8102E] text-white rounded-full transition-colors"
                                     title={t("editItem", "Editar item")}
                                   >
                                     <Edit2 className="h-5 w-5" />
@@ -1054,7 +1054,7 @@ export default function FreelancerProfileView({
                         {isOwnProfile && (
                           <div className="absolute inset-0 bg-[#0B0B0D]/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                              <label
-                              className="flex items-center justify-center h-10 w-10 border-2 border-[#0B0B0D] bg-[#F1EDE2] hover:bg-[#F2B705] text-[#0B0B0D] rounded-full cursor-pointer transition-colors"
+                              className="flex items-center justify-center h-10 w-10 border-2 border-[#0B0B0D] bg-[#F1EDE2] hover:bg-[#C8102E] text-white rounded-full cursor-pointer transition-colors"
                               title={t("addMedia", "Adicionar mídia")}
                             >
                               <input
@@ -1091,7 +1091,7 @@ export default function FreelancerProfileView({
                           <button
                             type="button"
                             onClick={(e) => { e.stopPropagation(); setOpenPortfolioItemId(item.id_portfolio_item) }}
-                            className={`flex items-center gap-1 text-xs font-bold transition-colors ${item.liked_by_me ? "text-[#F2B705]" : "text-[#9A938A] hover:text-[#F2B705]"}`}
+                            className={`flex items-center gap-1 text-xs font-bold transition-colors ${item.liked_by_me ? "text-[#C8102E]" : "text-[#9A938A] hover:text-[#C8102E]"}`}
                             title={item.liked_by_me ? t("unlike", "Remover like") : t("like", "Curtir")}
                           >
                             <Heart className={`h-3.5 w-3.5 ${item.liked_by_me ? "fill-current" : ""}`} />
@@ -1189,7 +1189,7 @@ export default function FreelancerProfileView({
           <div className="relative overflow-y-auto max-h-[92vh] [scrollbar-width:thin]">
             <DialogHeader className="px-6 pt-6 pb-3 border-b-2 border-[#0B0B0D]/15">
               <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-xl border-2 border-[#0B0B0D] bg-[#F2B705] text-[#1A1505]">
+                <span className="flex h-9 w-9 items-center justify-center rounded-xl border-2 border-[#0B0B0D] bg-[#C8102E] text-[#1A1505]">
                   <Sparkles className="h-4 w-4" />
                 </span>
                 <div className="min-w-0">
@@ -1235,7 +1235,7 @@ export default function FreelancerProfileView({
                           portfolioTab === "bees" ? "aspect-[9/16] max-w-[260px]" : "aspect-[4/5]"
                         } max-h-[460px] overflow-hidden rounded-2xl ring-1 ring-white/10 bg-black shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]`}
                       >
-                        <div className="pointer-events-none absolute inset-0 z-10 rounded-2xl bg-gradient-to-tr from-yellow-400/0 via-amber-300/[0.04] to-transparent" />
+                        <div className="pointer-events-none absolute inset-0 z-10 rounded-2xl bg-gradient-to-tr from-red-600/0 via-amber-300/[0.04] to-transparent" />
                         {portfolioTab === "bees" ? (
                           <video
                             src={pendingPreview}
@@ -1279,7 +1279,7 @@ export default function FreelancerProfileView({
                         transition={{ type: "spring", stiffness: 220, damping: 26 }}
                         className={`group relative mx-auto flex w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed border-[#0B0B0D]/25 bg-[#0B0B0D]/[0.03] ${
                           portfolioTab === "bees" ? "aspect-[9/16] max-w-[260px]" : "aspect-[4/5]"
-                        } max-h-[460px] transition-all hover:border-[#E0A500] hover:bg-[#F2B705]/10`}
+                        } max-h-[460px] transition-all hover:border-[#9B0F24] hover:bg-[#C8102E]/10`}
                         onDragOver={(e) => e.preventDefault()}
                         onDrop={handlePendingFileDrop}
                       >
@@ -1294,7 +1294,7 @@ export default function FreelancerProfileView({
                           onChange={handlePendingFileSelect}
                           disabled={processingMedia}
                         />
-                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,183,5,0.10),transparent_70%)] opacity-0 transition-opacity group-hover:opacity-100" />
+                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(200, 16, 46,0.10),transparent_70%)] opacity-0 transition-opacity group-hover:opacity-100" />
                         <motion.div
                           animate={processingMedia ? { rotate: 360 } : { y: [0, -4, 0] }}
                           transition={
@@ -1302,7 +1302,7 @@ export default function FreelancerProfileView({
                               ? { repeat: Infinity, duration: 1, ease: "linear" }
                               : { repeat: Infinity, duration: 2.4, ease: "easeInOut" }
                           }
-                          className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-[#0B0B0D] bg-[#F2B705]"
+                          className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-[#0B0B0D] bg-[#C8102E]"
                         >
                           {processingMedia ? (
                             <Loader2 className="h-5 w-5 text-[#1A1505]" />
@@ -1488,7 +1488,7 @@ export default function FreelancerProfileView({
                         className="object-cover"
                       />
                     )}
-                    <AvatarFallback className="bg-[#F2B705]/20 text-[#0B0B0D]">{getInitials(profile.display_name)}</AvatarFallback>
+                    <AvatarFallback className="bg-[#C8102E]/20 text-white">{getInitials(profile.display_name)}</AvatarFallback>
                   </Avatar>
                   <div className="min-w-0 flex-1 text-left">
                     <DialogTitle className="fl-display text-xl text-[#0B0B0D] truncate">
@@ -1529,11 +1529,11 @@ export default function FreelancerProfileView({
                         <div className="relative">
                           <Avatar className="size-16 border-2 border-[#0B0B0D]">
                             {m.avatar_url && <AvatarImage src={m.avatar_url} alt={m.display_name} className="object-cover" />}
-                            <AvatarFallback className="bg-[#F2B705]/20 text-[#0B0B0D]">{getInitials(m.display_name)}</AvatarFallback>
+                            <AvatarFallback className="bg-[#C8102E]/20 text-white">{getInitials(m.display_name)}</AvatarFallback>
                           </Avatar>
                           {m.role === "owner" && (
                             <span
-                              className="absolute -bottom-1 -right-1 flex items-center justify-center h-6 w-6 rounded-full bg-[#F2B705] text-[#1A1505] border-2 border-[#F1EDE2] shadow-sm"
+                              className="absolute -bottom-1 -right-1 flex items-center justify-center h-6 w-6 rounded-full bg-[#C8102E] text-[#1A1505] border-2 border-[#F1EDE2] shadow-sm"
                               title={t("clanOwner", "Dono do clan")}
                             >
                               <Crown className="h-3.5 w-3.5" />
@@ -1541,7 +1541,7 @@ export default function FreelancerProfileView({
                           )}
                         </div>
                         <div className="min-w-0 w-full text-center">
-                          <div className="text-xs font-bold truncate text-[#0B0B0D] group-hover:text-[#E0A500] transition-colors">
+                          <div className="text-xs font-bold truncate text-[#0B0B0D] group-hover:text-[#9B0F24] transition-colors">
                             {m.display_name}
                           </div>
                           <div className="text-[10px] text-[#5b554b] truncate">@{m.username}</div>
@@ -1684,7 +1684,7 @@ function ProfileCoursesTab({
                 ? `/cursos/${c.slug}`
                 : `/account/courses/${c.id}`
           }
-          className="group relative block aspect-[4/5] overflow-hidden rounded-xl border-2 border-[#0B0B0D] bg-[#1d1810] shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#F2B705]"
+          className="group relative block aspect-[4/5] overflow-hidden rounded-xl border-2 border-[#0B0B0D] bg-[#1d1810] shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#C8102E]"
         >
           {c.cover_url ? (
             // eslint-disable-next-line @next/next/no-img-element
@@ -1696,7 +1696,7 @@ function ProfileCoursesTab({
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center">
-              <GraduationCap className="h-12 w-12 text-[#F2B705]/30" />
+              <GraduationCap className="h-12 w-12 text-[#C8102E]/30" />
             </div>
           )}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#0B0B0D]/85 to-transparent" />
@@ -1735,7 +1735,7 @@ function ProfileCoursesTab({
               )
             })()}
             {isOwnProfile && c.status !== "published" && (
-              <span className="mt-1 inline-block rounded-full border border-[#F2B705]/50 bg-[#F2B705]/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#F2B705]">
+              <span className="mt-1 inline-block rounded-full border border-[#C8102E]/50 bg-[#C8102E]/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#C8102E]">
                 {c.status === "draft" ? t("statusDraft", "Rascunho") : t("statusPaused", "Pausado")}
               </span>
             )}
