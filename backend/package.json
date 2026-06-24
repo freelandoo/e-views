@@ -1,0 +1,65 @@
+{
+  "name": "e-views-backend",
+  "version": "1.0.0",
+  "description": "API E-Views",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "prestart": "node run-migrations.js",
+    "start": "node index.js",
+    "migrate": "node run-migrations.js",
+    "migrate:status": "node scripts/migrate-status.js",
+    "migrate:remote": "node migrate-remote.js",
+    "arch:scan": "node scripts/arch-scan.js",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "echo No automated tests yet && exit 0",
+    "test:checkout": "node test/checkout.e2e.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/persio1998/creators-views.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/persio1998/creators-views/issues"
+  },
+  "homepage": "https://github.com/persio1998/creators-views#readme",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.972.0",
+    "@aws-sdk/s3-request-presigner": "^3.1057.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "ffmpeg-static": "^5.3.0",
+    "file-type": "^22.0.1",
+    "google-auth-library": "^10.7.0",
+    "helmet": "^8.2.0",
+    "jsonwebtoken": "^9.0.3",
+    "leo-profanity": "^1.9.0",
+    "livekit-server-sdk": "^2.15.4",
+    "multer": "^2.0.2",
+    "pg": "^8.20.0",
+    "resend": "^6.7.0",
+    "sharp": "^0.34.5",
+    "socket.io": "^4.8.3",
+    "stripe": "^22.1.0",
+    "uuid": "^14.0.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.12.0",
+    "nodemon": "^3.1.11",
+    "prettier": "^3.4.2"
+  }
+}

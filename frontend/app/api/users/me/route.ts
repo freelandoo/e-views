@@ -1,0 +1,124 @@
+import { getBackendApiUrl } from "@/lib/backend"
+import { apiFlow } from "@/lib/api-logger"
+import { isFetchTimeout, fetchWithTimeout, readBodyWithTimeout } from "@/lib/server-fetch"
+
+const urlMe = () => `${getBackendApiUrl()}/users/me`
+
+export async function GET(request: Request) {
+  const log = apiFlow("users/me:GET")
+  let status = 500
+  log.start(request)
+  try {
+    const authHeader = request.headers.get("Authorization")
+
+    if (!authHeader) {
+      status = 401
+      return Response.json({ error: "Token não fornecido" }, { status: 401 })
+    }
+
+    const url = urlMe()
+    const response = await fetchWithTimeout(url, {
+      method: "GET",
+      headers: {
+        Authorization: authHeader,
+        "Content-Type": "application/json",
+      },
+    }, 4000)
+
+    log.backendFetch("GET", url, response.status)
+
+    const text = await readBodyWithTimeout(response, 2000)
+    let data: unknown
+    try { data = JSON.parse(text) } catch { data = { error: "Resposta inválida" } }
+
+    if (!response.ok) {
+      status = response.status
+      return Response.json(data, { status: response.status })
+    }
+
+    status = 200
+    return Response.json(data)
+  } catch (error) {
+    log.fail(error)
+    if (isFetchTimeout(error)) {
+      status = 504
+      return Response.json({ error: "Perfil demorou para responder" }, { status: 504 })
+    }
+    status = 500
+    return Response.json({ error: "Erro ao buscar perfil do usuário" }, { status: 500 })
+  } finally {
+    log.end(status)
+  }
+}
+
+export async function DELETE(request: Request) {
+  const log = apiFlow("users/me:DELETE")
+  let status = 500
+  log.start(request)
+  try {
+    const authHeader = request.headers.get("Authorization")
+    if (!authHeader) {
+      status = 401
+      return Response.json({ error: "Token não fornecido" }, { status: 401 })
+    }
+
+    const url = urlMe()
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: { Authorization: authHeader },
+    })
+
+    log.backendFetch("DELETE", url, response.status)
+    const data = await response.json()
+    status = response.status
+    return Response.json(data, { status: response.status })
+  } catch (error) {
+    log.fail(error)
+    return Response.json({ error: "Erro ao desativar conta" }, { status: 500 })
+  } finally {
+    log.end(status)
+  }
+}
+
+export async function PUT(request: Request) {
+  const log = apiFlow("users/me:PUT")
+  let status = 500
+  log.start(request)
+  try {
+    const authHeader = request.headers.get("Authorization")
+
+    if (!authHeader) {
+      status = 401
+      return Response.json({ error: "Token não fornecido" }, { status: 401 })
+    }
+
+    const body = await request.json()
+    const url = urlMe()
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: {
+        Authorization: authHeader,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    })
+
+    log.backendFetch("PUT", url, response.status)
+
+    const data = await response.json()
+
+    if (!response.ok) {
+      status = response.status
+      return Response.json(data, { status: response.status })
+    }
+
+    status = 200
+    return Response.json(data)
+  } catch (error) {
+    log.fail(error)
+    status = 500
+    return Response.json({ error: "Erro ao atualizar perfil do usuário" }, { status: 500 })
+  } finally {
+    log.end(status)
+  }
+}

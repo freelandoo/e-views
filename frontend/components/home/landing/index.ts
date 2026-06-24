@@ -1,0 +1,10 @@
+// Freelandoo Landing — barrel de exports da homepage poster (warm-dark).
+export * from "./primitives"
+export * from "./tokens"
+export { LandingHeader } from "./LandingHeader"
+export { LandingFooter } from "./LandingFooter"
+export { HeroSection } from "./HeroSection"
+export { MoneyPathCards } from "./MoneyPathCards"
+export { FeatureCarousel } from "./FeatureCarousel"
+export { FeatureBento } from "./FeatureBento"
+export { FinalCTA } from "./FinalCTA"

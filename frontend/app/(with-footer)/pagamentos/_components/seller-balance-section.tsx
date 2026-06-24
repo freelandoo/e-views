@@ -1,0 +1,254 @@
+"use client"
+
+import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
+import { Loader2, Store, Clock, CheckCircle2, RotateCcw, Printer, Truck, AlertTriangle } from "lucide-react"
+import { useLocale, useTranslations } from "@/components/i18n/I18nProvider"
+
+type TFn = (key: string, fallback?: string) => string
+
+interface BalanceItem {
+  id_balance: number
+  id_order: number
+  net_cents: number
+  gross_cents: number
+  shipping_cents: number
+  status: "aguardando" | "aprovado" | "pago" | "revertido"
+  available_at: string
+  approved_at: string | null
+  paid_out_at: string | null
+  paid_out_note: string | null
+  reverted_at: string | null
+  product_name: string
+  order_status: string
+  order_total_cents: number
+  buyer_name: string | null
+  order_created_at: string
+  label_pdf_url: string | null
+  label_purchased_at: string | null
+  label_purchase_error: string | null
+  label_purchase_attempts: number
+  melhor_envio_order_id: string | null
+  tracking_code: string | null
+  shipping_carrier: string | null
+  shipping_service_name: string | null
+}
+
+interface BalanceSummary {
+  aguardando_cents: number
+  aprovado_cents: number
+  pago_cents: number
+  revertido_cents: number
+  aguardando_count: number
+  aprovado_count: number
+  pago_count: number
+}
+
+const STATUS = {
+  aguardando: { label: "Aguardando (8d)", labelKey: "balanceWaiting", icon: Clock,         color: "text-amber-600",   bg: "bg-amber-50 dark:bg-amber-950/30",   border: "border-amber-200 dark:border-amber-800" },
+  aprovado:   { label: "Liberado",        labelKey: "balanceReleased", icon: CheckCircle2,  color: "text-emerald-600", bg: "bg-emerald-50 dark:bg-emerald-950/30", border: "border-emerald-200 dark:border-emerald-800" },
+  pago:       { label: "Pago ao vendedor", labelKey: "balancePaidSeller", icon: CheckCircle2, color: "text-[#F2B705]",     bg: "bg-[#F2B705]/10",                       border: "border-[#F2B705]/30" },
+  revertido:  { label: "Revertido",       labelKey: "balanceReverted", icon: RotateCcw,     color: "text-rose-600",    bg: "bg-rose-50 dark:bg-rose-950/30",     border: "border-rose-200 dark:border-rose-800" },
+} as const
+
+function formatBRL(cents: number, locale = "pt-BR") {
+  return ((cents || 0) / 100).toLocaleString(locale, { style: "currency", currency: "BRL" })
+}
+
+function formatDate(s: string | null, locale = "pt-BR") {
+  if (!s) return "—"
+  try { return new Date(s).toLocaleDateString(locale) } catch { return "—" }
+}
+
+function getToken() {
+  if (typeof window === "undefined") return null
+  return localStorage.getItem("token")
+}
+
+export function SellerBalanceSection() {
+  const t = useTranslations("Payments")
+  const locale = useLocale()
+  const [items, setItems] = useState<BalanceItem[]>([])
+  const [summary, setSummary] = useState<BalanceSummary | null>(null)
+  const [state, setState] = useState<"loading" | "loaded" | "hidden" | "error">("loading")
+  const [labelBusy, setLabelBusy] = useState<number | null>(null)
+
+  async function openLabel(id_order: number) {
+    const token = getToken()
+    if (!token) return
+    setLabelBusy(id_order)
+    try {
+      const res = await fetch(`/api/me/orders/${id_order}/label`, {
+        headers: { Authorization: `Bearer ${token}` },
+        cache: "no-store",
+      })
+      const d = await res.json()
+      if (res.ok && d?.label_pdf_url) {
+        window.open(d.label_pdf_url, "_blank", "noopener,noreferrer")
+        setItems((prev) => prev.map((it) =>
+          it.id_order === id_order
+            ? { ...it, label_pdf_url: d.label_pdf_url, melhor_envio_order_id: d.melhor_envio_order_id || it.melhor_envio_order_id, tracking_code: d.tracking_code || it.tracking_code, label_purchased_at: new Date().toISOString(), label_purchase_error: null }
+            : it
+        ))
+      } else {
+        alert(d?.error || t("labelGenError", "Não foi possível gerar a etiqueta agora — tente novamente em alguns minutos."))
+      }
+    } catch {
+      alert(t("labelConnError", "Erro de conexão ao gerar etiqueta."))
+    } finally {
+      setLabelBusy(null)
+    }
+  }
+
+  useEffect(() => {
+    let cancelled = false
+    async function load() {
+      const token = getToken()
+      if (!token) { setState("hidden"); return }
+      try {
+        const res = await fetch("/api/me/seller-balance", {
+          headers: { Authorization: `Bearer ${token}` },
+          cache: "no-store",
+        })
+        const d = await res.json()
+        if (cancelled) return
+        if (!res.ok) { setState("error"); return }
+        const list = (d.items || []) as BalanceItem[]
+        if (list.length === 0) { setState("hidden"); return }
+        setItems(list)
+        setSummary(d.summary || null)
+        setState("loaded")
+      } catch {
+        if (!cancelled) setState("error")
+      }
+    }
+    load()
+    return () => { cancelled = true }
+  }, [])
+
+  if (state === "hidden") return null
+  if (state === "loading") {
+    return (
+      <div className="flex h-24 items-center justify-center">
+        <Loader2 className="h-5 w-5 animate-spin text-[#9A938A]" aria-hidden />
+      </div>
+    )
+  }
+  if (state === "error") return null
+
+  return (
+    <motion.section
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+      className="rounded-2xl border border-[#2A2218] bg-[#1D1810] p-5"
+    >
+      <header className="mb-4 flex items-center gap-2">
+        <Store className="h-4 w-4 text-[#F2B705]" aria-hidden />
+        <p className="text-xs font-medium uppercase tracking-widest text-[#9A938A]">
+          {t("storeSales", "Vendas da Loja")}
+        </p>
+      </header>
+
+      {summary && (
+        <div className="mb-5 grid grid-cols-2 gap-2 md:grid-cols-4">
+          <SummaryTile label={t("summaryWaiting", "Aguardando")} value={summary.aguardando_cents} count={summary.aguardando_count} tone="amber" t={t} locale={locale} />
+          <SummaryTile label={t("summaryReleased", "Liberado")}   value={summary.aprovado_cents}   count={summary.aprovado_count}   tone="emerald" t={t} locale={locale} />
+          <SummaryTile label={t("summaryPaid", "Pago")}       value={summary.pago_cents}       count={summary.pago_count}       tone="primary" t={t} locale={locale} />
+          <SummaryTile label={t("summaryGross", "Total bruto")} value={summary.aguardando_cents + summary.aprovado_cents + summary.pago_cents} count={items.length} tone="muted" t={t} locale={locale} />
+        </div>
+      )}
+
+      <ul className="divide-y divide-[#2A2218]/70">
+        {items.map((b) => {
+          const cfg = STATUS[b.status] || STATUS.aguardando
+          const Icon = cfg.icon
+          return (
+            <li key={b.id_balance} className="flex flex-wrap items-center justify-between gap-3 py-3">
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <p className="truncate text-sm font-medium text-[#F5F1E8]">{b.product_name}</p>
+                  <span className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${cfg.bg} ${cfg.border} ${cfg.color}`}>
+                    <Icon className="h-3 w-3" aria-hidden /> {t(cfg.labelKey, cfg.label)}
+                  </span>
+                </div>
+                <p className="mt-1 text-xs text-[#9A938A]">
+                  {t("order", "Pedido")} #{b.id_order} · {formatDate(b.order_created_at, locale)}
+                  {b.buyer_name ? ` · ${b.buyer_name}` : ""}
+                </p>
+                {b.status === "aguardando" && (
+                  <p className="mt-0.5 text-[11px] text-amber-600">
+                    {t("releasesOn", "Libera em")} {formatDate(b.available_at, locale)}
+                  </p>
+                )}
+                {b.status === "pago" && b.paid_out_at && (
+                  <p className="mt-0.5 text-[11px] text-[#9A938A]">
+                    {t("paidOn", "Pago em")} {formatDate(b.paid_out_at, locale)}{b.paid_out_note ? ` · ${b.paid_out_note}` : ""}
+                  </p>
+                )}
+                {b.tracking_code && (
+                  <p className="mt-1 inline-flex items-center gap-1 text-[11px] text-sky-600 dark:text-sky-300">
+                    <Truck className="h-3 w-3" aria-hidden /> {t("tracking", "Rastreio:")} <span className="font-mono">{b.tracking_code}</span>
+                  </p>
+                )}
+                {!b.label_purchased_at && b.label_purchase_error && (
+                  <p className="mt-1 inline-flex items-center gap-1 text-[11px] text-rose-500">
+                    <AlertTriangle className="h-3 w-3" aria-hidden /> {t("labelPending", "Etiqueta pendente")} · {b.label_purchase_error.slice(0, 80)}
+                  </p>
+                )}
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => openLabel(b.id_order)}
+                    disabled={labelBusy === b.id_order}
+                    className="inline-flex items-center gap-1 rounded-full border border-[#F2B705]/40 bg-[#F2B705]/10 px-3 py-1 text-[11px] font-semibold text-[#F2B705] transition hover:bg-[#F2B705]/20 disabled:opacity-50"
+                  >
+                    {labelBusy === b.id_order
+                      ? <Loader2 className="h-3 w-3 animate-spin" aria-hidden />
+                      : <Printer className="h-3 w-3" aria-hidden />}
+                    {b.label_purchased_at ? t("reprintLabel", "Reimprimir etiqueta") : t("printLabel", "Imprimir etiqueta")}
+                  </button>
+                  {b.shipping_carrier && (
+                    <span className="text-[11px] text-[#9A938A]">
+                      {b.shipping_carrier} · {b.shipping_service_name}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="text-sm font-semibold tabular-nums text-[#F5F1E8]">{formatBRL(b.net_cents, locale)}</p>
+                <p className="text-[11px] text-[#9A938A]">{t("gross", "Bruto")} {formatBRL(b.gross_cents, locale)}</p>
+                <p className="text-[10px] text-[#9A938A]">({t("shipping", "frete")} {formatBRL(b.shipping_cents, locale)} {t("withheld", "retido")})</p>
+              </div>
+            </li>
+          )
+        })}
+      </ul>
+    </motion.section>
+  )
+}
+
+function SummaryTile({
+  label, value, count, tone, t, locale,
+}: {
+  label: string
+  value: number
+  count: number
+  tone: "amber" | "emerald" | "primary" | "muted"
+  t: TFn
+  locale: string
+}) {
+  const toneClass = {
+    amber:   "border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-200",
+    emerald: "border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-200",
+    primary: "border-[#F2B705]/30 bg-[#F2B705]/10 text-[#F2B705]",
+    muted:   "border-[#2A2218] bg-[#2A2218]/30 text-[#9A938A]",
+  }[tone]
+  return (
+    <div className={`rounded-xl border px-3 py-2 ${toneClass}`}>
+      <p className="text-[10px] font-semibold uppercase tracking-wide opacity-80">{label}</p>
+      <p className="mt-1 text-base font-bold tabular-nums">{formatBRL(value, locale)}</p>
+      <p className="text-[10px] opacity-70">{count} {count === 1 ? t("saleSingular", "venda") : t("salePlural", "vendas")}</p>
+    </div>
+  )
+}

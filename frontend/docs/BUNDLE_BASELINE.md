@@ -1,0 +1,188 @@
+# Bundle baseline — First Load JS por rota
+
+Origem: plano-mestre F3.S1 (`PLANO_MELHORIAS_2026-06.md` na raiz do workspace).
+Medição: `npm run bundle:report` (ver `scripts/bundle-baseline.mjs`) — soma dos
+`<script src>` + `<link rel="preload" as="script">` do HTML real servido por
+`next start`. Chunks lazy (`next/dynamic`) **não** contam, então a régua captura
+o ganho dos slices F3.S2–S4.
+
+> O build usa **Turbopack** (Next 16): `@next/bundle-analyzer` (webpack-only)
+> não funciona e o `next build` não imprime mais tamanhos — por isso o script.
+
+**Teto acordado: 250KB raw por rota.** O baseline está ~5–7× acima; o teto é a
+direção, não a meta do próximo commit. A leitura útil hoje:
+
+- O **shell compartilhado** (layout raiz: I18n/Tour/Consent providers, sidebar,
+  modais globais, AdSense bootstrap) já custa ≈1.170KB raw — é o piso de todas
+  as rotas. Reduzi-lo beneficia o site inteiro.
+- O **delta por rota** (rota − piso ≈1.170KB) é o alvo dos slices F3.S2–S4:
+  `/freelancer/[id]` +652KB, `/bees` +568KB, `/feed` +385KB, `/account` +326KB,
+  `/mensagens` +249KB.
+
+## Baseline 2026-06-10 (commit do F3.S1, antes de F3.S2)
+
+Next 16.2.9 · build de produção local · valores em KB.
+
+| Rota | HTTP | First Load JS raw (KB) | gzip (KB) |
+|------|------|----------------------:|----------:|
+| `/freelancer/1` | 200 | 1822 ⚠️ | 559 |
+| `/bees` | 200 | 1738 ⚠️ | 518 |
+| `/feed` | 200 | 1555 ⚠️ | 484 |
+| `/account` | 200 | 1496 ⚠️ | 458 |
+| `/mensagens` | 200 | 1419 ⚠️ | 437 |
+| `/search` | 200 | 1403 ⚠️ | 436 |
+| `/enxame/1` | 200 | 1403 ⚠️ | 436 |
+| `/ranking` | 200 | 1278 ⚠️ | 405 |
+| `/` | 200 | 1226 ⚠️ | 388 |
+| `/wallet` | 200 | 1207 ⚠️ | 377 |
+| `/loja-polens` | 200 | 1201 ⚠️ | 376 |
+| `/blog` | 200 | 1174 ⚠️ | 368 |
+| `/cursos` | 200 | 1171 ⚠️ | 367 |
+
+Teto: 250KB raw · rotas acima: 13/13
+
+## Pós-F3.S2 (2026-06-10) — `/account` quebrado com next/dynamic
+
+UserPortfolio, UserDropside, FollowingModal, PremiumProfileModal e
+MediaCropModal viraram chunks lazy (`ssr:false`) em `account/page.tsx`.
+
+| Rota | First Load JS raw (KB) | gzip (KB) | Δ vs baseline |
+|------|----------------------:|----------:|---------------|
+| `/account` | 1271 ⚠️ | 394 | **−225KB raw / −64KB gzip** |
+
+O delta específico da rota (acima do shell ~1.170KB) caiu de ~326KB para
+~100KB. O resto do ganho depende de emagrecer o shell compartilhado.
+
+## Pós-F3.S3 (2026-06-10) — `/mensagens` quebrado com next/dynamic
+
+ChatRoomPanel (27KB + ReportMessageDialog), OpenChamadoModal (29KB),
+AudioRecorder/AudioMessage (19KB), CreateGroupModal (13KB) e
+OfferingPickerButton (11KB) viraram chunks lazy (`ssr:false`) em
+`MensagensClient.tsx`. EmojiPickerButton ficou estático (picker já é lazy
+por dentro).
+
+| Rota | First Load JS raw (KB) | gzip (KB) | Δ vs baseline |
+|------|----------------------:|----------:|---------------|
+| `/mensagens` | 1376 ⚠️ | 426 | **−43KB raw / −11KB gzip** |
+
+Ganho menor que o do `/account`: o grosso do delta da rota é o próprio
+`MensagensClient.tsx` (104KB de fonte, lista + thread + O.S. inline), que
+continua no bundle inicial — quebrá-lo de verdade exigiria extrair as
+seções inline, fora do escopo deste slice.
+
+## Pós-F3.S4 (2026-06-10) — `freelancer-profile-view` quebrado com next/dynamic
+
+Seções de aba (serviços, loja owner/público, agenda) e modais (mural,
+engajamento, ranking, portfolio item, crop) viraram chunks lazy. O maior
+peso era o **MediaComposer (52KB de fonte), que arrasta o módulo de câmera
+inteiro** (CameraStudio + filtros WebGL + renderer) — agora montado só
+quando o dono abre o composer (fechado ele retornava `null` com hardReset,
+então desmontar é equivalente); visitante nunca baixa esse chunk.
+ProfileHeadCard ficou estático (conteúdo above-the-fold, LCP).
+
+O componente serve 4 rotas — o ganho replica em `/freelancer/[id]`,
+`/clans/[id]`, `/account/profile/[id]` e `/[profession]/[city]/[handle]`.
+
+| Rota | First Load JS raw (KB) | gzip (KB) | Δ vs baseline |
+|------|----------------------:|----------:|---------------|
+| `/freelancer/1` | 1448 ⚠️ | 449 | **−374KB raw / −109KB gzip** |
+| `/account/profile/1` | 1448 ⚠️ | 449 | (mesmo shell) |
+
+Delta da rota sobre o shell (~1.170KB) caiu de +652KB para +278KB. Tabela
+completa pós-Sessão 3:
+
+| Rota | HTTP | First Load JS raw (KB) | gzip (KB) |
+|------|------|----------------------:|----------:|
+| `/bees` | 200 | 1738 ⚠️ | 518 |
+| `/feed` | 200 | 1555 ⚠️ | 484 |
+| `/freelancer/1` | 200 | 1448 ⚠️ | 449 |
+| `/search` | 200 | 1403 ⚠️ | 436 |
+| `/enxame/1` | 200 | 1403 ⚠️ | 436 |
+| `/mensagens` | 200 | 1376 ⚠️ | 426 |
+| `/ranking` | 200 | 1278 ⚠️ | 404 |
+| `/account` | 200 | 1271 ⚠️ | 394 |
+| `/` | 200 | 1226 ⚠️ | 387 |
+| `/wallet` | 200 | 1207 ⚠️ | 376 |
+| `/loja-polens` | 200 | 1201 ⚠️ | 375 |
+| `/blog` | 200 | 1174 ⚠️ | 368 |
+| `/cursos` | 200 | 1171 ⚠️ | 367 |
+
+Próximos alvos por delta: `/bees` (+568KB), `/feed` (+385KB), e o **shell
+compartilhado (~1.170KB)** — maior ganho individual restante, candidato a
+slice próprio na Sessão 4.
+
+## Pós-F3.S5 (2026-06-10) — aquisição em static/ISR (layout raiz sem cookies)
+
+O bloqueador era o **layout raiz lendo `cookies()`** (locale/país do i18n):
+isso forçava TODAS as rotas a renderização dinâmica — zero `X-Vercel-Cache:
+HIT` no site, lambda invocada em cada pageview. Mudanças:
+
+- Layout raiz virou síncrono (`lang="pt-BR"` fixo); locale/país agora são
+  resolvidos no **cliente** pelo `I18nProvider` (cookie lido pós-mount).
+- Dicionários de tradução viraram **chunks lazy** (`import()` por locale) —
+  o dict ativo (~51KB) não é mais serializado no HTML de toda página
+  (home: 229KB → 178KB de HTML).
+- `/blog/[slug]` saiu de `force-dynamic` para ISR (`revalidate=300` +
+  `generateStaticParams` vazio).
+- `/cursos/[slug]` (landing de curso) saiu de client-only/no-store para
+  **RSC + ISR** com metadata real (SEO/OG) e ilha client pra compra.
+
+Resultado no build (`npm run build`):
+
+| Rota | Antes | Depois |
+|------|-------|--------|
+| `/` (home landing) | ƒ dynamic | **○ static** |
+| `/comprar` | ƒ | **○ static** |
+| `/cursos` | ƒ | **○ static** |
+| `/cursos/[slug]` | ƒ (client fetch no-store) | **● ISR 5min** |
+| `/blog/[slug]` | ƒ (force-dynamic) | **● ISR 5min** |
+| `/blog` | ƒ | ƒ (searchParams de paginação; data cache 300s) |
+| +40 rotas (login, cadastro, legais, ranking, search, feed, wallet…) | ƒ | **○ static** |
+
+First Load JS não muda (slice de renderização, não de bundle). O ganho é de
+custo/latência: páginas estáticas saem do CDN sem invocar função.
+
+⚠️ **Regra nova:** o layout raiz NÃO pode voltar a ler `cookies()`/`headers()`
+— isso re-dinamiza o site inteiro silenciosamente. Locale é client-side.
+
+## Pós-F3.S7 (2026-06-10) — shell compartilhado −259KB raw
+
+Investigação com `node scripts/chunk-dump.mjs /rota` (novo: lista cada chunk
+do First Load com tamanho). Composição do shell antigo (~1.172KB):
+
+- Framework (react-dom 221 + RSC runtime 134 + app-router 53+43 + turbopack
+  10) ≈ 461KB — intocável.
+- **Polyfills 110KB são `noModule`** — browsers modernos NÃO baixam; a tabela
+  inteira carrega esse offset (shell efetivo ≈ raw − 110KB).
+- App: framer-motion 131KB (via IntentModal + ActionConsentModal globais),
+  gsap 69KB (IntentModal), socket.io 42KB (lib/realtime via use-nav-counts
+  do sidebar), UserDropside ~81KB (sidebar), Radix/lucide/Tour/etc.
+
+Mudanças (todas next/dynamic ssr:false com latch pra animação de saída):
+IntentModal → gate leve + IntentModalView lazy; ActionConsentModal lazy no
+ConsentProvider; socket.io-client via import() dinâmico em lib/realtime
+(anônimo nunca baixa); UserDropside lazy no ProfileSidebar.
+
+| Rota | antes (raw) | depois (raw) | gzip |
+|------|------------:|-------------:|-----:|
+| `/cursos` (≈ shell) | 1172 | **913** | 367→280 |
+| `/` | 1227 | **1100** | 388→344 |
+| `/account` | 1271 | **1011** | 394→306 |
+| `/bees` | 1738 | **1616** | 518→476 |
+| `/feed` | 1555 | **1433** | 484→442 |
+| `/freelancer/1` | 1448 | **1323** | 449→407 |
+| `/mensagens` | 1376 | **1251** | 426→383 |
+
+Shell efetivo (browsers modernos, sem polyfill noModule): ≈ **803KB**, sendo
+~461KB framework. Próximos alvos: deltas de `/bees` (+703KB) e `/feed`
+(+520KB) sobre o shell novo.
+
+## Como atualizar
+
+```bash
+npm run build
+npx next start -p 3300   # noutro terminal
+npm run bundle:report    # ou: node scripts/bundle-baseline.mjs /rota-especifica
+```
+
+Colar a tabela nova abaixo da anterior com data + commit, mantendo o histórico.

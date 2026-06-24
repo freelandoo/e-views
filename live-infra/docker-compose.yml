@@ -1,0 +1,29 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Freelandoo — LIVE (LiveKit) ambiente de DESENVOLVIMENTO local
+# ─────────────────────────────────────────────────────────────────────────────
+# Sobe o servidor de live (LiveKit) na sua máquina pra testar. NÃO é produção.
+# Modo --dev usa chaves fixas de teste:
+#     API Key:    devkey
+#     API Secret: secret
+# (Em produção a gente gera chaves próprias e roda na Hetzner.)
+#
+# Como usar:
+#   subir:   docker compose -f live-infra/docker-compose.yml up -d
+#   ver log: docker compose -f live-infra/docker-compose.yml logs -f
+#   parar:   docker compose -f live-infra/docker-compose.yml down
+#
+# Portas:
+#   7880/tcp  -> sinalização (WebSocket/HTTP) — é onde o app conecta
+#   7881/tcp  -> mídia WebRTC (fallback TCP)
+#   7882/udp  -> mídia WebRTC (UDP, caminho normal)
+# ─────────────────────────────────────────────────────────────────────────────
+services:
+  livekit:
+    image: livekit/livekit-server:latest
+    container_name: freelandoo-livekit-dev
+    command: --dev --bind 0.0.0.0
+    restart: unless-stopped
+    ports:
+      - "7880:7880"      # sinalização (ws/http)
+      - "7881:7881"      # rtc tcp
+      - "7882:7882/udp"  # rtc udp

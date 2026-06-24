@@ -1,0 +1,47 @@
+# =====================================================================
+# E-Views monorepo — .gitignore (raiz)
+# backend/ e frontend/ têm seus próprios .gitignore (node_modules, .env,
+# .next, .vercel etc.) respeitados por subárvore.
+# =====================================================================
+
+# Dependências / build (reforço, caso os nested falhem)
+**/node_modules/
+**/.next/
+**/.vercel/
+**/dist/
+**/build/
+
+# Segredos
+**/.env
+**/.env.*
+!**/.env.example
+
+# --- Resíduos do projeto-fonte (Freelandoo) que NÃO entram no monorepo ---
+# Pastas-fonte originais copiadas para backend/ e frontend/.
+/freelandoo-backend/
+/freelandoo frontend/
+# Projeto paralelo (decisão: fora do e-views)
+/a casa views/
+# Assets soltos / backups / planejamento legado
+/.backup-pre-filter-repo/
+/.agents/
+/docs/
+/pollens/
+/*.mp4
+/*.png
+/*.lnk
+/*.bat
+/diagnostico-freelandoo.html
+/AGENTS.md
+/MURAL_PLAN.md
+/PLANO_MELHORIAS_2026-06.md
+/SLICE18_HANDOFF.md
+/CLAUDE.md
+
+# Claude Code (config local da máquina)
+/.claude/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log

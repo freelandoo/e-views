@@ -1,0 +1,351 @@
+// EnxameStorage — acesso ao catálogo de Enxames (vitrine).
+// Nota: a tabela física continua chamando-se tb_machine / id_machine (legado);
+// o conceito foi renomeado para "Enxame" apenas na camada de aplicação.
+class EnxameStorage {
+  static async listEnxames(conn, { include_inactive = false } = {}) {
+    const { rows } = await conn.query(
+      `
+      SELECT
+        id_machine,
+        slug,
+        name,
+        display_order,
+        color_from,
+        color_to,
+        color_glow,
+        color_ring,
+        color_accent,
+        color_text,
+        description,
+        icon_name,
+        is_active
+      FROM public.tb_machine
+      WHERE ($1::boolean = TRUE) OR (is_active = TRUE)
+      ORDER BY display_order, name
+      `,
+      [include_inactive]
+    );
+    return rows;
+  }
+
+  static async getEnxameById(conn, id_enxame) {
+    const { rows } = await conn.query(
+      `
+      SELECT *
+      FROM public.tb_machine
+      WHERE id_machine = $1
+      LIMIT 1
+      `,
+      [id_enxame]
+    );
+    return rows[0] || null;
+  }
+
+  static async getEnxameBySlug(conn, slug) {
+    const { rows } = await conn.query(
+      `
+      SELECT *
+      FROM public.tb_machine
+      WHERE slug = $1
+      LIMIT 1
+      `,
+      [slug]
+    );
+    return rows[0] || null;
+  }
+
+  static async listCategoriesByEnxame(
+    conn,
+    id_enxame,
+    { include_inactive = false } = {}
+  ) {
+    const { rows } = await conn.query(
+      `
+      SELECT id_category, desc_category, id_machine, is_active
+      FROM public.tb_category
+      WHERE id_machine = $1
+        AND (($2::boolean = TRUE) OR (is_active = TRUE))
+      ORDER BY desc_category
+      `,
+      [id_enxame, include_inactive]
+    );
+    return rows;
+  }
+
+  static async listEnxamesWithCategories(
+    conn,
+    { include_inactive = false } = {}
+  ) {
+    const { rows } = await conn.query(
+      `
+      SELECT
+        m.id_machine,
+        m.slug,
+        m.name,
+        m.display_order,
+        m.color_from,
+        m.color_to,
+        m.color_glow,
+        m.color_ring,
+        m.color_accent,
+        m.color_text,
+        m.description,
+        m.icon_name,
+        m.is_active,
+        COALESCE(
+          jsonb_agg(
+            jsonb_build_object(
+              'id_category', c.id_category,
+              'desc_category', c.desc_category,
+              'is_active', c.is_active
+            )
+            ORDER BY c.desc_category
+          ) FILTER (WHERE c.id_category IS NOT NULL),
+          '[]'::jsonb
+        ) AS categories
+      FROM public.tb_machine m
+      LEFT JOIN public.tb_category c
+        ON c.id_machine = m.id_machine
+       AND (($1::boolean = TRUE) OR (c.is_active = TRUE))
+      WHERE ($1::boolean = TRUE) OR (m.is_active = TRUE)
+      GROUP BY m.id_machine
+      ORDER BY m.display_order, m.name
+      `,
+      [include_inactive]
+    );
+    return rows;
+  }
+
+  // ─────────────────── Admin mutations ───────────────────
+  static async updateEnxameStatus(conn, { id_enxame, is_active }) {
+    const { rows } = await conn.query(
+      `
+      UPDATE public.tb_machine
+         SET is_active = $2,
+             updated_at = NOW()
+       WHERE id_machine = $1
+      RETURNING *
+      `,
+      [id_enxame, is_active]
+    );
+    return rows[0] || null;
+  }
+
+  static async createEnxame(conn, { fields }) {
+    const cols = [
+      "slug",
+      "name",
+      "display_order",
+      "color_from",
+      "color_to",
+      "color_glow",
+      "color_ring",
+      "color_accent",
+      "color_text",
+      "description",
+      "icon_name",
+      "is_active",
+    ];
+    const colNames = [];
+    const placeholders = [];
+    const values = [];
+    let i = 0;
+    for (const c of cols) {
+      if (Object.prototype.hasOwnProperty.call(fields, c)) {
+        colNames.push(c);
+        placeholders.push(`$${++i}`);
+        values.push(fields[c]);
+      }
+    }
+    const { rows } = await conn.query(
+      `
+      INSERT INTO public.tb_machine (${colNames.join(", ")})
+      VALUES (${placeholders.join(", ")})
+      RETURNING *
+      `,
+      values
+    );
+    return rows[0] || null;
+  }
+
+  static async deleteEnxame(conn, id_enxame) {
+    const { rows } = await conn.query(
+      `
+      DELETE FROM public.tb_machine
+       WHERE id_machine = $1
+      RETURNING *
+      `,
+      [id_enxame]
+    );
+    return rows[0] || null;
+  }
+
+  static async updateEnxame(conn, { id_enxame, fields }) {
+    const allowed = [
+      "name",
+      "display_order",
+      "color_from",
+      "color_to",
+      "color_glow",
+      "color_ring",
+      "color_accent",
+      "color_text",
+      "description",
+      "icon_name",
+    ];
+    const sets = [];
+    const values = [id_enxame];
+    let i = 1;
+    for (const key of allowed) {
+      if (Object.prototype.hasOwnProperty.call(fields, key)) {
+        sets.push(`${key} = $${++i}`);
+        values.push(fields[key]);
+      }
+    }
+    if (sets.length === 0) return await this.getEnxameById(conn, id_enxame);
+    sets.push("updated_at = NOW()");
+    const { rows } = await conn.query(
+      `
+      UPDATE public.tb_machine
+         SET ${sets.join(", ")}
+       WHERE id_machine = $1
+      RETURNING *
+      `,
+      values
+    );
+    return rows[0] || null;
+  }
+
+  static async addCategoryToEnxame(conn, { id_enxame, desc_category }) {
+    const existing = await conn.query(
+      `SELECT id_category, id_machine, is_active
+         FROM public.tb_category
+        WHERE LOWER(desc_category) = LOWER($1)
+        LIMIT 1`,
+      [desc_category]
+    );
+    if (existing.rows[0]) {
+      const { rows } = await conn.query(
+        `
+        UPDATE public.tb_category
+           SET id_machine = $2,
+               is_active  = TRUE
+         WHERE id_category = $1
+        RETURNING *
+        `,
+        [existing.rows[0].id_category, id_enxame]
+      );
+      return { row: rows[0], created: false };
+    }
+    // profession_slug é NOT NULL com CHECK ^[a-z0-9]+(-[a-z0-9]+)*$ e UNIQUE
+    // case-insensitive (mig 011). Gera no Postgres com unaccent e resolve
+    // colisão por sufixo numérico — mesmo algoritmo das migs 011/085.
+    const { rows } = await conn.query(
+      `
+      WITH
+      base AS (
+        SELECT NULLIF(
+          regexp_replace(
+            regexp_replace(
+              regexp_replace(lower(unaccent($1)), '[^a-z0-9]+', '-', 'g'),
+              '-+', '-', 'g'
+            ),
+            '^-|-$', '', 'g'
+          ),
+          ''
+        ) AS slug
+      ),
+      base_clamped AS (
+        SELECT
+          CASE
+            WHEN slug IS NULL THEN 'profissao'
+            ELSE substring(slug, 1, 75)
+          END AS slug
+        FROM base
+      ),
+      candidate AS (
+        SELECT
+          (
+            SELECT CASE WHEN n = 1 THEN b.slug ELSE b.slug || '-' || n::text END
+              FROM base_clamped b
+              CROSS JOIN generate_series(1, 9999) AS n
+             WHERE NOT EXISTS (
+               SELECT 1 FROM public.tb_category c
+                WHERE lower(c.profession_slug) =
+                  CASE WHEN n = 1 THEN b.slug ELSE b.slug || '-' || n::text END
+             )
+             LIMIT 1
+          ) AS slug
+      )
+      INSERT INTO public.tb_category (desc_category, id_machine, is_active, profession_slug)
+      SELECT $2, $3, TRUE, slug FROM candidate
+      RETURNING *
+      `,
+      [desc_category, desc_category, id_enxame]
+    );
+    return { row: rows[0], created: true };
+  }
+
+  static async updateCategory(conn, { id_category, fields }) {
+    const allowed = ["desc_category", "is_active", "id_machine"];
+    const sets = [];
+    const values = [id_category];
+    let i = 1;
+    for (const key of allowed) {
+      if (Object.prototype.hasOwnProperty.call(fields, key)) {
+        sets.push(`${key} = $${++i}`);
+        values.push(fields[key]);
+      }
+    }
+    if (sets.length === 0) {
+      const { rows } = await conn.query(
+        `SELECT * FROM public.tb_category WHERE id_category = $1`,
+        [id_category]
+      );
+      return rows[0] || null;
+    }
+    const { rows } = await conn.query(
+      `
+      UPDATE public.tb_category
+         SET ${sets.join(", ")}
+       WHERE id_category = $1
+      RETURNING *
+      `,
+      values
+    );
+    return rows[0] || null;
+  }
+
+  static async getCategoryById(conn, id_category) {
+    const { rows } = await conn.query(
+      `SELECT * FROM public.tb_category WHERE id_category = $1 LIMIT 1`,
+      [id_category]
+    );
+    return rows[0] || null;
+  }
+
+  // ─────────────────── Admin audit ───────────────────
+  static async writeAudit(
+    conn,
+    {
+      entity,
+      entity_id,
+      action,
+      before_state = null,
+      after_state = null,
+      reason = null,
+      actor_user_id = null,
+    }
+  ) {
+    await conn.query(
+      `
+      INSERT INTO public.tb_admin_audit_log
+        (entity, entity_id, action, before_state, after_state, reason, actor_user_id)
+      VALUES ($1, $2, $3, $4, $5, $6, $7)
+      `,
+      [entity, String(entity_id), action, before_state, after_state, reason, actor_user_id]
+    );
+  }
+}
+
+module.exports = EnxameStorage;

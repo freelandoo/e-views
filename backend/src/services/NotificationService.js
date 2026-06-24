@@ -1,0 +1,570 @@
+const pool = require("../databases");
+const NotificationStorage = require("../storages/NotificationStorage");
+const ExpiringStorage = require("../storages/ExpiringStorage");
+const realtime = require("../realtime/socket");
+const { createLogger, runWithLogs } = require("../utils/logger");
+
+const log = createLogger("NotificationService");
+
+const UUID_RE =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+function mapRow(row) {
+  if (!row) return null;
+  return {
+    id_notification: row.id_notification,
+    type: row.type,
+    entity_type: row.entity_type,
+    entity_id: row.entity_id,
+    id_recipient_profile: row.id_recipient_profile,
+    read_at: row.read_at,
+    created_at: row.created_at,
+    payload: row.payload || {},
+    actor: row.id_actor_user
+      ? {
+          id_user: row.id_actor_user,
+          username: row.actor_username,
+          id_profile: row.id_actor_profile,
+          profile_display_name: row.actor_profile_display_name,
+          profile_avatar_url: row.actor_profile_avatar_url,
+        }
+      : null,
+  };
+}
+
+/**
+ * Cria notificacao fire-and-forget. Erros sao logados e engolidos para nao
+ * derrubar a transacao principal que causou a notificacao.
+ */
+async function safeNotify(data) {
+  try {
+    if (!data?.id_recipient_user) return null;
+    if (
+      data.id_actor_user &&
+      String(data.id_actor_user) === String(data.id_recipient_user)
+    ) {
+      // não notifica o próprio ator
+      return null;
+    }
+    const row = await NotificationStorage.insert(pool, data);
+    if (row) {
+      try {
+        realtime.emitToUser(data.id_recipient_user, "notification:new", {
+          type: data.type,
+          id_notification: row.id_notification,
+        });
+        realtime.emitToUser(data.id_recipient_user, "nav-counts:changed", {
+          reason: "notification_new",
+        });
+      } catch {
+        /* realtime é best-effort */
+      }
+    }
+    return row;
+  } catch (err) {
+    log.warn("notify.failed", { type: data?.type, error: err?.message });
+    return null;
+  }
+}
+
+class NotificationService {
+  static async list(user, query = {}) {
+    return runWithLogs(
+      log,
+      "list",
+      () => ({ id_user: user?.id_user, cursor: query?.cursor }),
+      async () => {
+        if (!user?.id_user) return { error: "Usuário não autenticado" };
+        const result = await NotificationStorage.listForUser(pool, {
+          id_recipient_user: user.id_user,
+          cursor: query?.cursor,
+          limit: query?.limit,
+        });
+        const unread = await NotificationStorage.countUnread(
+          pool,
+          user.id_user
+        );
+        return {
+          items: result.items.map(mapRow),
+          next_cursor: result.next_cursor,
+          has_more: result.has_more,
+          unread_count: unread,
+        };
+      }
+    );
+  }
+
+  static async unreadCount(user) {
+    return runWithLogs(
+      log,
+      "unreadCount",
+      () => ({ id_user: user?.id_user }),
+      async () => {
+        if (!user?.id_user) return { error: "Usuário não autenticado" };
+        const unread = await NotificationStorage.countUnread(
+          pool,
+          user.id_user
+        );
+        return { unread_count: unread };
+      }
+    );
+  }
+
+  static async markAllRead(user) {
+    return runWithLogs(
+      log,
+      "markAllRead",
+      () => ({ id_user: user?.id_user }),
+      async () => {
+        if (!user?.id_user) return { error: "Usuário não autenticado" };
+        const updated = await NotificationStorage.markAllRead(
+          pool,
+          user.id_user
+        );
+        return { updated };
+      }
+    );
+  }
+
+  static async markOneRead(user, params) {
+    return runWithLogs(
+      log,
+      "markOneRead",
+      () => ({ id_user: user?.id_user, id_notification: params?.id_notification }),
+      async () => {
+        if (!user?.id_user) return { error: "Usuário não autenticado" };
+        const id_notification = params?.id_notification;
+        if (!id_notification || !UUID_RE.test(id_notification)) {
+          return { error: "id_notification inválido" };
+        }
+        const updated = await NotificationStorage.markOneRead(pool, {
+          id_notification,
+          id_recipient_user: user.id_user,
+        });
+        if (!updated) return { error: "Notificação não encontrada" };
+        return { notification: mapRow(updated) };
+      }
+    );
+  }
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Helpers chamados por outros services (fire-and-forget).
+  // ──────────────────────────────────────────────────────────────────────────
+
+  static async notifyFollow({
+    actor_user_id,
+    actor_profile_id,
+    target_profile_id,
+  }) {
+    if (!target_profile_id) return null;
+    const recipient = await NotificationStorage.resolveProfileOwnerUserId(
+      pool,
+      target_profile_id
+    );
+    if (!recipient) return null;
+    return safeNotify({
+      id_recipient_user: recipient,
+      id_recipient_profile: target_profile_id,
+      type: "follow_received",
+      id_actor_user: actor_user_id,
+      id_actor_profile: actor_profile_id,
+      entity_type: "profile",
+      entity_id: target_profile_id,
+      payload: {},
+    });
+  }
+
+  static async notifyLike({
+    actor_user_id,
+    id_portfolio_item,
+    id_profile,
+  }) {
+    if (!id_profile || !id_portfolio_item) return null;
+    const recipient = await NotificationStorage.resolveProfileOwnerUserId(
+      pool,
+      id_profile
+    );
+    if (!recipient) return null;
+    return safeNotify({
+      id_recipient_user: recipient,
+      id_recipient_profile: id_profile,
+      type: "like_received",
+      id_actor_user: actor_user_id,
+      entity_type: "portfolio_item",
+      entity_id: id_portfolio_item,
+      payload: {},
+    });
+  }
+
+  static async notifyComment({
+    actor_user_id,
+    id_portfolio_item,
+    id_profile,
+    content_preview,
+  }) {
+    if (!id_profile || !id_portfolio_item) return null;
+    const recipient = await NotificationStorage.resolveProfileOwnerUserId(
+      pool,
+      id_profile
+    );
+    if (!recipient) return null;
+    return safeNotify({
+      id_recipient_user: recipient,
+      id_recipient_profile: id_profile,
+      type: "comment_received",
+      id_actor_user: actor_user_id,
+      entity_type: "portfolio_item",
+      entity_id: id_portfolio_item,
+      payload: {
+        preview: typeof content_preview === "string"
+          ? content_preview.slice(0, 140)
+          : null,
+      },
+    });
+  }
+
+  static async notifyMessage({
+    actor_user_id,
+    actor_profile_id,
+    recipient_profile_id,
+    id_conversation,
+    content_preview,
+  }) {
+    if (!recipient_profile_id || !id_conversation) return null;
+    const recipient = await NotificationStorage.resolveProfileOwnerUserId(
+      pool,
+      recipient_profile_id
+    );
+    if (!recipient) return null;
+    return safeNotify({
+      id_recipient_user: recipient,
+      id_recipient_profile: recipient_profile_id,
+      type: "message_received",
+      id_actor_user: actor_user_id,
+      id_actor_profile: actor_profile_id,
+      entity_type: "conversation",
+      entity_id: id_conversation,
+      payload: {
+        preview: typeof content_preview === "string"
+          ? content_preview.slice(0, 140)
+          : null,
+      },
+    });
+  }
+
+  /**
+   * Notificação de espelho para o responsável quando um menor recebe mensagem.
+   * Idempotência: NÃO usa dedupe (cada mensagem vira 1 evento) — o stream para
+   * o responsável reflete o tráfego real do menor.
+   */
+  static async notifySupervisedMessage({
+    minor_user_id,
+    minor_profile_id,
+    responsible_user_id,
+    actor_user_id,
+    actor_profile_id,
+    id_conversation,
+    content_preview,
+  }) {
+    if (!responsible_user_id || !id_conversation) return null;
+    return safeNotify({
+      id_recipient_user: responsible_user_id,
+      id_recipient_profile: null,
+      type: "supervised_message_received",
+      id_actor_user: actor_user_id,
+      id_actor_profile: actor_profile_id,
+      entity_type: "conversation",
+      entity_id: id_conversation,
+      payload: {
+        preview: typeof content_preview === "string"
+          ? content_preview.slice(0, 140)
+          : null,
+        minor_user_id,
+        minor_profile_id,
+      },
+    });
+  }
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Comercial (Slice C): venda de produto, agendamento recebido, venda de curso.
+  // Recipient é sempre o VENDEDOR/profissional (user). Idempotência fica a cargo
+  // de quem chama (todos os 3 hooks só disparam na transição real do pagamento).
+  // ──────────────────────────────────────────────────────────────────────────
+
+  static async notifyProductSale({
+    seller_user_id,
+    seller_profile_id,
+    buyer_user_id,
+    id_order,
+    amount_cents,
+    product_title,
+  }) {
+    if (!seller_user_id || !id_order) return null;
+    return safeNotify({
+      id_recipient_user: seller_user_id,
+      id_recipient_profile: seller_profile_id || null,
+      type: "product_sale",
+      id_actor_user: buyer_user_id || null,
+      entity_type: "product_order",
+      entity_id: id_order,
+      payload: {
+        amount_cents: Number.isFinite(amount_cents) ? amount_cents : null,
+        preview: typeof product_title === "string" ? product_title.slice(0, 140) : null,
+      },
+    });
+  }
+
+  static async notifyBookingReceived({
+    owner_user_id,
+    id_profile,
+    id_booking,
+    client_user_id,
+    amount_cents,
+    preview,
+  }) {
+    if (!id_booking) return null;
+    const recipient =
+      owner_user_id ||
+      (id_profile
+        ? await NotificationStorage.resolveProfileOwnerUserId(pool, id_profile)
+        : null);
+    if (!recipient) return null;
+    return safeNotify({
+      id_recipient_user: recipient,
+      id_recipient_profile: id_profile,
+      type: "booking_received",
+      id_actor_user: client_user_id || null,
+      entity_type: "booking",
+      entity_id: id_booking,
+      payload: {
+        amount_cents: Number.isFinite(amount_cents) ? amount_cents : null,
+        preview: typeof preview === "string" ? preview.slice(0, 140) : null,
+      },
+    });
+  }
+
+  static async notifyCourseSale({
+    owner_user_id,
+    owner_profile_id,
+    buyer_user_id,
+    id_course,
+    amount_cents,
+    course_title,
+  }) {
+    if (!owner_user_id || !id_course) return null;
+    return safeNotify({
+      id_recipient_user: owner_user_id,
+      id_recipient_profile: owner_profile_id || null,
+      type: "course_sale",
+      id_actor_user: buyer_user_id || null,
+      entity_type: "course",
+      entity_id: id_course,
+      payload: {
+        amount_cents: Number.isFinite(amount_cents) ? amount_cents : null,
+        preview: typeof course_title === "string" ? course_title.slice(0, 140) : null,
+      },
+    });
+  }
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Chamados / O.S. (Slice D): um profissional respondeu ao seu chamado.
+  // Recipient = quem abriu o chamado (requester). Chamado só na 1ª resposta
+  // daquele subperfil (quem chama checa que não havia resposta antes).
+  // ──────────────────────────────────────────────────────────────────────────
+  static async notifyServiceResponse({
+    requester_user_id,
+    responder_user_id,
+    responder_profile_id,
+    id_request,
+    kind, // 'service' | 'course'
+  }) {
+    if (!requester_user_id || !id_request) return null;
+    return safeNotify({
+      id_recipient_user: requester_user_id,
+      id_recipient_profile: null,
+      type: "service_response_received",
+      id_actor_user: responder_user_id || null,
+      id_actor_profile: responder_profile_id || null,
+      entity_type: "service_request",
+      entity_id: id_request,
+      payload: { kind: kind === "course" ? "course" : "service" },
+    });
+  }
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Financeiro (Slice E): comissão de afiliado confirmada + avisos de expiração.
+  // ──────────────────────────────────────────────────────────────────────────
+  static async notifyAffiliateCommission({
+    affiliate_user_id,
+    id_conversion,
+    amount_cents,
+  }) {
+    if (!affiliate_user_id || !id_conversion) return null;
+    return safeNotify({
+      id_recipient_user: affiliate_user_id,
+      id_recipient_profile: null,
+      type: "affiliate_commission_released",
+      id_actor_user: null,
+      entity_type: "affiliate_conversion",
+      entity_id: id_conversion,
+      payload: { amount_cents: Number.isFinite(amount_cents) ? amount_cents : null },
+    });
+  }
+
+  /**
+   * Aviso de expiração próxima (assinatura/premium/manifestação). Dedupe por
+   * índice parcial (mig 152): no máximo 1 não-lido por (user, type, entity_id).
+   * `expiringType` ∈ subscription_expiring | premium_expiring | manifestation_expiring.
+   */
+  static async notifyExpiring({
+    recipient_user_id,
+    expiringType,
+    entity_id,
+    days_left,
+    label,
+  }) {
+    if (!recipient_user_id || !entity_id) return null;
+    return safeNotify({
+      id_recipient_user: recipient_user_id,
+      id_recipient_profile: null,
+      type: expiringType,
+      id_actor_user: null,
+      entity_type: "expiration",
+      entity_id,
+      payload: {
+        days_left: Number.isFinite(days_left) ? days_left : null,
+        preview: typeof label === "string" ? label.slice(0, 140) : null,
+      },
+    });
+  }
+
+  /**
+   * Varre assinatura/premium/manifestação que expiram em até `days` dias e
+   * notifica os donos. Chamado por job agendado (Railway, não polling no front).
+   * Dedupe via índice parcial (mig 152): re-rodar não cria duplicata não-lida.
+   */
+  static async sweepExpiring(days = 3) {
+    return runWithLogs(
+      log,
+      "sweepExpiring",
+      () => ({ days }),
+      async () => {
+        const daysLeft = (d) =>
+          Math.max(1, Math.ceil((new Date(d).getTime() - Date.now()) / 86400000));
+        let sent = 0;
+        const groups = [
+          ["subscription_expiring", await ExpiringStorage.subscriptionsExpiringSoon(days)],
+          ["premium_expiring", await ExpiringStorage.premiumExpiringSoon(days)],
+          ["manifestation_expiring", await ExpiringStorage.manifestationsExpiringSoon(days)],
+        ];
+        for (const [type, rows] of groups) {
+          for (const row of rows) {
+            const r = await NotificationService.notifyExpiring({
+              recipient_user_id: row.id_user,
+              expiringType: type,
+              entity_id: row.entity_id,
+              days_left: daysLeft(row.expires_at),
+            });
+            if (r) sent += 1;
+          }
+        }
+        return { sent };
+      }
+    );
+  }
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Social extra (Slice F): clan e presente em live. Todos 1:1, fire-and-forget.
+  // ──────────────────────────────────────────────────────────────────────────
+  static async notifyClanInvite({
+    invited_user_id,
+    actor_user_id,
+    id_clan_profile,
+    clan_name,
+  }) {
+    if (!invited_user_id || !id_clan_profile) return null;
+    return safeNotify({
+      id_recipient_user: invited_user_id,
+      id_recipient_profile: null,
+      type: "clan_invite",
+      id_actor_user: actor_user_id || null,
+      entity_type: "clan",
+      entity_id: id_clan_profile,
+      payload: { preview: typeof clan_name === "string" ? clan_name.slice(0, 140) : null },
+    });
+  }
+
+  static async notifyClanMemberJoined({
+    owner_user_id,
+    id_clan_profile,
+    member_user_id,
+    member_profile_id,
+  }) {
+    if (!id_clan_profile) return null;
+    const recipient =
+      owner_user_id ||
+      (await NotificationStorage.resolveProfileOwnerUserId(pool, id_clan_profile));
+    if (!recipient) return null;
+    return safeNotify({
+      id_recipient_user: recipient,
+      id_recipient_profile: id_clan_profile,
+      type: "clan_member_joined",
+      id_actor_user: member_user_id || null,
+      id_actor_profile: member_profile_id || null,
+      entity_type: "clan",
+      entity_id: id_clan_profile,
+      payload: {},
+    });
+  }
+
+  static async notifyLiveGift({
+    host_user_id,
+    sender_user_id,
+    id_live,
+    gift_name,
+    polens,
+  }) {
+    if (!host_user_id || !id_live) return null;
+    return safeNotify({
+      id_recipient_user: host_user_id,
+      id_recipient_profile: null,
+      type: "live_gift_received",
+      id_actor_user: sender_user_id || null,
+      entity_type: "live",
+      entity_id: id_live,
+      payload: {
+        preview: typeof gift_name === "string" ? gift_name.slice(0, 60) : null,
+        polens: Number.isFinite(polens) ? polens : null,
+      },
+    });
+  }
+
+  /**
+   * Notificação de pedido de permissão: menor pede ao responsável para
+   * liberar um toggle (ex.: can_sell_courses).
+   * Dedupe parcial em índice (vide mig 062) evita spam.
+   */
+  static async notifyPermissionRequest({
+    minor_user_id,
+    responsible_user_id,
+    permission_key,
+    note,
+  }) {
+    if (!responsible_user_id || !permission_key) return null;
+    return safeNotify({
+      id_recipient_user: responsible_user_id,
+      id_recipient_profile: null,
+      type: "parental_permission_request",
+      id_actor_user: minor_user_id,
+      id_actor_profile: null,
+      entity_type: "minor",
+      entity_id: null,
+      payload: {
+        permission_key,
+        note: typeof note === "string" ? note.slice(0, 280) : null,
+      },
+    });
+  }
+}
+
+module.exports = NotificationService;

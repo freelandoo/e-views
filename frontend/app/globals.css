@@ -1,0 +1,658 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.15 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+  /* Marca Freelandoo — dourado #e6b800 */
+  --primary: #e6b800;
+  --primary-foreground: #171717;
+  --secondary: oklch(0.96 0.01 85);
+  --secondary-foreground: oklch(0.15 0 0);
+  --muted: oklch(0.96 0.01 85);
+  --muted-foreground: oklch(0.55 0 0);
+  --accent: oklch(0.7 0.15 140);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.01 85);
+  --input: oklch(0.9 0.01 85);
+  --ring: #e6b800;
+  --chart-1: #e6b800;
+  --chart-2: oklch(0.7 0.15 140);
+  --chart-3: oklch(0.6 0.12 200);
+  --chart-4: oklch(0.8 0.1 80);
+  --chart-5: oklch(0.55 0.2 340);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.99 0 0);
+  --sidebar-foreground: oklch(0.15 0 0);
+  --sidebar-primary: #e6b800;
+  --sidebar-primary-foreground: #171717;
+  --sidebar-accent: oklch(0.96 0.01 85);
+  --sidebar-accent-foreground: oklch(0.15 0 0);
+  --sidebar-border: oklch(0.9 0.01 85);
+  --sidebar-ring: oklch(0.75 0.15 85);
+}
+
+.dark {
+  --background: oklch(0.07 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.11 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.11 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: #f2c409;
+  --primary-foreground: #171717;
+  --secondary: oklch(0.22 0.02 85);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.22 0.02 85);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.75 0.15 140);
+  --accent-foreground: oklch(0.12 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.25 0.02 85);
+  --input: oklch(0.25 0.02 85);
+  --ring: #f2c409;
+  --chart-1: #f2c409;
+  --chart-2: oklch(0.75 0.15 140);
+  --chart-3: oklch(0.65 0.12 200);
+  --chart-4: oklch(0.85 0.1 80);
+  --chart-5: oklch(0.65 0.2 340);
+  --sidebar: oklch(0.11 0 0);
+  --sidebar-foreground: oklch(0.98 0 0);
+  --sidebar-primary: #f2c409;
+  --sidebar-primary-foreground: #171717;
+  --sidebar-accent: oklch(0.22 0.02 85);
+  --sidebar-accent-foreground: oklch(0.98 0 0);
+  --sidebar-border: oklch(0.25 0.02 85);
+  --sidebar-ring: oklch(0.8 0.15 85);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Fundo escuro compartilhado (auth, conta, perfil) */
+  .bg-page-shell-dark {
+    @apply min-h-screen bg-gradient-to-b from-neutral-950 to-black;
+  }
+
+  /* Horizontal snap scroll */
+  .snap-x-mandatory {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .snap-start {
+    scroll-snap-align: start;
+  }
+  .snap-center {
+    scroll-snap-align: center;
+  }
+
+  /* Hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Machines dark background */
+  .bg-machines-dark {
+    background-color: #020305;
+  }
+}
+
+@layer base {
+  /* Custom keyframes for machine animations */
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+  @keyframes float-y {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes scan-vertical {
+    0% { top: 0%; }
+    50% { top: 100%; }
+    100% { top: 0%; }
+  }
+}
+
+@layer utilities {
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+  .animate-float-y {
+    animation: float-y 4s ease-in-out infinite;
+  }
+  .animate-shimmer {
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+/* ──────────────────────────────────────────────────────
+   Phase 4 — Machine glow border on profile cards
+   Uses conic-gradient + mask for a performant animated
+   border. Activated via data-machine="<slug>" on the card.
+   ────────────────────────────────────────────────────── */
+
+@layer base {
+  @keyframes glow-spin {
+    to { --glow-angle: 360deg; }
+  }
+
+  @property --glow-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+}
+
+/* Per-enxame glow colors (data-machine = slug do enxame; tabela física legada) */
+[data-machine="marketing"]             { --glow-c1: #e11d48; --glow-c2: #f43f5e; }
+[data-machine="tecnologia"]            { --glow-c1: #2563eb; --glow-c2: #3b82f6; }
+[data-machine="transporte"]            { --glow-c1: #d97706; --glow-c2: #f59e0b; }
+[data-machine="artistas"]              { --glow-c1: #7c3aed; --glow-c2: #a855f7; }
+[data-machine="justica"]               { --glow-c1: #4338ca; --glow-c2: #6366f1; }
+[data-machine="influencer"]            { --glow-c1: #db2777; --glow-c2: #ec4899; }
+[data-machine="servicos_residenciais"] { --glow-c1: #059669; --glow-c2: #10b981; }
+[data-machine="construcao"]            { --glow-c1: #ea580c; --glow-c2: #f97316; }
+[data-machine="saude"]                 { --glow-c1: #0d9488; --glow-c2: #06b6d4; }
+[data-machine="beleza_bem_estar"]      { --glow-c1: #c026d3; --glow-c2: #d946ef; }
+[data-machine="veiculos"]              { --glow-c1: #dc2626; --glow-c2: #ef4444; }
+[data-machine="pets"]                  { --glow-c1: #16a34a; --glow-c2: #22c55e; }
+[data-machine="rural"]                 { --glow-c1: #65a30d; --glow-c2: #84cc16; }
+[data-machine="educacao"]              { --glow-c1: #0284c7; --glow-c2: #0ea5e9; }
+[data-machine="eventos"]               { --glow-c1: #ca8a04; --glow-c2: #eab308; }
+
+/* The glowing border wrapper */
+.card-glow {
+  --glow-angle: 0deg;
+  position: relative;
+  border-radius: var(--radius);
+  animation: glow-spin 4s linear infinite;
+}
+
+.card-glow::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--glow-angle),
+    var(--glow-c1, #888) 0%,
+    var(--glow-c2, #888) 25%,
+    transparent 50%,
+    var(--glow-c1, #888) 75%,
+    var(--glow-c2, #888) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Show glow on hover OR when card has data-machine (always subtle) */
+.card-glow[data-machine]::before {
+  opacity: 0.5;
+}
+
+.card-glow[data-machine]:hover::before {
+  opacity: 1;
+}
+
+/* Outer ambient glow (box-shadow) */
+.card-glow[data-machine]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 24px -6px var(--glow-c1, transparent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-glow[data-machine]:hover::after {
+  opacity: 0.6;
+}
+
+/* ── Scroll reveal — IntersectionObserver (lib/scroll-reveal.ts) ─────────────
+   .sr-init: estado escondido aplicado pelo JS. .sr-in: estado revelado.
+   A transição vive no .sr-in para que aplicar .sr-init seja instantâneo. */
+.sr-init {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: opacity, transform;
+}
+.sr-in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .sr-init {
+    opacity: 1;
+    transform: none;
+  }
+  .sr-in {
+    transition: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   FREELANDOO LANDING — design system "Tabloide Editorial Premium" (DARK)
+   Direção: capa de tabloide/carrossel virou interface de produto. Caos visual
+   controlado: cards de papel rasgado, fita adesiva, rabiscos à mão, halftone,
+   grão de papel, manchetes condensadas GIGANTES. Tema escuro Freelandoo com
+   off-white de papel para contraste e dourado como acento "de poder".
+   Paleta: canvas #141009 · paper #F1EDE2 · ink #0B0B0D · gold #F2B705
+   Tipografia: Anton (display) · Archivo (corpo) · Caveat (manuscrito)
+   Namespace `.fl-`.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.fl-root {
+  --fl-canvas: #0b0804;
+  --fl-canvas-2: #161109;
+  --fl-paper: #f1ede2;
+  --fl-paper-2: #e8e2d4;
+  --fl-ink: #0b0b0d;
+  --fl-ink-soft: #2b2b2e;
+  --fl-offwhite: #f1ede2;
+  --fl-gold: #f2b705;
+  --fl-gold-deep: #e0a500;
+  --fl-muted: #a89f8d;
+  --fl-line: rgba(241, 237, 226, 0.12);
+  color-scheme: dark;
+  background-color: var(--fl-canvas);
+  color: var(--fl-offwhite);
+  font-family: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Superfície de papel CLARO dentro de um `.fl-root` (modais, dialogs, cards).
+   O `.fl-root` precisa estar presente para resolver os tokens --fl-* que os
+   `.fl-btn-*`/`.fl-label` usam, mas ele força o canvas ESCURO. Esta classe
+   reverte para o papel off-white. Sem `@layer` e declarada DEPOIS de `.fl-root`
+   → vence a cascata (estilos sem layer > utilities; e empate de especificidade
+   resolve pela ordem). Use no lugar de `bg-[#F1EDE2] text-[#0B0B0D]`, que
+   perdem para o `.fl-root` por estarem na layer `utilities`. */
+.fl-paper-card {
+  background-color: var(--fl-paper);
+  color: var(--fl-ink);
+  color-scheme: light;
+}
+
+/* Fundo do canvas: cor base + vinheta dourada quente + grão de papel */
+.fl-paper-texture {
+  position: relative;
+  background-color: var(--fl-canvas);
+  background-image:
+    radial-gradient(1100px 620px at 82% -8%, rgba(242, 183, 5, 0.10), transparent 60%),
+    radial-gradient(900px 600px at 0% 100%, rgba(242, 183, 5, 0.05), transparent 62%);
+}
+.fl-paper-texture::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Grão reutilizável (camada absolute aria-hidden) */
+.fl-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+/* Halftone de pontos — cantos decorativos */
+.fl-dots {
+  background-image: radial-gradient(var(--fl-gold) 1.3px, transparent 1.6px);
+  background-size: 11px 11px;
+}
+.fl-dots-ink {
+  background-image: radial-gradient(var(--fl-ink) 1.3px, transparent 1.6px);
+  background-size: 11px 11px;
+}
+
+/* Card de PAPEL off-white (contraste) com borda dura e sombra de recorte */
+.fl-card {
+  background: var(--fl-paper);
+  color: var(--fl-ink);
+  border: 2px solid var(--fl-ink);
+  box-shadow: 0 16px 34px -18px rgba(0, 0, 0, 0.85);
+}
+/* Sombra dura deslocada (neo-brutalista) — pop no hover */
+.fl-hard {
+  box-shadow: 5px 5px 0 0 var(--fl-ink);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fl-hard:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 0 var(--fl-gold); }
+
+/* Cards "Seu caminho dentro da Freelandoo" (home) — movimento dos cards de
+   participantes da Casa Views (sobe + inclina de leve) somado ao "select"
+   amarelo: no hover a sombra dura vira dourada e cresce atrás do card. */
+.mp-card {
+  box-shadow: 6px 6px 0 0 var(--fl-ink);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+.mp-card:hover,
+.mp-card:focus-within {
+  transform: translateY(-6px) rotate(-0.4deg);
+  box-shadow: 12px 13px 0 0 var(--fl-gold);
+  z-index: 2;
+}
+/* Card escuro de papel (bloco preto editorial) */
+.fl-card-dark {
+  background: var(--fl-canvas-2);
+  color: var(--fl-offwhite);
+  border: 2px solid var(--fl-offwhite);
+}
+
+/* Borda recortada/rasgada — clip-path serrilhado (base / topo+base) */
+.fl-torn-1 { clip-path: polygon(0% 3%, 4% 0, 26% 3%, 52% 0, 79% 3%, 97% 0, 100% 4%, 100% 90%, 96% 100%, 72% 96%, 49% 100%, 25% 96%, 5% 100%, 0 92%); }
+.fl-torn-2 { clip-path: polygon(0 0, 100% 0, 100% 88%, 95% 100%, 78% 95%, 60% 100%, 42% 95%, 24% 100%, 6% 96%, 0 100%); }
+.fl-torn-soft { border-radius: 4px 14px 6px 16px / 14px 6px 16px 8px; }
+
+/* Marca-texto à mão (atrás do trecho), levemente torto. Default = dourado. */
+.fl-mark { position: relative; isolation: isolate; white-space: nowrap; }
+.fl-mark::before {
+  content: "";
+  position: absolute;
+  inset: 0.08em -0.18em -0.06em -0.18em;
+  background: var(--fl-gold);
+  transform: rotate(-1.4deg);
+  z-index: -1;
+  border-radius: 2px;
+}
+.fl-mark > * { position: relative; }
+/* destaque inline simples em dourado (sem bloco) */
+.fl-highlight { color: var(--fl-gold); }
+
+/* Número/letra em contorno (text-stroke) */
+.fl-stroke {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--fl-offwhite);
+}
+.fl-stroke-gold { color: transparent; -webkit-text-stroke: 2px var(--fl-gold); }
+.fl-stroke-ink { color: transparent; -webkit-text-stroke: 2px var(--fl-ink); }
+
+/* Fita adesiva (washi tape) */
+.fl-tape {
+  position: absolute;
+  width: 86px;
+  height: 26px;
+  background: rgba(242, 183, 5, 0.55);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.28);
+}
+.fl-tape-off { background: rgba(241, 237, 226, 0.5); }
+
+/* Sombra de recorte de revista (foto rasgada) */
+.fl-cut { filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.45)); }
+
+/* Headline display gigante (Anton, caixa-alta) */
+.fl-display, .fl-headline {
+  font-family: var(--font-anton), "Arial Narrow", system-ui, sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.004em;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+/* Manuscrito (rabiscos/notas) */
+.fl-marker { font-family: var(--font-caveat), "Comic Sans MS", cursive; }
+
+/* Botões */
+.fl-btn-gold {
+  background: var(--fl-gold);
+  color: #1a1505;
+  border: 2px solid var(--fl-ink);
+  box-shadow: 4px 4px 0 0 var(--fl-ink);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s, background-color 0.18s;
+}
+.fl-btn-gold:hover { background: #ffc81f; transform: translate(-2px, -2px); box-shadow: 6px 6px 0 0 var(--fl-ink); }
+.fl-btn-gold:active { transform: translate(0, 0); box-shadow: 2px 2px 0 0 var(--fl-ink); }
+.fl-btn-outline {
+  background: transparent;
+  color: var(--fl-offwhite);
+  border: 2px solid rgba(241, 237, 226, 0.4);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.18s, background-color 0.18s;
+}
+.fl-btn-outline:hover { border-color: var(--fl-offwhite); background: rgba(241, 237, 226, 0.06); }
+.fl-btn-outline:active { transform: scale(0.975); }
+.fl-btn-ink {
+  background: var(--fl-ink);
+  color: var(--fl-paper);
+  border: 2px solid var(--fl-ink);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.18s;
+}
+.fl-btn-ink:hover { background: #2a2418; }
+.fl-btn-ink:active { transform: scale(0.975); }
+/* Pílula para dentro de cards de papel (ex.: COMEÇAR) */
+.fl-btn-card {
+  background: transparent;
+  color: var(--fl-ink);
+  border: 2px solid var(--fl-ink);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.18s, color 0.18s;
+}
+.fl-btn-card:hover { background: var(--fl-ink); color: var(--fl-paper); }
+.fl-btn-card:active { transform: scale(0.97); }
+
+/* Account/courses internal tabloide pass: keeps shadcn primitives hard-edged
+   inside the redesigned surface without changing admin or generic pages. */
+.tabloid-account-page [data-slot="card"] {
+  background: var(--fl-paper);
+  color: var(--fl-ink);
+  border: 2px solid var(--fl-ink);
+  border-radius: 6px;
+  box-shadow: 5px 5px 0 0 var(--fl-ink);
+}
+.tabloid-account-page [data-slot="card-title"] {
+  font-family: var(--font-anton), "Arial Narrow", system-ui, sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.004em;
+  color: var(--fl-ink);
+}
+.tabloid-account-page [data-slot="card-description"] {
+  color: #5b554b;
+  font-weight: 700;
+}
+.tabloid-account-page [data-slot="button"] {
+  border-radius: 4px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tabloid-account-page [data-slot="badge"] {
+  border-radius: 2px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tabloid-account-page [data-slot="input"],
+.tabloid-account-page textarea,
+.tabloid-account-page select {
+  border-radius: 4px;
+  border-width: 2px;
+}
+
+/* ── Papel rasgado (torn paper) ────────────────────────────────────────────
+   Borda inferior irregular estilo "recorte de revista" — usada na divisória
+   entre o banner e o card do headcard de perfil. O elemento recortado revela
+   o papel (#F1EDE2) por baixo. drop-shadow segue a silhueta rasgada. */
+.fl-torn-bottom {
+  clip-path: polygon(
+    0 0, 100% 0,
+    100% 90%, 97% 95%, 94% 89%, 91% 96%, 88% 90%, 85% 97%, 82% 91%, 79% 96%,
+    76% 90%, 73% 95%, 70% 89%, 67% 96%, 64% 91%, 61% 97%, 58% 90%, 55% 95%,
+    52% 89%, 49% 96%, 46% 91%, 43% 97%, 40% 90%, 37% 95%, 34% 89%, 31% 96%,
+    28% 91%, 25% 97%, 22% 90%, 19% 95%, 16% 89%, 13% 96%, 10% 91%, 7% 97%,
+    4% 90%, 0 95%
+  );
+}
+.fl-torn-bottom-shadow {
+  filter: drop-shadow(0 4px 3px rgba(11, 11, 13, 0.35));
+}
+
+/* ── Campos de formulário tabloide (dentro de cards de papel) ──────────────
+   Reusáveis em todo o redesign. Dependem dos tokens --fl-* → só funcionam
+   dentro de `.fl-root`. */
+.fl-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--fl-ink);
+  margin-bottom: 0.4rem;
+}
+.fl-input {
+  width: 100%;
+  background: #fff;
+  color: var(--fl-ink);
+  border: 2px solid rgba(11, 11, 13, 0.16);
+  border-radius: 12px;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.fl-input::placeholder { color: rgba(11, 11, 13, 0.38); }
+.fl-input:focus {
+  outline: none;
+  border-color: var(--fl-ink);
+  box-shadow: 0 0 0 3px rgba(242, 183, 5, 0.35);
+}
+.fl-input:disabled { opacity: 0.55; cursor: not-allowed; }
+.fl-input-error { border-color: #dc2626 !important; }
+.fl-input-error:focus { box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.25); }
+.fl-input-ok { border-color: #16a34a !important; }
+.fl-input-ok:focus { box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.22); }
+
+/* Float suave (UI cards do hero) */
+@keyframes fl-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+.fl-float { animation: fl-float 6s cubic-bezier(0.16, 1, 0.3, 1) infinite; }
+.fl-float-slow { animation: fl-float 8.5s cubic-bezier(0.16, 1, 0.3, 1) infinite; }
+
+/* Adesivo de fita washi que "cola" sobre o like ao curtir (portfolio-post-card) */
+@keyframes fl-like-tape-pop {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.3) rotate(-24deg); }
+  60%  { opacity: 1; transform: translate(-50%, -50%) scale(1.14) rotate(4deg); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+}
+.fl-like-tape { animation: fl-like-tape-pop 0.42s cubic-bezier(0.16, 1, 0.3, 1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .fl-float, .fl-float-slow { animation: none !important; }
+  .fl-hard, .fl-btn-gold { transition: none !important; }
+  .mp-card { transition: none !important; }
+  .mp-card:hover, .mp-card:focus-within { transform: none; }
+  .fl-like-tape { animation: none !important; }
+}
+
+/* Câmera (CameraStudio): oculta a toolbar global enquanto a câmera está ativa */
+body.camera-active [data-app-toolbar] { display: none !important; }
+body.camera-active { overflow: hidden; }
+
+/* ============================================================================
+   REGRA PERMANENTE — SEM CANTOS ARREDONDADOS (estética tabloide reta).
+   Decisão do Alex (2026-06-17): nada de border-radius. Código novo nasce reto;
+   o legado vai sendo quadrado em manutenção (regra do escoteiro). Aplica-se
+   adicionando a classe `.fl-sharp` no container da tela/área.
+   Vence as classes base fl-* e os utilitários Tailwind via !important.
+   Exceção: fotos/avatares circulares (img.rounded-full ou [data-avatar])
+   continuam redondos — um círculo não é "canto arredondado".
+   ============================================================================ */
+.fl-sharp,
+.fl-sharp *,
+.fl-sharp *::before,
+.fl-sharp *::after { border-radius: 0 !important; }
+.fl-sharp img[class*="rounded-full"],
+.fl-sharp [data-avatar] { border-radius: 9999px !important; }

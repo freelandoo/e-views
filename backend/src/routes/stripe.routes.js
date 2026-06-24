@@ -1,0 +1,32 @@
+const { Router } = require("express");
+const authMiddleware = require("../middlewares/authMiddleware");
+const asyncHandler = require("../utils/asyncHandler");
+const StripeController = require("../controllers/StripeController");
+
+const router = Router();
+
+router.post(
+  "/subscription/checkout",
+  authMiddleware,
+  asyncHandler(StripeController.createSubscriptionCheckout)
+);
+
+router.get(
+  "/subscription/me",
+  authMiddleware,
+  asyncHandler(StripeController.getMySubscriptions)
+);
+
+router.post(
+  "/subscription/cancel",
+  authMiddleware,
+  asyncHandler(StripeController.cancelSubscription)
+);
+
+router.post(
+  "/subscription/refund",
+  authMiddleware,
+  asyncHandler(StripeController.refundSubscription)
+);
+
+module.exports = router;
