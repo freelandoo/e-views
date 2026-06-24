@@ -30,7 +30,7 @@ function validateAge18(birthDate) {
   if (age < 18) {
     return {
       ok: false,
-      error: "Você precisa ter 18 anos ou mais para criar uma conta na Freelandoo.",
+      error: "Você precisa ter 18 anos ou mais para criar uma conta na E-Views.",
     };
   }
   return { ok: true };

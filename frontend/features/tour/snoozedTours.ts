@@ -6,7 +6,7 @@
  * em localStorage. Snooze expirado é tratado como inexistente.
  */
 
-const STORAGE_KEY = "freelandoo_snoozed_tours_v1";
+const STORAGE_KEY = "e-views_snoozed_tours_v1";
 export const SNOOZE_MS = 24 * 60 * 60 * 1000;
 
 function read(): Record<string, number> {

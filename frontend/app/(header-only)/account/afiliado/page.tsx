@@ -578,7 +578,7 @@ function AfiliadoPanel({
           <CardContent className="flex gap-3 items-start p-4">
             <Info className="h-4 w-4 text-red-500 mt-0.5" />
             <div className="text-sm text-white/65">
-              {t("affiliateNotEnrolled", "Você ainda não está cadastrado no programa de afiliados. Fale com a equipe Freelandoo para ativar sua afiliação e habilitar pagamentos.")}
+              {t("affiliateNotEnrolled", "Você ainda não está cadastrado no programa de afiliados. Fale com a equipe E-Views para ativar sua afiliação e habilitar pagamentos.")}
             </div>
           </CardContent>
         </Card>
@@ -598,7 +598,7 @@ function AfiliadoPanel({
         <CardContent>
           {coupons.length === 0 ? (
             <div className="rounded-xl border border-dashed border-white/15 p-6 text-center text-sm text-white/45">
-              {t("noCouponYet", "Você ainda não tem cupom ativo. Fale com a equipe Freelandoo para gerar o seu.")}
+              {t("noCouponYet", "Você ainda não tem cupom ativo. Fale com a equipe E-Views para gerar o seu.")}
             </div>
           ) : (
             <div className="flex flex-wrap gap-2">

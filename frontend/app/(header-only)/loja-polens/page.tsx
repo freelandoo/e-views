@@ -249,7 +249,7 @@ function LojaPolensContent() {
               {t("storeTitle", "Loja de Polén")}
             </h1>
             <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-[#C9C2B6]">
-              {t("storeIntro", "Compre Poléns para usar dentro da Freelandoo: ative perfis, destaque-se na vitrine e adquira recursos exclusivos.")}
+              {t("storeIntro", "Compre Poléns para usar dentro da E-Views: ative perfis, destaque-se na vitrine e adquira recursos exclusivos.")}
             </p>
           </div>
 

@@ -2,7 +2,7 @@
  * Catálogo de dicas (hover-hints) por elemento. O `id` casa com `data-tour`
  * quando faz sentido reutilizar. Cobre as superfícies de mais alto tráfego —
  * sidebar, dropside da conta e toolbar do headcard — que entregam os pontos
- * de entrada para a maioria dos 27 módulos do Freelandoo.
+ * de entrada para a maioria dos 27 módulos do E-Views.
  */
 
 export type HintId =

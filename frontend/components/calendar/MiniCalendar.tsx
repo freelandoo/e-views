@@ -22,7 +22,7 @@ export function MiniCalendar({ selectedWeekStart, onWeekChange, month, onMonthCh
   const isInSelectedWeek = (d: Date) => isWithinInterval(d, weekRange)
 
   return (
-    <div className="freelandoo-mini-calendar">
+    <div className="e-views-mini-calendar">
       <DayPicker
         mode="single"
         locale={ptBR}
@@ -37,15 +37,15 @@ export function MiniCalendar({ selectedWeekStart, onWeekChange, month, onMonthCh
         }}
         modifiers={{ inWeek: isInSelectedWeek }}
         modifiersClassNames={{
-          inWeek: "freelandoo-week-day",
-          selected: "freelandoo-week-day-selected",
-          today: "freelandoo-today",
+          inWeek: "e-views-week-day",
+          selected: "e-views-week-day-selected",
+          today: "e-views-today",
         }}
         showOutsideDays
         weekStartsOn={0}
       />
       <style jsx global>{`
-        .freelandoo-mini-calendar .rdp-root {
+        .e-views-mini-calendar .rdp-root {
           --rdp-accent-color: #C8102E;
           --rdp-accent-background-color: rgba(250, 204, 21, 0.15);
           --rdp-day_button-width: 32px;
@@ -55,44 +55,44 @@ export function MiniCalendar({ selectedWeekStart, onWeekChange, month, onMonthCh
           color: rgb(228 228 231);
           font-size: 13px;
         }
-        .freelandoo-mini-calendar .rdp-month_caption {
+        .e-views-mini-calendar .rdp-month_caption {
           color: rgb(244 244 245);
           font-weight: 600;
         }
-        .freelandoo-mini-calendar .rdp-weekday {
+        .e-views-mini-calendar .rdp-weekday {
           color: rgb(113 113 122);
           text-transform: uppercase;
           font-size: 11px;
           font-weight: 500;
         }
-        .freelandoo-mini-calendar .rdp-day {
+        .e-views-mini-calendar .rdp-day {
           color: rgb(212 212 216);
         }
-        .freelandoo-mini-calendar .rdp-day_button:hover:not([disabled]) {
+        .e-views-mini-calendar .rdp-day_button:hover:not([disabled]) {
           background: rgba(250, 204, 21, 0.12);
           color: #C8102E;
         }
-        .freelandoo-mini-calendar .freelandoo-week-day .rdp-day_button {
+        .e-views-mini-calendar .e-views-week-day .rdp-day_button {
           background: rgba(250, 204, 21, 0.18);
           color: #fde68a;
         }
-        .freelandoo-mini-calendar .freelandoo-week-day-selected .rdp-day_button {
+        .e-views-mini-calendar .e-views-week-day-selected .rdp-day_button {
           background: #C8102E !important;
           color: #18181b !important;
           font-weight: 700;
         }
-        .freelandoo-mini-calendar .freelandoo-today .rdp-day_button {
+        .e-views-mini-calendar .e-views-today .rdp-day_button {
           outline: 1px solid rgba(250, 204, 21, 0.5);
         }
-        .freelandoo-mini-calendar .rdp-outside .rdp-day_button {
+        .e-views-mini-calendar .rdp-outside .rdp-day_button {
           color: rgb(82 82 91);
         }
-        .freelandoo-mini-calendar .rdp-button_previous,
-        .freelandoo-mini-calendar .rdp-button_next {
+        .e-views-mini-calendar .rdp-button_previous,
+        .e-views-mini-calendar .rdp-button_next {
           color: rgb(212 212 216);
         }
-        .freelandoo-mini-calendar .rdp-button_previous:hover,
-        .freelandoo-mini-calendar .rdp-button_next:hover {
+        .e-views-mini-calendar .rdp-button_previous:hover,
+        .e-views-mini-calendar .rdp-button_next:hover {
           background: rgba(250, 204, 21, 0.12);
           color: #C8102E;
         }

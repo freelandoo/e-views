@@ -1,5 +1,5 @@
 /**
- * Freelandoo Landing — tokens + dados de copy (tema warm-dark, estilo poster).
+ * E-Views Landing — tokens + dados de copy (tema warm-dark, estilo poster).
  *
  * Cores explícitas (o app é dark globalmente). Centraliza paleta, links
  * canônicos e o conteúdo textual para manter os componentes enxutos.
@@ -81,11 +81,11 @@ export type CarouselSlide = {
 /** Carrossel da 3ª seção — só banners (18:7), sem tipografia. Setas + dots.
    Imagens em /public/landing (banner-3-1..5.png), proporção 2011x782 = 18:7. */
 export const CAROUSEL_SLIDES: CarouselSlide[] = [
-  { n: 1, img: "/landing/banner-3-1.png", alt: "Crie e gerencie sua conta na Freelandoo", href: LINKS.cadastro },
-  { n: 2, img: "/landing/banner-3-2.png", alt: "Crie sua lojinha na Freelandoo", href: LINKS.cadastro },
-  { n: 3, img: "/landing/banner-3-3.png", alt: "Crie e venda cursos de graça na Freelandoo", href: LINKS.cursos },
-  { n: 4, img: "/landing/banner-3-4.png", alt: "Seja afiliado e compartilhe conteúdo na Freelandoo", href: LINKS.afiliados },
-  { n: 5, img: "/landing/banner-3-5.png", alt: "Poste vídeos e stories que vendem na Freelandoo", href: LINKS.feed },
+  { n: 1, img: "/landing/banner-3-1.png", alt: "Crie e gerencie sua conta na E-Views", href: LINKS.cadastro },
+  { n: 2, img: "/landing/banner-3-2.png", alt: "Crie sua lojinha na E-Views", href: LINKS.cadastro },
+  { n: 3, img: "/landing/banner-3-3.png", alt: "Crie e venda cursos de graça na E-Views", href: LINKS.cursos },
+  { n: 4, img: "/landing/banner-3-4.png", alt: "Seja afiliado e compartilhe conteúdo na E-Views", href: LINKS.afiliados },
+  { n: 5, img: "/landing/banner-3-5.png", alt: "Poste vídeos e stories que vendem na E-Views", href: LINKS.feed },
 ]
 
 export type BentoKind = "photo" | "saque" | "faturamento" | "comissao" | "video" | "stories" | "avatars" | "search" | "metrics"

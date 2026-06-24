@@ -209,7 +209,7 @@ class CoursesService {
         const affiliate_commission_cents = pricing.affiliate_commission_cents || 0;
 
         const frontend = String(
-          process.env.FRONTEND_URL || "https://freelandoo.com",
+          process.env.FRONTEND_URL || "https://e-views.com",
         ).replace(/\/$/, "");
 
         const session = await StripeService.createOneTimeCheckoutSession({

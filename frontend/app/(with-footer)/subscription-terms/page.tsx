@@ -2,15 +2,15 @@ import type { Metadata } from "next"
 import { LegalDocument } from "../_components/legal-document"
 
 export const metadata: Metadata = {
-  title: "Termo de Ativação — Freelandoo",
-  description: "Termos e condições da ativação do perfil profissional na plataforma Freelandoo.",
+  title: "Termo de Ativação — E-Views",
+  description: "Termos e condições da ativação do perfil profissional na plataforma E-Views.",
 }
 
 const sections = [
   {
     title: "1. Objeto",
     paragraphs: [
-      "Este termo regula a ativação paga do perfil profissional na plataforma Freelandoo, que habilita o usuário a ser exibido publicamente e a utilizar as funcionalidades profissionais.",
+      "Este termo regula a ativação paga do perfil profissional na plataforma E-Views, que habilita o usuário a ser exibido publicamente e a utilizar as funcionalidades profissionais.",
     ],
   },
   {
@@ -37,7 +37,7 @@ const sections = [
     title: "4. Direito de arrependimento e reembolso",
     items: [
       "Nos termos do art. 49 do Código de Defesa do Consumidor, o usuário pode solicitar o cancelamento e o reembolso integral em até 7 (sete) dias corridos a partir do pagamento.",
-      "O pedido de arrependimento deve ser enviado para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "O pedido de arrependimento deve ser enviado para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
       "O reembolso desativa o perfil imediatamente e é processado pelo mesmo meio de pagamento.",
       "Após o prazo de 7 dias, por se tratar de pagamento único de acesso já disponibilizado, não há reembolso, salvo nas hipóteses previstas em lei.",
     ],
@@ -46,7 +46,7 @@ const sections = [
     title: "5. Processamento de pagamento",
     items: [
       "Todos os pagamentos são processados pela Stripe.",
-      "Os dados de cartão são gerenciados exclusivamente pela Stripe; a Freelandoo não armazena dados completos de cartão.",
+      "Os dados de cartão são gerenciados exclusivamente pela Stripe; a E-Views não armazena dados completos de cartão.",
       "A ativação do perfil é confirmada automaticamente após a aprovação do pagamento.",
     ],
   },
@@ -61,7 +61,7 @@ const sections = [
   {
     title: "7. Cancelamento administrativo",
     items: [
-      "A Freelandoo pode cancelar a ativação em caso de violação dos Termos de Uso, fraude ou conduta indevida.",
+      "A E-Views pode cancelar a ativação em caso de violação dos Termos de Uso, fraude ou conduta indevida.",
       "O cancelamento por violação não gera direito a reembolso, salvo disposição legal.",
       "Perfis cancelados ficam inacessíveis até eventual nova ativação.",
     ],
@@ -77,7 +77,7 @@ const sections = [
   {
     title: "9. Alterações de preço e condições",
     items: [
-      "A Freelandoo pode alterar o valor da ativação e as condições deste termo a qualquer momento.",
+      "A E-Views pode alterar o valor da ativação e as condições deste termo a qualquer momento.",
       "Alterações de preço não afetam ativações já concluídas.",
       "Mudanças serão comunicadas na plataforma antes de entrarem em vigor.",
     ],
@@ -90,7 +90,7 @@ const sections = [
   },
   {
     title: "11. Contato",
-    paragraphs: ["Dúvidas sobre a ativação podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
+    paragraphs: ["Dúvidas sobre a ativação podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
   },
 ]
 
@@ -100,7 +100,7 @@ export default function SubscriptionTermsPage() {
       namespace="SubscriptionTerms"
       title="Termo de Ativação"
       updatedAt="Última atualização: 21 de maio de 2026"
-      intro="Este termo estabelece as regras para a aquisição e o uso da ativação do perfil profissional no Freelandoo."
+      intro="Este termo estabelece as regras para a aquisição e o uso da ativação do perfil profissional no E-Views."
       sections={sections}
       footerPrefix="Ao realizar a ativação e pagar via Stripe, você declara ter lido, compreendido e concordado integralmente com este termo. Veja também nossos"
       links={[

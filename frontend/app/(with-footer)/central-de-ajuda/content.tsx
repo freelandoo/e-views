@@ -20,9 +20,9 @@ const categories = [
 
 const faqs = [
   { q: "Como criar minha conta?", a: "Você pode criar sua conta informando seus dados básicos ou usando as opções de login disponíveis. Depois disso, poderá acessar sua área e configurar seu perfil." },
-  { q: "Como ativar meu perfil profissional?", a: "Para aparecer na vitrine pública da Freelandoo, o profissional precisa configurar seu perfil e concluir a ativação. A ativação acontece após a confirmação do pagamento." },
-  { q: "Quanto custa anunciar na Freelandoo?", a: "A ativação do perfil profissional custa R$ 300 em pagamento único." },
-  { q: "A Freelandoo cobra comissão sobre serviços fechados?", a: "Não. A Freelandoo não cobra comissão sobre os serviços negociados diretamente entre cliente e profissional." },
+  { q: "Como ativar meu perfil profissional?", a: "Para aparecer na vitrine pública da E-Views, o profissional precisa configurar seu perfil e concluir a ativação. A ativação acontece após a confirmação do pagamento." },
+  { q: "Quanto custa anunciar na E-Views?", a: "A ativação do perfil profissional custa R$ 300 em pagamento único." },
+  { q: "A E-Views cobra comissão sobre serviços fechados?", a: "Não. A E-Views não cobra comissão sobre os serviços negociados diretamente entre cliente e profissional." },
   { q: "Como funcionam os enxames?", a: "Os enxames organizam profissionais por intenção. Em vez de navegar por categorias soltas, o usuário escolhe um enxame, como Marketing, Tecnologia, Construção, Saúde, Beleza e Bem-estar, Pets ou Eventos." },
   { q: "Como escolher minha profissão?", a: "Sua profissão deve estar ligada ao enxame principal do seu perfil. Isso ajuda a plataforma a mostrar seu perfil para buscas mais compatíveis." },
   { q: "Como funciona o portfólio?", a: "O portfólio permite mostrar trabalhos, imagens, vídeos, resultados e exemplos do que você faz. Ele ajuda clientes a entenderem melhor sua experiência." },
@@ -30,7 +30,7 @@ const faqs = [
   { q: "Como funcionam os cupons?", a: "Cupons podem oferecer desconto para novos assinantes e, em alguns casos, gerar comissão para quem indicou, conforme as regras ativas da plataforma." },
   { q: "O que são clans?", a: "Clans são agrupamentos de profissionais, criadores ou prestadores que podem reunir competências e mostrar a distribuição de enxames dos participantes." },
   { q: "Como excluir minha conta?", a: "O usuário deve acessar sua área de conta ou entrar em contato com o suporte para solicitar exclusão, conforme as regras de privacidade da plataforma." },
-  { q: "Como falar com suporte?", a: "Use o canal de suporte indicado na plataforma ou entre em contato pelo e-mail oficial da Freelandoo." },
+  { q: "Como falar com suporte?", a: "Use o canal de suporte indicado na plataforma ou entre em contato pelo e-mail oficial da E-Views." },
 ]
 
 function useReveal() {
@@ -149,14 +149,14 @@ export function CentralDeAjudaContent() {
               {t("support.title", "Não encontrou o que precisava?")}
             </h2>
             <p className="text-[#9A938A] mb-6 text-sm leading-relaxed">
-              {t("support.description", "Fale com a Freelandoo pelo e-mail ou WhatsApp abaixo.")}
+              {t("support.description", "Fale com a E-Views pelo e-mail ou WhatsApp abaixo.")}
             </p>
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a href="https://wa.me/5511962757599" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-[#C8102E] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#C8102E]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
                 {t("support.ctaWhatsapp", "WhatsApp (11) 96275-7599")}
               </a>
-              <a href="mailto:freelandoogroup@gmail.com" className="inline-flex items-center border border-[#2A2218] text-[#F5F1E8] font-semibold px-6 py-3 rounded-lg hover:border-[#C8102E]/50 transition-all">
-                {t("support.ctaEmail", "freelandoogroup@gmail.com")}
+              <a href="mailto:e-viewsgroup@gmail.com" className="inline-flex items-center border border-[#2A2218] text-[#F5F1E8] font-semibold px-6 py-3 rounded-lg hover:border-[#C8102E]/50 transition-all">
+                {t("support.ctaEmail", "e-viewsgroup@gmail.com")}
               </a>
             </div>
           </div>

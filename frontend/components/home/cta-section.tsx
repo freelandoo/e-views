@@ -12,7 +12,7 @@ export function CtaSection() {
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-5xl text-center">
           <h2 className="mb-4 text-balance text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-            Comece hoje mesmo na Freelandoo
+            Comece hoje mesmo na E-Views
           </h2>
           <p className="mx-auto mb-12 max-w-2xl text-pretty text-lg text-muted-foreground md:text-xl">
             Conecte sua marca com influenciadores autênticos ou transforme sua audiência em oportunidades reais

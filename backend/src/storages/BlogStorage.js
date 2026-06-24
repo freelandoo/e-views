@@ -157,7 +157,7 @@ class BlogStorage {
       slug, title, excerpt = null, cover_url = null, cover_alt = null,
       body_md = "", category = null, tags = [], status = "draft",
       reading_minutes = 1, seo_title = null, seo_description = null,
-      author_name = "Equipe Freelandoo", published_at = null, created_by = null,
+      author_name = "Equipe E-Views", published_at = null, created_by = null,
     } = data;
     const { rows } = await conn.query(
       `INSERT INTO public.blog_posts (

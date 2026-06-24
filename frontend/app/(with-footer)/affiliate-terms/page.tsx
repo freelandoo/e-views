@@ -2,15 +2,15 @@ import type { Metadata } from "next"
 import { LegalDocument } from "../_components/legal-document"
 
 export const metadata: Metadata = {
-  title: "Contrato de Afiliados — Freelandoo",
-  description: "Regras do programa de afiliados e uso de cupons da plataforma Freelandoo.",
+  title: "Contrato de Afiliados — E-Views",
+  description: "Regras do programa de afiliados e uso de cupons da plataforma E-Views.",
 }
 
 const sections = [
   {
     title: "1. Objeto",
     items: [
-      "O programa de afiliados permite que usuários ativos divulguem a Freelandoo e recebam comissão sobre transações originadas por suas indicações.",
+      "O programa de afiliados permite que usuários ativos divulguem a E-Views e recebam comissão sobre transações originadas por suas indicações.",
       "Cada usuário ativado recebe automaticamente um código de cupom vinculado à sua conta.",
     ],
   },
@@ -27,7 +27,7 @@ const sections = [
     items: [
       "O cupom de afiliado concede desconto exclusivamente sobre a ativação de perfil de novos usuários.",
       "O cupom não concede desconto em compras da Loja, pacotes de Poléns, cursos ou outros produtos.",
-      "O percentual de desconto é definido pela Freelandoo e pode ser alterado a qualquer momento.",
+      "O percentual de desconto é definido pela E-Views e pode ser alterado a qualquer momento.",
     ],
   },
   {
@@ -37,7 +37,7 @@ const sections = [
       "Ativação de perfil: o afiliado recebe comissão sobre o valor líquido da ativação realizada com o seu cupom.",
       "Loja, Poléns e cursos: quando a compra é feita a partir de um link de indicação com o cupom embutido, o afiliado recebe comissão, sem que o comprador receba desconto.",
       "Agendamentos não geram comissão de afiliado.",
-      "Os percentuais de comissão são definidos pela Freelandoo e podem ser alterados, valendo a regra vigente no momento da transação.",
+      "Os percentuais de comissão são definidos pela E-Views e podem ser alterados, valendo a regra vigente no momento da transação.",
       "As comissões não são cumulativas com outros benefícios aplicados à mesma transação.",
     ],
   },
@@ -68,14 +68,14 @@ const sections = [
   {
     title: "8. Alterações no programa",
     items: [
-      "A Freelandoo pode alterar regras, percentuais de desconto e de comissão a qualquer momento.",
+      "A E-Views pode alterar regras, percentuais de desconto e de comissão a qualquer momento.",
       "Alterações valem para transações realizadas após a sua publicação.",
     ],
   },
   {
     title: "9. Encerramento",
     paragraphs: [
-      "A Freelandoo pode suspender ou encerrar a participação de um afiliado em caso de violação destes termos. O afiliado também pode deixar o programa a qualquer momento, ressalvado o pagamento de comissões já confirmadas.",
+      "A E-Views pode suspender ou encerrar a participação de um afiliado em caso de violação destes termos. O afiliado também pode deixar o programa a qualquer momento, ressalvado o pagamento de comissões já confirmadas.",
     ],
   },
   {
@@ -84,7 +84,7 @@ const sections = [
   },
   {
     title: "11. Contato",
-    paragraphs: ["Dúvidas sobre o programa de afiliados podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
+    paragraphs: ["Dúvidas sobre o programa de afiliados podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
   },
 ]
 
@@ -94,7 +94,7 @@ export default function AffiliateTermsPage() {
       namespace="AffiliateTerms"
       title="Contrato de Afiliados e Uso de Cupons"
       updatedAt="Última atualização: 21 de maio de 2026"
-      intro="Este contrato regula a utilização do sistema de cupons e a participação no programa de afiliados da plataforma Freelandoo."
+      intro="Este contrato regula a utilização do sistema de cupons e a participação no programa de afiliados da plataforma E-Views."
       sections={sections}
       footerPrefix="Ao gerar ou compartilhar um cupom, você concorda com este contrato. Veja também nossos"
       links={[

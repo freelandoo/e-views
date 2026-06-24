@@ -35,7 +35,7 @@ export default function DadosPage() {
       const url = URL.createObjectURL(blob)
       const a = document.createElement("a")
       a.href = url
-      a.download = "freelandoo-meus-dados.json"
+      a.download = "e-views-meus-dados.json"
       a.click()
       URL.revokeObjectURL(url)
     } catch (err) {

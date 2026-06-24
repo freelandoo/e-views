@@ -29,7 +29,7 @@ function authHeaders() {
     Authorization: `Bearer ${token}`,
     Accept: "application/json",
     "Content-Type": "application/json",
-    "User-Agent": `Freelandoo (${contact})`,
+    "User-Agent": `E-Views (${contact})`,
   };
 }
 

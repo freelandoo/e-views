@@ -103,7 +103,7 @@ export function PolensCard() {
             <PolensBalance balance={wallet?.balance || 0} />
           </div>
           <p className="max-w-2xl text-sm leading-relaxed text-white/62">
-            Ganhe Poléns assistindo anúncios recompensados e use dentro da Freelandoo para ativar perfis,
+            Ganhe Poléns assistindo anúncios recompensados e use dentro da E-Views para ativar perfis,
             comprar destaques e acessar recursos extras. Poléns não são sacáveis, transferíveis nem conversíveis em dinheiro.
           </p>
           <DailyLimitProgress limits={limits} />

@@ -233,7 +233,7 @@ export function BirthdateGate() {
             {t("title", "Falta completar seu cadastro")}
           </DialogTitle>
           <DialogDescription>
-            {t("description", "Informe sua data de nascimento para usar a Freelandoo. Se você for menor de 18 anos, vai precisar de um código parental de um responsável adulto.")}
+            {t("description", "Informe sua data de nascimento para usar a E-Views. Se você for menor de 18 anos, vai precisar de um código parental de um responsável adulto.")}
           </DialogDescription>
         </DialogHeader>
 

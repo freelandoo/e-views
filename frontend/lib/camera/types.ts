@@ -24,7 +24,7 @@ export interface FilterState {
 /** Sobreposições desenhadas no compositor 2D (entram no vídeo final). */
 export interface OverlayState {
   frame: FrameStyle
-  watermark: boolean // marca d'água Freelandoo
+  watermark: boolean // marca d'água E-Views
   stickers: StickerInstance[]
   accessory: AccessoryType // acessório de rosto (face tracking)
 }
@@ -95,5 +95,5 @@ export const NEUTRAL_OVERLAY: OverlayState = {
   accessory: "none",
 }
 
-/** Cor da marca (amarelo Freelandoo). */
+/** Cor da marca (amarelo E-Views). */
 export const BRAND_YELLOW = "#facc15"

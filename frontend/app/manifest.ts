@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next"
 
-// Web App Manifest — torna a Freelandoo instalável ("Adicionar à tela inicial").
+// Web App Manifest — torna a E-Views instalável ("Adicionar à tela inicial").
 // O Next serve isto em /manifest.webmanifest automaticamente.
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Freelandoo",
-    short_name: "Freelandoo",
+    name: "E-Views",
+    short_name: "E-Views",
     description:
       "A rede de oportunidades: conecte-se com freelancers, influenciadores e prestadores de serviço.",
     id: "/",

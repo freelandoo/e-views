@@ -27,41 +27,41 @@ const archivo = Archivo({ subsets: ["latin"], variable: "--font-archivo", displa
 const caveat = Caveat({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-caveat", display: "swap" })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.freelandoo.com.br"),
-  applicationName: "Freelandoo",
+  metadataBase: new URL("https://www.e-views.com"),
+  applicationName: "E-Views",
   appleWebApp: {
     capable: true,
-    title: "Freelandoo",
+    title: "E-Views",
     statusBarStyle: "default",
   },
   title: {
-    default: "Freelandoo — Plataforma para freelancers e clientes",
-    template: "%s | Freelandoo",
+    default: "E-Views — Plataforma para freelancers e clientes",
+    template: "%s | E-Views",
   },
   description:
-    "Freelandoo é a plataforma que conecta freelancers, influenciadores e prestadores de serviço com seus clientes. Ative um enxame, encontre profissionais e fale direto pelo WhatsApp.",
+    "E-Views é a plataforma que conecta freelancers, influenciadores e prestadores de serviço com seus clientes. Ative um enxame, encontre profissionais e fale direto pelo WhatsApp.",
   keywords:
-    "Freelandoo, freelancer, freelancers, influenciadores, prestadores de serviço, contratar, plataforma de freelancers, profissionais autônomos",
-  authors: [{ name: "Freelandoo" }],
-  creator: "Freelandoo",
-  publisher: "Freelandoo",
+    "E-Views, freelancer, freelancers, influenciadores, prestadores de serviço, contratar, plataforma de freelancers, profissionais autônomos",
+  authors: [{ name: "E-Views" }],
+  creator: "E-Views",
+  publisher: "E-Views",
   generator: "v0.app",
   alternates: {
-    canonical: "https://www.freelandoo.com.br",
+    canonical: "https://www.e-views.com",
   },
   openGraph: {
     type: "website",
-    siteName: "Freelandoo",
-    title: "Freelandoo — Plataforma para freelancers e clientes",
+    siteName: "E-Views",
+    title: "E-Views — Plataforma para freelancers e clientes",
     description:
       "Conecta freelancers, influenciadores e prestadores de serviço com clientes. Ative um enxame e encontre quem resolve.",
-    url: "https://www.freelandoo.com.br",
+    url: "https://www.e-views.com",
     locale: "pt_BR",
-    images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "Freelandoo" }],
+    images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "E-Views" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Freelandoo — Plataforma para freelancers e clientes",
+    title: "E-Views — Plataforma para freelancers e clientes",
     description:
       "Conecta freelancers, influenciadores e prestadores de serviço com clientes.",
     images: ["/og-image.png"],
@@ -90,11 +90,11 @@ export default function RootLayout({
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Freelandoo",
-    legalName: "Freelandoo",
-    alternateName: "Freelandoo Plataforma",
-    url: "https://www.freelandoo.com.br",
-    logo: "https://www.freelandoo.com.br/freelandoo-logo.png",
+    name: "E-Views",
+    legalName: "E-Views",
+    alternateName: "E-Views Plataforma",
+    url: "https://www.e-views.com",
+    logo: "https://www.e-views.com/e-views-logo.png",
     description:
       "Plataforma que conecta freelancers, influenciadores e prestadores de serviço com seus clientes.",
     sameAs: [],
@@ -103,10 +103,10 @@ export default function RootLayout({
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Freelandoo",
-    alternateName: "Freelandoo",
-    url: "https://www.freelandoo.com.br",
-    publisher: { "@type": "Organization", name: "Freelandoo" },
+    name: "E-Views",
+    alternateName: "E-Views",
+    url: "https://www.e-views.com",
+    publisher: { "@type": "Organization", name: "E-Views" },
     inLanguage: "pt-BR",
   }
 

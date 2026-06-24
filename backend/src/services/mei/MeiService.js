@@ -17,7 +17,7 @@ function currentYear() {
 class MeiService {
   /**
    * Visão geral do MEI: perfil fiscal + termômetro do teto do ano (faturamento
-   * realizado via Freelandoo, mês a mês) + dados do DAS.
+   * realizado via E-Views, mês a mês) + dados do DAS.
    */
   static async overview(user, query = {}) {
     return runWithLogs(

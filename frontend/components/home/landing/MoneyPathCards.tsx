@@ -1,5 +1,5 @@
 /**
- * MoneyPathCards — "Escolha seu caminho dentro da Freelandoo."
+ * MoneyPathCards — "Escolha seu caminho dentro da E-Views."
  * 5 cards brancos com foto + selo dourado de ícone. Server component puro;
  * entrada via data-stagger/data-card (RevealMount). Hover = CSS.
  */
@@ -17,7 +17,7 @@ export function MoneyPathCards() {
           <EditableText as="span" mark={false} slot="home_seller_paths_eyebrow" fallback="escolha o seu" />
         </p>
         <h2 className="fl-display mx-auto max-w-2xl text-4xl text-[#F5F1E8] sm:text-5xl md:text-6xl">
-          <EditableText as="span" slot="home_seller_paths_heading" fallback="Seu caminho dentro da *Freelandoo.*" />
+          <EditableText as="span" slot="home_seller_paths_heading" fallback="Seu caminho dentro da *E-Views.*" />
         </h2>
         <DoodleArrow dir="down-right" className="absolute -right-2 top-0 hidden h-10 w-20 text-[#C8102E] lg:block" />
       </div>
@@ -36,7 +36,7 @@ export function MoneyPathCards() {
                 className="aspect-[3/4] w-full"
                 sizes="(min-width: 1024px) 20vw, (min-width: 768px) 33vw, 50vw"
                 fallback={
-                  <PhotoFrame src={p.photo} alt={`Caminho ${p.kicker} na Freelandoo`} icon={p.icon} ready className="h-full w-full" />
+                  <PhotoFrame src={p.photo} alt={`Caminho ${p.kicker} na E-Views`} icon={p.icon} ready className="h-full w-full" />
                 }
               />
               <Halftone className="absolute right-2 top-2 h-10 w-10 opacity-30" />

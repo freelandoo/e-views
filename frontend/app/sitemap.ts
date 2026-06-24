@@ -3,7 +3,7 @@ import { getBackendApiUrl } from "@/lib/backend"
 import { buildProfileUrl, slugify } from "@/lib/slug"
 import { fetchBlogSlugs } from "@/lib/blog"
 
-const BASE_URL = "https://www.freelandoo.com.br"
+const BASE_URL = "https://www.e-views.com"
 
 // Força dinâmico — antes o sitemap era prerenderado em build time, mas o
 // fetch ao backend Railway pode falhar no ambiente de build do Vercel

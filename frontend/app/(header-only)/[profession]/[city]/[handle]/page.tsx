@@ -54,7 +54,7 @@ function isValidHandleParam(raw: string): boolean {
 
 export async function generateMetadata(): Promise<Metadata> {
   // A página sempre redireciona; não exporta metadata útil.
-  return { title: "Perfil · Freelandoo", robots: { index: false, follow: true } }
+  return { title: "Perfil · E-Views", robots: { index: false, follow: true } }
 }
 
 export default async function PublicProfileLegacyPage({

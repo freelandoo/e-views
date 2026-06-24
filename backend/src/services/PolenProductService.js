@@ -149,7 +149,7 @@ class PolenProductService {
       const totalPolens = (Number(product.polens_amount) || 0) + (Number(product.bonus_polens) || 0);
       if (totalPolens <= 0) return { error: "Produto sem Poléns configurados" };
 
-      const frontend = String(process.env.FRONTEND_URL || "https://freelandoo.com").replace(/\/$/, "");
+      const frontend = String(process.env.FRONTEND_URL || "https://e-views.com").replace(/\/$/, "");
       const session = await StripeService.createOneTimeCheckoutSession({
         amount_cents: amount,
         currency: "BRL",

@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import { RankingPageClient } from "./_components/ranking-page-client"
 
 export const metadata: Metadata = {
-  title: "Ranking | Freelandoo",
+  title: "Ranking | E-Views",
   description:
-    "Top 10 da Freelandoo por ranking geral, enxame, profissão e cidade.",
+    "Top 10 da E-Views por ranking geral, enxame, profissão e cidade.",
 }
 
 export default function RankingPage() {

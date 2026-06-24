@@ -148,7 +148,7 @@ export default function VerifyEmailPage() {
               </div>
               <CardTitle className="text-2xl">Ative seu email</CardTitle>
               <CardDescription>
-                Enviamos um link de confirmação para o seu email. Confirme para continuar usando a Freelandoo.
+                Enviamos um link de confirmação para o seu email. Confirme para continuar usando a E-Views.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6 pb-10">

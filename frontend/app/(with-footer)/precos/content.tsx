@@ -25,11 +25,11 @@ const noCommission = [
 ]
 
 const faqs = [
-  { q: "A Freelandoo cobra comissão?", a: "Não. A Freelandoo não cobra comissão sobre serviços fechados diretamente entre clientes e profissionais." },
+  { q: "A E-Views cobra comissão?", a: "Não. A E-Views não cobra comissão sobre serviços fechados diretamente entre clientes e profissionais." },
   { q: "O valor é mensal ou recorrente?", a: "Não. A ativação do perfil profissional custa R$ 300 em pagamento único." },
   { q: "Posso solicitar reembolso?", a: "Sim. O reembolso integral pode ser solicitado em até 7 dias corridos após o pagamento." },
   { q: "O pagamento ativa meu perfil automaticamente?", a: "A ativação depende da confirmação do pagamento. Após aprovação, o perfil pode ficar ativo conforme as regras da plataforma." },
-  { q: "Tenho garantia de clientes?", a: "Não. A Freelandoo aumenta sua exposição, mas não garante contratação." },
+  { q: "Tenho garantia de clientes?", a: "Não. A E-Views aumenta sua exposição, mas não garante contratação." },
 ]
 
 function useReveal() {
@@ -73,7 +73,7 @@ export function PrecosContent() {
             {t("hero.title", "Preço simples para profissionais que querem aparecer")}
           </h1>
           <p className="text-xl text-[#9A938A] max-w-2xl mb-10" data-reveal>
-            {t("hero.description", "Uma ativação única para manter seu perfil ativo na vitrine da Freelandoo, sem comissão por serviço fechado.")}
+            {t("hero.description", "Uma ativação única para manter seu perfil ativo na vitrine da E-Views, sem comissão por serviço fechado.")}
           </p>
           <div className="flex flex-wrap gap-4" data-reveal>
             <Link href="/cadastro" className="inline-flex items-center bg-[#C8102E] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#C8102E]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
@@ -90,7 +90,7 @@ export function PrecosContent() {
       <section className="py-16 md:py-24 bg-[#1D1810]/20">
         <div className="container mx-auto px-4">
           <h2 className="fl-display text-4xl md:text-5xl text-[#F5F1E8] mb-12 text-center" data-reveal>
-            {t("plan.title", "Ativação do perfil Freelandoo")}
+            {t("plan.title", "Ativação do perfil E-Views")}
           </h2>
           <div className="max-w-md mx-auto bg-[#1D1810] border border-[#C8102E]/20 rounded-2xl p-8 shadow-[0_0_60px_rgba(242,196,9,0.08)]" data-reveal>
             <div className="text-center mb-8">
@@ -98,7 +98,7 @@ export function PrecosContent() {
               <div className="text-5xl font-bold text-[#C8102E] mt-4 mb-1">R$ 300</div>
               <div className="text-sm text-[#9A938A]">{t("plan.payment", "pagamento único")}</div>
               <p className="mt-4 text-sm text-[#9A938A] leading-relaxed">
-                {t("plan.description", "Mantenha seu perfil ativo na plataforma e apareça na vitrine pública da Freelandoo.")}
+                {t("plan.description", "Mantenha seu perfil ativo na plataforma e apareça na vitrine pública da E-Views.")}
               </p>
             </div>
             <div className="space-y-3 mb-8" data-stagger>
@@ -123,7 +123,7 @@ export function PrecosContent() {
             {t("commission.title", "Você paga a ativação. O serviço fechado é seu.")}
           </h2>
           <p className="text-[#9A938A] mb-10 leading-relaxed" data-reveal>
-            {t("commission.description", "A Freelandoo não cobra comissão sobre os serviços que você fechar com clientes. A plataforma funciona como uma vitrine de divulgação e conexão. Depois do contato, a negociação acontece diretamente entre você e o cliente.")}
+            {t("commission.description", "A E-Views não cobra comissão sobre os serviços que você fechar com clientes. A plataforma funciona como uma vitrine de divulgação e conexão. Depois do contato, a negociação acontece diretamente entre você e o cliente.")}
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4" data-stagger>
             {noCommission.map((item, i) => (

@@ -543,7 +543,7 @@ export function CourseLandingView({ courseId }: Props) {
           <div className="relative mt-5 border-2 border-white/12 bg-[#15100A] p-5 shadow-[6px_6px_0_0_rgba(0,0,0,0.5)] md:p-6">
             <p className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-[#C8102E]">
               <Sparkles className="h-3 w-3" />
-              {t("courseEditorEyebrow", "Curso Freelandoo · edite tudo aqui")}
+              {t("courseEditorEyebrow", "Curso E-Views · edite tudo aqui")}
             </p>
 
             {/* Título editável */}
@@ -833,7 +833,7 @@ export function CourseLandingView({ courseId }: Props) {
           <DialogHeader>
             <DialogTitle>{t("coursePublicationTitle", "Publicação do curso")}</DialogTitle>
             <DialogDescription>
-              {t("coursePublicationDesc", "Controle o status do curso e o post no feed do Freelandoo.")}
+              {t("coursePublicationDesc", "Controle o status do curso e o post no feed do E-Views.")}
             </DialogDescription>
           </DialogHeader>
           <CoursePublishSection

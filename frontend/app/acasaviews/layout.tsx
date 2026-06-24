@@ -3,10 +3,10 @@ import type { Metadata } from "next"
 import "./casa.css"
 
 /**
- * Layout da seção A Casa Views, integrada ao Freelandoo sob /acasaviews.
+ * Layout da seção A Casa Views, integrada ao E-Views sob /acasaviews.
  * Não renderiza header/footer do FL — só o wrapper `.casa-app`, que escopa a
  * paleta escura/roxa do CASA (ver casa.css). O <html>/<body> e as fontes
- * (Anton/Archivo/Caveat) vêm do layout raiz do Freelandoo.
+ * (Anton/Archivo/Caveat) vêm do layout raiz do E-Views.
  */
 export const metadata: Metadata = {
   title: "A Casa Views",

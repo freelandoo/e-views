@@ -203,8 +203,8 @@ export function UserPortfolio({
         // CoursesSection abre seu próprio modal escutando o mesmo evento.
       }
     }
-    window.addEventListener("freelandoo:create", onCreate)
-    return () => window.removeEventListener("freelandoo:create", onCreate)
+    window.addEventListener("e-views:create", onCreate)
+    return () => window.removeEventListener("e-views:create", onCreate)
   }, [clearPending])
 
   const isPortfolioGridTab = portfolioTab === "feed" || portfolioTab === "bees"

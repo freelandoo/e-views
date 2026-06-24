@@ -9,7 +9,7 @@ const values = [
   { title: "Visibilidade", text: "Quem trabalha precisa ser encontrado de forma mais clara e profissional." },
   { title: "Organização", text: "Enxames, profissões e filtros ajudam a transformar busca em direção." },
   { title: "Oportunidade", text: "A plataforma existe para aproximar pessoas de soluções reais." },
-  { title: "Transparência", text: "A Freelandoo não promete contratação garantida. Ela entrega exposição, organização e conexão." },
+  { title: "Transparência", text: "A E-Views não promete contratação garantida. Ela entrega exposição, organização e conexão." },
 ]
 
 const platform = [
@@ -38,16 +38,16 @@ export function SobreNosContent() {
         <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[900px] rounded-full bg-[#C8102E]/5 blur-[130px]" />
         <div className="container mx-auto px-4 relative max-w-3xl">
           <div className="inline-flex items-center rounded-full border border-[#C8102E]/20 bg-[#C8102E]/5 px-4 py-1.5 text-sm text-[#C8102E] mb-6" data-reveal>
-            {t("hero.badge", "Sobre a Freelandoo")}
+            {t("hero.badge", "Sobre a E-Views")}
           </div>
           <h1 className="fl-display text-5xl md:text-6xl lg:text-7xl text-[#F5F1E8] leading-tight mb-6" data-reveal>
             {t("hero.title", "Uma plataforma para quem faz acontecer")}
           </h1>
           <p className="text-xl text-[#9A938A] mb-4" data-reveal>
-            {t("hero.subtitle", "A Freelandoo nasceu para facilitar a conexão entre profissionais, prestadores, criadores, empresas e pessoas que precisam resolver algo.")}
+            {t("hero.subtitle", "A E-Views nasceu para facilitar a conexão entre profissionais, prestadores, criadores, empresas e pessoas que precisam resolver algo.")}
           </p>
           <p className="text-[#9A938A] leading-relaxed" data-reveal>
-            {t("hero.description", "Em um mundo onde está cada vez mais fácil criar sites, apps e perfis, o desafio real é gerar conexão útil. A Freelandoo existe para organizar profissionais por intenção, dar visibilidade a quem trabalha e facilitar o encontro entre demanda e solução.")}
+            {t("hero.description", "Em um mundo onde está cada vez mais fácil criar sites, apps e perfis, o desafio real é gerar conexão útil. A E-Views existe para organizar profissionais por intenção, dar visibilidade a quem trabalha e facilitar o encontro entre demanda e solução.")}
           </p>
         </div>
       </section>
@@ -60,7 +60,7 @@ export function SobreNosContent() {
           </h2>
           <div className="text-[#9A938A] leading-relaxed space-y-4" data-reveal>
             <p>
-              {t("vision.p1", "A Freelandoo acredita que profissionais precisam de mais do que uma rede social. Eles precisam de uma vitrine organizada, com filtros claros, portfólio, serviços e uma forma simples de contato.")}
+              {t("vision.p1", "A E-Views acredita que profissionais precisam de mais do que uma rede social. Eles precisam de uma vitrine organizada, com filtros claros, portfólio, serviços e uma forma simples de contato.")}
             </p>
             <p>
               {t("vision.p2", "Para quem procura, a plataforma reduz o caminho. Para quem anuncia, cria presença. Para ambos, facilita a conversa.")}
@@ -98,7 +98,7 @@ export function SobreNosContent() {
           <p className="text-[#9A938A] mb-10 leading-relaxed" data-reveal>
             {t("platform.description", "Os enxames organizam profissionais por tipo de necessidade. Isso permite que clientes encontrem perfis de maneira mais intuitiva e que profissionais se posicionem com mais clareza.")}
           </p>
-          <div className="mb-4 text-sm font-medium text-[#F5F1E8]" data-reveal>{t("platform.label", "A Freelandoo reúne:")}</div>
+          <div className="mb-4 text-sm font-medium text-[#F5F1E8]" data-reveal>{t("platform.label", "A E-Views reúne:")}</div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3" data-stagger>
             {platform.map((item, i) => (
               <div key={item} className="bg-[#1D1810] border border-[#2A2218] rounded-lg px-4 py-3 text-sm text-[#F5F1E8] hover:border-[#C8102E]/20 transition-colors" data-card>

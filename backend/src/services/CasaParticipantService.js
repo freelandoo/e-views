@@ -89,7 +89,7 @@ class CasaParticipantService {
           : null;
       if (!participant) return { error: "Participante (atribuição) não informado" };
 
-      const frontend = String(process.env.FRONTEND_URL || "https://freelandoo.com").replace(/\/$/, "");
+      const frontend = String(process.env.FRONTEND_URL || "https://e-views.com").replace(/\/$/, "");
       const successUrl = `${frontend}/acasaviews/participantes/${participant.slug}?compra=success&session_id={CHECKOUT_SESSION_ID}`;
       const cancelUrl = `${frontend}/acasaviews/participantes/${participant.slug}?compra=cancel`;
 

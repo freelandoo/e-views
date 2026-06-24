@@ -188,7 +188,7 @@ export default function CourseLandingClient({ course }: { course: PublicCourse }
               <ShareIconButton
                 path={`/cursos/${course.slug}`}
                 title={course.title}
-                description={t("shareDescription", "Confira este curso no Freelandoo.")}
+                description={t("shareDescription", "Confira este curso no E-Views.")}
               />
               <button
                 type="button"

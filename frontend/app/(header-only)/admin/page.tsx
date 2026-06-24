@@ -137,7 +137,7 @@ export default function AdminPage() {
               <h1 className="fl-display text-5xl leading-[0.85] text-foreground md:text-7xl">Administração</h1>
             </div>
             <p className="hidden text-right text-[10px] font-bold uppercase leading-tight tracking-[0.25em] text-muted-foreground md:block">
-              Freelandoo<br />Painel<br />de controle
+              E-Views<br />Painel<br />de controle
             </p>
           </div>
           <div className="mt-1.5 flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-muted-foreground">

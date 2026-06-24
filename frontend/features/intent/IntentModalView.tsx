@@ -264,7 +264,7 @@ function Header({ reduced }: { reduced: boolean }) {
           <Hexagon className="h-3 w-3 fill-amber-300 text-amber-300 md:h-3.5 md:w-3.5" />
         </motion.span>
         <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-100 md:text-[11px] md:tracking-[0.24em]">
-          Freelandoo · Pollens
+          E-Views · Pollens
         </span>
       </motion.div>
 
@@ -288,7 +288,7 @@ function Header({ reduced }: { reduced: boolean }) {
             className="absolute -bottom-1 left-0 right-0 h-[2px] origin-left bg-gradient-to-r from-amber-300/0 via-amber-300/80 to-amber-300/0"
           />
         </span>{" "}
-        no Freelandoo?
+        no E-Views?
       </motion.h2>
 
       <motion.p

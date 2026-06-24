@@ -42,7 +42,7 @@ function formatDate(
 function defaultMessage(course: MyCourse, t: (key: string, fallback?: string) => string) {
   const desc = course.short_description?.trim()
   if (desc) return desc
-  return t("courseFeedDefaultMessage", "Meu curso {title} está disponível na Freelandoo.").replace("{title}", course.title)
+  return t("courseFeedDefaultMessage", "Meu curso {title} está disponível na E-Views.").replace("{title}", course.title)
 }
 
 function Stat({

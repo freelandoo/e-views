@@ -153,7 +153,7 @@ class BlogService {
           reading_minutes: readingMinutes(body_md),
           seo_title: sanitize(body.seo_title, SEO_TITLE_MAX),
           seo_description: sanitize(body.seo_description, SEO_DESC_MAX),
-          author_name: sanitize(body.author_name, 80) || "Equipe Freelandoo",
+          author_name: sanitize(body.author_name, 80) || "Equipe E-Views",
           published_at: status === "published" ? new Date() : null,
           created_by: user.id_user,
         });
@@ -190,7 +190,7 @@ class BlogService {
         if (body.tags !== undefined) patch.tags = normalizeTags(body.tags);
         if (body.seo_title !== undefined) patch.seo_title = sanitize(body.seo_title, SEO_TITLE_MAX);
         if (body.seo_description !== undefined) patch.seo_description = sanitize(body.seo_description, SEO_DESC_MAX);
-        if (body.author_name !== undefined) patch.author_name = sanitize(body.author_name, 80) || "Equipe Freelandoo";
+        if (body.author_name !== undefined) patch.author_name = sanitize(body.author_name, 80) || "Equipe E-Views";
         if (body.body_md !== undefined) {
           patch.body_md = sanitize(body.body_md, BODY_MAX) || "";
           patch.reading_minutes = readingMinutes(patch.body_md);

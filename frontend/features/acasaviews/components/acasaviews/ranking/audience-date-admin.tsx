@@ -8,7 +8,7 @@ import { getToken } from "@/lib/auth"
  * Campo admin-only na página da Audiência: define a DATA DE INÍCIO — o ranking
  * só conta comentários de posts publicados a partir dela. Vazio = conta todos.
  * Só aparece para Administrator (checa via /api/users/me). Salva via proxy
- * same-origin (que repassa o JWT ao módulo de ranking, validado no Freelandoo).
+ * same-origin (que repassa o JWT ao módulo de ranking, validado no E-Views).
  */
 export function AudienceDateAdmin() {
   const [isAdmin, setIsAdmin] = useState(false)

@@ -1,6 +1,6 @@
 "use client"
 
-// Editor de criação unificado (Post · Bee · Story) — pele Freelandoo Tabloide.
+// Editor de criação unificado (Post · Bee · Story) — pele E-Views Tabloide.
 // Fluxo: Pick → Crop/Zoom → Editar (Filtro·Texto·Sobreposição·Música) → Detalhes → Publicar.
 // Visual queimado via ComposerRenderer (mesmo shader da câmera) + StoryRecorder.
 //
@@ -690,7 +690,7 @@ export function MediaComposer({ open, mode, initialKind = "rest", initialProfile
         const result = results[i]
         const mime = result.mimeType || result.blob.type || (result.kind === "image" ? "image/webp" : "video/mp4")
         const ext = result.kind === "image" ? "webp" : (mime.includes("webm") ? "webm" : "mp4")
-        const file = new File([result.blob], `freelandoo-${portfolioKind}-${itemId}-${i}.${ext}`, { type: mime })
+        const file = new File([result.blob], `e-views-${portfolioKind}-${itemId}-${i}.${ext}`, { type: mime })
         const fd = new FormData()
         fd.append("file", file)
         fd.append("media_type", result.kind)

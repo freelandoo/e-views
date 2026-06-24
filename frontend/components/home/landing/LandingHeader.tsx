@@ -25,9 +25,9 @@ export function LandingHeader() {
     <header className="sticky top-0 z-50 w-full">
       <div className="border-b border-[#F5F1E8]/8 bg-[#15120E]/85 backdrop-blur-md supports-[backdrop-filter]:bg-[#15120E]/65">
         <div className="mx-auto flex w-full max-w-[1180px] items-center gap-4 px-5 py-3.5 sm:px-8">
-          <Link href="/" className="flex shrink-0 items-center gap-2" aria-label={t("headerHomeAria", "Freelandoo, página inicial")}>
-            <Image src="/freelandoo-logo.png" alt="Freelandoo" width={200} height={56} className="h-7 w-auto sm:h-8" priority />
-            <span className="text-lg font-black tracking-tight text-[#F5F1E8]">freelandoo</span>
+          <Link href="/" className="flex shrink-0 items-center gap-2" aria-label={t("headerHomeAria", "E-Views, página inicial")}>
+            <Image src="/e-views-logo.png" alt="E-Views" width={200} height={56} className="h-7 w-auto sm:h-8" priority />
+            <span className="text-lg font-black tracking-tight text-[#F5F1E8]">e-views</span>
           </Link>
 
           <nav className="mx-auto hidden items-center gap-7 lg:flex">

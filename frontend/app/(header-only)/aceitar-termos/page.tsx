@@ -91,7 +91,7 @@ export default function AcceptTermsPage() {
       asideHighlight={t("termsGateAsideHighlight", "um passo")}
       asideSubtitle={t(
         "termsGateAsideSubtitle",
-        "Para usar a Freelandoo — vender, comprar, publicar e receber — precisamos do seu aceite aos nossos termos.",
+        "Para usar a E-Views — vender, comprar, publicar e receber — precisamos do seu aceite aos nossos termos.",
       )}
       bullets={[
         t("termsGateBullet1", "Você controla seus dados (LGPD)"),
@@ -110,7 +110,7 @@ export default function AcceptTermsPage() {
           <p className="text-sm text-[#3a352d]">
             {t(
               "termsGateBody",
-              "A Freelandoo conecta profissionais e clientes e processa pagamentos de cursos, produtos, serviços e recursos digitais. Ao continuar, você concorda com os documentos a seguir:",
+              "A E-Views conecta profissionais e clientes e processa pagamentos de cursos, produtos, serviços e recursos digitais. Ao continuar, você concorda com os documentos a seguir:",
             )}
           </p>
 
@@ -151,7 +151,7 @@ export default function AcceptTermsPage() {
             <span className="text-[#3a352d]">
               {t(
                 "termsGateCheckbox",
-                "Li e aceito os Termos de Uso e a Política de Privacidade da Freelandoo.",
+                "Li e aceito os Termos de Uso e a Política de Privacidade da E-Views.",
               )}
             </span>
           </label>

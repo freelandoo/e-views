@@ -3,15 +3,15 @@ import { LegalDocument } from "../_components/legal-document"
 import { legalCompanyQualification } from "@/lib/legal"
 
 export const metadata: Metadata = {
-  title: "Termos de Uso — Freelandoo",
-  description: "Leia os Termos de Uso da plataforma Freelandoo.",
+  title: "Termos de Uso — E-Views",
+  description: "Leia os Termos de Uso da plataforma E-Views.",
 }
 
 const sections = [
   {
     title: "1. Definições",
     items: [
-      `Plataforma / Freelandoo: o site, as aplicações e os serviços operados pela ${legalCompanyQualification()}.`,
+      `Plataforma / E-Views: o site, as aplicações e os serviços operados pela ${legalCompanyQualification()}.`,
       "Usuário: qualquer pessoa que acessa ou utiliza a plataforma, cadastrada ou não.",
       "Conta: o registro único de um usuário, vinculado a um e-mail.",
       "Perfil e subperfil: páginas profissionais públicas criadas pelo usuário; um usuário pode manter um perfil principal e subperfis.",
@@ -35,15 +35,15 @@ const sections = [
     ],
   },
   {
-    title: "3. O papel da Freelandoo",
+    title: "3. O papel da E-Views",
     paragraphs: [
-      "A Freelandoo é uma plataforma que conecta profissionais, criadores e prestadores de serviço a clientes, oferecendo vitrine, rede social, comunicação e ferramentas de transação. O papel da Freelandoo varia conforme o tipo de interação:",
+      "A E-Views é uma plataforma que conecta profissionais, criadores e prestadores de serviço a clientes, oferecendo vitrine, rede social, comunicação e ferramentas de transação. O papel da E-Views varia conforme o tipo de interação:",
     ],
     items: [
-      "Conexão e divulgação: na vitrine, no feed e nas mensagens, a Freelandoo apenas aproxima as partes. Negociações, valores, prazos e entregas de serviços contratados diretamente entre usuários são de responsabilidade exclusiva das partes.",
-      "Transações dentro da plataforma: na Loja, nos Agendamentos e na compra de cursos e itens digitais, a Freelandoo atua como facilitadora, processando o pagamento por meio de parceiros e, quando aplicável, intermediando o repasse de valores.",
-      "A Freelandoo não é empregadora, contratante, vendedora dos produtos anunciados por usuários nem prestadora dos serviços oferecidos pelos profissionais.",
-      "A Freelandoo não garante a contratação, a qualidade, a entrega ou o resultado de qualquer serviço ou produto negociado entre usuários.",
+      "Conexão e divulgação: na vitrine, no feed e nas mensagens, a E-Views apenas aproxima as partes. Negociações, valores, prazos e entregas de serviços contratados diretamente entre usuários são de responsabilidade exclusiva das partes.",
+      "Transações dentro da plataforma: na Loja, nos Agendamentos e na compra de cursos e itens digitais, a E-Views atua como facilitadora, processando o pagamento por meio de parceiros e, quando aplicável, intermediando o repasse de valores.",
+      "A E-Views não é empregadora, contratante, vendedora dos produtos anunciados por usuários nem prestadora dos serviços oferecidos pelos profissionais.",
+      "A E-Views não garante a contratação, a qualidade, a entrega ou o resultado de qualquer serviço ou produto negociado entre usuários.",
     ],
   },
   {
@@ -52,7 +52,7 @@ const sections = [
       "O cadastro exige informações verdadeiras, completas e atualizadas.",
       "Cada usuário é responsável por manter a confidencialidade de suas credenciais e por toda atividade realizada em sua conta.",
       "É proibido criar contas com dados falsos, se passar por terceiros ou manter múltiplas contas para fraudar funcionalidades, rankings ou comissões.",
-      "Qualquer uso não autorizado da conta deve ser comunicado imediatamente à Freelandoo.",
+      "Qualquer uso não autorizado da conta deve ser comunicado imediatamente à E-Views.",
       "Um usuário pode manter um perfil principal e subperfis profissionais; cada subperfil profissional pode exigir ativação própria.",
     ],
   },
@@ -60,7 +60,7 @@ const sections = [
     title: "5. Ativação, pagamentos e moeda virtual",
     items: [
       "Determinadas funcionalidades exigem a ativação paga do perfil, regida pelo Termo de Ativação.",
-      "Os pagamentos são processados por provedores externos, como a Stripe, incluindo cartão e Pix, quando disponíveis; a Freelandoo não armazena dados completos de cartão.",
+      "Os pagamentos são processados por provedores externos, como a Stripe, incluindo cartão e Pix, quando disponíveis; a E-Views não armazena dados completos de cartão.",
       "A plataforma oferece Poléns, créditos virtuais sem valor monetário, não reembolsáveis e não sacáveis, conforme os Termos de Poléns e Itens Digitais.",
       "Compras de itens digitais, como banners de Manifestação e destaques Premium, cursos, produtos da Loja e agendamentos possuem regras próprias descritas nos respectivos termos.",
     ],
@@ -70,16 +70,16 @@ const sections = [
     items: [
       "O usuário é o único responsável pelo conteúdo que publica, incluindo textos, imagens, vídeos, áudios, posts, stories e mensagens.",
       "O usuário declara possuir todos os direitos necessários sobre o conteúdo que publica e não violar direitos de terceiros.",
-      "Ao publicar conteúdo, o usuário concede à Freelandoo uma licença não exclusiva, mundial e gratuita para hospedar, exibir, reproduzir e divulgar esse conteúdo na plataforma e em suas comunicações, enquanto o conteúdo estiver publicado.",
-      "A Freelandoo pode remover ou restringir conteúdo que viole estes termos, as Diretrizes da Comunidade ou a legislação aplicável.",
+      "Ao publicar conteúdo, o usuário concede à E-Views uma licença não exclusiva, mundial e gratuita para hospedar, exibir, reproduzir e divulgar esse conteúdo na plataforma e em suas comunicações, enquanto o conteúdo estiver publicado.",
+      "A E-Views pode remover ou restringir conteúdo que viole estes termos, as Diretrizes da Comunidade ou a legislação aplicável.",
       "Qualquer usuário pode denunciar conteúdo pelos botões de denúncia da plataforma. As denúncias são analisadas conforme a gravidade e os prazos descritos na Política de Moderação e Denúncias.",
-      "Nos termos do Marco Civil da Internet (Lei nº 12.965/2014), a Freelandoo não é previamente responsável por conteúdo de terceiros, podendo removê-lo mediante notificação — inclusive nas hipóteses do art. 21 (direitos autorais e exposição íntima não autorizada) — ou mediante ordem judicial.",
+      "Nos termos do Marco Civil da Internet (Lei nº 12.965/2014), a E-Views não é previamente responsável por conteúdo de terceiros, podendo removê-lo mediante notificação — inclusive nas hipóteses do art. 21 (direitos autorais e exposição íntima não autorizada) — ou mediante ordem judicial.",
     ],
   },
   {
     title: "7. Funcionalidades da plataforma",
     paragraphs: [
-      "A Freelandoo disponibiliza, entre outras, as seguintes funcionalidades, que podem ser alteradas, incluídas ou descontinuadas a qualquer momento:",
+      "A E-Views disponibiliza, entre outras, as seguintes funcionalidades, que podem ser alteradas, incluídas ou descontinuadas a qualquer momento:",
     ],
     items: [
       "Vitrine por Enxames, perfis, subperfis, clans, portfólios e ranking.",
@@ -97,7 +97,7 @@ const sections = [
     items: [
       "Na Loja e nos Agendamentos, o pagamento é processado pela plataforma e o valor devido ao vendedor ou profissional fica retido por um período de garantia antes do repasse.",
       "As regras de venda, frete, prazos, garantias, devoluções e repasses estão detalhadas nos Termos do Marketplace e na Política de Trocas, Devoluções e Frete.",
-      "A Freelandoo pode cobrar tarifas e custos operacionais sobre essas transações, informados antes da conclusão da compra.",
+      "A E-Views pode cobrar tarifas e custos operacionais sobre essas transações, informados antes da conclusão da compra.",
       "A responsabilidade pela qualidade, conformidade e entrega do produto ou serviço é do vendedor ou profissional.",
     ],
   },
@@ -116,7 +116,7 @@ const sections = [
   {
     title: "10. Moderação, suspensão e encerramento",
     items: [
-      "A Freelandoo pode moderar conteúdo e contas de forma automatizada e manual, conforme a Política de Moderação e Denúncias.",
+      "A E-Views pode moderar conteúdo e contas de forma automatizada e manual, conforme a Política de Moderação e Denúncias.",
       "Contas e conteúdos que violem estes termos podem ser advertidos, restringidos, suspensos ou excluídos.",
       "O usuário pode encerrar sua conta a qualquer momento; alguns registros podem ser mantidos conforme a lei.",
       "Valores pagos por funcionalidades já usufruídas não são restituídos em caso de encerramento por violação, salvo disposição legal em contrário.",
@@ -125,7 +125,7 @@ const sections = [
   {
     title: "11. Propriedade intelectual",
     items: [
-      "A marca, o logotipo, o nome Freelandoo, a interface, o código e os elementos visuais da plataforma pertencem à Freelandoo e são protegidos por lei.",
+      "A marca, o logotipo, o nome E-Views, a interface, o código e os elementos visuais da plataforma pertencem à E-Views e são protegidos por lei.",
       "É proibido copiar, distribuir, modificar ou explorar comercialmente qualquer elemento da plataforma sem autorização.",
       "O conteúdo publicado pelos usuários permanece de titularidade dos respectivos autores, observada a licença prevista na cláusula 6.",
     ],
@@ -147,21 +147,21 @@ const sections = [
     title: "14. Isenções e limitação de responsabilidade",
     items: [
       "A plataforma é fornecida no estado em que se encontra, sem garantia de disponibilidade ininterrupta ou ausência de erros.",
-      "A Freelandoo não se responsabiliza por danos decorrentes de negociações, produtos ou serviços contratados entre usuários.",
-      "A Freelandoo não responde por condutas, conteúdo ou dados de terceiros, nem por falhas de provedores externos.",
-      "Na máxima extensão permitida pela lei, a responsabilidade da Freelandoo limita-se aos valores efetivamente pagos pelo usuário à plataforma nos 12 meses anteriores ao evento.",
+      "A E-Views não se responsabiliza por danos decorrentes de negociações, produtos ou serviços contratados entre usuários.",
+      "A E-Views não responde por condutas, conteúdo ou dados de terceiros, nem por falhas de provedores externos.",
+      "Na máxima extensão permitida pela lei, a responsabilidade da E-Views limita-se aos valores efetivamente pagos pelo usuário à plataforma nos 12 meses anteriores ao evento.",
     ],
   },
   {
     title: "15. Indenização",
     paragraphs: [
-      "O usuário concorda em indenizar e isentar a Freelandoo de reclamações, perdas e despesas decorrentes do uso indevido da plataforma, da violação destes termos ou de direitos de terceiros.",
+      "O usuário concorda em indenizar e isentar a E-Views de reclamações, perdas e despesas decorrentes do uso indevido da plataforma, da violação destes termos ou de direitos de terceiros.",
     ],
   },
   {
     title: "16. Alterações destes termos",
     items: [
-      "A Freelandoo pode atualizar estes termos a qualquer momento.",
+      "A E-Views pode atualizar estes termos a qualquer momento.",
       "Alterações relevantes serão comunicadas na plataforma e, quando cabível, por e-mail.",
       "O uso continuado após a publicação das alterações implica concordância com a nova versão.",
     ],
@@ -176,7 +176,7 @@ const sections = [
   {
     title: "18. Contato",
     paragraphs: [
-      "Dúvidas sobre estes termos, ou contato com o Encarregado de Proteção de Dados, podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "Dúvidas sobre estes termos, ou contato com o Encarregado de Proteção de Dados, podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
     ],
   },
 ]
@@ -187,9 +187,9 @@ export default function TermsPage() {
       namespace="Terms"
       title="Termos de Uso"
       updatedAt="Última atualização: 14 de junho de 2026"
-      intro="Estes Termos de Uso regulam o acesso e a utilização da plataforma Freelandoo. Ao criar uma conta, navegar ou utilizar qualquer funcionalidade, você declara que leu, compreendeu e concorda integralmente com este documento. Caso não concorde, não utilize a plataforma."
+      intro="Estes Termos de Uso regulam o acesso e a utilização da plataforma E-Views. Ao criar uma conta, navegar ou utilizar qualquer funcionalidade, você declara que leu, compreendeu e concorda integralmente com este documento. Caso não concorde, não utilize a plataforma."
       sections={sections}
-      footerPrefix="Ao utilizar o Freelandoo, você concorda integralmente com estes Termos de Uso. Veja também nossa"
+      footerPrefix="Ao utilizar o E-Views, você concorda integralmente com estes Termos de Uso. Veja também nossa"
       links={[
         { href: "/privacy-policy", label: "Política de Privacidade" },
         { href: "/subscription-terms", label: "Termo de Ativação" },

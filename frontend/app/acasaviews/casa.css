@@ -1,11 +1,11 @@
 /* ══════════════════════════════════════════════════════════════════════════
-   CASA VIEWS — tema isolado dentro do Freelandoo (rota /acasaviews)
+   CASA VIEWS — tema isolado dentro do E-Views (rota /acasaviews)
    --------------------------------------------------------------------------
    Esta folha NÃO importa `tailwindcss` (já está no globals.css do FL). Ela só:
    1. Redeclara, dentro de `.casa-app`, os tokens escuros/roxos do CASA — assim
       as utilities do Tailwind (bg-background, text-foreground, bg-primary, …)
       usadas pelos componentes do CASA resolvem para a paleta CASA apenas
-      dentro do subárvore /acasaviews, sem vazar para o resto do Freelandoo.
+      dentro do subárvore /acasaviews, sem vazar para o resto do E-Views.
    2. Traz o bloco `.casa-rank` (tema tabloide claro do ranking) + helpers
       `.casa-*` + keyframes/animações que os componentes do CASA usam.
    As fontes Anton/Archivo/Caveat já são carregadas no <html> do FL (layout

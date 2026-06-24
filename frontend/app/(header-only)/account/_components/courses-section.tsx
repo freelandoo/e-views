@@ -364,7 +364,7 @@ function EmptyState({
       <p className="mx-auto mt-1 max-w-md text-xs text-white/55">
         {t(
           "noCoursesPurchasedDesc",
-          "Explore o feed do Freelandoo para descobrir cursos publicados por outros criadores.",
+          "Explore o feed do E-Views para descobrir cursos publicados por outros criadores.",
         )}
       </p>
       <Link
@@ -433,8 +433,8 @@ export function CoursesSection(_props: Props) {
         void createAndGo()
       }
     }
-    window.addEventListener("freelandoo:create", onCreate)
-    return () => window.removeEventListener("freelandoo:create", onCreate)
+    window.addEventListener("e-views:create", onCreate)
+    return () => window.removeEventListener("e-views:create", onCreate)
   }, [createAndGo])
 
   const counts = useMemo(

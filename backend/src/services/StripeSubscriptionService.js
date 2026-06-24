@@ -173,7 +173,7 @@ async function createSessionForUser(user, body) {
       const session = await StripeService.createProfileActivationCheckoutSession({
         amount_cents: chargeAmount,
         currency: settings.currency || "BRL",
-        productName: `Ativação do perfil — ${profile.display_name || "Freelandoo"}`,
+        productName: `Ativação do perfil — ${profile.display_name || "E-Views"}`,
         customerEmail: dbUser.email,
         clientReferenceId: String(user.id_user),
         successUrl,

@@ -14,7 +14,7 @@ async function syncCouponToStripe(coupon) {
       discount_value: coupon.value,
       max_redemptions: coupon.max_uses || null,
       expires_at: coupon.expires_at || null,
-      name: `Freelandoo ${coupon.code}`,
+      name: `E-Views ${coupon.code}`,
     });
     const promo = await StripeService.createPromotionCode({
       coupon: stripeCoupon.id,

@@ -1,7 +1,7 @@
 "use client"
 
 /**
- * RankingPodium — pódio Top 3 no estilo tabloide editorial (paleta Freelandoo
+ * RankingPodium — pódio Top 3 no estilo tabloide editorial (paleta E-Views
  * dark: canvas escuro, cards de papel off-white, dourado de "poder").
  * #1 maior, com coroa, glow dourado, foto rasgada e pedestal mais alto.
  * Entrada em cascata via GSAP (back.out) no scroll; respeita reduced-motion.

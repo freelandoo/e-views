@@ -41,17 +41,17 @@ export function CarreirasContent() {
             {t("hero.badge", "Carreiras")}
           </div>
           <h1 className="fl-display text-5xl md:text-6xl lg:text-7xl text-[#F5F1E8] leading-tight mb-6" data-reveal>
-            {t("hero.title", "Carreiras na Freelandoo")}
+            {t("hero.title", "Carreiras na E-Views")}
           </h1>
           <p className="text-xl text-[#9A938A] mb-4" data-reveal>
             {t("hero.subtitle", "Estamos construindo uma plataforma para conectar profissionais e oportunidades de um jeito mais simples, direto e inteligente.")}
           </p>
           <p className="text-[#9A938A] mb-10 leading-relaxed" data-reveal>
-            {t("hero.description", "A Freelandoo está em crescimento. Talvez ainda não tenhamos vagas abertas, mas queremos manter uma porta aberta para pessoas que se identificam com nossa visão.")}
+            {t("hero.description", "A E-Views está em crescimento. Talvez ainda não tenhamos vagas abertas, mas queremos manter uma porta aberta para pessoas que se identificam com nossa visão.")}
           </p>
           <div data-reveal>
             <Link href="/cadastro" className="inline-flex items-center bg-[#C8102E] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#C8102E]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
-              {t("hero.cta", "Fale com a Freelandoo")}
+              {t("hero.cta", "Fale com a E-Views")}
             </Link>
           </div>
         </div>
@@ -105,7 +105,7 @@ export function CarreirasContent() {
               {t("status.title", "No momento, estamos em fase de construção")}
             </h2>
             <p className="text-[#9A938A] mb-4 leading-relaxed">
-              {t("status.description", "Ainda podemos não ter vagas abertas, mas estamos abertos a conhecer pessoas que se conectam com a visão da Freelandoo.")}
+              {t("status.description", "Ainda podemos não ter vagas abertas, mas estamos abertos a conhecer pessoas que se conectam com a visão da E-Views.")}
             </p>
             <p className="text-[#9A938A] mb-8 text-sm leading-relaxed">
               {t("status.note", "Se você acredita que pode contribuir com tecnologia, produto, design, marketing, comunidade ou parcerias, acompanhe a evolução da plataforma.")}

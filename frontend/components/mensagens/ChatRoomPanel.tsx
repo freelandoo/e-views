@@ -444,7 +444,7 @@ export function ChatRoomPanel({
             <p className="truncate text-[11px] text-white/50">
               {pageSubtitle ||
                 (kind === "global"
-                  ? t("globalChatDescription", "Converse com usuários online no Freelandoo.")
+                  ? t("globalChatDescription", "Converse com usuários online no E-Views.")
                   : t("machineChatDescription", "Converse com pessoas da sua área."))}
             </p>
           </div>

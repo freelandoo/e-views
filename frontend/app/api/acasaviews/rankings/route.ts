@@ -4,10 +4,10 @@ import { NextResponse } from "next/server"
  * Proxy server-side do ranking da Casa Views. Lê RANKING_API_URL (env só do
  * servidor — default = serviço Railway atual) e devolve o array de usuários do
  * backend de ranking. Mantém a URL do backend fora do browser: o cliente só vê
- * a mesma origem (freelandoo.com.br/api/acasaviews/rankings).
+ * a mesma origem (e-views.com/api/acasaviews/rankings).
  *
  * Este route handler tem precedência sobre o rewrite genérico /api/:path* do
- * next.config (afterFiles), então não é encaminhado ao backend do Freelandoo.
+ * next.config (afterFiles), então não é encaminhado ao backend do E-Views.
  */
 export const dynamic = "force-dynamic"
 

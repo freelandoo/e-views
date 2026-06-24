@@ -31,7 +31,7 @@ async function fetchProfile(id: string): Promise<ProfileById | null> {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Gerenciar Perfil | Freelandoo",
+    title: "Gerenciar Perfil | E-Views",
     robots: { index: false, follow: false },
   }
 }

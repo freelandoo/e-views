@@ -131,7 +131,7 @@ export function AdminPolenProducts() {
     setForm({
       ...EMPTY_FORM,
       name: `Pacote ${formatPolens(amount)} Pollens`,
-      description: `${formatPolens(amount)} Pollens para usar dentro da Freelandoo.`,
+      description: `${formatPolens(amount)} Pollens para usar dentro da E-Views.`,
       polens_amount: String(amount),
       sort_order: String(amount),
       image_url: image,

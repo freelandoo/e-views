@@ -4,7 +4,7 @@ import { getToken } from "@/lib/auth";
 import type { TourKey } from "./tourConfig";
 
 const API = "/api/tours";
-const LOCAL_KEY = "freelandoo_tour_progress_v1";
+const LOCAL_KEY = "e-views_tour_progress_v1";
 
 export type TourStatus = "not_started" | "in_progress" | "completed" | "skipped";
 
@@ -36,7 +36,7 @@ export async function fetchTourProgress(): Promise<TourProgressItem[]> {
 export async function fetchTourSettings(): Promise<TourSettings> {
   const token = getToken();
   if (!token) {
-    return { hide_all_tours: localStorage.getItem("freelandoo_hide_all_tours") === "1" };
+    return { hide_all_tours: localStorage.getItem("e-views_hide_all_tours") === "1" };
   }
   const response = await fetch(`${API}/progress`, { headers: { ...authHeaders() }, cache: "no-store" });
   if (!response.ok) return { hide_all_tours: false };
@@ -100,7 +100,7 @@ export function resetTourProgress(tourKey: TourKey) {
 export async function setHideAllTours(hideAllTours: boolean) {
   const token = getToken();
   if (!token) {
-    localStorage.setItem("freelandoo_hide_all_tours", hideAllTours ? "1" : "0");
+    localStorage.setItem("e-views_hide_all_tours", hideAllTours ? "1" : "0");
     return;
   }
   await fetch(`${API}/settings`, {

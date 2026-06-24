@@ -88,8 +88,8 @@ export function AudienceChooserModal() {
 
             <div className="flex flex-col items-center text-center">
               <Image
-                src="/freelandoo-logo.png"
-                alt="Freelandoo"
+                src="/e-views-logo.png"
+                alt="E-Views"
                 width={200}
                 height={56}
                 className="h-12 w-auto sm:h-14"
@@ -99,7 +99,7 @@ export function AudienceChooserModal() {
                 id="audience-modal-title"
                 className="fl-display mt-5 text-3xl leading-none tracking-tight text-[#0B0B0D] sm:text-4xl"
               >
-                Bem-vindo à Freelandoo
+                Bem-vindo à E-Views
               </h2>
               <p className="mt-2 text-base text-[#3a352c]">O que você quer fazer agora?</p>
             </div>

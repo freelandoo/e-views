@@ -1,6 +1,6 @@
 "use client";
 
-const STORAGE_KEY = "freelandoo_visited_paths_v1";
+const STORAGE_KEY = "e-views_visited_paths_v1";
 
 function read(): Set<string> {
   if (typeof window === "undefined") return new Set();

@@ -469,8 +469,8 @@ export default function FreelancerProfileView({
         router.push("/account?tab=cursos")
       }
     }
-    window.addEventListener("freelandoo:create-subprofile", onCreate)
-    return () => window.removeEventListener("freelandoo:create-subprofile", onCreate)
+    window.addEventListener("e-views:create-subprofile", onCreate)
+    return () => window.removeEventListener("e-views:create-subprofile", onCreate)
     // ensureConsent muda quando os aceites carregam — re-vincula pra não usar closure obsoleto.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ensureConsent])
@@ -696,7 +696,7 @@ export default function FreelancerProfileView({
                 <DropdownMenuItem
                   onSelect={() =>
                     window.dispatchEvent(
-                      new CustomEvent("freelandoo:create-subprofile", { detail: { kind: "post" } }),
+                      new CustomEvent("e-views:create-subprofile", { detail: { kind: "post" } }),
                     )
                   }
                 >
@@ -706,7 +706,7 @@ export default function FreelancerProfileView({
                 <DropdownMenuItem
                   onSelect={() =>
                     window.dispatchEvent(
-                      new CustomEvent("freelandoo:create-subprofile", { detail: { kind: "bees" } }),
+                      new CustomEvent("e-views:create-subprofile", { detail: { kind: "bees" } }),
                     )
                   }
                 >
@@ -716,7 +716,7 @@ export default function FreelancerProfileView({
                 <DropdownMenuItem
                   onSelect={() =>
                     window.dispatchEvent(
-                      new CustomEvent("freelandoo:create-subprofile", { detail: { kind: "servico" } }),
+                      new CustomEvent("e-views:create-subprofile", { detail: { kind: "servico" } }),
                     )
                   }
                 >
@@ -726,7 +726,7 @@ export default function FreelancerProfileView({
                 <DropdownMenuItem
                   onSelect={() =>
                     window.dispatchEvent(
-                      new CustomEvent("freelandoo:create-subprofile", { detail: { kind: "curso" } }),
+                      new CustomEvent("e-views:create-subprofile", { detail: { kind: "curso" } }),
                     )
                   }
                 >
@@ -807,7 +807,7 @@ export default function FreelancerProfileView({
                 return (
                   <ShareIconButton
                     path={sharePath}
-                    title={`${profile.display_name} no Freelandoo`}
+                    title={`${profile.display_name} no E-Views`}
                     description={profile.bio?.slice(0, 140) || undefined}
                     className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.04] text-white/85 transition hover:bg-white/[0.08]"
                   />

@@ -2,19 +2,19 @@ import type { Metadata } from "next"
 import { LegalDocument } from "../_components/legal-document"
 
 export const metadata: Metadata = {
-  title: "Termos do Marketplace — Freelandoo",
-  description: "Regras de compra, venda e agendamento na Loja da plataforma Freelandoo.",
+  title: "Termos do Marketplace — E-Views",
+  description: "Regras de compra, venda e agendamento na Loja da plataforma E-Views.",
 }
 
 const sections = [
   {
     title: "1. Objeto e definições",
     paragraphs: [
-      "Estes termos regulam as transações realizadas dentro da plataforma Freelandoo. Para evitar dúvidas, distinguimos dois cenários:",
+      "Estes termos regulam as transações realizadas dentro da plataforma E-Views. Para evitar dúvidas, distinguimos dois cenários:",
     ],
     items: [
       "Transações processadas pela plataforma: a Loja (produtos), os Agendamentos pagos (serviços agendados e pagos dentro da plataforma) e os Cursos. Nesses casos, o pagamento é processado pela plataforma (via Stripe) e podem existir garantia, retenção e repasse, conforme cada seção.",
-      "Serviços negociados diretamente entre as partes: combinações feitas fora da plataforma (por exemplo, pelo WhatsApp). Nesse caso, a Freelandoo apenas conecta as pessoas e não intermedia o pagamento, não retém valores e não oferece as garantias da plataforma (ver seção própria).",
+      "Serviços negociados diretamente entre as partes: combinações feitas fora da plataforma (por exemplo, pelo WhatsApp). Nesse caso, a E-Views apenas conecta as pessoas e não intermedia o pagamento, não retém valores e não oferece as garantias da plataforma (ver seção própria).",
       "Vendedor: usuário com perfil ativado que anuncia produtos na Loja ou oferece cursos e agendamentos pagos pela plataforma.",
       "Comprador: usuário que adquire produtos, cursos ou agendamentos na plataforma.",
       "Pedido: a compra de um ou mais itens, com pagamento processado pela plataforma.",
@@ -46,7 +46,7 @@ const sections = [
       "Produtos falsificados, pirateados ou que violem propriedade intelectual.",
       "Conteúdo sexual, material que explore menores e itens que incitem violência ou discriminação.",
       "Animais, partes do corpo, documentos e quaisquer itens cuja venda seja proibida por lei.",
-      "Produtos que a Freelandoo classifique como proibidos em sua política interna de produtos.",
+      "Produtos que a E-Views classifique como proibidos em sua política interna de produtos.",
     ],
   },
   {
@@ -82,7 +82,7 @@ const sections = [
       "O vendedor deve enviar o produto no prazo informado, com embalagem adequada.",
       "O vendedor é responsável pela conformidade, pela qualidade e pela integridade do produto entregue.",
       "Atrasos, extravios e divergências devem ser tratados com diligência pelo vendedor.",
-      "A Freelandoo pode intervir, reter valores ou cancelar pedidos diante de descumprimento.",
+      "A E-Views pode intervir, reter valores ou cancelar pedidos diante de descumprimento.",
     ],
   },
   {
@@ -94,7 +94,7 @@ const sections = [
   {
     title: "10. Agendamentos pagos (serviços na plataforma)",
     items: [
-      "Quando um serviço é agendado e pago dentro da plataforma, o pagamento é processado pela Freelandoo e segue um modelo de repasse semelhante ao da Loja, com período de garantia antes da liberação do saldo ao profissional.",
+      "Quando um serviço é agendado e pago dentro da plataforma, o pagamento é processado pela E-Views e segue um modelo de repasse semelhante ao da Loja, com período de garantia antes da liberação do saldo ao profissional.",
       "A execução, a qualidade e o cumprimento do serviço são de responsabilidade do profissional contratado.",
       "Serviços combinados e pagos diretamente entre as partes, fora da plataforma, são tratados na seção 'Serviços negociados diretamente'.",
     ],
@@ -104,7 +104,7 @@ const sections = [
     items: [
       "Os Cursos são produtos digitais criados por usuários e vendidos dentro da plataforma; a compra dá acesso ao conteúdo ao aluno.",
       "A compra do curso é processada pela plataforma (via Stripe). O preço definido pelo criador corresponde ao valor que ele recebe; o comprador paga esse valor acrescido das tarifas da plataforma, informadas antes da conclusão da compra.",
-      "O conteúdo, a qualidade e a atualização do curso são de responsabilidade de quem o criou. A Freelandoo não garante resultado de aprendizado nem volume de vendas.",
+      "O conteúdo, a qualidade e a atualização do curso são de responsabilidade de quem o criou. A E-Views não garante resultado de aprendizado nem volume de vendas.",
       "Eventuais regras de reembolso de cursos seguem a Política de Trocas, Devoluções e Frete e as condições informadas no momento da compra.",
     ],
   },
@@ -112,7 +112,7 @@ const sections = [
     title: "12. Serviços negociados diretamente (fora da plataforma)",
     items: [
       "Quando cliente e profissional combinam um serviço diretamente entre si — por exemplo, pelo WhatsApp ou outro canal externo —, trata-se de negociação direta entre as partes.",
-      "Nessas contratações, a Freelandoo apenas conecta as pessoas: não intermedia o pagamento, não retém valores, não define preço e não oferece as garantias de retenção, repasse ou mediação aplicáveis às transações processadas pela plataforma.",
+      "Nessas contratações, a E-Views apenas conecta as pessoas: não intermedia o pagamento, não retém valores, não define preço e não oferece as garantias de retenção, repasse ou mediação aplicáveis às transações processadas pela plataforma.",
       "Preço, escopo, prazos, execução e eventuais reembolsos desses serviços são acordados e cumpridos exclusivamente entre cliente e profissional.",
     ],
   },
@@ -125,7 +125,7 @@ const sections = [
   {
     title: "14. Tarifas da plataforma",
     items: [
-      "A Freelandoo pode cobrar tarifas sobre as transações processadas pela plataforma (Loja, Agendamentos pagos e Cursos).",
+      "A E-Views pode cobrar tarifas sobre as transações processadas pela plataforma (Loja, Agendamentos pagos e Cursos).",
       "As tarifas aplicáveis são informadas antes da conclusão da compra ou refletidas no repasse ao vendedor.",
       "Serviços negociados diretamente entre as partes não geram tarifa de intermediação, justamente por não serem processados pela plataforma.",
     ],
@@ -141,9 +141,9 @@ const sections = [
   {
     title: "16. Limitação de responsabilidade",
     items: [
-      "Nas transações processadas pela plataforma, a Freelandoo atua como facilitadora da transação e do pagamento, não sendo a vendedora dos produtos, a criadora dos cursos nem a prestadora dos serviços.",
-      "Nas contratações diretas entre as partes, a Freelandoo atua apenas como ponto de conexão e não participa do acordo, do pagamento ou da entrega.",
-      "A responsabilidade pela qualidade, pela entrega e pela conformidade é sempre do vendedor ou do profissional. A Freelandoo não garante contratação, entrega ou resultado.",
+      "Nas transações processadas pela plataforma, a E-Views atua como facilitadora da transação e do pagamento, não sendo a vendedora dos produtos, a criadora dos cursos nem a prestadora dos serviços.",
+      "Nas contratações diretas entre as partes, a E-Views atua apenas como ponto de conexão e não participa do acordo, do pagamento ou da entrega.",
+      "A responsabilidade pela qualidade, pela entrega e pela conformidade é sempre do vendedor ou do profissional. A E-Views não garante contratação, entrega ou resultado.",
     ],
   },
   {
@@ -154,7 +154,7 @@ const sections = [
   },
   {
     title: "18. Contato",
-    paragraphs: ["Dúvidas sobre a Loja, os Cursos e os Agendamentos podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
+    paragraphs: ["Dúvidas sobre a Loja, os Cursos e os Agendamentos podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
   },
 ]
 
@@ -164,9 +164,9 @@ export default function MarketplaceTermsPage() {
       namespace="MarketplaceTerms"
       title="Termos do Marketplace"
       updatedAt="Última atualização: 14 de junho de 2026"
-      intro="Estes termos regulam a compra, a venda e o agendamento de serviços realizados dentro da plataforma Freelandoo. Ao utilizar a Loja, comprador e vendedor declaram ter lido e concordado com estas regras."
+      intro="Estes termos regulam a compra, a venda e o agendamento de serviços realizados dentro da plataforma E-Views. Ao utilizar a Loja, comprador e vendedor declaram ter lido e concordado com estas regras."
       sections={sections}
-      footerPrefix="Ao comprar ou vender na Loja da Freelandoo, você concorda com estes termos. Veja também nossa"
+      footerPrefix="Ao comprar ou vender na Loja da E-Views, você concorda com estes termos. Veja também nossa"
       links={[
         { href: "/return-policy", label: "Política de Trocas e Devoluções" },
         { href: "/terms", label: "Termos de Uso" },

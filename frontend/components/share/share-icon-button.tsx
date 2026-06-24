@@ -22,7 +22,7 @@ interface Props {
  */
 export function ShareIconButton({
   path,
-  title = "Confira no Freelandoo",
+  title = "Confira no E-Views",
   description,
   className,
   ariaLabel = "Compartilhar",

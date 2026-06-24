@@ -1,6 +1,6 @@
 /**
  * As fontes Anton/Archivo/Caveat usadas pela seção A Casa Views já são
- * carregadas globalmente no layout raiz do Freelandoo (variáveis
+ * carregadas globalmente no layout raiz do E-Views (variáveis
  * --font-anton/--font-archivo/--font-caveat no <html>). Os helpers .casa-* em
  * casa.css referenciam essas variáveis diretamente, então não precisamos
  * reinjetar next/font aqui — `casaFontVars` vira string vazia e os componentes

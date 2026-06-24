@@ -2,15 +2,15 @@ import type { Metadata } from "next"
 import { LegalDocument } from "../_components/legal-document"
 
 export const metadata: Metadata = {
-  title: "Privacidade de Menores e Contas Supervisionadas — Freelandoo",
-  description: "Como a Freelandoo protege menores de idade, trata seus dados e funciona o sistema de Contas Supervisionadas.",
+  title: "Privacidade de Menores e Contas Supervisionadas — E-Views",
+  description: "Como a E-Views protege menores de idade, trata seus dados e funciona o sistema de Contas Supervisionadas.",
 }
 
 const sections = [
   {
     title: "1. Objetivo",
     items: [
-      "Este documento explica como a Freelandoo trata o acesso de menores de 18 anos e os dados pessoais de crianças e adolescentes.",
+      "Este documento explica como a E-Views trata o acesso de menores de 18 anos e os dados pessoais de crianças e adolescentes.",
       "Reúne o aviso de privacidade para menores e as regras das Contas Supervisionadas.",
       "Observa a Lei Geral de Proteção de Dados (art. 14) e o Estatuto da Criança e do Adolescente.",
     ],
@@ -74,7 +74,7 @@ const sections = [
       "Supervisionar o uso da plataforma pelo menor.",
       "Definir as restrições adequadas à idade e à maturidade do menor.",
       "Manter as credenciais de acesso seguras.",
-      "Comunicar à Freelandoo qualquer uso indevido ou situação de risco.",
+      "Comunicar à E-Views qualquer uso indevido ou situação de risco.",
     ],
   },
   {
@@ -86,7 +86,7 @@ const sections = [
   {
     title: "10. Contato",
     paragraphs: [
-      "Dúvidas sobre Contas Supervisionadas e privacidade de menores, ou contato com o Encarregado de Proteção de Dados, podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "Dúvidas sobre Contas Supervisionadas e privacidade de menores, ou contato com o Encarregado de Proteção de Dados, podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
     ],
   },
 ]
@@ -97,9 +97,9 @@ export default function MinorsPolicyPage() {
       namespace="MinorsPolicy"
       title="Privacidade de Menores e Contas Supervisionadas"
       updatedAt="Última atualização: 21 de maio de 2026"
-      intro="A Freelandoo dedica atenção especial à proteção de crianças e adolescentes. Este documento explica como funcionam as Contas Supervisionadas e como os dados pessoais de menores são tratados, com consentimento e acompanhamento de um responsável legal."
+      intro="A E-Views dedica atenção especial à proteção de crianças e adolescentes. Este documento explica como funcionam as Contas Supervisionadas e como os dados pessoais de menores são tratados, com consentimento e acompanhamento de um responsável legal."
       sections={sections}
-      footerPrefix="Este documento complementa a Política de Privacidade da Freelandoo. Veja também nossos"
+      footerPrefix="Este documento complementa a Política de Privacidade da E-Views. Veja também nossos"
       links={[
         { href: "/privacy-policy", label: "Política de Privacidade" },
         { href: "/terms", label: "Termos de Uso" },

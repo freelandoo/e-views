@@ -56,7 +56,7 @@ function BentoVisual({ item, t }: { item: BentoItem; t: T }) {
         <div className="flex items-center justify-between bg-[#14110B] px-3 py-3 text-[#FAF7F0]">
           <div>
             <div className="text-[10px] font-bold uppercase tracking-wide text-[#C8102E]">{t("bentoVSejaAfiliado", "Seja um afiliado")}</div>
-            <div className="text-sm font-black">FREELANDOO!</div>
+            <div className="text-sm font-black">E-VIEWS!</div>
           </div>
           <span className="bg-[#C8102E] px-2.5 py-1 text-[11px] font-black text-[#1A1505]">{t("bentoVAte70", "até 70%")}</span>
         </div>

@@ -115,7 +115,7 @@ class BookingService {
       }
 
       // Criar checkout session no Stripe
-      const frontendUrl = process.env.FRONTEND_URL || "https://freelandoo.com";
+      const frontendUrl = process.env.FRONTEND_URL || "https://e-views.com";
       const productName = service
         ? `${service.name} — ${profile.display_name}`
         : `Sinal de agendamento — ${profile.display_name}`;
@@ -143,7 +143,7 @@ class BookingService {
         cancel_url: `${frontendUrl}/freelancer/${id_profile}?booking=canceled`,
         custom_text: {
           submit: {
-            message: `Este pagamento é o sinal que confirma a sua reserva de ${dateLabel} às ${start_time}. Após a aprovação, o horário fica bloqueado pela duração do serviço. Taxa Freelandoo: ${formatBRL(PLATFORM_FEE_CENTS)}.`,
+            message: `Este pagamento é o sinal que confirma a sua reserva de ${dateLabel} às ${start_time}. Após a aprovação, o horário fica bloqueado pela duração do serviço. Taxa E-Views: ${formatBRL(PLATFORM_FEE_CENTS)}.`,
           },
         },
         metadata: {

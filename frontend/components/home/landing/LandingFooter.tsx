@@ -76,8 +76,8 @@ export function LandingFooter() {
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr_1.2fr]">
           <div>
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/freelandoo-logo.png" alt="Freelandoo" width={200} height={56} className="h-8 w-auto" />
-              <span className="text-xl font-black">freelandoo</span>
+              <Image src="/e-views-logo.png" alt="E-Views" width={200} height={56} className="h-8 w-auto" />
+              <span className="text-xl font-black">e-views</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[#9A938A]">
               {t("footerDescription", "A plataforma de negócios digitais completa para você vender, ensinar, aprender e ganhar mais todos os dias.")}
@@ -98,7 +98,7 @@ export function LandingFooter() {
           ))}
 
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-[#C8102E]">{t("footerSigaFreelandoo", "Siga a Freelandoo")}</h3>
+            <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-[#C8102E]">{t("footerSigaE-Views", "Siga a E-Views")}</h3>
             <div className="mt-4 flex flex-wrap gap-2">
               <a
                 href="https://www.instagram.com/printtei_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @printtei_"
@@ -110,8 +110,8 @@ export function LandingFooter() {
             <h3 className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-[#C8102E]">{t("footerContato", "Contato")}</h3>
             <ul className="mt-4 space-y-2.5">
               <li>
-                <a href="mailto:freelandoogroup@gmail.com" className="text-sm text-[#C9C2B6] transition hover:text-[#F5F1E8]">
-                  freelandoogroup@gmail.com
+                <a href="mailto:e-viewsgroup@gmail.com" className="text-sm text-[#C9C2B6] transition hover:text-[#F5F1E8]">
+                  e-viewsgroup@gmail.com
                 </a>
               </li>
               <li>
@@ -128,7 +128,7 @@ export function LandingFooter() {
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-[#F5F1E8]/10 pt-6 text-xs text-[#9A938A] sm:flex-row sm:items-center sm:justify-between">
-          <p>© Freelandoo {new Date().getFullYear()}. {t("footerCopyright", "Todos os direitos reservados.")}</p>
+          <p>© E-Views {new Date().getFullYear()}. {t("footerCopyright", "Todos os direitos reservados.")}</p>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <Link href="/terms" className="hover:text-[#F5F1E8]">{t("footerTermos", "Termos")}</Link>
             <Link href="/privacy-policy" className="hover:text-[#F5F1E8]">{t("footerPrivacidade", "Privacidade")}</Link>

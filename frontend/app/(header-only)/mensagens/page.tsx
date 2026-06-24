@@ -2,8 +2,8 @@ import { Suspense } from "react"
 import MensagensClient from "@/components/mensagens/MensagensClient"
 
 export const metadata = {
-  title: "Mensagens — Freelandoo",
-  description: "Suas conversas no Freelandoo.",
+  title: "Mensagens — E-Views",
+  description: "Suas conversas no E-Views.",
 }
 
 export const dynamic = "force-dynamic"

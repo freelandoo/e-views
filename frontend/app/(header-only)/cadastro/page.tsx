@@ -377,7 +377,7 @@ export default function CadastroPage() {
         {step === "intent" && (
           <div className="fl-card rounded-3xl p-6 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.85)] sm:p-8">
             <div className="mb-6 text-center">
-              <h2 className="fl-display text-2xl text-[var(--fl-ink)]">{t("intentTitle", "O que traz você à Freelandoo?")}</h2>
+              <h2 className="fl-display text-2xl text-[var(--fl-ink)]">{t("intentTitle", "O que traz você à E-Views?")}</h2>
               <p className="mt-1 text-sm text-[#5b554b]">{t("intentSubtitle", "Você pode mudar isso depois. É só pra começar do jeito certo.")}</p>
             </div>
 

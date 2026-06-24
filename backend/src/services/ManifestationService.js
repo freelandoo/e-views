@@ -262,7 +262,7 @@ class ManifestationService {
       const gate = await checkManifestationEligibility(pool, user.id_user);
       if (!gate.ok) return { error: gate.error, eligibility: gate.eligibility };
 
-      const frontend = String(process.env.FRONTEND_URL || "https://freelandoo.com").replace(/\/$/, "");
+      const frontend = String(process.env.FRONTEND_URL || "https://e-views.com").replace(/\/$/, "");
       const session = await StripeService.createOneTimeCheckoutSession({
         amount_cents: amount,
         currency: "BRL",

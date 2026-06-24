@@ -386,7 +386,7 @@ export class CameraRenderer {
       ctx.font = `700 ${Math.round(b * 0.55)}px Georgia, 'Times New Roman', serif`
       ctx.textBaseline = "middle"
       ctx.textAlign = "center"
-      ctx.fillText("FREELANDOO", W / 2, b / 2)
+      ctx.fillText("E-VIEWS", W / 2, b / 2)
     } else if (o.frame === "polaroid") {
       const side = Math.round(Math.min(W, H) * 0.04)
       const bottom = Math.round(Math.min(W, H) * 0.16)
@@ -404,9 +404,9 @@ export class CameraRenderer {
       ctx.textAlign = "left"
       ctx.textBaseline = "bottom"
       ctx.fillStyle = "rgba(0,0,0,0.35)"
-      ctx.fillText("freelandoo", pad + 2, H - pad + 2)
+      ctx.fillText("e-views", pad + 2, H - pad + 2)
       ctx.fillStyle = BRAND_YELLOW
-      ctx.fillText("freelandoo", pad, H - pad)
+      ctx.fillText("e-views", pad, H - pad)
     }
     // maquiagem (batom/blush) — colada na pele, abaixo de acessórios/stickers
     if (this.face && (this.makeup.lipstick > 0 || this.makeup.blush > 0)) {

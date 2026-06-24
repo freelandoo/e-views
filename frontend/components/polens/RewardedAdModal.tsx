@@ -54,7 +54,7 @@ export function RewardedAdModal({ open, onOpenChange, rewardAmount, token, onCom
         </DialogHeader>
 
         <div className="rounded-lg border border-white/10 bg-white/[0.03] p-4 text-sm text-white/70">
-          O anúncio é voluntário e não bloqueia o uso normal da Freelandoo.
+          O anúncio é voluntário e não bloqueia o uso normal da E-Views.
           Poléns são créditos internos, não sacáveis e não transferíveis.
         </div>
 

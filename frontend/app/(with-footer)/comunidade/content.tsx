@@ -37,10 +37,10 @@ export function ComunidadeContent() {
             {t("hero.title", "Uma comunidade para quem faz acontecer")}
           </h1>
           <p className="text-xl text-[#9A938A] mb-4" data-reveal>
-            {t("hero.subtitle", "A Freelandoo aproxima profissionais, criadores, prestadores, empresas e pessoas que procuram soluções reais.")}
+            {t("hero.subtitle", "A E-Views aproxima profissionais, criadores, prestadores, empresas e pessoas que procuram soluções reais.")}
           </p>
           <p className="text-[#9A938A] mb-10 leading-relaxed" data-reveal>
-            {t("hero.description", "Mais do que uma vitrine, a Freelandoo está construindo uma rede de profissionais conectados por enxames, interesses, serviços e oportunidades.")}
+            {t("hero.description", "Mais do que uma vitrine, a E-Views está construindo uma rede de profissionais conectados por enxames, interesses, serviços e oportunidades.")}
           </p>
           <div data-reveal>
             <Link href="/cadastro" className="inline-flex items-center bg-[#C8102E] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#C8102E]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
@@ -57,7 +57,7 @@ export function ComunidadeContent() {
             {t("connections.title", "Conexões que vão além do perfil")}
           </h2>
           <p className="text-[#9A938A] mb-12 max-w-2xl leading-relaxed" data-reveal>
-            {t("connections.description", "A comunidade Freelandoo nasce para fortalecer quem trabalha por conta própria, quem cria, quem presta serviço e quem quer ser encontrado. A ideia é aproximar pessoas, gerar visibilidade e facilitar novas conexões profissionais.")}
+            {t("connections.description", "A comunidade E-Views nasce para fortalecer quem trabalha por conta própria, quem cria, quem presta serviço e quem quer ser encontrado. A ideia é aproximar pessoas, gerar visibilidade e facilitar novas conexões profissionais.")}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" data-stagger>
             {connectionCards.map((card, i) => (
@@ -100,7 +100,7 @@ export function ComunidadeContent() {
               {t("status.title", "Estamos construindo essa rede")}
             </h2>
             <p className="text-[#9A938A] mb-8 leading-relaxed">
-              {t("status.description", "A comunidade Freelandoo está em evolução. Novos recursos, iniciativas e formas de participação poderão ser adicionados conforme a plataforma cresce.")}
+              {t("status.description", "A comunidade E-Views está em evolução. Novos recursos, iniciativas e formas de participação poderão ser adicionados conforme a plataforma cresce.")}
             </p>
             <a
               href="https://www.instagram.com/printtei_/"

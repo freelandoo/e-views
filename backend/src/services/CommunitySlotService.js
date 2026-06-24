@@ -38,7 +38,7 @@ class CommunitySlotService {
           [id_user]
         );
         const userEmail = emailRow.rows[0]?.email || undefined;
-        const baseUrl = process.env.FRONTEND_URL || "https://freelandoo.com.br";
+        const baseUrl = process.env.FRONTEND_URL || "https://e-views.com";
 
         const session = await StripeService.createOneTimeCheckoutSession({
           amount_cents: BUNDLE_PRICE_CENTS,

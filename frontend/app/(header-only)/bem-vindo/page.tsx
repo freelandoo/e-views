@@ -148,7 +148,7 @@ function TourInner() {
 
   return (
     <AuthShell
-      eyebrow={t("eyebrow", "Bem-vindo à Freelandoo")}
+      eyebrow={t("eyebrow", "Bem-vindo à E-Views")}
       asideTitle={t("headlinePrefix", "Um tour")}
       asideHighlight={t("headlineHighlight", "rápido")}
     >

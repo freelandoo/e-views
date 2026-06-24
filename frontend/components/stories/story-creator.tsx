@@ -170,7 +170,7 @@ export function StoryCreator({ open, initialKind = "rest", onClose, onPosted }: 
 
       // Upload direto pro backend (não pelo proxy /api) — Vercel limita serverless
       // function body a 4.5MB, então vídeos maiores quebram via proxy. CORS no
-      // backend já libera *.vercel.app + freelandoo.com.br.
+      // backend já libera *.vercel.app + e-views.com.
       const res = await fetch(`${getPublicBackendUrl()}/me/stories`, {
         method: "POST",
         headers: { Authorization: `Bearer ${getToken() || ""}` },

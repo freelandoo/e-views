@@ -10,7 +10,7 @@ const UUID_RE =
 
 const has = (obj, k) => Object.prototype.hasOwnProperty.call(obj || {}, k);
 
-const WHATSAPP_DEFAULT_MESSAGE = "Oi, eu sou da Freelandoo. Você pode conversar agora?";
+const WHATSAPP_DEFAULT_MESSAGE = "Oi, eu sou da E-Views. Você pode conversar agora?";
 
 async function getSocialTypeIcon(conn, id_social_media_type) {
   const r = await conn.query(

@@ -1,5 +1,5 @@
 /**
- * Mapa central de rotas públicas da Freelandoo.
+ * Mapa central de rotas públicas da E-Views.
  *
  * Fonte única de verdade para links de navegação (header, footers, CTAs) e para
  * o teste de regressão de links públicos (e2e/public-links.spec.ts). Evita links

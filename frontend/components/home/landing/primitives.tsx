@@ -1,5 +1,5 @@
 /**
- * Freelandoo Landing — primitivos (tema warm-dark, estilo poster).
+ * E-Views Landing — primitivos (tema warm-dark, estilo poster).
  * Presentacionais e sem hooks: usáveis em server e client components.
  */
 import Link from "next/link"

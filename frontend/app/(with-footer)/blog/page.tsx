@@ -7,17 +7,17 @@ import { BlogAdminBar } from "@/components/blog/blog-admin-bar"
 
 export const revalidate = 300
 
-const BASE_URL = "https://www.freelandoo.com.br"
+const BASE_URL = "https://www.e-views.com"
 
 export const metadata: Metadata = {
-  title: "Blog Freelandoo — guias práticos para profissionais autônomos",
+  title: "Blog E-Views — guias práticos para profissionais autônomos",
   description:
     "Guias práticos sobre como precificar serviços, montar portfólio, vender produtos, usar vídeo e crescer como profissional autônomo no Brasil.",
   alternates: { canonical: `${BASE_URL}/blog` },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   openGraph: {
     type: "website",
-    title: "Blog Freelandoo",
+    title: "Blog E-Views",
     description:
       "Guias práticos para profissionais autônomos: preço, portfólio, vendas, agenda, conteúdo e mais.",
     url: `${BASE_URL}/blog`,
@@ -55,7 +55,7 @@ function PostCard({ post, idx }: { post: BlogPostCard; idx: number }) {
           <div className="relative flex h-full w-full items-center justify-center" style={{ background: accent }}>
             <div className="casa-dots absolute inset-0 opacity-20" />
             <span className="casa-display px-6 text-center text-3xl leading-[0.85] text-[var(--ink)]">
-              {post.category || "Freelandoo"}
+              {post.category || "E-Views"}
             </span>
           </div>
         )}
@@ -105,7 +105,7 @@ export default async function BlogIndexPage({
       <section className="mx-auto max-w-6xl px-5 pt-12 md:px-10 md:pt-16">
         <div className="flex items-center justify-between border-b-2 border-[var(--ink)] pb-2 casa-body text-[11px] font-extrabold uppercase tracking-[0.18em] text-[var(--ink-soft)]/70">
           <span>Guias práticos</span>
-          <span>Freelandoo · edição contínua</span>
+          <span>E-Views · edição contínua</span>
         </div>
         <h1 className="mt-4 casa-display text-[18vw] leading-[0.8] text-[var(--ink)] sm:text-[14vw] md:text-[11rem]">
           O BLOG

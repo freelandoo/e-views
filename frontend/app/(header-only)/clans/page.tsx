@@ -71,7 +71,7 @@ export default function ClansVitrinePage() {
   return (
     <PageShell>
       <PageHero
-        kicker={<><Users className="h-3.5 w-3.5" /> Times Freelandoo</>}
+        kicker={<><Users className="h-3.5 w-3.5" /> Times E-Views</>}
         title="Clans"
         highlight="em jogo"
         subtitle="Times de até 6 sub-perfis trabalhando juntos. O score combina todas as métricas dos membros."

@@ -3,8 +3,8 @@ import { LegalDocument } from "../_components/legal-document"
 import { legalControllerLine } from "@/lib/legal"
 
 export const metadata: Metadata = {
-  title: "Política de Privacidade — Freelandoo",
-  description: "Entenda como a Freelandoo coleta, usa, compartilha e protege seus dados pessoais, conforme a LGPD.",
+  title: "Política de Privacidade — E-Views",
+  description: "Entenda como a E-Views coleta, usa, compartilha e protege seus dados pessoais, conforme a LGPD.",
 }
 
 const sections = [
@@ -12,7 +12,7 @@ const sections = [
     title: "1. Controlador dos dados e Encarregado",
     items: [
       legalControllerLine(),
-      "O Encarregado pelo Tratamento de Dados Pessoais (DPO) pode ser contatado em freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "O Encarregado pelo Tratamento de Dados Pessoais (DPO) pode ser contatado em e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
       "Esta política observa a Lei Geral de Proteção de Dados (Lei nº 13.709/2018) e o Marco Civil da Internet.",
     ],
   },
@@ -103,7 +103,7 @@ const sections = [
       "Solicitar anonimização, bloqueio ou eliminação de dados desnecessários.",
       "Solicitar a portabilidade dos dados.",
       "Revogar o consentimento e se opor a tratamentos baseados em legítimo interesse.",
-      "Exercer esses direitos por meio do contato com o Encarregado em freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "Exercer esses direitos por meio do contato com o Encarregado em e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
     ],
   },
   {
@@ -123,7 +123,7 @@ const sections = [
   {
     title: "13. Contato",
     paragraphs: [
-      "Dúvidas sobre privacidade, ou contato com o Encarregado de Proteção de Dados, podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599. O titular também pode peticionar à Autoridade Nacional de Proteção de Dados (ANPD).",
+      "Dúvidas sobre privacidade, ou contato com o Encarregado de Proteção de Dados, podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599. O titular também pode peticionar à Autoridade Nacional de Proteção de Dados (ANPD).",
     ],
   },
 ]
@@ -134,9 +134,9 @@ export default function PrivacyPolicyPage() {
       namespace="PrivacyPolicy"
       title="Política de Privacidade"
       updatedAt="Última atualização: 14 de junho de 2026"
-      intro="A Freelandoo valoriza a sua privacidade e se compromete a proteger os dados pessoais dos usuários da plataforma. Esta política explica, de forma transparente, como coletamos, usamos, armazenamos e compartilhamos as informações que você fornece, em conformidade com a Lei Geral de Proteção de Dados."
+      intro="A E-Views valoriza a sua privacidade e se compromete a proteger os dados pessoais dos usuários da plataforma. Esta política explica, de forma transparente, como coletamos, usamos, armazenamos e compartilhamos as informações que você fornece, em conformidade com a Lei Geral de Proteção de Dados."
       sections={sections}
-      footerPrefix="Ao usar o Freelandoo, você concorda com esta Política de Privacidade. Veja também nossos"
+      footerPrefix="Ao usar o E-Views, você concorda com esta Política de Privacidade. Veja também nossos"
       links={[
         { href: "/terms", label: "Termos de Uso" },
         { href: "/cookies-policy", label: "Política de Cookies" },

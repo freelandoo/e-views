@@ -15,7 +15,7 @@ async function lookupZipcode(rawCep) {
 
   try {
     const res = await fetch(`https://viacep.com.br/ws/${digits}/json/`, {
-      headers: { "User-Agent": "Freelandoo (alex.rodriguus@gmail.com)" },
+      headers: { "User-Agent": "E-Views (alex.rodriguus@gmail.com)" },
     });
     if (!res.ok) {
       log.warn("viacep.http_error", { status: res.status, cep: digits });

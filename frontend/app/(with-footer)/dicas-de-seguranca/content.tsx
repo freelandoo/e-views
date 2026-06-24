@@ -22,7 +22,7 @@ const proTips = [
   { title: "Mantenha seu perfil verdadeiro", text: "Informações falsas podem prejudicar sua reputação e levar à remoção da plataforma." },
 ]
 
-const freelandooDoes = [
+const e-viewsDoes = [
   "ajudamos na descoberta",
   "organizamos perfis e filtros",
   "facilitamos contato direto",
@@ -51,7 +51,7 @@ export function DicasDeSegurancaContent() {
             {t("hero.title", "Dicas de segurança")}
           </h1>
           <p className="text-xl text-[#9A938A] mb-4" data-reveal>
-            {t("hero.subtitle", "A Freelandoo conecta pessoas. A segurança começa com informação, clareza e cuidado nas negociações.")}
+            {t("hero.subtitle", "A E-Views conecta pessoas. A segurança começa com informação, clareza e cuidado nas negociações.")}
           </p>
           <p className="text-[#9A938A] leading-relaxed" data-reveal>
             {t("hero.description", "A plataforma ajuda clientes e profissionais a se encontrarem. Em contratações diretas, os combinados, pagamentos e entregas são tratados entre as partes; em transações feitas dentro da plataforma — Loja, agendamentos pagos e cursos — valem as regras dos Termos do Marketplace.")}
@@ -95,17 +95,17 @@ export function DicasDeSegurancaContent() {
         </div>
       </section>
 
-      {/* O PAPEL DA FREELANDOO */}
+      {/* O PAPEL DA E-VIEWS */}
       <section className="py-16 md:py-20 bg-[#1D1810]/20">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold text-[#F5F1E8] mb-4" data-reveal>
-            {t("role.title", "O que a Freelandoo faz")}
+            {t("role.title", "O que a E-Views faz")}
           </h2>
           <p className="text-[#9A938A] mb-10 leading-relaxed" data-reveal>
-            {t("role.description", "A Freelandoo atua como plataforma de divulgação, conexão e, em algumas funcionalidades, intermediação. Em contratações diretas, não participa da negociação, do pagamento nem da entrega. Em transações realizadas dentro da plataforma — Loja, agendamentos pagos e cursos —, processa o pagamento e aplica o período de garantia previsto nos Termos do Marketplace.")}
+            {t("role.description", "A E-Views atua como plataforma de divulgação, conexão e, em algumas funcionalidades, intermediação. Em contratações diretas, não participa da negociação, do pagamento nem da entrega. Em transações realizadas dentro da plataforma — Loja, agendamentos pagos e cursos —, processa o pagamento e aplica o período de garantia previsto nos Termos do Marketplace.")}
           </p>
           <div className="flex flex-wrap gap-3" data-stagger>
-            {freelandooDoes.map((item, i) => (
+            {e-viewsDoes.map((item, i) => (
               <div key={item} className="flex items-center gap-2 bg-[#1D1810] border border-[#2A2218] rounded-full px-4 py-2" data-card>
                 <span className="text-[#C8102E] font-bold text-xs">✓</span>
                 <span className="text-sm text-[#F5F1E8]">{t(`role.items.${i}`, item)}</span>

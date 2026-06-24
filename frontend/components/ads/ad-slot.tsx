@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 
-/** Publisher ID do Google AdSense da Freelandoo. */
+/** Publisher ID do Google AdSense da E-Views. */
 const AD_CLIENT = "ca-pub-5728915466446266"
 
 interface AdSlotProps {

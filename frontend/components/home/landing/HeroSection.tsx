@@ -63,7 +63,7 @@ export function HeroSection() {
               as="span"
               mark={false}
               slot="home_seller_hero_subcopy"
-              fallback="A Freelandoo conecta quem quer *ganhar dinheiro* com quem precisa aprender, criar, comprar e empreender. Onde quiser."
+              fallback="A E-Views conecta quem quer *ganhar dinheiro* com quem precisa aprender, criar, comprar e empreender. Onde quiser."
             />
           </motion.p>
 
@@ -105,7 +105,7 @@ export function HeroSection() {
                 fallback={
                   <PhotoFrame
                     src="/landing/hero.png"
-                    alt="Pessoa feliz usando a Freelandoo no celular"
+                    alt="Pessoa feliz usando a E-Views no celular"
                     icon="star"
                     priority
                     ready

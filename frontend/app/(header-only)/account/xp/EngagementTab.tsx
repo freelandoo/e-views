@@ -2,7 +2,7 @@
 
 /**
  * Aba "Engajamento" da página /account/xp.
- * Painel de métricas no universo Freelandoo (inspirado no analytics do Instagram):
+ * Painel de métricas no universo E-Views (inspirado no analytics do Instagram):
  * views por canal (Stories Trampo/Rest, Bees, Feed), interações, seguidores
  * (acompanham) / seguindo (acompanhados), por Região, por Enxame, top conteúdo
  * e horários ativos. Dados de /api/me/engagement (range 7d/30d/90d).

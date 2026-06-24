@@ -21,7 +21,7 @@ export function FinalCTA() {
             className="aspect-[5/4] w-full"
             sizes="(min-width: 768px) 45vw, 100vw"
             fallback={
-              <PhotoFrame src="/landing/cta-grupo.png" alt="Pessoas felizes ganhando com a Freelandoo" ready torn cut className="h-full w-full" />
+              <PhotoFrame src="/landing/cta-grupo.png" alt="Pessoas felizes ganhando com a E-Views" ready torn cut className="h-full w-full" />
             }
           />
           <WashiTape className="-left-2 top-8" rotate={-12} />
@@ -44,11 +44,11 @@ export function FinalCTA() {
               as="span"
               mark={false}
               slot="home_seller_final_subcopy"
-              fallback="A Freelandoo é para quem quer vender, ensinar, aprender e ganhar mais todos os dias."
+              fallback="A E-Views é para quem quer vender, ensinar, aprender e ganhar mais todos os dias."
             />
           </p>
           <GoldButton href={LINKS.cadastro} className="group mt-8 px-7 py-4 text-base">
-            <EditableText as="span" slot="home_seller_final_cta" fallback="Entrar na Freelandoo e começar agora" />
+            <EditableText as="span" slot="home_seller_final_cta" fallback="Entrar na E-Views e começar agora" />
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
           </GoldButton>
         </div>

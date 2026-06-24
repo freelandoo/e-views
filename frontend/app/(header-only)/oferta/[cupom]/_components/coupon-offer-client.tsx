@@ -38,7 +38,7 @@ export function CouponOfferClient({ code }: { code: string }) {
         href="/"
         className="inline-flex w-full items-center justify-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-5 py-3 text-[12px] font-black uppercase tracking-[0.12em] text-white shadow-[4px_4px_0_0_#0B0B0D] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#0B0B0D]"
       >
-        Explorar Freelandoo
+        Explorar E-Views
         <ArrowRight className="h-4 w-4" />
       </Link>
     </div>

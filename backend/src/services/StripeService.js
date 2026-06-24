@@ -17,7 +17,7 @@ function client() {
 /**
  * Cria Product + Price recorrente anual em BRL. Usado no bootstrap.
  */
-async function createAnnualProductAndPrice({ amount_cents, currency = "BRL", name = "Freelandoo — Anuidade" }) {
+async function createAnnualProductAndPrice({ amount_cents, currency = "BRL", name = "E-Views — Anuidade" }) {
   const stripe = client();
   const product = await stripe.products.create({ name });
   const price = await stripe.prices.create({

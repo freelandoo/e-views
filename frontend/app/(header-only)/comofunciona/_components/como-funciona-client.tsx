@@ -338,7 +338,7 @@ export function ComoFuncionaClient() {
             style={{ textShadow: "0 0 80px rgba(200, 16, 46,0.15)" }}
           >
             Como funciona a{" "}
-            <span style={{ color: yellow }}>Freelandoo</span>
+            <span style={{ color: yellow }}>E-Views</span>
           </h1>
 
           <p
@@ -355,7 +355,7 @@ export function ComoFuncionaClient() {
             className="mt-4 text-base max-w-2xl mx-auto leading-relaxed"
             style={{ color: "#9A938A" }}
           >
-            Na Freelandoo, você não perde tempo navegando por categorias confusas. Você
+            Na E-Views, você não perde tempo navegando por categorias confusas. Você
             escolhe um enxame, encontra profissionais reais, analisa perfis, vê
             portfólios e fala direto pelo WhatsApp.
           </p>
@@ -377,7 +377,7 @@ export function ComoFuncionaClient() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          SEÇÃO 2 — O QUE É A FREELANDOO
+          SEÇÃO 2 — O QUE É A E-VIEWS
       ════════════════════════════════════════════════════════════ */}
       <section ref={section2Ref} className="px-4 py-14 md:py-20" style={sectionStyle}>
         <div className="max-w-6xl mx-auto">
@@ -388,10 +388,10 @@ export function ComoFuncionaClient() {
             </SectionTitle>
             <div className="flex justify-center">
               <SectionSubtitle>
-                A Freelandoo conecta clientes, empresas, criadores e prestadores de serviço de
+                A E-Views conecta clientes, empresas, criadores e prestadores de serviço de
                 forma simples, direta e organizada. Em contratações diretas entre as partes, o
                 contato, os combinados e as entregas acontecem entre elas. Em transações dentro
-                da plataforma — Loja, agendamentos pagos e cursos —, a Freelandoo processa o
+                da plataforma — Loja, agendamentos pagos e cursos —, a E-Views processa o
                 pagamento e aplica o período de garantia.
               </SectionSubtitle>
             </div>
@@ -470,7 +470,7 @@ export function ComoFuncionaClient() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
             {[
               { n: 1, title: "Crie seu perfil", text: "Cadastre suas informações, localização, enxame principal e profissão." },
-              { n: 2, title: "Ative seu perfil", text: "Com a ativação concluída, seu perfil pode aparecer na vitrine pública da Freelandoo." },
+              { n: 2, title: "Ative seu perfil", text: "Com a ativação concluída, seu perfil pode aparecer na vitrine pública da E-Views." },
               { n: 3, title: "Mostre seu trabalho", text: "Use o portfólio para apresentar imagens, vídeos, projetos e provas do que você faz." },
               { n: 4, title: "Receba contatos", text: "Clientes interessados podem chamar você diretamente pelo WhatsApp." },
             ].map((step) => (
@@ -504,7 +504,7 @@ export function ComoFuncionaClient() {
             </SectionTitle>
             <div className="flex justify-center">
               <SectionSubtitle>
-                Em vez de uma lista confusa de categorias, a Freelandoo organiza profissionais
+                Em vez de uma lista confusa de categorias, a E-Views organiza profissionais
                 por intenção. Cada enxame tem profissões próprias, filtros e identidade visual.
               </SectionSubtitle>
             </div>
@@ -564,7 +564,7 @@ export function ComoFuncionaClient() {
               <span style={{ color: yellow }}>que um nome</span>
             </SectionTitle>
             <SectionSubtitle>
-              Na Freelandoo, o perfil é o centro da presença profissional. Ele reúne
+              Na E-Views, o perfil é o centro da presença profissional. Ele reúne
               informações públicas, serviços, portfólio, agenda e formas de contato —
               tudo que o cliente precisa para decidir com clareza.
             </SectionSubtitle>
@@ -603,7 +603,7 @@ export function ComoFuncionaClient() {
             </SectionTitle>
             <SectionSubtitle>
               Os clans permitem organizar grupos, coletivos, redes de profissionais ou
-              criadores dentro da Freelandoo. Um clan pode reunir pessoas de diferentes
+              criadores dentro da E-Views. Um clan pode reunir pessoas de diferentes
               áreas, mostrando a soma de competências disponíveis.
             </SectionSubtitle>
           </div>
@@ -646,7 +646,7 @@ export function ComoFuncionaClient() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 mb-8">
             {[
               { icon: Gift, title: "Gere ou receba seu cupom", text: "O cupom pode ser vinculado a um usuário ou criado manualmente pela administração." },
-              { icon: Share2, title: "Compartilhe", text: "Divulgue seu cupom para pessoas interessadas em ativar perfil na Freelandoo." },
+              { icon: Share2, title: "Compartilhe", text: "Divulgue seu cupom para pessoas interessadas em ativar perfil na E-Views." },
               { icon: BarChart2, title: "Acompanhe conversões", text: "O painel de afiliado mostra histórico, conversões e valores." },
               { icon: DollarSign, title: "Receba comissão", text: "As comissões seguem as regras vigentes e podem ser aprovadas e pagas pela administração." },
             ].map((card) => (
@@ -676,7 +676,7 @@ export function ComoFuncionaClient() {
               <span style={{ color: yellow }}>fortalece sua presença</span>
             </SectionTitle>
             <SectionSubtitle>
-              A Freelandoo mede sinais reais de engajamento para criar rankings e
+              A E-Views mede sinais reais de engajamento para criar rankings e
               indicadores que valorizam profissionais ativos. O objetivo é organizar
               destaque, atividade e reputação dentro da plataforma.
             </SectionSubtitle>
@@ -806,7 +806,7 @@ export function ComoFuncionaClient() {
             </SectionTitle>
             <div className="flex justify-center">
               <SectionSubtitle>
-                Além da conexão direta pelo WhatsApp, a Freelandoo oferece um conjunto
+                Além da conexão direta pelo WhatsApp, a E-Views oferece um conjunto
                 de ferramentas para profissionais venderem, ensinarem, criarem conteúdo
                 e se aproximarem do público.
               </SectionSubtitle>
@@ -853,7 +853,7 @@ export function ComoFuncionaClient() {
           </SectionTitle>
           <div className="flex justify-center">
             <SectionSubtitle>
-              A Freelandoo organiza profissionais, enxames e oportunidades para que a
+              A E-Views organiza profissionais, enxames e oportunidades para que a
               conexão aconteça com menos fricção e mais clareza.
             </SectionSubtitle>
           </div>
@@ -864,7 +864,7 @@ export function ComoFuncionaClient() {
           </div>
 
           <p className="mt-6 text-sm" style={{ color: "#8a8275" }}>
-            Você escolhe o caminho. A Freelandoo organiza a conexão.
+            Você escolhe o caminho. A E-Views organiza a conexão.
           </p>
         </div>
       </section>

@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 import { LegalDocument } from "../_components/legal-document"
 
 export const metadata: Metadata = {
-  title: "Política de Cookies — Freelandoo",
-  description: "Saiba como a Freelandoo utiliza cookies e tecnologias similares, inclusive para publicidade do Google.",
+  title: "Política de Cookies — E-Views",
+  description: "Saiba como a E-Views utiliza cookies e tecnologias similares, inclusive para publicidade do Google.",
 }
 
 const sections = [
@@ -64,7 +64,7 @@ const sections = [
   },
   {
     title: "8. Contato",
-    paragraphs: ["Dúvidas sobre cookies ou privacidade podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
+    paragraphs: ["Dúvidas sobre cookies ou privacidade podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
   },
 ]
 
@@ -74,9 +74,9 @@ export default function CookiesPolicyPage() {
       namespace="CookiesPolicy"
       title="Política de Cookies"
       updatedAt="Última atualização: 21 de maio de 2026"
-      intro="A Freelandoo utiliza cookies e tecnologias similares para melhorar sua experiência, analisar desempenho, fornecer funcionalidades essenciais e exibir anúncios. Esta política explica quais cookies usamos, por que usamos e como você pode controlar suas preferências."
+      intro="A E-Views utiliza cookies e tecnologias similares para melhorar sua experiência, analisar desempenho, fornecer funcionalidades essenciais e exibir anúncios. Esta política explica quais cookies usamos, por que usamos e como você pode controlar suas preferências."
       sections={sections}
-      footerPrefix="Ao continuar navegando no Freelandoo, você concorda com esta Política de Cookies. Veja também nossa"
+      footerPrefix="Ao continuar navegando no E-Views, você concorda com esta Política de Cookies. Veja também nossa"
       links={[{ href: "/privacy-policy", label: "Política de Privacidade" }]}
     />
   )

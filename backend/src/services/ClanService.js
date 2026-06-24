@@ -904,7 +904,7 @@ class ClanService {
           const userEmail = emailRow.rows[0]?.email || undefined;
           const baseUrl =
             process.env.FRONTEND_URL ||
-            "https://freelandoo.com.br";
+            "https://e-views.com";
 
           const session = await StripeService.createOneTimeCheckoutSession({
             amount_cents,

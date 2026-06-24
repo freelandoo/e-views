@@ -80,7 +80,7 @@ class UserController {
   static async exportMe(req, res) {
     const { id_user } = req.user;
     const data = await ExportMeService.execute({ db: pool, id_user });
-    res.setHeader("Content-Disposition", `attachment; filename="freelandoo-dados-${id_user}.json"`);
+    res.setHeader("Content-Disposition", `attachment; filename="e-views-dados-${id_user}.json"`);
     res.setHeader("Content-Type", "application/json");
     return res.json(data);
   }

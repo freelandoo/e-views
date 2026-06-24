@@ -2,15 +2,15 @@ import type { Metadata } from "next"
 import { LegalDocument } from "../_components/legal-document"
 
 export const metadata: Metadata = {
-  title: "Política de Publicidade — Freelandoo",
-  description: "Como a Freelandoo exibe anúncios, usa o Google AdSense e respeita o consentimento do usuário.",
+  title: "Política de Publicidade — E-Views",
+  description: "Como a E-Views exibe anúncios, usa o Google AdSense e respeita o consentimento do usuário.",
 }
 
 const sections = [
   {
     title: "1. Sobre esta política",
     items: [
-      "Esta política explica como a Freelandoo exibe publicidade na plataforma.",
+      "Esta política explica como a E-Views exibe publicidade na plataforma.",
       "Ela complementa a Política de Privacidade e a Política de Cookies.",
       "A receita de publicidade ajuda a manter e a evoluir a plataforma.",
     ],
@@ -18,7 +18,7 @@ const sections = [
   {
     title: "2. Anúncios na plataforma",
     items: [
-      "A Freelandoo pode exibir anúncios próprios e de terceiros.",
+      "A E-Views pode exibir anúncios próprios e de terceiros.",
       "Os anúncios são identificáveis e separados do conteúdo editorial e do conteúdo dos usuários.",
       "A exibição de anúncios pode variar conforme a página, o dispositivo e as preferências do usuário.",
     ],
@@ -56,7 +56,7 @@ const sections = [
     ],
   },
   {
-    title: "7. Compromissos da Freelandoo",
+    title: "7. Compromissos da E-Views",
     items: [
       "Não exibimos publicidade personalizada baseada em dados de Contas Supervisionadas de menores.",
       "Não utilizamos categorias sensíveis de forma indevida para segmentar anúncios.",
@@ -66,12 +66,12 @@ const sections = [
   {
     title: "8. Conteúdo dos anúncios",
     paragraphs: [
-      "Os anúncios de terceiros são selecionados por redes de publicidade, e o seu conteúdo não reflete necessariamente a opinião da Freelandoo. Anúncios impróprios podem ser reportados para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "Os anúncios de terceiros são selecionados por redes de publicidade, e o seu conteúdo não reflete necessariamente a opinião da E-Views. Anúncios impróprios podem ser reportados para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
     ],
   },
   {
     title: "9. Contato",
-    paragraphs: ["Dúvidas sobre publicidade podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
+    paragraphs: ["Dúvidas sobre publicidade podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
   },
 ]
 
@@ -81,9 +81,9 @@ export default function AdvertisingPolicyPage() {
       namespace="AdvertisingPolicy"
       title="Política de Publicidade"
       updatedAt="Última atualização: 21 de maio de 2026"
-      intro="A Freelandoo exibe anúncios para manter a plataforma acessível e em constante evolução. Esta política explica como a publicidade funciona, como utilizamos o Google AdSense e como você pode controlar a personalização dos anúncios."
+      intro="A E-Views exibe anúncios para manter a plataforma acessível e em constante evolução. Esta política explica como a publicidade funciona, como utilizamos o Google AdSense e como você pode controlar a personalização dos anúncios."
       sections={sections}
-      footerPrefix="Esta política complementa a Política de Cookies e a Política de Privacidade da Freelandoo. Veja também nossa"
+      footerPrefix="Esta política complementa a Política de Cookies e a Política de Privacidade da E-Views. Veja também nossa"
       links={[
         { href: "/cookies-policy", label: "Política de Cookies" },
         { href: "/privacy-policy", label: "Política de Privacidade" },

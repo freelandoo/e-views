@@ -8,7 +8,7 @@
   --card-foreground: oklch(0.15 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0 0);
-  /* Marca Freelandoo — dourado #C8102E */
+  /* Marca E-Views — dourado #C8102E */
   --primary: #C8102E;
   --primary-foreground: #ffffff;
   --secondary: oklch(0.96 0.01 85);
@@ -322,10 +322,10 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   FREELANDOO LANDING — design system "Tabloide Editorial Premium" (DARK)
+   E-VIEWS LANDING — design system "Tabloide Editorial Premium" (DARK)
    Direção: capa de tabloide/carrossel virou interface de produto. Caos visual
    controlado: cards de papel rasgado, fita adesiva, rabiscos à mão, halftone,
-   grão de papel, manchetes condensadas GIGANTES. Tema escuro Freelandoo com
+   grão de papel, manchetes condensadas GIGANTES. Tema escuro E-Views com
    off-white de papel para contraste e dourado como acento "de poder".
    Paleta: canvas #141009 · paper #F1EDE2 · ink #0B0B0D · gold #C8102E
    Tipografia: Anton (display) · Archivo (corpo) · Caveat (manuscrito)
@@ -412,7 +412,7 @@
 }
 .fl-hard:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 0 var(--fl-gold); }
 
-/* Cards "Seu caminho dentro da Freelandoo" (home) — movimento dos cards de
+/* Cards "Seu caminho dentro da E-Views" (home) — movimento dos cards de
    participantes da Casa Views (sobe + inclina de leve) somado ao "select"
    amarelo: no hover a sombra dura vira dourada e cresce atrás do card. */
 .mp-card {

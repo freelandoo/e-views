@@ -102,7 +102,7 @@ async function fetchText(url, { timeoutMs = 8000 } = {}) {
     const res = await fetch(url, {
       signal: controller.signal,
       headers: {
-        "User-Agent": "freelandoo-wallet/1.0 (+https://freelandoo.com.br)",
+        "User-Agent": "e-views-wallet/1.0 (+https://e-views.com)",
         Accept: "application/rss+xml, application/xml, text/xml, */*",
       },
     });

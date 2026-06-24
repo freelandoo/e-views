@@ -14,17 +14,17 @@ import {
 } from "@/components/tabloide"
 import { ROUTES } from "@/lib/routes"
 
-const BASE_URL = "https://www.freelandoo.com.br"
+const BASE_URL = "https://www.e-views.com"
 
 export const metadata: Metadata = {
-  title: "Cursos — crie e venda cursos dentro da Freelandoo",
+  title: "Cursos — crie e venda cursos dentro da E-Views",
   description:
-    "Transforme seu conhecimento em renda: monte cursos com módulos e aulas e venda dentro da Freelandoo. As regras comerciais e os pagamentos seguem os termos da plataforma.",
+    "Transforme seu conhecimento em renda: monte cursos com módulos e aulas e venda dentro da E-Views. As regras comerciais e os pagamentos seguem os termos da plataforma.",
   alternates: { canonical: `${BASE_URL}${ROUTES.courses}` },
   openGraph: {
     type: "website",
-    title: "Cursos na Freelandoo",
-    description: "Crie e venda cursos dentro da Freelandoo. Você ensina, a plataforma cuida da venda.",
+    title: "Cursos na E-Views",
+    description: "Crie e venda cursos dentro da E-Views. Você ensina, a plataforma cuida da venda.",
     url: `${BASE_URL}${ROUTES.courses}`,
   },
 }
@@ -58,7 +58,7 @@ export default function CursosPage() {
       <PageHero
         kicker="Cursos"
         title="Crie e venda cursos"
-        highlight="dentro da Freelandoo"
+        highlight="dentro da E-Views"
         subtitle="Você sabe algo que outras pessoas querem aprender. Monte um curso com módulos e aulas, defina o preço e venda para a sua audiência — sem montar uma estrutura própria de pagamento. Você ensina; a plataforma cuida da venda e do acesso."
         actions={
           <>
@@ -77,7 +77,7 @@ export default function CursosPage() {
         <div className="max-w-3xl">
           <SectionHeading>Cursos são uma funcionalidade da plataforma</SectionHeading>
           <p className="mt-4 text-base leading-relaxed text-[#C9C2B6]">
-            Os Cursos são parte da Freelandoo, ao lado do seu perfil profissional, do portfólio, da Loja e da agenda.
+            Os Cursos são parte da E-Views, ao lado do seu perfil profissional, do portfólio, da Loja e da agenda.
             É uma forma de transformar o que você domina em uma fonte de renda que escala: você cria uma vez e vende
             para várias pessoas, sem trabalho extra a cada nova matrícula.
           </p>
@@ -109,7 +109,7 @@ export default function CursosPage() {
           <Badge>Regras comerciais e pagamentos</Badge>
           <h3 className="fl-display mt-3 text-2xl text-[#F5F1E8]">Transparente, dentro das regras da plataforma</h3>
           <p className="mt-3 text-sm leading-relaxed text-[#C9C2B6]">
-            As compras de cursos são processadas dentro da Freelandoo. O preço que você define é o valor que você
+            As compras de cursos são processadas dentro da E-Views. O preço que você define é o valor que você
             recebe como criador; o comprador paga esse valor acrescido das taxas da plataforma, sempre informadas antes
             da conclusão da compra. As condições comerciais, de pagamento, de repasse e de eventual reembolso seguem os
             termos próprios da plataforma.
@@ -123,7 +123,7 @@ export default function CursosPage() {
             </OutlineButton>
           </div>
           <p className="mt-4 text-xs leading-relaxed text-[#9A938A]">
-            A Freelandoo não garante volume de vendas nem resultado. A qualidade e a entrega do conteúdo são de
+            A E-Views não garante volume de vendas nem resultado. A qualidade e a entrega do conteúdo são de
             responsabilidade de quem cria o curso.
           </p>
         </div>

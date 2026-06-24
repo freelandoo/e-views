@@ -95,7 +95,7 @@ export default function ComprasPage() {
         <TabloidPageIntro
           eyebrow={t("storeEyebrow", "Loja")}
           title={t("purchasesTitle", "COMPRAS.")}
-          subtitle={t("purchasesSubtitle", "Pedidos da Loja de criadores Freelandoo, com status, frete e rastreio em um bloco de papel editorial.")}
+          subtitle={t("purchasesSubtitle", "Pedidos da Loja de criadores E-Views, com status, frete e rastreio em um bloco de papel editorial.")}
           back={<TabloidBackLink href="/account">{t("back", "Voltar")}</TabloidBackLink>}
           className="mb-8"
         />

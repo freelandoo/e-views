@@ -164,7 +164,7 @@ export function BeesPost({
     const url = shareCoupon?.code ? buildShareUrlWithCoupon(baseUrl, shareCoupon.code) : baseUrl
 
     const shareData: ShareData = {
-      title: post.profile_name || "Freelandoo", // marca, não traduz
+      title: post.profile_name || "E-Views", // marca, não traduz
       text: post.title || post.caption || "",
       url,
     }

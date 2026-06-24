@@ -32,7 +32,7 @@ export function MachinesIntentSection() {
       <SectionTitle
         eyebrow="enxames de intenção"
         title={<>Os enxames mostram seu trabalho para a intenção certa.</>}
-        desc="Na Freelandoo, profissionais não ficam jogados em uma lista genérica. Eles entram em enxames de intenção — e cada enxame tem público próprio."
+        desc="Na E-Views, profissionais não ficam jogados em uma lista genérica. Eles entram em enxames de intenção — e cada enxame tem público próprio."
       />
 
       <motion.div

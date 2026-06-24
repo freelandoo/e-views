@@ -44,7 +44,7 @@ export function TourHelpCenter() {
       <section className="mt-10 rounded-2xl border border-[#2A2218] bg-[#1D1810] p-7 text-left">
         <h3 className="fl-display text-2xl text-[#F5F1E8]">Novo por aqui?</h3>
         <p className="mt-2 text-sm leading-relaxed text-[#9A938A]">
-          Faça um tour rápido e guiado pela Freelandoo para entender perfil, vitrine, serviços e muito mais.
+          Faça um tour rápido e guiado pela E-Views para entender perfil, vitrine, serviços e muito mais.
         </p>
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
           <button

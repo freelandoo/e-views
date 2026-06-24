@@ -122,7 +122,7 @@ export default function LoginPage() {
       <AuthCard
         className="fl-sharp"
         title={t("login", "Entrar")}
-        subtitle={t("alreadyHaveAccount", "Faça login para acessar sua conta na Freelandoo")}
+        subtitle={t("alreadyHaveAccount", "Faça login para acessar sua conta na E-Views")}
         footer={
           <>
             {t("noAccount", "Não tem uma conta?")}{" "}

@@ -47,14 +47,14 @@ export async function generateMetadata({
   const clan = await fetchPublicClan(id_profile)
   if (!clan) {
     return {
-      title: "Clan não encontrado · Freelandoo",
+      title: "Clan não encontrado · E-Views",
       robots: { index: false, follow: false },
     }
   }
   const place =
     [clan.municipio, clan.estado].filter(Boolean).join(" — ") || "Brasil"
   return {
-    title: `${clan.display_name} · Clan ${clan.machine_name ?? ""} · Freelandoo`,
+    title: `${clan.display_name} · Clan ${clan.machine_name ?? ""} · E-Views`,
     description:
       clan.bio ||
       `Clan ${clan.display_name} — ${clan.members_count} membros em ${place}.`,

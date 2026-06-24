@@ -279,8 +279,8 @@ export default function PerfilPage() {
   React.useEffect(() => {
     if (!perfil) return
     const handler = () => openEditModal()
-    window.addEventListener("freelandoo:open-account-edit", handler)
-    return () => window.removeEventListener("freelandoo:open-account-edit", handler)
+    window.addEventListener("e-views:open-account-edit", handler)
+    return () => window.removeEventListener("e-views:open-account-edit", handler)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [perfil])
 
@@ -1464,7 +1464,7 @@ export default function PerfilPage() {
               <DropdownMenuItem
                 onSelect={() =>
                   window.dispatchEvent(
-                    new CustomEvent("freelandoo:create", { detail: { kind: "post" } }),
+                    new CustomEvent("e-views:create", { detail: { kind: "post" } }),
                   )
                 }
               >
@@ -1474,7 +1474,7 @@ export default function PerfilPage() {
               <DropdownMenuItem
                 onSelect={() =>
                   window.dispatchEvent(
-                    new CustomEvent("freelandoo:create", { detail: { kind: "bees" } }),
+                    new CustomEvent("e-views:create", { detail: { kind: "bees" } }),
                   )
                 }
               >
@@ -1500,7 +1500,7 @@ export default function PerfilPage() {
               <DropdownMenuItem
                 onSelect={() =>
                   window.dispatchEvent(
-                    new CustomEvent("freelandoo:create", { detail: { kind: "curso" } }),
+                    new CustomEvent("e-views:create", { detail: { kind: "curso" } }),
                   )
                 }
               >

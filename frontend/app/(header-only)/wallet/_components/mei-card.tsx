@@ -1,7 +1,7 @@
 "use client"
 
 // Camada MEI/Recibo da Carteira (v1): termômetro do teto MEI (R$81k/ano,
-// faturamento realizado via Freelandoo), lembrete do DAS, emissão de recibo de
+// faturamento realizado via E-Views), lembrete do DAS, emissão de recibo de
 // prestação de serviço (impresso via window.print) e configuração dos dados
 // fiscais do prestador. Identidade tabloide verde da Carteira.
 //
@@ -177,7 +177,7 @@ export function MeiCard() {
 
       {/* Termômetro do teto */}
       <p className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#6B6457]">
-        {t("thermoLabel", "Faturamento via Freelandoo")}
+        {t("thermoLabel", "Faturamento via E-Views")}
       </p>
       <div className="mt-1 flex items-end justify-between gap-2">
         <span className="fl-display text-2xl leading-none" style={{ color: GREEN_DEEP }}>{brl(data.gross_cents, locale)}</span>
@@ -206,7 +206,7 @@ export function MeiCard() {
       )}
 
       <p className="mt-3 text-[10px] leading-relaxed text-[#6B6457]/80">
-        {t("disclaimer", "Estimativa do que entrou pela plataforma neste ano. Receita fora da Freelandoo também conta no teto — confirme com seu contador.")}
+        {t("disclaimer", "Estimativa do que entrou pela plataforma neste ano. Receita fora da E-Views também conta no teto — confirme com seu contador.")}
       </p>
 
       {RECEIPTS_ENABLED && (

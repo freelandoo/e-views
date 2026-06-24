@@ -389,7 +389,7 @@ export default function ManifestacaoPage() {
                   </Link>
                 </span>
               )}
-              <ShareIconButton path="/manifestacao" title={t("shareTitle", "Loja de Manifestações no Freelandoo")} />
+              <ShareIconButton path="/manifestacao" title={t("shareTitle", "Loja de Manifestações no E-Views")} />
             </>
           }
         />

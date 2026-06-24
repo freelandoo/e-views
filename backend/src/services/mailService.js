@@ -145,7 +145,7 @@ async function sendBookingReminderEmail({ to, clientName, proName, dateLabel, ti
             Se precisar remarcar, é só responder por lá ou avisar com antecedência.
           </p>
           <hr />
-          <p style="font-size:12px;color:#888">Lembrete automático enviado pela Freelandoo.</p>
+          <p style="font-size:12px;color:#888">Lembrete automático enviado pela E-Views.</p>
         </div>
       `,
     });

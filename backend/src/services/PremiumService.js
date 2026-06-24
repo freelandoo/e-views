@@ -187,7 +187,7 @@ class PremiumService {
       });
       if (taken >= pricing.slots) return { error: "Cidade lotada — sem vagas premium disponíveis" };
 
-      const frontend = String(process.env.FRONTEND_URL || "https://freelandoo.com").replace(/\/$/, "");
+      const frontend = String(process.env.FRONTEND_URL || "https://e-views.com").replace(/\/$/, "");
       const session = await StripeService.createOneTimeCheckoutSession({
         amount_cents: pricing.price_cents,
         currency: "BRL",

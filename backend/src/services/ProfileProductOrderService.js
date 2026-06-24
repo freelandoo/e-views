@@ -105,7 +105,7 @@ class ProfileProductOrderService {
       // Comissão de afiliado embutida no display (sem frete) — total do pedido.
       const affiliate_commission_total = (pricing.affiliate_commission_cents || 0) * quantity;
 
-      const frontend = String(process.env.FRONTEND_URL || "https://freelandoo.com").replace(/\/$/, "");
+      const frontend = String(process.env.FRONTEND_URL || "https://e-views.com").replace(/\/$/, "");
       const successUrl = `${frontend}/account/compras?status=success&session_id={CHECKOUT_SESSION_ID}`;
       const cancelUrl = `${frontend}/p/${product.id_profile}/produto/${id_profile_product}?status=cancel`;
 

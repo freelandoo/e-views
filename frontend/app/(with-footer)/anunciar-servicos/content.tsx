@@ -14,14 +14,14 @@ const benefits = [
 const steps = [
   { n: "1", title: "Crie sua conta", text: "Cadastre seus dados básicos e acesse sua área de perfil." },
   { n: "2", title: "Monte seu perfil", text: "Escolha seu enxame, profissão, cidade, estado, descrição, foto e informações principais." },
-  { n: "3", title: "Ative seu perfil", text: "Com a ativação concluída, seu perfil pode aparecer na vitrine pública da Freelandoo." },
+  { n: "3", title: "Ative seu perfil", text: "Com a ativação concluída, seu perfil pode aparecer na vitrine pública da E-Views." },
   { n: "4", title: "Publique seu portfólio", text: "Adicione trabalhos e exemplos para aumentar a confiança de quem visita seu perfil." },
   { n: "5", title: "Receba contatos", text: "Clientes podem encontrar seu perfil e chamar você diretamente pelo WhatsApp." },
 ]
 
 const included = [
   "Perfil profissional público",
-  "Exibição na vitrine da Freelandoo",
+  "Exibição na vitrine da E-Views",
   "Participação em um enxame principal",
   "Cadastro de profissão e localização",
   "Portfólio com trabalhos",
@@ -59,10 +59,10 @@ export function AnunciarServicosContent() {
             {t("hero.title", "Anuncie seus serviços e seja encontrado por quem precisa de você")}
           </h1>
           <p className="text-xl text-[#9A938A] max-w-2xl mb-4" data-reveal>
-            {t("hero.subtitle", "Crie seu perfil profissional, apareça nos enxames da Freelandoo e receba contatos diretos de pessoas interessadas no que você faz.")}
+            {t("hero.subtitle", "Crie seu perfil profissional, apareça nos enxames da E-Views e receba contatos diretos de pessoas interessadas no que você faz.")}
           </p>
           <p className="text-[#9A938A] max-w-2xl mb-8 leading-relaxed" data-reveal>
-            {t("hero.description", "A Freelandoo é uma vitrine inteligente para profissionais, freelancers, criadores e prestadores de serviço. Você paga uma ativação única, mantém seu perfil ativo e pode ser encontrado por clientes que procuram exatamente o tipo de solução que você oferece.")}
+            {t("hero.description", "A E-Views é uma vitrine inteligente para profissionais, freelancers, criadores e prestadores de serviço. Você paga uma ativação única, mantém seu perfil ativo e pode ser encontrado por clientes que procuram exatamente o tipo de solução que você oferece.")}
           </p>
           <div className="flex flex-wrap gap-4" data-reveal>
             <Link href="/cadastro" className="inline-flex items-center bg-[#C8102E] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#C8102E]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
@@ -85,7 +85,7 @@ export function AnunciarServicosContent() {
             {t("benefits.title", "Sua presença profissional em uma vitrine feita para gerar oportunidades")}
           </h2>
           <p className="text-[#9A938A] mb-12 max-w-2xl leading-relaxed" data-reveal>
-            {t("benefits.description", "Muitos profissionais dependem apenas de indicação, redes sociais ou grupos de mensagem para conseguir clientes. A Freelandoo organiza sua presença em um perfil público, com informações claras, portfólio, serviços, localização e formas de contato.")}
+            {t("benefits.description", "Muitos profissionais dependem apenas de indicação, redes sociais ou grupos de mensagem para conseguir clientes. A E-Views organiza sua presença em um perfil público, com informações claras, portfólio, serviços, localização e formas de contato.")}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" data-stagger>
             {benefits.map((card, i) => (
@@ -138,7 +138,7 @@ export function AnunciarServicosContent() {
             ))}
           </div>
           <p className="mt-8 text-sm text-[#9A938A] leading-relaxed" data-reveal>
-            {t("included.note", "A Freelandoo organiza sua presença para que clientes entendam melhor quem você é, o que você faz e como falar com você.")}
+            {t("included.note", "A E-Views organiza sua presença para que clientes entendam melhor quem você é, o que você faz e como falar com você.")}
           </p>
         </div>
       </section>
@@ -150,7 +150,7 @@ export function AnunciarServicosContent() {
             {t("activation.title", "Uma ativação única simples")}
           </h2>
           <p className="text-[#9A938A] mb-10 leading-relaxed" data-reveal>
-            {t("activation.description", "A ativação da Freelandoo custa R$ 300 em pagamento único. Esse valor mantém seu perfil ativo na plataforma e permite que ele participe da vitrine pública, de acordo com as regras e categorias disponíveis.")}
+            {t("activation.description", "A ativação da E-Views custa R$ 300 em pagamento único. Esse valor mantém seu perfil ativo na plataforma e permite que ele participe da vitrine pública, de acordo com as regras e categorias disponíveis.")}
           </p>
           <div className="bg-[#1D1810] border border-[#C8102E]/20 rounded-2xl p-8 shadow-[0_0_50px_rgba(242,196,9,0.06)] mb-6" data-reveal>
             <div className="text-5xl font-bold text-[#C8102E] mb-1">R$ 300</div>
@@ -180,7 +180,7 @@ export function AnunciarServicosContent() {
             {t("audience.title", "Feito para quem trabalha, cria, atende e resolve")}
           </h2>
           <p className="text-[#9A938A] mb-10" data-reveal>
-            {t("audience.description", "A Freelandoo é para profissionais que querem ser encontrados de forma mais organizada.")}
+            {t("audience.description", "A E-Views é para profissionais que querem ser encontrados de forma mais organizada.")}
           </p>
           <div className="flex flex-wrap gap-3" data-stagger>
             {tags.map((tag, i) => (
@@ -200,7 +200,7 @@ export function AnunciarServicosContent() {
             {t("final.title", "Seu trabalho precisa ser visto")}
           </h2>
           <p className="text-[#9A938A] mb-10 max-w-lg mx-auto leading-relaxed" data-reveal>
-            {t("final.description", "Crie seu perfil, faça a ativação e comece a construir sua presença na Freelandoo.")}
+            {t("final.description", "Crie seu perfil, faça a ativação e comece a construir sua presença na E-Views.")}
           </p>
           <div className="flex flex-wrap gap-4 justify-center" data-reveal>
             <Link href="/cadastro" className="inline-flex items-center bg-[#C8102E] text-white font-semibold px-8 py-4 rounded-lg hover:bg-[#C8102E]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all text-lg">

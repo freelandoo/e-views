@@ -43,8 +43,8 @@ export function EarnMoneySection() {
     <SectionWrap id="earn" bg="lift">
       <SectionTitle
         eyebrow="ganhar dinheiro"
-        title={<>Três formas de ganhar dinheiro na Freelandoo.</>}
-        desc="Venda serviços, publique portfólio, receba mensagens e use a Freelandoo como vitrine social profissional."
+        title={<>Três formas de ganhar dinheiro na E-Views.</>}
+        desc="Venda serviços, publique portfólio, receba mensagens e use a E-Views como vitrine social profissional."
         accent
       />
 
@@ -155,7 +155,7 @@ export function ForWhomSection() {
           <SectionTitle
             eyebrow="para quem é"
             title={<>Feita para quem vive de trabalho, serviço e reputação.</>}
-            desc="Se a sua renda depende do seu trabalho aparecer e da sua reputação ser vista, a Freelandoo é o seu canal."
+            desc="Se a sua renda depende do seu trabalho aparecer e da sua reputação ser vista, a E-Views é o seu canal."
           />
         </div>
 

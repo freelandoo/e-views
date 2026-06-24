@@ -2,15 +2,15 @@ import type { Metadata } from "next"
 import { LegalDocument } from "../_components/legal-document"
 
 export const metadata: Metadata = {
-  title: "Política de Trocas, Devoluções e Frete — Freelandoo",
-  description: "Como funcionam o arrependimento, a devolução, a troca, o frete e o reembolso na Loja da Freelandoo.",
+  title: "Política de Trocas, Devoluções e Frete — E-Views",
+  description: "Como funcionam o arrependimento, a devolução, a troca, o frete e o reembolso na Loja da E-Views.",
 }
 
 const sections = [
   {
     title: "1. Aplicação desta política",
     items: [
-      "Esta política aplica-se às compras de produtos realizadas na Loja da Freelandoo.",
+      "Esta política aplica-se às compras de produtos realizadas na Loja da E-Views.",
       "Os direitos aqui descritos observam o Código de Defesa do Consumidor (Lei nº 8.078/1990).",
       "Serviços e produtos negociados diretamente entre usuários, fora da plataforma, não são cobertos por esta política.",
     ],
@@ -35,7 +35,7 @@ const sections = [
   {
     title: "4. Como solicitar devolução ou troca",
     items: [
-      "A solicitação deve ser feita pelos canais da plataforma ou por freelandoogroup@gmail.com, dentro dos prazos aplicáveis.",
+      "A solicitação deve ser feita pelos canais da plataforma ou por e-viewsgroup@gmail.com, dentro dos prazos aplicáveis.",
       "O comprador deve informar o número do pedido e descrever o motivo, anexando fotos quando houver defeito.",
       "Após a análise, a plataforma orienta os próximos passos para a devolução.",
     ],
@@ -68,7 +68,7 @@ const sections = [
       "Produtos danificados por mau uso após o recebimento.",
       "Produtos personalizados ou perecíveis, quando a devolução for incompatível com a natureza do item.",
       "Solicitações feitas fora dos prazos legais.",
-      "Compras realizadas fora da Loja da Freelandoo.",
+      "Compras realizadas fora da Loja da E-Views.",
     ],
   },
   {
@@ -79,7 +79,7 @@ const sections = [
   },
   {
     title: "10. Contato",
-    paragraphs: ["Dúvidas sobre trocas, devoluções e frete podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
+    paragraphs: ["Dúvidas sobre trocas, devoluções e frete podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
   },
 ]
 
@@ -89,9 +89,9 @@ export default function ReturnPolicyPage() {
       namespace="ReturnPolicy"
       title="Política de Trocas, Devoluções e Frete"
       updatedAt="Última atualização: 21 de maio de 2026"
-      intro="Esta política explica como funcionam o direito de arrependimento, a devolução de produtos com defeito, as trocas, o frete e o reembolso nas compras realizadas na Loja da Freelandoo, em conformidade com o Código de Defesa do Consumidor."
+      intro="Esta política explica como funcionam o direito de arrependimento, a devolução de produtos com defeito, as trocas, o frete e o reembolso nas compras realizadas na Loja da E-Views, em conformidade com o Código de Defesa do Consumidor."
       sections={sections}
-      footerPrefix="Esta política integra os Termos do Marketplace da Freelandoo. Veja também nossos"
+      footerPrefix="Esta política integra os Termos do Marketplace da E-Views. Veja também nossos"
       links={[
         { href: "/marketplace-terms", label: "Termos do Marketplace" },
         { href: "/terms", label: "Termos de Uso" },

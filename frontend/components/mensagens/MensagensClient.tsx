@@ -1622,7 +1622,7 @@ export default function MensagensClient() {
               <ChatRoomPanel
                 kind="global"
                 pageTitle={t("liveChat", "Chat ao vivo")}
-                pageSubtitle={t("globalChatPageSubtitle", "Sala global — todos os usuários do Freelandoo")}
+                pageSubtitle={t("globalChatPageSubtitle", "Sala global — todos os usuários do E-Views")}
                 onBack={() => handleSelectTab("conv")}
               />
             </div>

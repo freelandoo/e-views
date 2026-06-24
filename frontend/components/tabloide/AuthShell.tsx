@@ -43,9 +43,9 @@ export function AuthShell({
       <HiveDoodle className="pointer-events-none absolute -right-12 -top-12 h-56 w-56 text-[#C8102E]/10" />
       <Halftone className="pointer-events-none absolute bottom-10 left-10 h-28 w-36 opacity-[0.10]" />
 
-      <Link href="/" className="relative mb-6 flex items-center gap-2" aria-label="Freelandoo">
-        <Image src="/freelandoo-logo.png" alt="Freelandoo" width={200} height={56} className="h-8 w-auto" priority />
-        <span className="text-xl font-black text-[#F5F1E8]">freelandoo</span>
+      <Link href="/" className="relative mb-6 flex items-center gap-2" aria-label="E-Views">
+        <Image src="/e-views-logo.png" alt="E-Views" width={200} height={56} className="h-8 w-auto" priority />
+        <span className="text-xl font-black text-[#F5F1E8]">e-views</span>
       </Link>
 
       {(eyebrow || asideTitle) && (

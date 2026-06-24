@@ -63,8 +63,8 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr_1.2fr]">
           <div>
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/freelandoo-logo.png" alt="Freelandoo" width={200} height={56} className="h-8 w-auto" />
-              <span className="text-xl font-black">freelandoo</span>
+              <Image src="/e-views-logo.png" alt="E-Views" width={200} height={56} className="h-8 w-auto" />
+              <span className="text-xl font-black">e-views</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[#9A938A]">
               {tFooter("tagline", "Conectando profissionais e clientes.")}
@@ -105,8 +105,8 @@ export function SiteFooter() {
             <h3 className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-[#C8102E]">{tFooter("contact", "Contato")}</h3>
             <ul className="mt-4 space-y-2.5">
               <li>
-                <a href="mailto:freelandoogroup@gmail.com" className="text-sm text-[#C9C2B6] transition hover:text-[#F5F1E8]">
-                  freelandoogroup@gmail.com
+                <a href="mailto:e-viewsgroup@gmail.com" className="text-sm text-[#C9C2B6] transition hover:text-[#F5F1E8]">
+                  e-viewsgroup@gmail.com
                 </a>
               </li>
               <li>
@@ -118,7 +118,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-[#C8102E]">{tFooter("followUs", "Siga a Freelandoo")}</h3>
+            <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-[#C8102E]">{tFooter("followUs", "Siga a E-Views")}</h3>
             <div className="mt-4 flex flex-wrap gap-2">
               <a
                 href="https://www.instagram.com/printtei_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @printtei_"
@@ -149,7 +149,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-10 border-t border-[#F5F1E8]/10 pt-6 text-center text-xs text-[#9A938A]">
-          <p>&copy; {new Date().getFullYear()} Freelandoo. {tFooter("copyright", "Todos os direitos reservados.")}</p>
+          <p>&copy; {new Date().getFullYear()} E-Views. {tFooter("copyright", "Todos os direitos reservados.")}</p>
         </div>
       </div>
     </footer>

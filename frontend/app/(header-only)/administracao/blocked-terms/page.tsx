@@ -214,7 +214,7 @@ function BlockedTermsInner({ embedded = false }: { embedded?: boolean }) {
             <ShieldX className="h-6 w-6 text-primary" aria-hidden />
             <div>
               <h1 className="text-2xl font-bold">Termos bloqueados</h1>
-              <p className="text-xs text-muted-foreground">Lista própria do Freelandoo (complementa o filtro base).</p>
+              <p className="text-xs text-muted-foreground">Lista própria do E-Views (complementa o filtro base).</p>
             </div>
           </div>
           <button

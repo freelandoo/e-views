@@ -3,7 +3,7 @@
 // Picker de música do composer (aba "Música"). Consome GET /api/audio-library
 // (biblioteca curada por admin, mig 107). A faixa escolhida vira metadado
 // (id + offset) anexado à publicação — NÃO é queimada na mídia (slice 5).
-// Pele Freelandoo Tabloide.
+// Pele E-Views Tabloide.
 
 import { useEffect, useRef, useState } from "react"
 import { Loader2, Music, Pause, Play, Search, X } from "lucide-react"

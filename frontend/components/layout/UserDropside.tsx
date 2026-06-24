@@ -76,7 +76,7 @@ export function UserDropside({ open, onClose, user, unreadServiceRequest, onLogo
   const openAccountEdit = () => {
     onClose()
     if (typeof window !== "undefined" && window.location.pathname === "/account") {
-      window.dispatchEvent(new Event("freelandoo:open-account-edit"))
+      window.dispatchEvent(new Event("e-views:open-account-edit"))
     } else {
       router.push("/account?edit=1")
     }
@@ -220,7 +220,7 @@ export function UserDropside({ open, onClose, user, unreadServiceRequest, onLogo
         <header className="border-b border-white/8 px-5 py-4">
           <div className="mb-4 flex items-center justify-between gap-3">
             <Link href="/" onClick={onClose} className="text-lg font-black tracking-tight text-primary">
-              Freelandoo
+              E-Views
             </Link>
             <button
               type="button"

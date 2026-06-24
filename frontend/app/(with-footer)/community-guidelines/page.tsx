@@ -2,15 +2,15 @@ import type { Metadata } from "next"
 import { LegalDocument } from "../_components/legal-document"
 
 export const metadata: Metadata = {
-  title: "Diretrizes da Comunidade — Freelandoo",
-  description: "As regras de conteúdo e convivência para perfis, feed, vídeos, stories, mensagens e chat na Freelandoo.",
+  title: "Diretrizes da Comunidade — E-Views",
+  description: "As regras de conteúdo e convivência para perfis, feed, vídeos, stories, mensagens e chat na E-Views.",
 }
 
 const sections = [
   {
     title: "1. Propósito destas diretrizes",
     items: [
-      "Estas diretrizes valem para todo conteúdo e interação na Freelandoo, incluindo perfis, portfólios, Feed, Bees, Stories, comentários, mensagens e salas de chat.",
+      "Estas diretrizes valem para todo conteúdo e interação na E-Views, incluindo perfis, portfólios, Feed, Bees, Stories, comentários, mensagens e salas de chat.",
       "O objetivo é manter um ambiente profissional, seguro e respeitoso para todos os usuários.",
       "Estas diretrizes complementam os Termos de Uso; a sua violação pode gerar sanções.",
     ],
@@ -92,12 +92,12 @@ const sections = [
   {
     title: "10. Como denunciar",
     paragraphs: [
-      "Conteúdo ou conduta que viole estas diretrizes pode ser denunciado pelos botões de denúncia da plataforma ou pelo e-mail freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "Conteúdo ou conduta que viole estas diretrizes pode ser denunciado pelos botões de denúncia da plataforma ou pelo e-mail e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
     ],
   },
   {
     title: "11. Contato",
-    paragraphs: ["Dúvidas sobre estas diretrizes podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
+    paragraphs: ["Dúvidas sobre estas diretrizes podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
   },
 ]
 
@@ -107,9 +107,9 @@ export default function CommunityGuidelinesPage() {
       namespace="CommunityGuidelines"
       title="Diretrizes da Comunidade"
       updatedAt="Última atualização: 14 de junho de 2026"
-      intro="A Freelandoo é uma comunidade de profissionais e criadores. Estas diretrizes definem o que é esperado de todo conteúdo e interação na plataforma, para que o ambiente permaneça seguro, respeitoso e profissional."
+      intro="A E-Views é uma comunidade de profissionais e criadores. Estas diretrizes definem o que é esperado de todo conteúdo e interação na plataforma, para que o ambiente permaneça seguro, respeitoso e profissional."
       sections={sections}
-      footerPrefix="Ao publicar conteúdo na Freelandoo, você concorda com estas Diretrizes da Comunidade. Veja também nossa"
+      footerPrefix="Ao publicar conteúdo na E-Views, você concorda com estas Diretrizes da Comunidade. Veja também nossa"
       links={[
         { href: "/moderation-policy", label: "Política de Moderação e Denúncias" },
         { href: "/terms", label: "Termos de Uso" },

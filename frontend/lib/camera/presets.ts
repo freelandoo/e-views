@@ -62,7 +62,7 @@ export const PRESETS: Preset[] = [
     id: "tabloide",
     label: "Tabloide",
     swatch: "linear-gradient(135deg,#facc15,#1c1917)",
-    // Identidade Freelandoo: jornal — alto contraste, dessaturado, papel quente,
+    // Identidade E-Views: jornal — alto contraste, dessaturado, papel quente,
     // grão e vinheta. Combina bem com moldura "tabloide".
     filter: f({
       contrast: 0.38,

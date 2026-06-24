@@ -460,7 +460,7 @@ function GovernanceTab() {
             </div>
           </div>
           <p className="mt-2 text-[10px] text-muted-foreground">
-            No modo automático, no webhook <span className="font-mono">charge.succeeded</span> o Freelandoo lê o valor real que a Stripe cobrou
+            No modo automático, no webhook <span className="font-mono">charge.succeeded</span> o E-Views lê o valor real que a Stripe cobrou
             (<span className="font-mono">balance_transaction.fee</span>) e substitui o estimado no pedido. O vendedor sempre recebe o valor cravado;
             a diferença entre estimado e real é absorvida pela plataforma.
           </p>

@@ -39,7 +39,7 @@ router.delete(
   asyncHandler(CasaParticipantController.deleteAudienceComment),
 );
 
-// Conveniencia Views: compra exige login (identidade Freelandoo).
+// Conveniencia Views: compra exige login (identidade E-Views).
 router.post("/checkout", authMiddleware, asyncHandler(CasaParticipantController.createProductCheckout));
 router.get("/orders", authMiddleware, asyncHandler(CasaParticipantController.listMyOrders));
 

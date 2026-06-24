@@ -7,7 +7,7 @@ const { createLogger, runWithLogs } = require("../utils/logger");
 const log = createLogger("BookingReminderService");
 
 const WEB_URL =
-  process.env.FRONTEND_URL || process.env.PUBLIC_WEB_URL || "https://www.freelandoo.com.br";
+  process.env.FRONTEND_URL || process.env.PUBLIC_WEB_URL || "https://www.e-views.com";
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
@@ -53,7 +53,7 @@ class BookingReminderService {
         await sendBookingReminderEmail({
           to: b.client_email,
           clientName: b.client_name || "",
-          proName: b.pro_name || "Freelandoo",
+          proName: b.pro_name || "E-Views",
           dateLabel: dateLabelBR(b.booking_date),
           timeLabel: String(b.start_time || "").slice(0, 5),
           confirmUrl: `${WEB_URL}/agendamento/confirmar/${token}`,

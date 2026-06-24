@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 /**
  * Proxy server-side da config da Audiência (data de início). Lê RANKING_API_URL
  * no servidor. GET é público (lê a data atual). POST repassa o Authorization do
- * admin para o módulo de ranking, que valida o admin via Freelandoo.
+ * admin para o módulo de ranking, que valida o admin via E-Views.
  */
 export const dynamic = "force-dynamic"
 

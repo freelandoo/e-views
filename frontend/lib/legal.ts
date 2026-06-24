@@ -17,8 +17,8 @@ const env = (v?: string) => {
   return s.length > 0 ? s : null
 }
 
-/** Nome/razão social da controladora. Fallback seguro: "Freelandoo". */
-export const LEGAL_COMPANY_NAME = env(process.env.NEXT_PUBLIC_LEGAL_COMPANY_NAME) || "Freelandoo"
+/** Nome/razão social da controladora. Fallback seguro: "E-Views". */
+export const LEGAL_COMPANY_NAME = env(process.env.NEXT_PUBLIC_LEGAL_COMPANY_NAME) || "E-Views"
 
 /** CNPJ da controladora. `null` enquanto não informado. */
 export const LEGAL_COMPANY_DOCUMENT = env(process.env.NEXT_PUBLIC_LEGAL_COMPANY_DOCUMENT)
@@ -27,7 +27,7 @@ export const LEGAL_COMPANY_DOCUMENT = env(process.env.NEXT_PUBLIC_LEGAL_COMPANY_
 export const LEGAL_COMPANY_ADDRESS = env(process.env.NEXT_PUBLIC_LEGAL_COMPANY_ADDRESS)
 
 /** Contatos oficiais (também usados nos documentos legais). */
-export const LEGAL_CONTACT_EMAIL = "freelandoogroup@gmail.com"
+export const LEGAL_CONTACT_EMAIL = "e-viewsgroup@gmail.com"
 export const LEGAL_CONTACT_WHATSAPP = "(11) 96275-7599"
 
 /**

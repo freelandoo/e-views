@@ -57,11 +57,11 @@ export async function generateMetadata({
   const { itemId } = await params
   const item = await fetchItem(itemId)
   if (!item) {
-    return { title: "Item não encontrado | Freelandoo" }
+    return { title: "Item não encontrado | E-Views" }
   }
   const author = item.profile_display_name ?? "Freelancer"
-  const title = item.title ? `${item.title} — ${author} | Freelandoo` : `Portfólio de ${author} | Freelandoo`
-  const description = item.description ?? `Confira o portfólio de ${author} na Freelandoo.`
+  const title = item.title ? `${item.title} — ${author} | E-Views` : `Portfólio de ${author} | E-Views`
+  const description = item.description ?? `Confira o portfólio de ${author} na E-Views.`
   const firstImage = item.media.find((m) => m.media_type !== "video")?.media_url
     ?? item.media[0]?.thumbnail_url
     ?? item.media[0]?.media_url

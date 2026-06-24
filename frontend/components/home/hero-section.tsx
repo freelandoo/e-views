@@ -27,8 +27,8 @@ export function HeroSection() {
       <div className="container relative z-10 mx-auto flex min-h-[min(85vh,720px)] flex-col items-center justify-center px-4 py-16 text-center">
         <div className="relative mx-auto mb-6 h-24 w-full max-w-2xl sm:h-32 md:mb-8 md:h-40">
           <Image
-            src="/freelandoo-logo.png"
-            alt="Freelandoo"
+            src="/e-views-logo.png"
+            alt="E-Views"
             fill
             className="object-contain object-center drop-shadow-[0_4px_24px_rgba(0,0,0,0.45)]"
             priority

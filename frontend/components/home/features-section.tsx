@@ -25,7 +25,7 @@ export function FeaturesSection() {
       <div className="container mx-auto px-4">
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <h2 className="mb-4 text-balance text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-            Por que escolher a <span className="text-primary">Freelandoo</span>?
+            Por que escolher a <span className="text-primary">E-Views</span>?
           </h2>
           <p className="text-pretty text-lg text-muted-foreground">
             Empresas encontram creators com facilidade, no tamanho certo para cada campanha e orçamento

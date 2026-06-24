@@ -67,7 +67,7 @@ async function purchaseLabel(ctx) {
     throw new Error("Não foi possível resolver endereço de origem via ViaCEP");
   }
 
-  const fromName = sanitize(seller.nome, 80) || "Freelandoo Vendedor";
+  const fromName = sanitize(seller.nome, 80) || "E-Views Vendedor";
   // Em produção o Melhor Envio valida CPF/CNPJ (dígitos verificadores) — o
   // placeholder do sandbox seria recusado. Falha cedo com mensagem clara,
   // que fica gravada em markLabelFailure e visível no admin.
@@ -84,7 +84,7 @@ async function purchaseLabel(ctx) {
   const from = {
     name: fromName,
     phone: fromPhone,
-    email: sanitize(seller.email, 120) || "no-reply@freelandoo.com.br",
+    email: sanitize(seller.email, 120) || "no-reply@e-views.com",
     document: fromDoc,
     address: sanitize(originAddr.logradouro, 160) || "Endereço",
     complement: sanitize(seller.origin_complement, 60) || "",
@@ -149,8 +149,8 @@ async function purchaseLabel(ctx) {
       reverse: false,
       non_commercial: true,
       invoice: null,
-      platform: "Freelandoo",
-      tags: [{ tag: `freelandoo:order:${order.id_order}`, url: null }],
+      platform: "E-Views",
+      tags: [{ tag: `e-views:order:${order.id_order}`, url: null }],
     },
   };
 

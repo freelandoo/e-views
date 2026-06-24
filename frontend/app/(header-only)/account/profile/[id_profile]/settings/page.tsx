@@ -871,11 +871,11 @@ export default function ProfileSettingsPage() {
                         <>
                           {t("refundDeadlinePassedPrefix", "Prazo de reembolso encerrado em")}{" "}
                           <strong>{refundDeadline.toLocaleDateString(locale)}</strong>.{" "}
-                          {t("refundSupportContact", "Para suporte sobre reembolso, entre em contato com a Freelandoo.")}
+                          {t("refundSupportContact", "Para suporte sobre reembolso, entre em contato com a E-Views.")}
                         </>
                       )
                     ) : (
-                      t("refundSupportContact", "Para suporte sobre reembolso, entre em contato com a Freelandoo.")
+                      t("refundSupportContact", "Para suporte sobre reembolso, entre em contato com a E-Views.")
                     )}
                   </p>
                   <Button
@@ -975,7 +975,7 @@ export default function ProfileSettingsPage() {
                     try {
                       await nav.share({
                         title: profile.display_name,
-                        text: `${t("checkMyProfile", "Confira meu perfil na Freelandoo:")} ${profile.display_name}`,
+                        text: `${t("checkMyProfile", "Confira meu perfil na E-Views:")} ${profile.display_name}`,
                         url: canonicalUrl,
                       })
                     } catch {

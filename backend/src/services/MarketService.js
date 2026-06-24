@@ -60,7 +60,7 @@ async function fetchJson(url, { timeoutMs = 8000, headers = {} } = {}) {
   try {
     const res = await fetch(url, {
       signal: controller.signal,
-      headers: { Accept: "application/json", "User-Agent": "freelandoo-wallet", ...headers },
+      headers: { Accept: "application/json", "User-Agent": "e-views-wallet", ...headers },
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return await res.json();

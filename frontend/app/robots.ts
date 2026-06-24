@@ -21,6 +21,6 @@ export default function robots(): MetadataRoute.Robots {
         "/api/*",
       ],
     },
-    sitemap: "https://www.freelandoo.com.br/sitemap.xml",
+    sitemap: "https://www.e-views.com/sitemap.xml",
   }
 }

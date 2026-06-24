@@ -50,7 +50,7 @@ export function PortfolioWorksSection() {
       <SectionTitle
         eyebrow="portfólio · feed · contato"
         title={<>Seu portfólio agora trabalha por você.</>}
-        desc="Na Freelandoo, seu trabalho não fica parado em uma página escondida. Cada post de portfólio pode aparecer no feed, receber curtidas, compartilhamentos, mensagens e gerar novas oportunidades."
+        desc="Na E-Views, seu trabalho não fica parado em uma página escondida. Cada post de portfólio pode aparecer no feed, receber curtidas, compartilhamentos, mensagens e gerar novas oportunidades."
       />
 
       <motion.div
@@ -345,7 +345,7 @@ export function MessagesSection() {
           <SectionTitle
             eyebrow="mensagens internas"
             title={<>Converse, negocie e mantenha o histórico.</>}
-            desc="Perfis e clans podem trocar mensagens dentro da Freelandoo. Converse, negocie, tire dúvidas e mantenha o histórico organizado — sem misturar com WhatsApp pessoal."
+            desc="Perfis e clans podem trocar mensagens dentro da E-Views. Converse, negocie, tire dúvidas e mantenha o histórico organizado — sem misturar com WhatsApp pessoal."
           />
           <div className="mt-8 flex flex-wrap gap-2">
             {["Subperfil → Subperfil", "Subperfil → Clan", "Histórico permanente"].map((t) => (

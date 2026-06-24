@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import { SobreNosContent } from "./content"
 
 export const metadata: Metadata = {
-  title: "Sobre Nós — Freelandoo",
+  title: "Sobre Nós — E-Views",
   description:
-    "A Freelandoo nasceu para facilitar a conexão entre profissionais, prestadores, criadores, empresas e pessoas que precisam resolver algo.",
+    "A E-Views nasceu para facilitar a conexão entre profissionais, prestadores, criadores, empresas e pessoas que precisam resolver algo.",
 }
 
 export default function SobreNosPage() {

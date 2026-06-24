@@ -2,15 +2,15 @@ import type { Metadata } from "next"
 import { LegalDocument } from "../_components/legal-document"
 
 export const metadata: Metadata = {
-  title: "Termos de Poléns e Itens Digitais — Freelandoo",
-  description: "Regras de aquisição e uso dos Poléns e dos itens digitais da plataforma Freelandoo.",
+  title: "Termos de Poléns e Itens Digitais — E-Views",
+  description: "Regras de aquisição e uso dos Poléns e dos itens digitais da plataforma E-Views.",
 }
 
 const sections = [
   {
     title: "1. O que são Poléns",
     items: [
-      "Poléns são créditos virtuais utilizados exclusivamente dentro da plataforma Freelandoo.",
+      "Poléns são créditos virtuais utilizados exclusivamente dentro da plataforma E-Views.",
       "Poléns não constituem moeda, não têm valor monetário fora da plataforma e não são meio de pagamento de uso geral.",
       "Poléns não rendem juros, não são transferíveis entre contas e não podem ser convertidos em dinheiro.",
     ],
@@ -62,13 +62,13 @@ const sections = [
     items: [
       "Poléns ficam disponíveis enquanto a conta estiver ativa e regular.",
       "Em caso de encerramento da conta por violação dos termos, Poléns e itens digitais podem ser perdidos sem direito a compensação.",
-      "A Freelandoo pode definir prazos de validade para Poléns promocionais, informando o usuário.",
+      "A E-Views pode definir prazos de validade para Poléns promocionais, informando o usuário.",
     ],
   },
   {
     title: "7. Alterações de preços e regras",
     items: [
-      "A Freelandoo pode alterar preços, valores em Poléns e regras dos itens digitais a qualquer momento.",
+      "A E-Views pode alterar preços, valores em Poléns e regras dos itens digitais a qualquer momento.",
       "Alterações não afetam itens já adquiridos e ativados.",
     ],
   },
@@ -88,7 +88,7 @@ const sections = [
   },
   {
     title: "10. Contato",
-    paragraphs: ["Dúvidas sobre Poléns e itens digitais podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
+    paragraphs: ["Dúvidas sobre Poléns e itens digitais podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
   },
 ]
 
@@ -98,7 +98,7 @@ export default function PolensTermsPage() {
       namespace="PolensTerms"
       title="Termos de Poléns e Itens Digitais"
       updatedAt="Última atualização: 14 de junho de 2026"
-      intro="Estes termos regulam a aquisição e o uso dos Poléns, os créditos virtuais da Freelandoo, e dos itens digitais oferecidos na plataforma, como Manifestação e destaques Premium."
+      intro="Estes termos regulam a aquisição e o uso dos Poléns, os créditos virtuais da E-Views, e dos itens digitais oferecidos na plataforma, como Manifestação e destaques Premium."
       sections={sections}
       footerPrefix="Ao adquirir ou usar Poléns e itens digitais, você concorda com estes termos. Veja também nossos"
       links={[

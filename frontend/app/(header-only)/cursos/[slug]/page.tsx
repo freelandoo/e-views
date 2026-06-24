@@ -15,7 +15,7 @@ export function generateStaticParams(): { slug: string }[] {
   return []
 }
 
-const BASE_URL = "https://www.freelandoo.com.br"
+const BASE_URL = "https://www.e-views.com"
 
 async function fetchCourse(slug: string): Promise<PublicCourse | null> {
   try {
@@ -40,12 +40,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const course = await fetchCourse(slug)
-  if (!course) return { title: "Curso não encontrado | Freelandoo" }
+  if (!course) return { title: "Curso não encontrado | E-Views" }
   const description =
     course.short_description || course.description?.slice(0, 160) || undefined
   const url = `${BASE_URL}/cursos/${course.slug}`
   return {
-    title: `${course.title} — Curso na Freelandoo`,
+    title: `${course.title} — Curso na E-Views`,
     description,
     alternates: { canonical: url },
     openGraph: {

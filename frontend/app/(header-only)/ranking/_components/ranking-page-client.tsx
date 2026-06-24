@@ -395,7 +395,7 @@ export function RankingPageClient() {
           <div data-ranking-hero className="mb-4 flex flex-wrap items-center gap-3">
             <span className="inline-flex items-center gap-2 bg-[#0B0B0D] px-3 py-1.5 text-[#F1EDE2]">
               <span className="h-2 w-2 animate-pulse rounded-full bg-[#C8102E]" />
-              <span className="text-[11px] font-extrabold uppercase tracking-[0.2em]">{t("badgeRanking", "Ranking Freelandoo")}</span>
+              <span className="text-[11px] font-extrabold uppercase tracking-[0.2em]">{t("badgeRanking", "Ranking E-Views")}</span>
             </span>
             <span className="fl-marker text-2xl text-[#C8102E]">{t("updatesEvery2h", "atualiza a cada 2h")}</span>
           </div>
@@ -412,7 +412,7 @@ export function RankingPageClient() {
           </h1>
 
           <p data-ranking-hero className="mt-7 max-w-xl text-pretty text-base font-medium leading-relaxed text-[#C9C2B6] md:text-lg">
-            {t("heroParaPre", "Na Freelandoo, ")}<YellowHighlight mark>{t("heroParaHighlight", "aparecer é subir.")}</YellowHighlight>{t("heroParaPost", " Pontos, avaliações e presença definem quem domina o ranking. Inspire-se e suba mais.")}
+            {t("heroParaPre", "Na E-Views, ")}<YellowHighlight mark>{t("heroParaHighlight", "aparecer é subir.")}</YellowHighlight>{t("heroParaPost", " Pontos, avaliações e presença definem quem domina o ranking. Inspire-se e suba mais.")}
           </p>
         </div>
 
@@ -651,8 +651,8 @@ function RankingRowCard({
   const level = Number(row.level ?? row.xp_level ?? 0)
   const points = Number(row.ranking_score ?? row.total_points ?? 0)
   const meta = row.is_community
-    ? [row.machine_name, location, row.members_count != null ? `${row.members_count} ${t("membersWord", "membros")}` : null].filter(Boolean).join(" · ") || t("metaFallback", "Perfil Freelandoo")
-    : [row.specialty, row.machine_name, location].filter(Boolean).join(" · ") || t("metaFallback", "Perfil Freelandoo")
+    ? [row.machine_name, location, row.members_count != null ? `${row.members_count} ${t("membersWord", "membros")}` : null].filter(Boolean).join(" · ") || t("metaFallback", "Perfil E-Views")
+    : [row.specialty, row.machine_name, location].filter(Boolean).join(" · ") || t("metaFallback", "Perfil E-Views")
 
   return (
     <Link

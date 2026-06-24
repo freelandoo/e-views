@@ -115,9 +115,9 @@ export function SearchRetractableHeader({
           <Link
             href="/"
             className="fl-display shrink-0 text-2xl leading-none text-[#C8102E] transition-transform hover:-translate-y-0.5 sm:text-[1.7rem]"
-            aria-label="Freelandoo"
+            aria-label="E-Views"
           >
-            freelandoo
+            e-views
             <span className="text-[#F1EDE2]">.</span>
           </Link>
 

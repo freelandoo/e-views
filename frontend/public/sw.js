@@ -1,4 +1,4 @@
-// Service worker mínimo da Freelandoo.
+// Service worker mínimo da E-Views.
 // Objetivo: habilitar a instalação como PWA ("Adicionar à tela inicial") e dar
 // um fallback offline básico — SEM cachear conteúdo dinâmico/autenticado.
 //

@@ -1,7 +1,7 @@
 import { getBackendApiUrl } from "@/lib/backend"
 
 /**
- * Proxy do checkout da Conveniência Views. Exige auth (identidade Freelandoo)
+ * Proxy do checkout da Conveniência Views. Exige auth (identidade E-Views)
  * e encaminha pro backend core /casa/checkout, que cria a sessão Stripe.
  */
 export async function POST(request: Request) {

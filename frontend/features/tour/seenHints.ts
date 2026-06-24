@@ -7,7 +7,7 @@
  * independentemente de página visitada.
  */
 
-const STORAGE_KEY = "freelandoo_seen_hints_v1";
+const STORAGE_KEY = "e-views_seen_hints_v1";
 
 function read(): Set<string> {
   if (typeof window === "undefined") return new Set();

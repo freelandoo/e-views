@@ -346,7 +346,7 @@ async function extractVideoThumbnail(videoPath, tempDir) {
 async function processVideo(file, options = {}) {
   await assertRealVideo(file);
 
-  const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "freelandoo-media-"));
+  const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "e-views-media-"));
   const inputPath = path.join(tempDir, `input-${crypto.randomUUID()}`);
   const outputPath = path.join(tempDir, "output.mp4");
 
@@ -465,7 +465,7 @@ async function getVideoDuration(filePath) {
  */
 async function splitVideoIntoChunks(file, chunkSeconds = 60) {
   await assertRealVideo(file);
-  const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "freelandoo-split-"));
+  const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "e-views-split-"));
   const inputPath = path.join(tempDir, `input-${crypto.randomUUID()}`);
   try {
     await fs.writeFile(inputPath, file.buffer);
@@ -531,7 +531,7 @@ async function assertRealAudio(file) {
 async function processConversationAudio(file) {
   await assertRealAudio(file);
 
-  const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "freelandoo-audio-"));
+  const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "e-views-audio-"));
   const inputPath = path.join(tempDir, `input-${crypto.randomUUID()}`);
   const opusOutPath = path.join(tempDir, "out.webm");
   const aacOutPath = path.join(tempDir, "out.m4a");

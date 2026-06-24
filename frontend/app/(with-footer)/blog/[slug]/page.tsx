@@ -13,7 +13,7 @@ export function generateStaticParams(): { slug: string }[] {
   return []
 }
 
-const BASE_URL = "https://www.freelandoo.com.br"
+const BASE_URL = "https://www.e-views.com"
 
 export async function generateMetadata({
   params,
@@ -22,10 +22,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const data = await fetchBlogPost(slug)
-  if (!data) return { title: "Post não encontrado — Blog Freelandoo" }
+  if (!data) return { title: "Post não encontrado — Blog E-Views" }
   const { post } = data
   const isDraft = post.status !== "published"
-  const title = post.seo_title || `${post.title} | Blog Freelandoo`
+  const title = post.seo_title || `${post.title} | Blog E-Views`
   const description = post.seo_description || post.excerpt || undefined
   const url = `${BASE_URL}/blog/${post.slug}`
   return {
@@ -70,8 +70,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           image: post.cover_url || undefined,
           datePublished: post.published_at,
           dateModified: post.updated_at,
-          author: { "@type": "Organization", name: post.author_name || "Freelandoo" },
-          publisher: { "@type": "Organization", name: "Freelandoo", url: BASE_URL },
+          author: { "@type": "Organization", name: post.author_name || "E-Views" },
+          publisher: { "@type": "Organization", name: "E-Views", url: BASE_URL },
           mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE_URL}/blog/${post.slug}` },
         }
       : null

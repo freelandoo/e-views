@@ -7,10 +7,10 @@ import { getToken } from "@/lib/auth"
 
 /**
  * Guard de auth da Casa Views (route group sem efeito na URL). A landing
- * /acasaviews é pública; tudo aqui dentro exige sessão do Freelandoo. Sem token
+ * /acasaviews é pública; tudo aqui dentro exige sessão do E-Views. Sem token
  * no localStorage, redireciona pra /login?next=<rota atual> — depois do login,
  * o usuário volta exatamente pra onde tentou entrar. Auth = identidade única do
- * Freelandoo (mesmo /login e /cadastro do produto).
+ * E-Views (mesmo /login e /cadastro do produto).
  */
 export default function ProtectedCasaLayout({
   children,

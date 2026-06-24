@@ -791,7 +791,7 @@ export function CameraStudio({ open, profileId, kind, caption, onClose, onPosted
                     </span>
                   ) : (
                     <span className="relative h-14 w-14 overflow-hidden rounded-full bg-red-600 ring-4 ring-white/30">
-                      <Image src="/freelandoo-logo.png" alt="Gravar" fill sizes="56px" className="object-cover" />
+                      <Image src="/e-views-logo.png" alt="Gravar" fill sizes="56px" className="object-cover" />
                     </span>
                   )}
                 </button>

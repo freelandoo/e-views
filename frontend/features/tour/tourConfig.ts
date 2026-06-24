@@ -73,13 +73,13 @@ export interface TourConfig {
 export const TOUR_CONFIGS: TourConfig[] = [
   {
     tourKey: "welcome",
-    title: "Bem-vindo à Freelandoo",
+    title: "Bem-vindo à E-Views",
     description: "Tour completo da Colmeia (sidebar + menu da conta)",
     version: 1,
     autoStart: true,
     pagePath: ["/account"],
     steps: [
-      { id: "welcome-1", title: "Bem-vindo à Freelandoo", content: "Vamos te mostrar tudo que dá pra fazer aqui — sidebar e menu da conta.", placement: "center" },
+      { id: "welcome-1", title: "Bem-vindo à E-Views", content: "Vamos te mostrar tudo que dá pra fazer aqui — sidebar e menu da conta.", placement: "center" },
       { id: "welcome-sidebar-profile", target: "[data-tour='sidebar-profile']", title: "Sua conta", content: "O atalho principal: abre o menu da conta com todas as ações da plataforma.", placement: "right" },
       { id: "welcome-sidebar-feed", target: "[data-tour='sidebar-feed']", title: "Feed", content: "Posts dos perfis que você acompanha — fotos, vídeos curtos e atualizações.", placement: "right" },
       { id: "welcome-sidebar-bees", target: "[data-tour='sidebar-bees']", title: "Bees", content: "Feed vertical 9:16 estilo TikTok, com vídeos curtos da plataforma.", placement: "right" },
@@ -99,11 +99,11 @@ export const TOUR_CONFIGS: TourConfig[] = [
     ],
   },
   { tourKey: "account_auth", title: "Conta e Autenticação", description: "Segurança e conta-base", version: 1, pagePath: ["/account", "/login", "/cadastro"], steps: [
-    { id: "account-1", title: "Sua conta-base", content: "Essa é sua conta principal na Freelandoo. Ela guarda dados, pólens, cupons e configurações.", placement: "center" },
+    { id: "account-1", title: "Sua conta-base", content: "Essa é sua conta principal na E-Views. Ela guarda dados, pólens, cupons e configurações.", placement: "center" },
     { id: "account-2", title: "Segurança primeiro", content: "Mantenha e-mail verificado e dados atualizados para proteger sua conta.", placement: "center" },
     { id: "account-3", title: "A conta não é vitrine", content: "Para aparecer para clientes, crie um subperfil.", placement: "center" },
   ]},
-  { tourKey: "profile", title: "Perfil", description: "Conta principal", version: 1, pagePath: ["/account"], steps: [{ id: "profile-1", target: "[data-tour='sidebar-profile']", title: "Seu espaço principal", content: "Aqui você controla sua presença na Freelandoo.", placement: "right" }] },
+  { tourKey: "profile", title: "Perfil", description: "Conta principal", version: 1, pagePath: ["/account"], steps: [{ id: "profile-1", target: "[data-tour='sidebar-profile']", title: "Seu espaço principal", content: "Aqui você controla sua presença na E-Views.", placement: "right" }] },
   { tourKey: "subprofiles", title: "Subperfis", description: "Vitrines profissionais", version: 1, pagePath: ["/account"], steps: [{ id: "subprofiles-1", title: "Subperfis são suas vitrines", content: "É no subperfil que você vende serviços, produtos e cursos.", placement: "center" }] },
   {
     tourKey: "enxames",
@@ -113,7 +113,7 @@ export const TOUR_CONFIGS: TourConfig[] = [
     autoStart: true,
     pagePath: ["/search", "/enxame"],
     steps: [
-      { id: "search-1", title: "Vitrine da Freelandoo", content: "Aqui você descobre profissionais, produtos e cursos de todas as áreas.", placement: "center" },
+      { id: "search-1", title: "Vitrine da E-Views", content: "Aqui você descobre profissionais, produtos e cursos de todas as áreas.", placement: "center" },
       { id: "search-tab-services", target: "[data-tour='search-tab-services']", title: "Aba Serviços", content: "Profissionais por Enxame e profissão para contratar serviços.", placement: "bottom" },
       { id: "search-tab-products", target: "[data-tour='search-tab-products']", title: "Aba Produtos", content: "Produtos à venda na plataforma, filtrados por categoria e cidade.", placement: "bottom" },
       { id: "search-tab-courses", target: "[data-tour='search-tab-courses']", title: "Aba Cursos", content: "Cursos para aprender uma habilidade, filtrados por Enxame e profissão.", placement: "bottom" },
@@ -226,7 +226,7 @@ export const TOUR_CONFIGS: TourConfig[] = [
         id: "affiliate-path-coupon",
         target: "[data-tour='account-coupon']",
         title: "Esse é seu cupom",
-        content: "Copie e compartilhe. Quando alguém entrar pelo Freelandoo usando seu cupom, você ganha comissão. Se ainda não tem cupom, clique no botão para gerar.",
+        content: "Copie e compartilhe. Quando alguém entrar pelo E-Views usando seu cupom, você ganha comissão. Se ainda não tem cupom, clique no botão para gerar.",
         placement: "bottom",
       },
       {

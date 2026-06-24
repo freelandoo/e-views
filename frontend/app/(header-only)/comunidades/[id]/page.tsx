@@ -62,7 +62,7 @@ type Goal = {
 type Announcement = { id: number; body: string; is_pinned: boolean; created_at: string; author_username: string | null; author_name: string | null }
 type Benchmark = { position: number; total: number; percentile: number | null; enxame_name: string | null }
 
-// Identidade da comunidade = a do Freelandoo (escuro/tabloide). O líder só
+// Identidade da comunidade = a do E-Views (escuro/tabloide). O líder só
 // recolore os DETALHES (accent): ícones, aba ativa, barra de progresso, botão
 // entrar, destaques. A base (fundo, cards, texto) é fixa.
 const ACCENTS: { key: string; labelKey: string; fallback: string; hex: string }[] = [
@@ -720,7 +720,7 @@ export default function CommunityDetailPage() {
                     )}
                   </div>
 
-                  {/* Feed unificado (posts + bees + recados) — cards padrão do Freelandoo */}
+                  {/* Feed unificado (posts + bees + recados) — cards padrão do E-Views */}
                   {loadingPosts ? (
                     <div className="flex justify-center py-12"><Loader2 className="h-6 w-6 animate-spin text-[#9A938A]" /></div>
                   ) : posts.length === 0 ? (

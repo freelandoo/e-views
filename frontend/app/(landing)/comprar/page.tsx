@@ -12,7 +12,7 @@ import { RevealMount } from "@/components/home/landing/RevealMount"
 
 // Home do comprador PARQUEADA (órfã) — não linkada e não indexada por enquanto.
 // O wedge comprador × vendedor está pausado; a / voltou a ser a home do vendedor.
-const TITLE = "Freelandoo — Encontre profissionais, influenciadores e produtos"
+const TITLE = "E-Views — Encontre profissionais, influenciadores e produtos"
 const DESCRIPTION =
   "Contrate profissionais, compre de criadores e feche com influenciadores com pagamento protegido e avaliações reais. Encontre perto de você, num lugar só."
 

@@ -1,6 +1,6 @@
 /** Helpers de captura de cupom de share (sessionStorage, vence ao fechar a aba). */
 
-const KEY = "freelandoo:share-coupon"
+const KEY = "e-views:share-coupon"
 
 export interface CapturedCoupon {
   code: string

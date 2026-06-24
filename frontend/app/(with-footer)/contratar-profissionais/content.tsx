@@ -70,7 +70,7 @@ export function ContratarProfissionaisContent() {
             {t("hero.subtitle", "Procure por enxame, profissão, estado e cidade. Veja perfis, analise portfólios e fale direto pelo WhatsApp.")}
           </p>
           <p className="text-[#9A938A] max-w-2xl mb-8 leading-relaxed" data-reveal>
-            {t("hero.description", "A Freelandoo ajuda você a encontrar profissionais de forma simples. Você não precisa se cadastrar para procurar. Basta escolher o que precisa, filtrar os resultados e entrar em contato diretamente com o profissional.")}
+            {t("hero.description", "A E-Views ajuda você a encontrar profissionais de forma simples. Você não precisa se cadastrar para procurar. Basta escolher o que precisa, filtrar os resultados e entrar em contato diretamente com o profissional.")}
           </p>
           <div className="flex flex-wrap gap-4" data-reveal>
             <Link href="/search" className="inline-flex items-center bg-[#C8102E] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#C8102E]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
@@ -125,20 +125,20 @@ export function ContratarProfissionaisContent() {
         </div>
       </section>
 
-      {/* O QUE A FREELANDOO FAZ E NÃO FAZ */}
+      {/* O QUE A E-VIEWS FAZ E NÃO FAZ */}
       <section className="py-16 md:py-24 bg-[#1D1810]/20">
         <div className="container mx-auto px-4">
           <h2 className="fl-display text-4xl md:text-5xl text-[#F5F1E8] mb-4" data-reveal>
             {t("transparency.title", "Transparência desde o início")}
           </h2>
           <p className="text-[#9A938A] mb-12 max-w-2xl leading-relaxed" data-reveal>
-            {t("transparency.description", "Em contratações feitas diretamente entre as partes (combinadas pelo WhatsApp ou fora da plataforma), a Freelandoo não intermedia a negociação, não define valores, não garante entregas nem recebe os pagamentos. Em transações realizadas dentro da plataforma — compras na Loja, agendamentos pagos e cursos —, a Freelandoo processa o pagamento e aplica o período de garantia previsto nos Termos do Marketplace.")}
+            {t("transparency.description", "Em contratações feitas diretamente entre as partes (combinadas pelo WhatsApp ou fora da plataforma), a E-Views não intermedia a negociação, não define valores, não garante entregas nem recebe os pagamentos. Em transações realizadas dentro da plataforma — compras na Loja, agendamentos pagos e cursos —, a E-Views processa o pagamento e aplica o período de garantia previsto nos Termos do Marketplace.")}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-[#1D1810] border border-[#2A2218] rounded-xl p-6" data-reveal>
               <div className="flex items-center gap-2 mb-5">
                 <span className="w-6 h-6 rounded-full bg-[#C8102E]/10 flex items-center justify-center text-[#C8102E] text-xs font-bold">✓</span>
-                <h3 className="font-semibold text-[#F5F1E8]">{t("doesDo.title", "A Freelandoo ajuda com")}</h3>
+                <h3 className="font-semibold text-[#F5F1E8]">{t("doesDo.title", "A E-Views ajuda com")}</h3>
               </div>
               <ul className="space-y-2">
                 {doesDo.map((item, i) => (
@@ -151,7 +151,7 @@ export function ContratarProfissionaisContent() {
             <div className="bg-[#1D1810] border border-[#2A2218] rounded-xl p-6" data-reveal>
               <div className="flex items-center gap-2 mb-5">
                 <span className="w-6 h-6 rounded-full bg-destructive/10 flex items-center justify-center text-destructive text-xs font-bold">✗</span>
-                <h3 className="font-semibold text-[#F5F1E8]">{t("doesNotDo.title", "A Freelandoo não faz")}</h3>
+                <h3 className="font-semibold text-[#F5F1E8]">{t("doesNotDo.title", "A E-Views não faz")}</h3>
               </div>
               <ul className="space-y-2">
                 {doesNotDo.map((item, i) => (
@@ -190,7 +190,7 @@ export function ContratarProfissionaisContent() {
             {t("final.title", "Encontre quem resolve")}
           </h2>
           <p className="text-[#9A938A] mb-10 max-w-lg mx-auto leading-relaxed" data-reveal>
-            {t("final.description", "Use a vitrine da Freelandoo para encontrar profissionais e iniciar uma conversa direta.")}
+            {t("final.description", "Use a vitrine da E-Views para encontrar profissionais e iniciar uma conversa direta.")}
           </p>
           <div data-reveal>
             <Link href="/search" className="inline-flex items-center bg-[#C8102E] text-white font-semibold px-8 py-4 rounded-lg hover:bg-[#C8102E]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all text-lg">

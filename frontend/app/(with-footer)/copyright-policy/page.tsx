@@ -2,15 +2,15 @@ import type { Metadata } from "next"
 import { LegalDocument } from "../_components/legal-document"
 
 export const metadata: Metadata = {
-  title: "Política de Direitos Autorais — Freelandoo",
-  description: "Como notificar e tratar violações de direitos autorais e propriedade intelectual na Freelandoo.",
+  title: "Política de Direitos Autorais — E-Views",
+  description: "Como notificar e tratar violações de direitos autorais e propriedade intelectual na E-Views.",
 }
 
 const sections = [
   {
     title: "1. Compromisso com a propriedade intelectual",
     items: [
-      "A Freelandoo respeita os direitos autorais e a propriedade intelectual de terceiros.",
+      "A E-Views respeita os direitos autorais e a propriedade intelectual de terceiros.",
       "Esta política descreve como notificar conteúdo que viole esses direitos na plataforma.",
       "Aplica-se a textos, imagens, vídeos, áudios, marcas e demais materiais protegidos.",
     ],
@@ -26,7 +26,7 @@ const sections = [
   {
     title: "3. Como notificar uma infração",
     paragraphs: [
-      "O titular de direitos, ou seu representante, pode enviar uma notificação para freelandoogroup@gmail.com contendo:",
+      "O titular de direitos, ou seu representante, pode enviar uma notificação para e-viewsgroup@gmail.com contendo:",
     ],
     items: [
       "Identificação do titular e dados de contato.",
@@ -39,16 +39,16 @@ const sections = [
   {
     title: "4. O que acontece após a notificação",
     items: [
-      "A Freelandoo analisa a notificação recebida, observando os prazos e a priorização descritos na Política de Moderação e Denúncias.",
+      "A E-Views analisa a notificação recebida, observando os prazos e a priorização descritos na Política de Moderação e Denúncias.",
       "Conteúdo aparentemente infrator pode ser removido ou ter o acesso suspenso. Nos termos do art. 21 do Marco Civil da Internet (Lei nº 12.965/2014), conteúdo que viole direitos autorais pode ser removido mediante notificação, independentemente de ordem judicial.",
       "O usuário responsável pelo conteúdo é informado sobre a medida.",
-      "A Freelandoo pode solicitar informações adicionais antes de decidir.",
+      "A E-Views pode solicitar informações adicionais antes de decidir.",
     ],
   },
   {
     title: "5. Contranotificação",
     items: [
-      "O usuário que considerar indevida a remoção pode apresentar uma contranotificação para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "O usuário que considerar indevida a remoção pode apresentar uma contranotificação para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
       "A contranotificação deve explicar por que o conteúdo não viola direitos de terceiros e apresentar provas, quando houver.",
       "Após a análise, o conteúdo pode ser restabelecido ou mantido removido.",
     ],
@@ -60,14 +60,14 @@ const sections = [
     ],
   },
   {
-    title: "7. Uso da marca Freelandoo",
+    title: "7. Uso da marca E-Views",
     paragraphs: [
-      "A marca, o logotipo e a identidade visual da Freelandoo não podem ser usados sem autorização. Solicitações de uso devem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "A marca, o logotipo e a identidade visual da E-Views não podem ser usados sem autorização. Solicitações de uso devem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
     ],
   },
   {
     title: "8. Contato",
-    paragraphs: ["Notificações e dúvidas sobre direitos autorais devem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
+    paragraphs: ["Notificações e dúvidas sobre direitos autorais devem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
   },
 ]
 
@@ -77,9 +77,9 @@ export default function CopyrightPolicyPage() {
       namespace="CopyrightPolicy"
       title="Política de Direitos Autorais"
       updatedAt="Última atualização: 14 de junho de 2026"
-      intro="Esta política explica como a Freelandoo trata violações de direitos autorais e de propriedade intelectual, e como titulares de direitos podem notificar conteúdo infrator publicado na plataforma."
+      intro="Esta política explica como a E-Views trata violações de direitos autorais e de propriedade intelectual, e como titulares de direitos podem notificar conteúdo infrator publicado na plataforma."
       sections={sections}
-      footerPrefix="Esta política integra os Termos de Uso da Freelandoo. Veja também nossas"
+      footerPrefix="Esta política integra os Termos de Uso da E-Views. Veja também nossas"
       links={[
         { href: "/community-guidelines", label: "Diretrizes da Comunidade" },
         { href: "/terms", label: "Termos de Uso" },

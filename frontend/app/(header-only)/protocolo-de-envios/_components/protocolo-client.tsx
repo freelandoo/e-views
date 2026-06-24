@@ -37,7 +37,7 @@ export function ShippingProtocolClient() {
           {t("badge", "Compra protegida")}
         </div>
         <h1 className="text-3xl font-black tracking-tight text-foreground sm:text-5xl">
-          {t("heroTitle", "Protocolo de Envios Freelandoo")}
+          {t("heroTitle", "Protocolo de Envios E-Views")}
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
           {t("heroSubtitle", "Compra protegida de ponta a ponta. Seu dinheiro só vai para o vendedor depois que você recebe e confere o produto.")}
@@ -74,7 +74,7 @@ export function ShippingProtocolClient() {
             <div>
               <h2 className="text-xl font-black text-foreground">{t("moneyTitle", "Seu dinheiro fica protegido")}</h2>
               <p className="mt-2 text-sm text-muted-foreground sm:text-base">
-                {t("moneyBody", "O valor da compra fica retido com a Freelandoo por 30 dias. O vendedor só recebe depois desse período e desde que não haja problema em aberto. É o que garante a sua proteção contra golpes.")}
+                {t("moneyBody", "O valor da compra fica retido com a E-Views por 30 dias. O vendedor só recebe depois desse período e desde que não haja problema em aberto. É o que garante a sua proteção contra golpes.")}
               </p>
             </div>
           </div>
@@ -122,7 +122,7 @@ export function ShippingProtocolClient() {
             <div>
               <h2 className="text-lg font-black text-foreground">{t("scamTitle", "Cuidado com golpes")}</h2>
               <p className="mt-2 text-sm text-muted-foreground sm:text-base">
-                {t("scamBody", "Nunca pague por fora da Freelandoo. Quem pede Pix ou pagamento direto “para sair mais barato” está tirando você da proteção — é o sinal nº 1 de golpe. Dentro do protocolo, seu dinheiro está garantido.")}
+                {t("scamBody", "Nunca pague por fora da E-Views. Quem pede Pix ou pagamento direto “para sair mais barato” está tirando você da proteção — é o sinal nº 1 de golpe. Dentro do protocolo, seu dinheiro está garantido.")}
               </p>
             </div>
           </div>

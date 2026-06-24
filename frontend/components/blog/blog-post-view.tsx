@@ -126,7 +126,7 @@ export function BlogPostView({
       fd.append("body_md", d.body_md || "")
       fd.append("cover_alt", d.cover_alt || "")
       fd.append("cover_url", d.cover_url || "")
-      fd.append("author_name", d.author_name || "Equipe Freelandoo")
+      fd.append("author_name", d.author_name || "Equipe E-Views")
       fd.append("seo_title", d.seo_title || "")
       fd.append("seo_description", d.seo_description || "")
       const status = publish === undefined ? d.status : publish ? "published" : "draft"

@@ -3,7 +3,7 @@ import { getBackendApiUrl } from "@/lib/backend"
 /**
  * Dados dos participantes da Casa Views, mesclados SERVER-SIDE:
  *  - editorial (cofre, suspeita, jornada, segredos, teorias, produtos, bio…)
- *    vem do backend CORE do Freelandoo (/casa/participants[/:slug]);
+ *    vem do backend CORE do E-Views (/casa/participants[/:slug]);
  *  - números ao vivo (views/likes/comentários/pontos/posição) + deltas de 24h
  *    vêm do módulo casa-views-ranking (/users/deltas), casados por
  *    external_ranking_user_id (== id_user OU user_login do ranking).

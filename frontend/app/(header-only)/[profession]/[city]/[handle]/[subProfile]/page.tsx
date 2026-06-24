@@ -87,7 +87,7 @@ export async function generateMetadata({
   const profile = await fetchProfile(handle, profession, subProfile)
   if (!profile || !profile.is_published) {
     return {
-      title: "Perfil não encontrado · Freelandoo",
+      title: "Perfil não encontrado · E-Views",
       robots: { index: false, follow: false },
     }
   }
@@ -96,13 +96,13 @@ export async function generateMetadata({
   const stateLabel = profile.estado || ""
   const location = [cityLabel, stateLabel].filter(Boolean).join(", ")
   const title = location
-    ? `${profile.display_name} · ${profile.desc_category} em ${location} | Freelandoo`
-    : `${profile.display_name} · ${profile.desc_category} | Freelandoo`
+    ? `${profile.display_name} · ${profile.desc_category} em ${location} | E-Views`
+    : `${profile.display_name} · ${profile.desc_category} | E-Views`
   const description =
     profile.bio?.slice(0, 160) ||
     `Conheça ${profile.display_name}, ${profile.desc_category}${
       location ? ` em ${location}` : ""
-    }, no Freelandoo.`
+    }, no E-Views.`
 
   const canonicalPath = buildProfileUrl({
     profession_slug: profile.profession_slug,
@@ -175,9 +175,9 @@ export default async function PublicProfilePage({
     "@context": "https://schema.org",
     "@type": ["Person", "ProfessionalService"],
     name: profile.display_name,
-    description: profile.bio || `Conheça ${profile.display_name}, ${profile.desc_category} no Freelandoo.`,
+    description: profile.bio || `Conheça ${profile.display_name}, ${profile.desc_category} no E-Views.`,
     image: profile.avatar_url || undefined,
-    url: `https://www.freelandoo.com.br${canonicalPath}`,
+    url: `https://www.e-views.com${canonicalPath}`,
     address: {
       "@type": "PostalAddress",
       addressLocality: profile.municipio || undefined,
@@ -190,13 +190,13 @@ export default async function PublicProfilePage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.freelandoo.com.br" },
-      { "@type": "ListItem", position: 2, name: "Busca", item: "https://www.freelandoo.com.br/search" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.e-views.com" },
+      { "@type": "ListItem", position: 2, name: "Busca", item: "https://www.e-views.com/search" },
       {
         "@type": "ListItem",
         position: 3,
         name: profile.display_name,
-        item: `https://www.freelandoo.com.br${canonicalPath}`,
+        item: `https://www.e-views.com${canonicalPath}`,
       },
     ],
   }
