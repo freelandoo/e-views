@@ -53,7 +53,7 @@ export function HeroSection() {
             <EditableText
               as="span"
               slot="home_seller_hero_headline"
-              fallback="Venda conteúdo, faça lives e *fature* com cursos e produtos."
+              fallback="Seu corpo, suas regras, seu *lucro*."
             />
             <Spark className="absolute -right-1 -top-5 hidden h-9 w-9 text-[#C8102E] md:block" />
           </motion.h1>
@@ -63,7 +63,7 @@ export function HeroSection() {
               as="span"
               mark={false}
               slot="home_seller_hero_subcopy"
-              fallback="Na E-Views você *monetiza tudo*: conteúdo exclusivo, lives com gifts, cursos e produtos. Do digital ao físico. Você no controle."
+              fallback="Venda conteúdo exclusivo, abra seu *próprio sexshop*, faça lives com gifts e venda cursos. Sem censura, sem patrão, no seu preço."
             />
           </motion.p>
 
@@ -82,7 +82,7 @@ export function HeroSection() {
               <AvatarStack count={5} />
               <span className="text-sm text-[#9A938A]">
                 <EditableText as="span" className="font-bold text-[#F5F1E8]" slot="home_seller_hero_proof_count" fallback="+10 mil criadores" />{" "}
-                <EditableText as="span" slot="home_seller_hero_proof_text" fallback="já faturam aqui" />
+                <EditableText as="span" slot="home_seller_hero_proof_text" fallback="já faturam sem censura" />
               </span>
             </div>
             <StickerNote rotate={-4} className="hidden sm:inline-block">

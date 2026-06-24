@@ -41,10 +41,10 @@ export function FeatureCarousel() {
       {/* Título da seção (fora do card) */}
       <div className="relative mx-auto mb-10 max-w-2xl text-center">
         <p className="fl-marker mb-1 text-2xl font-bold text-[#C8102E]">
-          <EditableText as="span" mark={false} slot="home_seller_carousel_eyebrow" fallback="é rápido e fácil" />
+          <EditableText as="span" mark={false} slot="home_seller_carousel_eyebrow" fallback="é rápido e sem censura" />
         </p>
         <h2 className="fl-display text-4xl text-[#F5F1E8] sm:text-5xl">
-          <EditableText as="span" slot="home_seller_carousel_heading" fallback="Tudo que você precisa para *ganhar mais.*" />
+          <EditableText as="span" slot="home_seller_carousel_heading" fallback="Tudo pra você *faturar sem limites.*" />
         </h2>
         <DoodleArrow dir="down" className="absolute -right-2 -top-4 hidden h-9 w-16 text-[#C8102E] lg:block" />
       </div>

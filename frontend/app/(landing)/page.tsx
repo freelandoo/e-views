@@ -10,9 +10,9 @@ import {
 } from "@/components/home/landing"
 import { RevealMount } from "@/components/home/landing/RevealMount"
 
-const TITLE = "E-Views — Venda seu conteúdo, faça lives e venda cursos e produtos"
+const TITLE = "E-Views — Venda conteúdo adulto, abra seu sexshop, faça lives e cursos"
 const DESCRIPTION =
-  "Na E-Views você monetiza do seu jeito: venda conteúdo exclusivo, faça lives e receba gifts, crie e venda cursos e abra sua loja de produtos, do digital ao físico. Você no controle, comece de graça."
+  "A plataforma onde criadores adultos faturam de verdade: venda conteúdo exclusivo, abra seu próprio sexshop, faça lives com gifts e venda cursos. Seu corpo, suas regras, seu lucro. Crie sua conta de graça."
 
 export const metadata: Metadata = {
   title: TITLE,
