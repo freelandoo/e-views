@@ -9,7 +9,7 @@ class PremiumStorage {
   }
 
   static async updateSettings(conn, patch) {
-    const allowed = ["duration_days", "price_cents", "price_polens", "slots_per_city", "is_active"];
+    const allowed = ["duration_days", "price_cents", "price_flames", "slots_per_city", "is_active"];
     const fields = [];
     const values = [];
     let i = 1;
@@ -57,18 +57,18 @@ class PremiumStorage {
   }
 
   static async upsertCityOverride(conn, data) {
-    const { uf, city_name, price_cents, price_polens, slots } = data;
+    const { uf, city_name, price_cents, price_flames, slots } = data;
     const { rows } = await conn.query(
       `INSERT INTO public.premium_city_overrides
-         (uf, city_name, price_cents, price_polens, slots)
+         (uf, city_name, price_cents, price_flames, slots)
        VALUES ($1, $2, $3, $4, $5)
        ON CONFLICT (uf, lower(city_name)) DO UPDATE
           SET price_cents = EXCLUDED.price_cents,
-              price_polens = EXCLUDED.price_polens,
+              price_flames = EXCLUDED.price_flames,
               slots = EXCLUDED.slots,
               updated_at = NOW()
        RETURNING *`,
-      [uf, city_name, price_cents ?? null, price_polens ?? null, slots ?? null]
+      [uf, city_name, price_cents ?? null, price_flames ?? null, slots ?? null]
     );
     return rows[0];
   }
@@ -136,7 +136,7 @@ class PremiumStorage {
   static async createPending(conn, data) {
     const { rows } = await conn.query(
       `INSERT INTO public.profile_premium
-         (profile_id, status, payment_method, amount_cents, amount_polens,
+         (profile_id, status, payment_method, amount_cents, amount_flames,
           stripe_session_id, uf, city_name)
        VALUES ($1, 'pending', $2, $3, $4, $5, $6, $7)
        RETURNING *`,
@@ -144,7 +144,7 @@ class PremiumStorage {
         data.profile_id,
         data.payment_method,
         data.amount_cents ?? null,
-        data.amount_polens ?? null,
+        data.amount_flames ?? null,
         data.stripe_session_id ?? null,
         data.uf,
         data.city_name,
@@ -249,7 +249,7 @@ class PremiumStorage {
 
   /**
    * Resolve preço/vagas para uma cidade aplicando override → settings default.
-   * Retorna { price_cents, price_polens, slots, override_id }.
+   * Retorna { price_cents, price_flames, slots, override_id }.
    */
   static async resolvePricing(conn, { uf, city_name }) {
     const settings = await this.getSettings(conn);
@@ -260,7 +260,7 @@ class PremiumStorage {
     return {
       duration_days: settings.duration_days,
       price_cents: override?.price_cents ?? settings.price_cents,
-      price_polens: override?.price_polens ?? settings.price_polens,
+      price_flames: override?.price_flames ?? settings.price_flames,
       slots: override?.slots ?? settings.slots_per_city,
       override_id: override?.id || null,
       is_active: settings.is_active,

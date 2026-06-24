@@ -42,7 +42,7 @@ export const ROUTES = {
   communityGuidelines: "/community-guidelines",
   moderationPolicy: "/moderation-policy",
   copyrightPolicy: "/copyright-policy",
-  polensTerms: "/polens-terms",
+  flamesTerms: "/flames-terms",
   minorsPolicy: "/minors-policy",
   advertisingPolicy: "/advertising-policy",
 } as const
@@ -80,7 +80,7 @@ export const PUBLIC_ROUTES: readonly string[] = [
   ROUTES.communityGuidelines,
   ROUTES.moderationPolicy,
   ROUTES.copyrightPolicy,
-  ROUTES.polensTerms,
+  ROUTES.flamesTerms,
   ROUTES.minorsPolicy,
   ROUTES.advertisingPolicy,
 ]

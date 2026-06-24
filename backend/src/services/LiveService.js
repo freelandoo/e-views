@@ -5,7 +5,7 @@
 const crypto = require("crypto");
 const pool = require("../databases");
 const LiveStorage = require("../storages/LiveStorage");
-const PolenStorage = require("../storages/PolenStorage");
+const FlameStorage = require("../storages/FlameStorage");
 const NotificationService = require("./NotificationService");
 const livekit = require("../utils/livekit");
 const { createLogger, runWithLogs } = require("../utils/logger");
@@ -15,7 +15,7 @@ const log = createLogger("LiveService");
 const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
-// Fração dos Poléns do presente repassada ao criador da live (1 = 100%).
+// Fração dos Flames do presente repassada ao criador da live (1 = 100%).
 // Ajuste aqui se a plataforma passar a reter uma comissão.
 const LIVE_GIFT_CREATOR_SHARE = 1;
 
@@ -174,7 +174,7 @@ class LiveService {
     });
   }
 
-  // Envia um presente: cobra Poléns do remetente e registra o evento. O cliente
+  // Envia um presente: cobra Flames do remetente e registra o evento. O cliente
   // anima na tela de todos via data channel do LiveKit (não passa pelo backend).
   static async sendGift(user, params = {}, body = {}) {
     return runWithLogs(
@@ -196,21 +196,21 @@ class LiveService {
         if (!gift || gift.is_active === false) return { error: "Presente indisponível" };
 
         const message = typeof body?.message === "string" ? body.message.trim().slice(0, 120) : null;
-        const amount = Number(gift.price_polens) || 0;
+        const amount = Number(gift.price_flames) || 0;
 
         const client = await pool.connect();
         try {
           await client.query("BEGIN");
-          const settings = await PolenStorage.getSettings(client);
+          const settings = await FlameStorage.getSettings(client);
           if (!settings?.is_active) {
             await client.query("ROLLBACK");
-            return { error: "Sistema de Poléns inativo" };
+            return { error: "Sistema de Flames inativo" };
           }
-          const wallet = await PolenStorage.getOrCreateWallet(client, user.id_user);
+          const wallet = await FlameStorage.getOrCreateWallet(client, user.id_user);
           let debit = { wallet };
           const txId = crypto.randomUUID();
           if (amount > 0) {
-            const result = await PolenStorage.debit(client, {
+            const result = await FlameStorage.debit(client, {
               user_id: user.id_user,
               wallet_id: wallet.id,
               amount,
@@ -221,17 +221,17 @@ class LiveService {
             });
             if (!result) {
               await client.query("ROLLBACK");
-              return { error: "Saldo de Poléns insuficiente" };
+              return { error: "Saldo de Flames insuficiente" };
             }
             debit = result;
           }
 
-          // Repasse ao criador: credita o dono da live com os Poléns do presente.
+          // Repasse ao criador: credita o dono da live com os Flames do presente.
           // (Se o próprio dono enviar, debita e credita a mesma carteira = neutro.)
           const creatorShare = Math.round(amount * LIVE_GIFT_CREATOR_SHARE);
           if (creatorShare > 0) {
-            const creatorWallet = await PolenStorage.getOrCreateWallet(client, live.id_user);
-            await PolenStorage.credit(client, {
+            const creatorWallet = await FlameStorage.getOrCreateWallet(client, live.id_user);
+            await FlameStorage.credit(client, {
               user_id: live.id_user,
               wallet_id: creatorWallet.id,
               amount: creatorShare,
@@ -246,7 +246,7 @@ class LiveService {
             id_live,
             id_live_gift,
             id_sender_user: user.id_user,
-            polens_spent: amount,
+            flames_spent: amount,
             message,
           });
           await client.query("COMMIT");
@@ -258,12 +258,12 @@ class LiveService {
             sender_user_id: user.id_user,
             id_live,
             gift_name: gift.name,
-            polens: amount,
+            flames: amount,
           }).catch(() => {});
 
           return {
             event: { id: event.id, created_at: event.created_at },
-            polens_spent: amount,
+            flames_spent: amount,
             creator_credited: creatorShare,
             wallet: debit.wallet,
             gift: {

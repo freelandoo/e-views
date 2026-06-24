@@ -19,7 +19,7 @@ const ALLOWED_TOUR_KEYS = new Set([
   "courses",
   "subprofile_store",
   "products",
-  "pollens",
+  "flames",
   "manifestations",
   "coupons",
   "affiliates",

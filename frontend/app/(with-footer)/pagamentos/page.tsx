@@ -55,9 +55,9 @@ interface ManifestationHistory {
   id: string
   name: string
   tag_label: string
-  payment_method: "stripe" | "polens"
+  payment_method: "stripe" | "flames"
   amount_cents: number | null
-  amount_polens: number | null
+  amount_flames: number | null
   acquired_at: string
   expires_at: string
   is_active: boolean
@@ -752,8 +752,8 @@ export default function PagamentosPage() {
                       </div>
                       <div className="text-right">
                         <p className="text-sm font-semibold text-[#F5F1E8]">
-                          {item.payment_method === "polens"
-                            ? `${Math.abs(item.amount_polens || 0).toLocaleString(locale)} ${t("polens", "Poléns")}`
+                          {item.payment_method === "flames"
+                            ? `${Math.abs(item.amount_flames || 0).toLocaleString(locale)} ${t("flames", "Flames")}`
                             : formatarValor(item.amount_cents || 0, "BRL", locale)}
                         </p>
                         <p className="text-xs text-[#9A938A]">{item.is_active ? t("statusActive", "Ativa") : t("statusEnded", "Encerrada")}</p>

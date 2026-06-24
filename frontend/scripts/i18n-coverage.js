@@ -22,7 +22,7 @@ const EXCLUDE_RE = [
   /[\\/]node_modules[\\/]/,
   /[\\/]messages[\\/]/,
   // Páginas legais (ficam pt-BR de propósito).
-  /app[\\/]\(with-footer\)[\\/](terms|privacy-policy|cookies-policy|subscription-terms|affiliate-terms|return-policy|polens-terms|marketplace-terms)[\\/]/i,
+  /app[\\/]\(with-footer\)[\\/](terms|privacy-policy|cookies-policy|subscription-terms|affiliate-terms|return-policy|flames-terms|marketplace-terms)[\\/]/i,
 ]
 
 // Caracteres tipicamente pt (acentos/cedilha) — sinal forte de texto humano pt.

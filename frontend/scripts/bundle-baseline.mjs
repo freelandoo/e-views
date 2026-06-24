@@ -37,7 +37,7 @@ const DEFAULT_ROUTES = [
   "/ranking",
   "/enxame/1",
   "/cursos",
-  "/loja-polens",
+  "/loja-flames",
   "/blog",
 ]
 

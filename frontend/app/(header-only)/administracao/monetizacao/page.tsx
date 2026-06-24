@@ -17,18 +17,18 @@ import {
 import { Button } from "@/components/ui/button"
 import { AtivacaoConfig } from "@/components/admin/monetizacao/AtivacaoConfig"
 import { AgendamentoConfig } from "@/components/admin/monetizacao/AgendamentoConfig"
-import { PolensConfig } from "@/components/admin/monetizacao/PolensConfig"
+import { FlamesConfig } from "@/components/admin/monetizacao/FlamesConfig"
 import { PremiumConfig } from "@/components/admin/monetizacao/PremiumConfig"
 import { ManifestacaoConfig } from "@/app/(header-only)/administracao/manifestacao/page"
 import { CuponsConfig } from "@/app/(header-only)/administracao/cupons/page"
 import { LivesConfig } from "@/components/admin/monetizacao/LivesConfig"
 
-type TabId = "ativacao" | "agendamento" | "polens" | "premium" | "manifestacao" | "lives" | "cupons"
+type TabId = "ativacao" | "agendamento" | "flames" | "premium" | "manifestacao" | "lives" | "cupons"
 
 const TABS: { id: TabId; label: string; icon: LucideIcon; iconClass?: string }[] = [
   { id: "ativacao", label: "Ativação", icon: Wallet },
   { id: "agendamento", label: "Agendamento", icon: Calendar },
-  { id: "polens", label: "Poléns", icon: Hexagon, iconClass: "fill-amber-300 text-amber-300" },
+  { id: "flames", label: "Flames", icon: Hexagon, iconClass: "fill-amber-300 text-amber-300" },
   { id: "premium", label: "Premium", icon: Crown, iconClass: "fill-amber-300 text-amber-400" },
   { id: "manifestacao", label: "Manifestação", icon: Sparkles },
   { id: "lives", label: "Lives", icon: Radio },
@@ -120,7 +120,7 @@ function MonetizacaoInner() {
 
         {tab === "ativacao" && <AtivacaoConfig />}
         {tab === "agendamento" && <AgendamentoConfig />}
-        {tab === "polens" && <PolensConfig />}
+        {tab === "flames" && <FlamesConfig />}
         {tab === "premium" && <PremiumConfig />}
         {tab === "manifestacao" && <ManifestacaoConfig />}
         {tab === "lives" && <LivesConfig />}

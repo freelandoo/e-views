@@ -8,7 +8,7 @@ const router = Router();
 router.get("/products", asyncHandler(ManifestationController.listProducts));
 router.get("/products/:id", asyncHandler(ManifestationController.getProduct));
 router.get("/me", authMiddleware, asyncHandler(ManifestationController.mine));
-router.post("/checkout/polens", authMiddleware, asyncHandler(ManifestationController.checkoutPolens));
+router.post("/checkout/flames", authMiddleware, asyncHandler(ManifestationController.checkoutFlames));
 router.post("/checkout/stripe", authMiddleware, asyncHandler(ManifestationController.checkoutStripe));
 router.post("/apply", authMiddleware, asyncHandler(ManifestationController.apply));
 router.post("/remove", authMiddleware, asyncHandler(ManifestationController.remove));

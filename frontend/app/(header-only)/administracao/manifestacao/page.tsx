@@ -56,7 +56,7 @@ type Product = {
   tag_color: string
   tag_icon: string | null
   price_cents: number
-  price_polens: number
+  price_flames: number
   duration_days: number
   stock: number | null
   is_featured: boolean
@@ -71,13 +71,13 @@ type Dashboard = {
     products_total: number
     products_active: number
     revenue_cents_30d: number
-    revenue_polens_30d: number
+    revenue_flames_30d: number
   }
   by_payment_method_30d: Array<{
     payment_method: string
     purchases: number
     revenue_cents: number
-    revenue_polens: number
+    revenue_flames: number
   }>
   top_products: Array<{
     id: string
@@ -86,7 +86,7 @@ type Dashboard = {
     purchases_30d: number
     active_users: number
     revenue_cents_30d: number
-    revenue_polens_30d: number
+    revenue_flames_30d: number
   }>
 }
 
@@ -115,7 +115,7 @@ const EMPTY_PRODUCT_FORM = {
   tag_color: "emerald",
   tag_icon: "Sparkles",
   price_cents: 0,
-  price_polens: 0,
+  price_flames: 0,
   duration_days: 365,
   stock: "",
   sort_order: 0,
@@ -183,8 +183,8 @@ function ManifestationAdminInner({ embedded = false }: { embedded?: boolean }) {
   const [bulkOpen, setBulkOpen] = useState(false)
   const [bulkApplyBrl, setBulkApplyBrl] = useState(true)
   const [bulkPriceBrl, setBulkPriceBrl] = useState("0,00")
-  const [bulkApplyPolens, setBulkApplyPolens] = useState(true)
-  const [bulkPricePolens, setBulkPricePolens] = useState("500")
+  const [bulkApplyFlames, setBulkApplyFlames] = useState(true)
+  const [bulkPriceFlames, setBulkPriceFlames] = useState("500")
   const [bulkSaving, setBulkSaving] = useState(false)
   const [bulkProgress, setBulkProgress] = useState<{ done: number; total: number } | null>(null)
 
@@ -331,7 +331,7 @@ function ManifestationAdminInner({ embedded = false }: { embedded?: boolean }) {
       tag_color: p.tag_color,
       tag_icon: p.tag_icon || "",
       price_cents: p.price_cents,
-      price_polens: p.price_polens,
+      price_flames: p.price_flames,
       duration_days: p.duration_days,
       stock: p.stock == null ? "" : String(p.stock),
       sort_order: p.sort_order,
@@ -377,7 +377,7 @@ function ManifestationAdminInner({ embedded = false }: { embedded?: boolean }) {
 
   async function applyBulkPrice() {
     if (!token) return
-    if (!bulkApplyBrl && !bulkApplyPolens) { alert("Marque ao menos um campo para alterar."); return }
+    if (!bulkApplyBrl && !bulkApplyFlames) { alert("Marque ao menos um campo para alterar."); return }
 
     let cents: number | null = null
     if (bulkApplyBrl) {
@@ -385,11 +385,11 @@ function ManifestationAdminInner({ embedded = false }: { embedded?: boolean }) {
       if (!Number.isFinite(reais) || reais < 0) { alert("Preço em R$ inválido."); return }
       cents = Math.round(reais * 100)
     }
-    let polens: number | null = null
-    if (bulkApplyPolens) {
-      const p = Number(bulkPricePolens.replace(/\D/g, ""))
-      if (!Number.isFinite(p) || p < 0) { alert("Preço em Poléns inválido."); return }
-      polens = p
+    let flames: number | null = null
+    if (bulkApplyFlames) {
+      const p = Number(bulkPriceFlames.replace(/\D/g, ""))
+      if (!Number.isFinite(p) || p < 0) { alert("Preço em Flames inválido."); return }
+      flames = p
     }
 
     if (!window.confirm(`Aplicar o novo preço a TODOS os ${products.length} banner(s)?`)) return
@@ -404,7 +404,7 @@ function ManifestationAdminInner({ embedded = false }: { embedded?: boolean }) {
         products.map(async (p) => {
           const fd = new FormData()
           if (cents != null) fd.append("price_cents", String(cents))
-          if (polens != null) fd.append("price_polens", String(polens))
+          if (flames != null) fd.append("price_flames", String(flames))
           try {
             const res = await fetch(`/api/admin/manifestations/products/${p.id}`, {
               method: "PUT",
@@ -549,7 +549,7 @@ function ManifestationAdminInner({ embedded = false }: { embedded?: boolean }) {
                     <MetricCard icon={Users} label="Usuarios ativos" value={dashboard.summary.active_users} />
                     <MetricCard icon={Sparkles} label="Subperfis aplicados" value={dashboard.summary.active_subprofile_apply} />
                     <MetricCard icon={BarChart3} label="Produtos ativos" value={`${dashboard.summary.products_active}/${dashboard.summary.products_total}`} />
-                    <MetricCard icon={Coins} label="Receita 30d" value={`${fmtBRL(dashboard.summary.revenue_cents_30d)} · ${Number(dashboard.summary.revenue_polens_30d || 0).toLocaleString("pt-BR")} P`} />
+                    <MetricCard icon={Coins} label="Receita 30d" value={`${fmtBRL(dashboard.summary.revenue_cents_30d)} · ${Number(dashboard.summary.revenue_flames_30d || 0).toLocaleString("pt-BR")} P`} />
                   </div>
 
                   <div className="grid gap-4 lg:grid-cols-[1fr_1.5fr]">
@@ -568,7 +568,7 @@ function ManifestationAdminInner({ embedded = false }: { embedded?: boolean }) {
                               <span className="text-xs text-white/50">{row.purchases} compra(s)</span>
                             </div>
                             <div className="mt-2 text-xs text-white/60">
-                              {fmtBRL(row.revenue_cents)} · {Number(row.revenue_polens || 0).toLocaleString("pt-BR")} P
+                              {fmtBRL(row.revenue_cents)} · {Number(row.revenue_flames || 0).toLocaleString("pt-BR")} P
                             </div>
                           </div>
                         ))}
@@ -591,7 +591,7 @@ function ManifestationAdminInner({ embedded = false }: { embedded?: boolean }) {
                                 {!p.is_active && <Badge variant="outline" className="border-white/20 text-[10px] text-white/50">Inativo</Badge>}
                               </div>
                               <div className="mt-1 text-xs text-white/50">
-                                {p.purchases_30d} compra(s) · {p.active_users} ativo(s) · {fmtBRL(p.revenue_cents_30d)} · {Number(p.revenue_polens_30d || 0).toLocaleString("pt-BR")} P
+                                {p.purchases_30d} compra(s) · {p.active_users} ativo(s) · {fmtBRL(p.revenue_cents_30d)} · {Number(p.revenue_flames_30d || 0).toLocaleString("pt-BR")} P
                               </div>
                             </div>
                             <Button size="sm" variant="outline" onClick={() => router.push(`/administracao/manifestacao/${p.id}`)}>
@@ -671,7 +671,7 @@ function ManifestationAdminInner({ embedded = false }: { embedded?: boolean }) {
 
                         <div className="flex items-center justify-between text-sm">
                           <div className="text-white/85">{fmtBRL(p.price_cents)}</div>
-                          <div className="text-primary font-medium">{p.price_polens.toLocaleString("pt-BR")} P</div>
+                          <div className="text-primary font-medium">{p.price_flames.toLocaleString("pt-BR")} P</div>
                         </div>
 
                         <div className="flex flex-wrap gap-2 pt-2">
@@ -781,17 +781,17 @@ function ManifestationAdminInner({ embedded = false }: { embedded?: boolean }) {
               <label className="flex items-center gap-2 text-sm text-white/85">
                 <input
                   type="checkbox"
-                  checked={bulkApplyPolens}
-                  onChange={(e) => setBulkApplyPolens(e.target.checked)}
+                  checked={bulkApplyFlames}
+                  onChange={(e) => setBulkApplyFlames(e.target.checked)}
                 />
-                Alterar preço em Poléns
+                Alterar preço em Flames
               </label>
               <Input
                 inputMode="numeric"
                 placeholder="500"
-                value={bulkPricePolens}
-                disabled={!bulkApplyPolens}
-                onChange={(e) => setBulkPricePolens(e.target.value.replace(/\D/g, ""))}
+                value={bulkPriceFlames}
+                disabled={!bulkApplyFlames}
+                onChange={(e) => setBulkPriceFlames(e.target.value.replace(/\D/g, ""))}
               />
             </div>
 
@@ -981,11 +981,11 @@ function ManifestationAdminInner({ embedded = false }: { embedded?: boolean }) {
                 <p className="mt-1 text-[10px] text-white/40">{fmtBRL(prodForm.price_cents)}</p>
               </div>
               <div>
-                <Label>Preço (Poléns)</Label>
+                <Label>Preço (Flames)</Label>
                 <Input
                   type="number"
-                  value={prodForm.price_polens}
-                  onChange={(e) => setProdForm({ ...prodForm, price_polens: Number(e.target.value) })}
+                  value={prodForm.price_flames}
+                  onChange={(e) => setProdForm({ ...prodForm, price_flames: Number(e.target.value) })}
                 />
               </div>
               <div>

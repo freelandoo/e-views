@@ -497,7 +497,7 @@ async function onOrderStatusChange(
 }
 
 /**
- * Cria conversão para fluxos NÃO-assinatura (loja, polens, cursos, booking).
+ * Cria conversão para fluxos NÃO-assinatura (loja, flames, cursos, booking).
  *
  * Não há desconto — o cupom só registra atribuição de comissão para o
  * afiliado dono. Idempotente por (payment_provider, payment_provider_ref).
@@ -511,7 +511,7 @@ async function onOrderStatusChange(
  * @param {string} params.id_user_buyer - usuário que pagou
  * @param {string|null} params.id_profile - perfil envolvido (opcional)
  * @param {number} params.total_cents - valor pago (em centavos)
- * @param {string} params.source_context - "loja_produto" | "polen_pack" | "course_purchase" | "booking"
+ * @param {string} params.source_context - "loja_produto" | "flame_pack" | "course_purchase" | "booking"
  * @param {string} params.payment_provider - "stripe" (default)
  * @param {string} params.payment_provider_ref - ID externo único (Stripe session/payment intent) — para idempotência
  * @param {Object|null} params.raw_webhook - payload do webhook, opcional

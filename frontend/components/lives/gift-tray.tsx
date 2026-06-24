@@ -120,7 +120,7 @@ export function GiftTray({ liveId, onSent }: GiftTrayProps) {
                       )}
                       <span className="line-clamp-1 text-[10px] font-medium text-white/85">{g.name}</span>
                       <span className="rounded-full px-1.5 py-px text-[10px] font-bold" style={{ color: g.color }}>
-                        {g.price_polens} 🐝
+                        {g.price_flames} 🐝
                       </span>
                     </motion.button>
                   ))}

@@ -26,7 +26,7 @@ const sections = [
     title: "3. Cupom de desconto",
     items: [
       "O cupom de afiliado concede desconto exclusivamente sobre a ativação de perfil de novos usuários.",
-      "O cupom não concede desconto em compras da Loja, pacotes de Poléns, cursos ou outros produtos.",
+      "O cupom não concede desconto em compras da Loja, pacotes de Flames, cursos ou outros produtos.",
       "O percentual de desconto é definido pela E-Views e pode ser alterado a qualquer momento.",
     ],
   },
@@ -35,7 +35,7 @@ const sections = [
     paragraphs: ["A comissão do afiliado é apurada da seguinte forma:"],
     items: [
       "Ativação de perfil: o afiliado recebe comissão sobre o valor líquido da ativação realizada com o seu cupom.",
-      "Loja, Poléns e cursos: quando a compra é feita a partir de um link de indicação com o cupom embutido, o afiliado recebe comissão, sem que o comprador receba desconto.",
+      "Loja, Flames e cursos: quando a compra é feita a partir de um link de indicação com o cupom embutido, o afiliado recebe comissão, sem que o comprador receba desconto.",
       "Agendamentos não geram comissão de afiliado.",
       "Os percentuais de comissão são definidos pela E-Views e podem ser alterados, valendo a regra vigente no momento da transação.",
       "As comissões não são cumulativas com outros benefícios aplicados à mesma transação.",

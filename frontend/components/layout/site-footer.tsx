@@ -25,7 +25,7 @@ const legalLinks = [
   { href: "/community-guidelines", key: "communityGuidelines", label: "Diretrizes da Comunidade" },
   { href: "/moderation-policy", key: "moderationPolicy", label: "Moderação e Denúncias" },
   { href: "/copyright-policy", key: "copyrightPolicy", label: "Direitos Autorais" },
-  { href: "/polens-terms", key: "polensTerms", label: "Poléns e Itens Digitais" },
+  { href: "/flames-terms", key: "flamesTerms", label: "Flames e Itens Digitais" },
   { href: "/minors-policy", key: "minorsPolicy", label: "Privacidade de Menores" },
   { href: "/advertising-policy", key: "advertisingPolicy", label: "Política de Publicidade" },
   { href: "/casa-views-regulamento", key: "casaViewsRegulamento", label: "Regulamento da Casa Views" },

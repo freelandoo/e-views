@@ -1,6 +1,6 @@
 // Onda 5 do i18n (Dinheiro): merge de chaves novas em messages/{pt-BR,en,es}.json.
 // Idempotente e não-destrutivo: só ADICIONA chaves ausentes, nunca sobrescreve.
-// Áreas: checkout, pagamentos, carteira (wallet), poléns, manifestação, premium.
+// Áreas: checkout, pagamentos, carteira (wallet), flames, manifestação, premium.
 // Placeholders {x} preservados (provider não interpola — montar em JS). Rodar:
 //   node scripts/i18n-onda5-merge.js
 const fs = require("fs")
@@ -58,7 +58,7 @@ const PAYMENTS = {
   refundError: ["Erro ao processar reembolso", "Error processing refund", "Error al procesar el reembolso"],
   manifestation: ["Manifestação", "Manifestation", "Manifestación"],
   dateRangeTo: ["até", "to", "hasta"],
-  polens: ["Poléns", "Polens", "Polens"],
+  flames: ["Flames", "Flames", "Flames"],
   // Reembolso
   requestRefund: ["Solicitar reembolso", "Request refund", "Solicitar reembolso"],
   refundFullTitle: ["Solicitar reembolso integral?", "Request a full refund?", "¿Solicitar reembolso total?"],
@@ -258,26 +258,26 @@ const WALLET = {
   errSaving: ["Erro ao salvar", "Error saving", "Error al guardar"],
 }
 
-// Namespace "Polens" — S4 (loja de poléns pública).
-const POLENS = {
-  eyebrow: ["Pacotes de Poléns", "Polen packages", "Paquetes de Polen"],
-  storeTitle: ["Loja de Polén", "Polen Store", "Tienda de Polen"],
+// Namespace "Flames" — S4 (loja de flames pública).
+const FLAMES = {
+  eyebrow: ["Pacotes de Flames", "Flame packages", "Paquetes de Flame"],
+  storeTitle: ["Loja de Flame", "Flame Store", "Tienda de Flame"],
   storeIntro: [
-    "Compre Poléns para usar dentro da Freelandoo: ative perfis, destaque-se na vitrine e adquira recursos exclusivos.",
-    "Buy Polens to use inside Freelandoo: activate profiles, stand out in the showcase and unlock exclusive features.",
-    "Compra Polens para usar dentro de Freelandoo: activa perfiles, destácate en la vitrina y adquiere recursos exclusivos.",
+    "Compre Flames para usar dentro da Freelandoo: ative perfis, destaque-se na vitrine e adquira recursos exclusivos.",
+    "Buy Flames to use inside Freelandoo: activate profiles, stand out in the showcase and unlock exclusive features.",
+    "Compra Flames para usar dentro de Freelandoo: activa perfiles, destácate en la vitrina y adquiere recursos exclusivos.",
   ],
   currentBalance: ["Saldo atual", "Current balance", "Saldo actual"],
-  polens: ["Poléns", "Polens", "Polens"],
+  flames: ["Flames", "Flames", "Flames"],
   activePackages: ["Pacotes ativos", "Active packages", "Paquetes activos"],
   availableNow: ["Disponíveis para compra agora.", "Available to buy now.", "Disponibles para comprar ahora."],
   featuredPackage: ["Pacote em destaque", "Featured package", "Paquete destacado"],
-  totalPolens: ["{n} Poléns no total", "{n} Polens in total", "{n} Polens en total"],
+  totalFlames: ["{n} Flames no total", "{n} Flames in total", "{n} Flames en total"],
   selectPackage: ["Selecione um pacote", "Select a package", "Selecciona un paquete"],
   featuredDesc: [
-    "Pague com cartão e receba os Poléns na carteira em segundos.",
-    "Pay by card and get the Polens in your wallet in seconds.",
-    "Paga con tarjeta y recibe los Polens en tu cartera en segundos.",
+    "Pague com cartão e receba os Flames na carteira em segundos.",
+    "Pay by card and get the Flames in your wallet in seconds.",
+    "Paga con tarjeta y recibe los Flames en tu cartera en segundos.",
   ],
   noPackagesNow: ["Sem pacotes no momento", "No packages right now", "Sin paquetes por ahora"],
   noPackagesNowDesc: [
@@ -287,23 +287,23 @@ const POLENS = {
   ],
   searchPackage: ["Buscar pacote", "Search package", "Buscar paquete"],
   securePaymentNote: [
-    "Pagamento seguro via Stripe. Os Poléns são creditados automaticamente após a confirmação.",
-    "Secure payment via Stripe. Polens are credited automatically after confirmation.",
-    "Pago seguro vía Stripe. Los Polens se acreditan automáticamente tras la confirmación.",
+    "Pagamento seguro via Stripe. Os Flames são creditados automaticamente após a confirmação.",
+    "Secure payment via Stripe. Flames are credited automatically after confirmation.",
+    "Pago seguro vía Stripe. Los Flames se acreditan automáticamente tras la confirmación.",
   ],
   noPackagesYet: ["Sem pacotes ainda", "No packages yet", "Aún sin paquetes"],
   nothingFound: ["Nada encontrado", "Nothing found", "Nada encontrado"],
   noPackagesYetDesc: ["Nenhum pacote disponível ainda. Volte em breve.", "No packages available yet. Check back soon.", "Aún no hay paquetes disponibles. Vuelve pronto."],
   noMatch: ["Nenhum pacote corresponde à busca.", "No package matches your search.", "Ningún paquete coincide con la búsqueda."],
   bonus: ["bônus", "bonus", "bono"],
-  cardDefaultDesc: ["Receba os Poléns direto na sua carteira.", "Get the Polens straight to your wallet.", "Recibe los Polens directo en tu cartera."],
+  cardDefaultDesc: ["Receba os Flames direto na sua carteira.", "Get the Flames straight to your wallet.", "Recibe los Flames directo en tu cartera."],
   buy: ["Comprar", "Buy", "Comprar"],
   gotIt: ["Entendi", "Got it", "Entendido"],
   paymentConfirmed: ["Pagamento confirmado", "Payment confirmed", "Pago confirmado"],
   paymentConfirmedMsg: [
-    "Seus Poléns foram creditados na sua carteira. O saldo aparece em instantes.",
-    "Your Polens have been credited to your wallet. The balance appears in moments.",
-    "Tus Polens se acreditaron en tu cartera. El saldo aparece en instantes.",
+    "Seus Flames foram creditados na sua carteira. O saldo aparece em instantes.",
+    "Your Flames have been credited to your wallet. The balance appears in moments.",
+    "Tus Flames se acreditaron en tu cartera. El saldo aparece en instantes.",
   ],
   purchaseCanceled: ["Compra cancelada", "Purchase canceled", "Compra cancelada"],
   purchaseCanceledMsg: [
@@ -324,11 +324,11 @@ const MANIFESTATION = {
   eyebrow: ["Manifestação", "Manifestation", "Manifestación"],
   storeTitle: ["Loja de Manifestações", "Manifestations Store", "Tienda de Manifestaciones"],
   subtitle: [
-    "Desbloqueie banners de manifestação com Poléns ou cartão e aplique um deles no headcard do seu perfil. Depois de desbloqueada, ela fica sua para sempre.",
-    "Unlock manifestation banners with Polens or card and apply one to your profile's headcard. Once unlocked, it's yours forever.",
-    "Desbloquea banners de manifestación con Polens o tarjeta y aplica uno en el headcard de tu perfil. Una vez desbloqueado, es tuyo para siempre.",
+    "Desbloqueie banners de manifestação com Flames ou cartão e aplique um deles no headcard do seu perfil. Depois de desbloqueada, ela fica sua para sempre.",
+    "Unlock manifestation banners with Flames or card and apply one to your profile's headcard. Once unlocked, it's yours forever.",
+    "Desbloquea banners de manifestación con Flames o tarjeta y aplica uno en el headcard de tu perfil. Una vez desbloqueado, es tuyo para siempre.",
   ],
-  polens: ["Poléns", "Polens", "Polens"],
+  flames: ["Flames", "Flames", "Flames"],
   buyLink: ["comprar", "buy", "comprar"],
   shareTitle: ["Loja de Manifestações no Freelandoo", "Manifestations Store on Freelandoo", "Tienda de Manifestaciones en Freelandoo"],
   searchPlaceholder: ["Buscar por nome ou estado", "Search by name or state", "Buscar por nombre o estado"],
@@ -364,7 +364,7 @@ const MANIFESTATION = {
   useOnProfile: ["Usar no perfil", "Use on profile", "Usar en el perfil"],
   buy: ["Comprar", "Buy", "Comprar"],
   redeemFree: ["Resgatar grátis", "Redeem free", "Canjear gratis"],
-  buyPolens: ["Comprar Poléns", "Buy Polens", "Comprar Polens"],
+  buyFlames: ["Comprar Flames", "Buy Flames", "Comprar Flames"],
   gotIt: ["Entendi", "Got it", "Entendido"],
   loadStoreError: ["Não foi possível carregar a loja", "Couldn't load the store", "No se pudo cargar la tienda"],
   loadError: ["Erro ao carregar", "Loading error", "Error al cargar"],
@@ -416,19 +416,19 @@ const PREMIUM = {
   ],
   highlightForDays: ["Destaque por {days} dias", "Featured for {days} days", "Destaque por {days} días"],
   card: ["Cartão", "Card", "Tarjeta"],
-  polens: ["Poléns", "Polens", "Polens"],
+  flames: ["Flames", "Flames", "Flames"],
   slotsIn: ["Vagas em", "Slots in", "Cupos en"],
   slotsCount: ["{available} de {total}", "{available} of {total}", "{available} de {total}"],
   slotSingular: ["disponível", "available", "disponible"],
   slotPlural: ["disponíveis", "available", "disponibles"],
   buyWithCard: ["Comprar com cartão", "Buy with card", "Comprar con tarjeta"],
-  buyWithPolens: ["Comprar com Poléns", "Buy with Polens", "Comprar con Polens"],
+  buyWithFlames: ["Comprar com Flames", "Buy with Flames", "Comprar con Flames"],
   loadError: ["Não foi possível carregar", "Couldn't load", "No se pudo cargar"],
   loadErrorShort: ["Erro ao carregar", "Loading error", "Error al cargar"],
   purchaseError: ["Erro ao processar compra", "Error processing purchase", "Error al procesar la compra"],
 }
 
-const GROUPS = { Checkout: CHECKOUT, Payments: PAYMENTS, Wallet: WALLET, Polens: POLENS, Manifestation: MANIFESTATION, Premium: PREMIUM }
+const GROUPS = { Checkout: CHECKOUT, Payments: PAYMENTS, Wallet: WALLET, Flames: FLAMES, Manifestation: MANIFESTATION, Premium: PREMIUM }
 
 function load(file) {
   return JSON.parse(fs.readFileSync(path.join(dir, file), "utf8"))

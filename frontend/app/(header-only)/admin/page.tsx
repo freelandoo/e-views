@@ -35,13 +35,13 @@ const ADMIN_CARDS: (AdminCard & { section: Section })[] = [
   { section: "Pessoas & Acesso", hint: "admin-users", href: "/admin/usuarios", icon: Users, title: "Usuários / Perfis", body: "Usuários cadastrados, com seus sub-perfis, premium e total recebido." },
 
   // Receita — tudo que a plataforma embolsa (será consolidado no extrato Entradas)
-  { section: "Receita", hint: "admin-entries", href: "/admin/entradas", icon: Receipt, title: "Entradas", body: "Extrato de receita: ativações, taxas de agendamento, comissão da Loja, Poléns, Premium e Manifestação." },
+  { section: "Receita", hint: "admin-entries", href: "/admin/entradas", icon: Receipt, title: "Entradas", body: "Extrato de receita: ativações, taxas de agendamento, comissão da Loja, Flames, Premium e Manifestação." },
 
   // Repasses — dinheiro de terceiros que a plataforma segura no holdback e paga via PIX
   { section: "Repasses", hint: "admin-store-payouts", href: "/administracao/repasses", icon: HandCoins, title: "Repasses", body: "Saldos a pagar via PIX: Loja, Agendamentos e Afiliados num só extrato, com filtro por origem e status." },
 
   // Configurações de monetização — definem preço/taxa (não são extrato financeiro)
-  { section: "Configurações de monetização", hint: "admin-anuidade", href: "/administracao/monetizacao", icon: Wallet, title: "Configurações de monetização", body: "Ativação, Agendamento, Poléns, Premium, Manifestação e Cupons — preços, taxas e descontos em abas." },
+  { section: "Configurações de monetização", hint: "admin-anuidade", href: "/administracao/monetizacao", icon: Wallet, title: "Configurações de monetização", body: "Ativação, Agendamento, Flames, Premium, Manifestação e Cupons — preços, taxas e descontos em abas." },
 
   // Catálogo & Vitrine
   { section: "Catálogo & Vitrine", hint: "admin-enxames", href: "/administracao/enxames", icon: Sparkles, title: "Controle de Enxames", body: "Ativar/desativar enxames, cores e profissões." },

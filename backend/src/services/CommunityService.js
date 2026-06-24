@@ -5,7 +5,7 @@
 const pool = require("../databases");
 const CommunityStorage = require("../storages/CommunityStorage");
 const PortfolioFeedService = require("./portfolioFeed/PortfolioFeedService");
-const PolenStorage = require("../storages/PolenStorage");
+const FlameStorage = require("../storages/FlameStorage");
 const { createLogger, runWithLogs } = require("../utils/logger");
 
 const log = createLogger("CommunityService");
@@ -13,7 +13,7 @@ const log = createLogger("CommunityService");
 const REQUIRED_LEVEL_TO_CREATE = 5;
 
 // Temporada (meta): prêmio bancado pela plataforma, mínimos anti-abuso.
-const GOAL_PRIZE_POLENS = 100;
+const GOAL_PRIZE_FLAMES = 100;
 const GOAL_MIN_DAYS = 30;
 const GOAL_MIN_MEMBERS = 5;
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -568,7 +568,7 @@ class CommunityService {
       title: goal.title,
       metric: goal.metric,
       target_value: target,
-      prize_polens: Number(goal.prize_polens) || 0,
+      prize_flames: Number(goal.prize_flames) || 0,
       status: goal.status,
       starts_at: goal.starts_at,
       ends_at: goal.ends_at,
@@ -600,12 +600,12 @@ class CommunityService {
     try {
       await client.query("BEGIN");
       const closed = await CommunityStorage.closeGoal(client, goal.id, winnerUserId);
-      if (closed && winnerUserId && Number(goal.prize_polens) > 0) {
-        const wallet = await PolenStorage.getOrCreateWallet(client, winnerUserId);
-        await PolenStorage.credit(client, {
+      if (closed && winnerUserId && Number(goal.prize_flames) > 0) {
+        const wallet = await FlameStorage.getOrCreateWallet(client, winnerUserId);
+        await FlameStorage.credit(client, {
           user_id: winnerUserId,
           wallet_id: wallet.id,
-          amount: Number(goal.prize_polens),
+          amount: Number(goal.prize_flames),
           type: "earn_community_goal",
           source: "community_goal",
           source_id: String(goal.id),
@@ -689,7 +689,7 @@ class CommunityService {
           metric,
           target_value: target,
           ends_at: new Date(endsTs).toISOString(),
-          prize_polens: GOAL_PRIZE_POLENS,
+          prize_flames: GOAL_PRIZE_FLAMES,
           created_by_user: user.id_user,
         });
         return this.getGoal(params);

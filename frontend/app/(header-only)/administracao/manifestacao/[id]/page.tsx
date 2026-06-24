@@ -13,7 +13,7 @@ type Product = {
   name: string
   tag_label: string
   price_cents: number
-  price_polens: number
+  price_flames: number
   is_active: boolean
 }
 
@@ -25,7 +25,7 @@ type UsageRow = {
   email: string
   payment_method: string
   amount_cents: number | null
-  amount_polens: number | null
+  amount_flames: number | null
   acquired_at: string
   expires_at: string
   is_active: boolean
@@ -221,7 +221,7 @@ export default function ManifestationUsagePage() {
                           <td className="py-3 pr-4 capitalize">{row.payment_method}</td>
                           <td className="py-3 pr-4">
                             <div>{fmtBRL(row.amount_cents)}</div>
-                            <div className="text-xs text-primary">{Number(row.amount_polens || 0).toLocaleString("pt-BR")} P</div>
+                            <div className="text-xs text-primary">{Number(row.amount_flames || 0).toLocaleString("pt-BR")} P</div>
                           </td>
                           <td className="py-3 pr-4">
                             <div className="text-xs">Compra: {fmtDate(row.acquired_at)}</div>

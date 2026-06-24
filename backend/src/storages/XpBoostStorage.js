@@ -1,5 +1,5 @@
 // src/storages/XpBoostStorage.js
-// Compras do booster de XP (nível 5). Espelha PolenProductStorage (dedupe por
+// Compras do booster de XP (nível 5). Espelha FlameProductStorage (dedupe por
 // stripe_session_id UNIQUE).
 module.exports = {
   async createPurchase(db, { user_id, id_profile, target_level, amount_cents, stripe_session_id }) {

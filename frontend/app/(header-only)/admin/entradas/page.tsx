@@ -19,7 +19,7 @@ type Tipo =
   | "taxa_agenda"
   | "comissao_loja"
   | "comissao_curso"
-  | "venda_polens"
+  | "venda_flames"
   | "premium"
   | "manifestacao"
 
@@ -52,8 +52,8 @@ const TIPO_META: Record<Tipo, { label: string; badge: string }> = {
     label: "Comissão Cursos",
     badge: "bg-cyan-500/15 text-cyan-400 border-cyan-500/30",
   },
-  venda_polens: {
-    label: "Venda Poléns",
+  venda_flames: {
+    label: "Venda Flames",
     badge: "bg-amber-500/15 text-amber-400 border-amber-500/30",
   },
   premium: {
@@ -71,7 +71,7 @@ const TIPO_ORDER: Tipo[] = [
   "taxa_agenda",
   "comissao_loja",
   "comissao_curso",
-  "venda_polens",
+  "venda_flames",
   "premium",
   "manifestacao",
 ]
@@ -228,7 +228,7 @@ export default function AdminEntradasPage() {
             <h1 className="text-2xl font-bold text-foreground">Entradas</h1>
             <p className="text-sm text-muted-foreground">
               Extrato único de receita: ativações, taxas, comissão da Loja, venda
-              de Poléns, Premium e Manifestação (pagos em R$)
+              de Flames, Premium e Manifestação (pagos em R$)
             </p>
           </div>
         </div>

@@ -6,7 +6,7 @@ const TIPOS = [
   "assinatura",
   "taxa_agenda",
   "comissao_loja",
-  "venda_polens",
+  "venda_flames",
   "premium",
   "manifestacao",
 ];

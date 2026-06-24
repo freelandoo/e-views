@@ -46,11 +46,11 @@ export interface LiveGift {
   emoji: string
   color: string
   animation: string
-  price_polens: number
+  price_flames: number
 }
 
 export interface SendGiftResult {
-  polens_spent: number
+  flames_spent: number
   wallet?: { balance: number }
   gift: Pick<LiveGift, "id_live_gift" | "name" | "emoji" | "color" | "animation">
 }

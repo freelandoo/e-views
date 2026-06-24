@@ -17,10 +17,10 @@ function validateGift(body, { partial = false } = {}) {
     }
     out.animation = body.animation;
   }
-  if (body.price_polens != null) {
-    const p = Number(body.price_polens);
-    if (!Number.isInteger(p) || p < 0) return { error: "Preço em Poléns inválido" };
-    out.price_polens = p;
+  if (body.price_flames != null) {
+    const p = Number(body.price_flames);
+    if (!Number.isInteger(p) || p < 0) return { error: "Preço em Flames inválido" };
+    out.price_flames = p;
   }
   if (body.sort_order != null) out.sort_order = Number(body.sort_order) || 0;
   if (body.is_active != null) out.is_active = !!body.is_active;

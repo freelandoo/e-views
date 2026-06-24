@@ -1,11 +1,11 @@
-// Namespace "Polens" — booster de XP (nível 5) na loja de poléns. Idempotente,
+// Namespace "Flames" — booster de XP (nível 5) na loja de flames. Idempotente,
 // fill-if-absent. Rodar: node scripts/i18n-xp-boost-merge.js
 const fs = require("fs")
 const path = require("path")
 
 const dir = path.join(__dirname, "..", "messages")
 
-const POLENS = {
+const FLAMES = {
   boosterEyebrow: ["Atalho", "Shortcut", "Atajo"],
   boosterTitle: ["Booster de Nível 5", "Level 5 Booster", "Booster de Nivel 5"],
   boosterDesc: [
@@ -35,7 +35,7 @@ const POLENS = {
   ],
 }
 
-const GROUPS = { Polens: POLENS }
+const GROUPS = { Flames: FLAMES }
 
 function load(file) {
   return JSON.parse(fs.readFileSync(path.join(dir, file), "utf8"))

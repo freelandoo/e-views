@@ -39,7 +39,7 @@ class LiveController {
     return sendServiceResult(res, result);
   }
 
-  // POST /lives/:id_live/gift — envia presente (gasta Poléns)
+  // POST /lives/:id_live/gift — envia presente (gasta Flames)
   static async sendGift(req, res) {
     const result = await LiveService.sendGift(req.user, req.params, req.body || {});
     return sendServiceResult(res, result, 201);

@@ -55,6 +55,6 @@ calmo.png
 inspirado.png
 ```
 
-O catálogo (nomes, headlines, descrições, preço de 50 Poléns) é populado
+O catálogo (nomes, headlines, descrições, preço de 50 Flames) é populado
 automaticamente pela migration `089_manifestation_unlock_library.sql` a cada
 deploy do backend — basta colocar as imagens com os nomes acima.

@@ -2,7 +2,7 @@
 // Booster de XP: R$10 que leva um subperfil escolhido direto ao nível 5.
 // Stripe price_data ad-hoc + webhook idempotente por session id. Sem comissão
 // de afiliado. Entrega = evento de XP idempotente (top-up até o nível-alvo) +
-// recálculo do nível. Espelha PolenProductService.
+// recálculo do nível. Espelha FlameProductService.
 const pool = require("../databases");
 const StripeService = require("./StripeService");
 const XpBoostStorage = require("../storages/XpBoostStorage");
@@ -50,8 +50,8 @@ class XpBoostService {
           productName: `Booster de XP — Nível ${TARGET_LEVEL}`,
           customerEmail: user.email || undefined,
           clientReferenceId: user.id_user,
-          successUrl: `${frontend}/loja-polens?xp_boost=success&session_id={CHECKOUT_SESSION_ID}`,
-          cancelUrl: `${frontend}/loja-polens?xp_boost=cancel`,
+          successUrl: `${frontend}/loja-flames?xp_boost=success&session_id={CHECKOUT_SESSION_ID}`,
+          cancelUrl: `${frontend}/loja-flames?xp_boost=cancel`,
           metadata: {
             type: "xp_boost",
             user_id: user.id_user,

@@ -51,7 +51,7 @@ interface ShippingHealth {
 // ---------------------------------------------------------------------------
 const FLOW_LABEL: Record<string, string> = {
   loja_produto: "Loja (produto)",
-  polens: "Poléns",
+  flames: "Flames",
   premium: "Premium",
   ativacao: "Ativação",
   casa: "Casa Views",

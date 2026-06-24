@@ -95,7 +95,7 @@ export default function CasaViewsRegulamentoPage() {
       footerPrefix="Ao participar ou interagir com a Casa Views, você concorda com este Regulamento. Veja também nossos"
       links={[
         { href: "/terms", label: "Termos de Uso" },
-        { href: "/polens-terms", label: "Poléns e Itens Digitais" },
+        { href: "/flames-terms", label: "Flames e Itens Digitais" },
         { href: "/marketplace-terms", label: "Termos do Marketplace" },
       ]}
     />

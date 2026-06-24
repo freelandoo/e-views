@@ -13,7 +13,7 @@ export type TourKey =
   | "courses"
   | "subprofile_store"
   | "products"
-  | "pollens"
+  | "flames"
   | "manifestations"
   | "coupons"
   | "affiliates"
@@ -90,7 +90,7 @@ export const TOUR_CONFIGS: TourConfig[] = [
       { id: "welcome-dropside-manifestation", target: "[data-tour='dropside-manifestation']", title: "Manifestação", content: "Loja de banners — desbloqueia com pólens ou cartão e aplica no headcard do seu perfil.", placement: "right" },
       { id: "welcome-dropside-earnings", target: "[data-tour='dropside-earnings']", title: "Faturamentos", content: "Saldo, comissões de afiliado, cupons compartilhados e histórico financeiro.", placement: "right" },
       { id: "welcome-dropside-open-chamado", target: "[data-tour='dropside-open-chamado']", title: "Abrir chamado", content: "Peça serviço, produto ou curso (O.S.) — profissionais, vendedores e instrutores respondem na aba O.S. das mensagens.", placement: "right" },
-      { id: "welcome-dropside-pollens", target: "[data-tour='dropside-pollens']", title: "Pólens", content: "Loja de pólens — compre pacotes ou veja seu saldo e como gastar.", placement: "right" },
+      { id: "welcome-dropside-flames", target: "[data-tour='dropside-flames']", title: "Pólens", content: "Loja de pólens — compre pacotes ou veja seu saldo e como gastar.", placement: "right" },
       { id: "welcome-dropside-payments", target: "[data-tour='dropside-payments']", title: "Pagamentos & Ativações", content: "Histórico de cobranças, assinaturas dos subperfis e reembolsos.", placement: "right" },
       { id: "welcome-dropside-settings", target: "[data-tour='dropside-settings']", title: "Configurações", content: "Dados pessoais, e-mail, senha, supervisão (menores) e preferências da conta.", placement: "right" },
       { id: "welcome-dropside-preferences", target: "[data-tour='dropside-preferences']", title: "Idioma e país", content: "Troca a interface entre pt/en/es e o país que filtra conteúdo e moeda.", placement: "right" },
@@ -176,7 +176,7 @@ export const TOUR_CONFIGS: TourConfig[] = [
   { tourKey: "service_orders", title: "Abrir chamado", description: "O.S.", version: 2, pagePath: ["/mensagens"], steps: [{ id: "os-1", title: "Abra um chamado", content: "Peça serviço, produto ou curso. As respostas chegam aqui na aba O.S.", placement: "center" }] },
   { tourKey: "courses", title: "Cursos", description: "Monetize conhecimento", version: 1, pagePath: ["/cursos", "/account/courses"], steps: [{ id: "courses-1", title: "Venda conhecimento", content: "Crie módulos, aulas e materiais para gerar renda.", placement: "center" }] },
   { tourKey: "subprofile_store", title: "Loja em subperfil", description: "Vendas no perfil", version: 1, pagePath: ["/account/profile"], steps: [{ id: "store-1", title: "Sua loja dentro do subperfil", content: "Subperfis pagos podem vender produtos no próprio perfil.", placement: "center" }] },
-  { tourKey: "pollens", title: "Pólens", description: "Energia da plataforma", version: 1, pagePath: ["/loja-polens", "/account"], steps: [{ id: "pollens-1", title: "Pólens são sua energia", content: "Ganhe e use com estratégia para desbloquear vantagens.", placement: "center" }] },
+  { tourKey: "flames", title: "Pólens", description: "Energia da plataforma", version: 1, pagePath: ["/loja-flames", "/account"], steps: [{ id: "flames-1", title: "Pólens são sua energia", content: "Ganhe e use com estratégia para desbloquear vantagens.", placement: "center" }] },
   { tourKey: "manifestations", title: "Manifestações", description: "Banners do perfil", version: 1, pagePath: ["/manifestacao"], steps: [{ id: "manifestations-1", title: "Escolha seu banner", content: "Compre com pólens e personalize seu headcard.", placement: "center" }] },
   { tourKey: "coupons", title: "Cupons", description: "Compartilhamento", version: 1, pagePath: ["/account/afiliado", "/oferta"], steps: [{ id: "coupons-1", title: "Seu cupom acompanha você", content: "Links com cupom podem aplicar vantagens automaticamente.", placement: "center" }] },
   { tourKey: "affiliates", title: "Afiliados", description: "Ganhos por indicação", version: 1, pagePath: ["/account/afiliado"], steps: [{ id: "affiliates-1", title: "Ganhe indicando", content: "Acompanhe cliques, conversões e comissões.", placement: "center" }] },

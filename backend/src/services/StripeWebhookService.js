@@ -8,7 +8,7 @@ const AffiliateConversionService = require("./AffiliateConversionService");
 const BookingService = require("./BookingService");
 const ClanService = require("./ClanService");
 const ManifestationService = require("./ManifestationService");
-const PolenProductService = require("./PolenProductService");
+const FlameProductService = require("./FlameProductService");
 const PremiumService = require("./PremiumService");
 const ProfileProductOrderService = require("./ProfileProductOrderService");
 const CasaParticipantService = require("./CasaParticipantService");
@@ -19,7 +19,7 @@ const CommunityStorage = require("../storages/CommunityStorage");
 const XpStorage = require("../storages/XpStorage");
 const BookingStorage = require("../storages/BookingStorage");
 const ProfileProductOrderStorage = require("../storages/ProfileProductOrderStorage");
-const PolenProductStorage = require("../storages/PolenProductStorage");
+const FlameProductStorage = require("../storages/FlameProductStorage");
 const PremiumStorage = require("../storages/PremiumStorage");
 const CasaProductStorage = require("../storages/CasaProductStorage");
 const { isFullRefund } = require("../utils/refunds");
@@ -416,7 +416,7 @@ async function handleSubscriptionDeleted(conn, subscription) {
  * opt-in por item, comissão embutida via meta.affiliate_commission_cents) e
  * Conveniência da Casa Views (casa_participant_order, %-base sobre o total).
  * A assinatura usa fluxo próprio (createFromProfileSubscription).
- * NÃO geram comissão: Poléns, Premium (prêmio), Clã e Manifestação.
+ * NÃO geram comissão: Flames, Premium (prêmio), Clã e Manifestação.
  */
 function resolveCommissionContext(meta) {
   switch (meta?.type) {
@@ -517,8 +517,8 @@ async function fulfillCheckoutSession(session) {
     result = await CommunitySlotService.confirmStripeSession(session);
   } else if (meta.type === "manifestation") {
     result = await ManifestationService.confirmStripeSession(session);
-  } else if (meta.type === "polen_purchase") {
-    result = await PolenProductService.confirmStripeSession(session);
+  } else if (meta.type === "flame_purchase") {
+    result = await FlameProductService.confirmStripeSession(session);
   } else if (meta.type === "xp_boost") {
     result = await XpBoostService.confirmStripeSession(session);
   } else if (meta.type === "premium") {
@@ -559,7 +559,7 @@ async function fulfillCheckoutSession(session) {
 /**
  * Expira/cancela os registros pendentes de uma checkout session que NUNCA foi
  * paga (checkout.session.expired) ou cujo pagamento assíncrono falhou
- * (async_payment_failed). Sem isto, pedidos/poléns/premium/ativações ficavam
+ * (async_payment_failed). Sem isto, pedidos/flames/premium/ativações ficavam
  * "pendente" para sempre e o slot da agenda ficava bloqueado. Idempotente:
  * só mexe em linhas ainda pendentes.
  */
@@ -572,9 +572,9 @@ async function expireCheckoutSession(session, reason) {
         if (expired) log.info("expire.booking", { session_id: session.id, reason });
         break;
       }
-      case "polen_purchase": {
-        const expired = await PolenProductStorage.markPurchaseExpiredBySession(pool, session.id);
-        if (expired) log.info("expire.polen", { session_id: session.id, reason });
+      case "flame_purchase": {
+        const expired = await FlameProductStorage.markPurchaseExpiredBySession(pool, session.id);
+        if (expired) log.info("expire.flame", { session_id: session.id, reason });
         break;
       }
       case "xp_boost": {
@@ -642,7 +642,7 @@ async function dispatchEvent(event) {
       const session = event.data.object;
       // Métodos assíncronos (Pix/boleto): o completed chega com payment_status
       // "unpaid" ANTES do dinheiro cair. A entrega acontece só no
-      // async_payment_succeeded — sem este guard, ativaríamos perfil/poléns/
+      // async_payment_succeeded — sem este guard, ativaríamos perfil/flames/
       // pedido sem pagamento confirmado.
       if (session.payment_status === "unpaid") {
         log.info("checkout.completed.awaiting_async_payment", {
@@ -699,8 +699,8 @@ async function dispatchEvent(event) {
       const BookingPayoutService = require("./BookingPayoutService");
       const bookingResult = await BookingPayoutService.handleChargeRefunded(charge);
       if (bookingResult && !bookingResult.ignored) break;
-      const polenResult = await PolenProductService.handleChargeRefunded(charge);
-      if (polenResult && !polenResult.ignored) break;
+      const flameResult = await FlameProductService.handleChargeRefunded(charge);
+      if (flameResult && !flameResult.ignored) break;
       const xpBoostResult = await XpBoostService.handleChargeRefunded(charge);
       if (xpBoostResult && !xpBoostResult.ignored) break;
       const premiumResult = await PremiumService.handleChargeRefunded(charge);

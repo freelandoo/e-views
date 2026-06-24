@@ -36,7 +36,7 @@ type Product = {
   headline: string | null
   description: string | null
   banner_url: string
-  price_polens: number
+  price_flames: number
   price_cents: number
   tag_label?: string | null
   tag_color?: string | null
@@ -67,7 +67,7 @@ type OwnedRow = {
   headline: string | null
   banner_url: string
   slug: string | null
-  amount_polens: number | null
+  amount_flames: number | null
   acquired_at: string
   payment_method: string
   tag_label?: string | null
@@ -127,7 +127,7 @@ export default function ManifestacaoPage() {
   const { ensureConsent } = useActionConsent()
   const [products, setProducts] = useState<Product[]>([])
   const [mine, setMine] = useState<Mine | null>(null)
-  const [polens, setPolens] = useState<number | null>(null)
+  const [flames, setFlames] = useState<number | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
   const [query, setQuery] = useState("")
@@ -143,12 +143,12 @@ export default function ManifestacaoPage() {
     try {
       const [meRes, walletRes] = await Promise.all([
         fetch("/api/manifestations/me", { headers: { Authorization: `Bearer ${token}` } }),
-        fetch("/api/polens/wallet", { headers: { Authorization: `Bearer ${token}` } }),
+        fetch("/api/flames/wallet", { headers: { Authorization: `Bearer ${token}` } }),
       ])
       if (meRes.ok) setMine(await meRes.json())
       if (walletRes.ok) {
         const w = await walletRes.json()
-        setPolens(Number(w?.wallet?.balance ?? w?.balance ?? 0))
+        setFlames(Number(w?.wallet?.balance ?? w?.balance ?? 0))
       }
     } catch {
       /* best-effort — a loja funciona mesmo sem o /me */
@@ -248,7 +248,7 @@ export default function ManifestacaoPage() {
     if (!(await ensureConsent("platform_purchase"))) return
     setBusy(`buy:${product.id}`)
     try {
-      const res = await fetch("/api/manifestations/checkout/polens", {
+      const res = await fetch("/api/manifestations/checkout/flames", {
         method: "POST",
         headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
         body: JSON.stringify({ product_id: product.id }),
@@ -264,7 +264,7 @@ export default function ManifestacaoPage() {
       })
     } catch (err) {
       const message = err instanceof Error ? err.message : t("purchaseError", "Erro na compra")
-      const insufficient = message.toLowerCase().includes("pólens") || message.toLowerCase().includes("polens")
+      const insufficient = message.toLowerCase().includes("pólens") || message.toLowerCase().includes("flames")
       setFeedback({
         ok: false,
         title: insufficient ? t("insufficientBalance", "Saldo insuficiente") : t("purchaseNotCompleted", "Compra não concluída"),
@@ -377,14 +377,14 @@ export default function ManifestacaoPage() {
           size="compact"
           eyebrow={t("eyebrow", "Manifestação")}
           title={t("storeTitle", "Loja de Manifestações")}
-          subtitle={t("subtitle", "Desbloqueie banners de manifestação com Poléns ou cartão e aplique um deles no headcard do seu perfil. Depois de desbloqueada, ela fica sua para sempre.")}
+          subtitle={t("subtitle", "Desbloqueie banners de manifestação com Flames ou cartão e aplique um deles no headcard do seu perfil. Depois de desbloqueada, ela fica sua para sempre.")}
           actions={
             <>
               {token && (
                 <span className="inline-flex items-center gap-1.5 border-2 border-[#0B0B0D] bg-[#C8102E] px-3 py-1.5 text-xs font-black uppercase tracking-wider text-white shadow-[3px_3px_0_0_#0B0B0D]">
                   <Coins className="h-3.5 w-3.5" />
-                  {polens == null ? "—" : polens.toLocaleString(locale)} {t("polens", "Poléns")}
-                  <Link href="/loja-polens" className="ml-1 underline underline-offset-2">
+                  {flames == null ? "—" : flames.toLocaleString(locale)} {t("flames", "Flames")}
+                  <Link href="/loja-flames" className="ml-1 underline underline-offset-2">
                     {t("buyLink", "comprar")}
                   </Link>
                 </span>
@@ -600,8 +600,8 @@ export default function ManifestacaoPage() {
                       <span className="fl-display text-base text-[#C8102E]">
                         {p.price_cents > 0
                           ? fmtBRL(p.price_cents, locale)
-                          : p.price_polens > 0
-                            ? `${p.price_polens.toLocaleString(locale)} P`
+                          : p.price_flames > 0
+                            ? `${p.price_flames.toLocaleString(locale)} P`
                             : t("free", "Grátis")}
                       </span>
                       {owned && !isActive && (
@@ -678,13 +678,13 @@ export default function ManifestacaoPage() {
                       {fmtBRL(p.price_cents, locale)}
                     </span>
                   )}
-                  {p.price_polens > 0 && (
+                  {p.price_flames > 0 && (
                     <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[#9c6e2a]">
                       <Coins className="h-4 w-4" />
-                      {t("or", "ou")} {p.price_polens.toLocaleString(locale)} {t("polens", "Poléns")}
+                      {t("or", "ou")} {p.price_flames.toLocaleString(locale)} {t("flames", "Flames")}
                     </span>
                   )}
-                  {p.price_cents === 0 && p.price_polens === 0 && (
+                  {p.price_cents === 0 && p.price_flames === 0 && (
                     <span className="text-2xl font-black tracking-tight text-[#15803d]">{t("free", "Grátis")}</span>
                   )}
                 </div>
@@ -748,8 +748,8 @@ export default function ManifestacaoPage() {
                         ) : (
                           <Coins className="mr-2 h-4 w-4" />
                         )}
-                        {p.price_polens > 0
-                          ? `${t("buy", "Comprar")} · ${p.price_polens.toLocaleString(locale)} ${t("polens", "Poléns")}`
+                        {p.price_flames > 0
+                          ? `${t("buy", "Comprar")} · ${p.price_flames.toLocaleString(locale)} ${t("flames", "Flames")}`
                           : t("redeemFree", "Resgatar grátis")}
                       </button>
                     </>
@@ -788,10 +788,10 @@ export default function ManifestacaoPage() {
             <div className="mt-5 flex justify-end gap-2">
               {!feedback.ok && feedback.insufficient && (
                 <Link
-                  href="/loja-polens"
+                  href="/loja-flames"
                   className="fl-btn-card inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider"
                 >
-                  {t("buyPolens", "Comprar Poléns")}
+                  {t("buyFlames", "Comprar Flames")}
                 </Link>
               )}
               <button

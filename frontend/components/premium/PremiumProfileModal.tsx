@@ -24,7 +24,7 @@ type Quote = {
   pricing?: {
     duration_days: number
     price_cents: number
-    price_polens: number
+    price_flames: number
   }
   slots?: { total: number; taken: number; available: number }
   active?: { id: string; activated_at: string; expires_at: string } | null
@@ -59,7 +59,7 @@ export function PremiumProfileModal({
   const { ensureConsent } = useActionConsent()
   const [quote, setQuote] = useState<Quote | null>(null)
   const [loading, setLoading] = useState(false)
-  const [buying, setBuying] = useState<"polens" | "stripe" | null>(null)
+  const [buying, setBuying] = useState<"flames" | "stripe" | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const load = useCallback(async () => {
@@ -81,7 +81,7 @@ export function PremiumProfileModal({
     if (open) void load()
   }, [open, load])
 
-  async function buy(method: "polens" | "stripe") {
+  async function buy(method: "flames" | "stripe") {
     const t = token()
     if (!t) {
       window.location.href = "/login?next=/account"
@@ -103,7 +103,7 @@ export function PremiumProfileModal({
         window.location.href = data.checkout_url
         return
       }
-      // Polens: já ativou. Recarrega quote pra mostrar "Ativo até".
+      // Flames: já ativou. Recarrega quote pra mostrar "Ativo até".
       await load()
     } catch (err) {
       setError(err instanceof Error ? err.message : tr("purchaseError", "Erro ao processar compra"))
@@ -179,10 +179,10 @@ export function PremiumProfileModal({
                     <p className="mt-1 text-lg font-semibold tracking-tight">{fmtBRL(pricing.price_cents, locale)}</p>
                   </div>
                   <div className="rounded-lg border border-white/10 bg-zinc-950/40 p-3">
-                    <p className="text-xs text-white/60">{tr("polens", "Poléns")}</p>
+                    <p className="text-xs text-white/60">{tr("flames", "Flames")}</p>
                     <p className="mt-1 flex items-center gap-1 text-lg font-semibold tracking-tight text-amber-200">
                       <Hexagon className="h-4 w-4 fill-amber-300 text-amber-300" />
-                      {pricing.price_polens.toLocaleString(locale)}
+                      {pricing.price_flames.toLocaleString(locale)}
                     </p>
                   </div>
                 </div>
@@ -214,17 +214,17 @@ export function PremiumProfileModal({
                 {tr("buyWithCard", "Comprar com cartão")}
               </Button>
               <Button
-                onClick={() => buy("polens")}
+                onClick={() => buy("flames")}
                 disabled={buying !== null || noSlots || !!fatalError}
                 variant="outline"
                 className="flex-1 border-amber-300/30 text-amber-100 hover:bg-amber-300/10"
               >
-                {buying === "polens" ? (
+                {buying === "flames" ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
                   <Hexagon className="mr-2 h-4 w-4 fill-amber-300 text-amber-300" />
                 )}
-                {tr("buyWithPolens", "Comprar com Poléns")}
+                {tr("buyWithFlames", "Comprar com Flames")}
               </Button>
             </div>
           </div>

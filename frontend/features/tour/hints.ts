@@ -30,7 +30,7 @@ export type HintId =
   | "admin-booking-fees"
   | "admin-affiliates"
   | "admin-ranking"
-  | "admin-polens"
+  | "admin-flames"
   | "admin-manifestation"
   | "admin-premium"
   | "admin-chat-mod"
@@ -72,7 +72,7 @@ export type HintId =
   | "dropside-manifestation"
   | "dropside-earnings"
   | "dropside-open-chamado"
-  | "dropside-pollens"
+  | "dropside-flames"
   // ── Dropside — Ações secundárias ───────────────────────────────────────
   | "dropside-account"
   | "dropside-payments"
@@ -239,7 +239,7 @@ export const HINTS: Record<HintId, Hint> = {
     title: "Abrir chamado",
     text: "Peça um serviço, produto ou curso (O.S.). Profissionais, vendedores e instrutores respondem na aba O.S. das mensagens.",
   },
-  "dropside-pollens": {
+  "dropside-flames": {
     title: "Seus Pólens",
     text: "Loja de Pólens — compre pacotes ou veja seu saldo e como gastar.",
   },
@@ -411,8 +411,8 @@ export const HINTS: Record<HintId, Hint> = {
     title: "Ranking",
     text: "Configura pesos do score (XP, ratings, likes, visitas) e visualiza posições.",
   },
-  "admin-polens": {
-    title: "Poléns",
+  "admin-flames": {
+    title: "Flames",
     text: "Moeda interna: rewarded ads, preços dos pacotes e métricas de gasto/ganho.",
   },
   "admin-manifestation": {

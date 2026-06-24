@@ -1,6 +1,6 @@
 // src/storages/XpStorage.js
 const { createLogger } = require("../utils/logger");
-const PolenStorage = require("./PolenStorage");
+const FlameStorage = require("./FlameStorage");
 
 const log = createLogger("XpStorage");
 
@@ -56,7 +56,7 @@ module.exports = {
       "base_xp_level_1",
       "level_multiplier",
       "max_online_minutes",
-      "polens_per_level",
+      "flames_per_level",
     ]);
 
     const sets = ["updated_at = NOW()"];
@@ -153,15 +153,15 @@ module.exports = {
 
     const row = r.rows[0] ?? null;
 
-    // Crédito de Poléns por subida de nível (só subperfil não-clã, forward-only).
+    // Crédito de Flames por subida de nível (só subperfil não-clã, forward-only).
     // Como xp_total só cresce e o nível é monotônico, o delta > 0 ocorre uma vez
     // por nível cruzado — sem risco de crédito duplicado.
     if (row && row.is_clan === false && row.id_user) {
       const oldLevel = Number(row.old_level) || 0;
       const newLevel = Number(row.xp_level) || 0;
-      const perLevel = Number(settings.polens_per_level) || 0;
+      const perLevel = Number(settings.flames_per_level) || 0;
       if (newLevel > oldLevel && perLevel > 0) {
-        await this.creditLevelUpPolens(db, {
+        await this.creditLevelUpFlames(db, {
           user_id: row.id_user,
           id_profile,
           old_level: oldLevel,
@@ -189,13 +189,13 @@ module.exports = {
     return row;
   },
 
-  // Credita Poléns na carteira do usuário dono por cada nível cruzado.
+  // Credita Flames na carteira do usuário dono por cada nível cruzado.
   // Fire-and-forget safe — nunca derruba o recálculo de XP.
-  async creditLevelUpPolens(db, { user_id, id_profile, old_level, new_level, per_level }) {
+  async creditLevelUpFlames(db, { user_id, id_profile, old_level, new_level, per_level }) {
     try {
-      const wallet = await PolenStorage.getOrCreateWallet(db, user_id);
+      const wallet = await FlameStorage.getOrCreateWallet(db, user_id);
       for (let lvl = old_level + 1; lvl <= new_level; lvl++) {
-        await PolenStorage.credit(db, {
+        await FlameStorage.credit(db, {
           user_id,
           wallet_id: wallet.id,
           amount: per_level,
@@ -205,14 +205,14 @@ module.exports = {
           metadata: { id_profile, level: lvl, per_level },
         });
       }
-      log.info("creditLevelUpPolens.ok", {
+      log.info("creditLevelUpFlames.ok", {
         id_profile,
         user_id,
         levels: new_level - old_level,
-        polens: per_level * (new_level - old_level),
+        flames: per_level * (new_level - old_level),
       });
     } catch (err) {
-      log.error("creditLevelUpPolens.fail", { id_profile, user_id, error: err.message });
+      log.error("creditLevelUpFlames.fail", { id_profile, user_id, error: err.message });
     }
   },
 

@@ -79,7 +79,7 @@ export const CONSENT_ACTIONS: Record<ConsentActionKey, ConsentActionDef> = {
     version: 1,
     title: "Antes de concluir",
     summary:
-      "Você está adquirindo um recurso digital da própria E-Views (como Poléns, destaque ou banner de manifestação). É um item de uso dentro da plataforma, liberado após a confirmação do pagamento.",
+      "Você está adquirindo um recurso digital da própria E-Views (como Flames, destaque ou banner de manifestação). É um item de uso dentro da plataforma, liberado após a confirmação do pagamento.",
     bullets: [
       "É um item digital, sem entrega física, com fruição imediata após a confirmação do pagamento.",
       "Créditos e recursos digitais não são, em regra, reembolsáveis após a liberação ou o uso, salvo quando a lei exigir.",
@@ -87,7 +87,7 @@ export const CONSENT_ACTIONS: Record<ConsentActionKey, ConsentActionDef> = {
     ],
     links: [
       { label: "Termos de Uso", href: "/terms" },
-      { label: "Termos de Poléns", href: "/polens-terms" },
+      { label: "Termos de Flames", href: "/flames-terms" },
     ],
   },
   affiliate: {

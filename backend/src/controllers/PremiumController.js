@@ -6,10 +6,10 @@ class PremiumController {
     return sendServiceResult(res, await PremiumService.getQuoteForProfile(req.params.profileId));
   }
 
-  static async checkoutPolens(req, res) {
+  static async checkoutFlames(req, res) {
     return sendServiceResult(
       res,
-      await PremiumService.checkoutWithPolens(req.user, req.params.profileId)
+      await PremiumService.checkoutWithFlames(req.user, req.params.profileId)
     );
   }
 

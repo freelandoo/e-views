@@ -54,7 +54,7 @@ type Member = {
 type GoalRankRow = { id_user: string; name: string | null; username: string | null; avatar_url: string | null; xp_level: number | null; score: number; posts?: number; eng?: number }
 type Goal = {
   id: number; title: string; metric: string; target_value: number | null
-  prize_polens: number; status: string; starts_at: string; ends_at: string | null; closed_at: string | null
+  prize_flames: number; status: string; starts_at: string; ends_at: string | null; closed_at: string | null
   progress: number; percent: number | null; winner_user_id: string | null
   winner: { id_user: string; name: string | null; avatar_url: string | null; score: number } | null
   ranking: GoalRankRow[]
@@ -558,7 +558,7 @@ export default function CommunityDetailPage() {
                     </select>
                   </div>
                   <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#9A938A]">
-                    🏆 {t("goalPrizeNote", "100 poléns pro 1º lugar")} · {t("goalMinMembers", "mín. 5 membros")} {community.member_count < 5 ? `(${community.member_count}/5)` : ""}
+                    🏆 {t("goalPrizeNote", "100 flames pro 1º lugar")} · {t("goalMinMembers", "mín. 5 membros")} {community.member_count < 5 ? `(${community.member_count}/5)` : ""}
                   </p>
                   <div className="flex gap-2 pt-1">
                     <button type="button" disabled={savingGoal || community.member_count < 5} onClick={saveGoal} className="inline-flex items-center gap-2 border-2 border-[#0B0B0D] bg-[#C8102E] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.12em] text-white disabled:opacity-50">
@@ -573,14 +573,14 @@ export default function CommunityDetailPage() {
                   <div className="flex items-start justify-between gap-3">
                     <span className="fl-display text-xl leading-tight text-[#F5F1E8]">{goal.title}</span>
                     <span className="inline-flex shrink-0 items-center gap-1 border-2 border-[#0B0B0D] bg-[#1D1810] px-2 py-0.5 text-[10px] font-extrabold uppercase" style={{ color: accent }}>
-                      <Sparkles className="h-3 w-3" /> {goal.prize_polens} {t("polensWord", "poléns")}
+                      <Sparkles className="h-3 w-3" /> {goal.prize_flames} {t("flamesWord", "flames")}
                     </span>
                   </div>
                   {goal.status === "closed" ? (
                     <div className="mt-3 border-2 border-[#0B0B0D] bg-[#1D1810] px-4 py-3">
                       <p className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#9A938A]">{t("goalEnded", "Temporada encerrada")}</p>
                       {goal.winner ? (
-                        <p className="mt-1 flex items-center gap-2 fl-display text-lg text-[#F5F1E8]">🏆 {goal.winner.name} <span className="text-xs font-bold text-[#9A938A]">· {t("goalWonPrize", "levou")} {goal.prize_polens} {t("polensWord", "poléns")}</span></p>
+                        <p className="mt-1 flex items-center gap-2 fl-display text-lg text-[#F5F1E8]">🏆 {goal.winner.name} <span className="text-xs font-bold text-[#9A938A]">· {t("goalWonPrize", "levou")} {goal.prize_flames} {t("flamesWord", "flames")}</span></p>
                       ) : (
                         <p className="mt-1 text-sm text-[#9A938A]">{t("goalNoWinner", "Sem vencedor (ninguém pontuou).")}</p>
                       )}

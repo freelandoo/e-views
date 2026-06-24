@@ -50,7 +50,7 @@ type XpSettings = {
   review_received_xp: number
   content_retention_second_xp: number
   max_online_minutes: number
-  polens_per_level: number
+  flames_per_level: number
 }
 
 type RankingRow = {
@@ -304,7 +304,7 @@ export default function AdminRankingPage() {
           review_received_xp: Number(xpDraft.review_received_xp),
           content_retention_second_xp: Number(xpDraft.content_retention_second_xp),
           max_online_minutes: Number(xpDraft.max_online_minutes),
-          polens_per_level: Number(xpDraft.polens_per_level),
+          flames_per_level: Number(xpDraft.flames_per_level),
         }),
       })
       const data = await res.json()
@@ -527,7 +527,7 @@ export default function AdminRankingPage() {
                     </div>
                   </section>
 
-                  {/* Recompensa de Poléns por subida de nível */}
+                  {/* Recompensa de Flames por subida de nível */}
                   <section>
                     <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
                       Recompensa por nível
@@ -535,12 +535,12 @@ export default function AdminRankingPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
                         <Label className="text-xs flex items-center gap-1.5 text-muted-foreground">
-                          <Zap className="h-3 w-3" /> Poléns por nível
+                          <Zap className="h-3 w-3" /> Flames por nível
                         </Label>
                         <Input
                           type="number" min={0} step={1}
-                          value={xpDraft.polens_per_level ?? 1000}
-                          onChange={(e) => setXpDraft((d) => d ? { ...d, polens_per_level: Math.max(0, parseInt(e.target.value, 10) || 0) } : d)}
+                          value={xpDraft.flames_per_level ?? 1000}
+                          onChange={(e) => setXpDraft((d) => d ? { ...d, flames_per_level: Math.max(0, parseInt(e.target.value, 10) || 0) } : d)}
                         />
                         <p className="text-[11px] text-muted-foreground">
                           Creditado na carteira do usuário a cada vez que um subperfil (não-clã) sobe de nível. 0 desativa.

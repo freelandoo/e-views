@@ -54,7 +54,7 @@ const STATIC_ROUTES: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/community-guidelines`, changeFrequency: "yearly", priority: 0.3 },
   { url: `${BASE_URL}/moderation-policy`, changeFrequency: "yearly", priority: 0.3 },
   { url: `${BASE_URL}/copyright-policy`, changeFrequency: "yearly", priority: 0.3 },
-  { url: `${BASE_URL}/polens-terms`, changeFrequency: "yearly", priority: 0.3 },
+  { url: `${BASE_URL}/flames-terms`, changeFrequency: "yearly", priority: 0.3 },
   { url: `${BASE_URL}/minors-policy`, changeFrequency: "yearly", priority: 0.3 },
   { url: `${BASE_URL}/advertising-policy`, changeFrequency: "yearly", priority: 0.3 },
 ]

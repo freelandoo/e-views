@@ -134,7 +134,7 @@ class ManifestationStorage {
       tag_color = "emerald",
       tag_icon = null,
       price_cents = 0,
-      price_polens = 0,
+      price_flames = 0,
       duration_days = 365,
       stock = null,
       is_featured = false,
@@ -145,7 +145,7 @@ class ManifestationStorage {
       `INSERT INTO public.manifestation_products
          (category_id, name, description, banner_url, banner_thumb_url,
           tag_label, tag_color, tag_icon,
-          price_cents, price_polens, duration_days, stock,
+          price_cents, price_flames, duration_days, stock,
           is_featured, is_active, sort_order)
        VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15)
        RETURNING *`,
@@ -159,7 +159,7 @@ class ManifestationStorage {
         tag_color,
         tag_icon,
         price_cents,
-        price_polens,
+        price_flames,
         duration_days,
         stock,
         is_featured,
@@ -181,7 +181,7 @@ class ManifestationStorage {
       "tag_color",
       "tag_icon",
       "price_cents",
-      "price_polens",
+      "price_flames",
       "duration_days",
       "stock",
       "is_active",
@@ -275,15 +275,15 @@ class ManifestationStorage {
            (SELECT COALESCE(SUM(amount_cents), 0)::int
               FROM public.user_manifestations
              WHERE acquired_at >= NOW() - INTERVAL '30 days') AS revenue_cents_30d,
-           (SELECT COALESCE(SUM(amount_polens), 0)::int
+           (SELECT COALESCE(SUM(amount_flames), 0)::int
               FROM public.user_manifestations
-             WHERE acquired_at >= NOW() - INTERVAL '30 days') AS revenue_polens_30d`
+             WHERE acquired_at >= NOW() - INTERVAL '30 days') AS revenue_flames_30d`
       ),
       conn.query(
         `SELECT payment_method,
                 COUNT(*)::int AS purchases,
                 COALESCE(SUM(amount_cents), 0)::int AS revenue_cents,
-                COALESCE(SUM(amount_polens), 0)::int AS revenue_polens
+                COALESCE(SUM(amount_flames), 0)::int AS revenue_flames
            FROM public.user_manifestations
           WHERE acquired_at >= NOW() - INTERVAL '30 days'
           GROUP BY payment_method
@@ -296,7 +296,7 @@ class ManifestationStorage {
                 COUNT(um.id)::int AS purchases_30d,
                 COUNT(*) FILTER (WHERE um.is_active = TRUE AND (um.expires_at IS NULL OR um.expires_at > NOW()))::int AS active_users,
                 COALESCE(SUM(um.amount_cents), 0)::int AS revenue_cents_30d,
-                COALESCE(SUM(um.amount_polens), 0)::int AS revenue_polens_30d
+                COALESCE(SUM(um.amount_flames), 0)::int AS revenue_flames_30d
            FROM public.manifestation_products p
            LEFT JOIN public.user_manifestations um
              ON um.product_id = p.id
@@ -366,7 +366,7 @@ class ManifestationStorage {
               um.is_active,
               um.payment_method,
               um.amount_cents,
-              um.amount_polens,
+              um.amount_flames,
               u.username,
               u.nome AS display_name,
               u.email,
@@ -550,7 +550,7 @@ class ManifestationStorage {
               um.is_active,
               um.acquired_at,
               um.payment_method,
-              um.amount_polens,
+              um.amount_flames,
               p.slug,
               p.name,
               p.type,
@@ -571,8 +571,8 @@ class ManifestationStorage {
   static async createUnlock(conn, {
     user_id,
     product_id,
-    payment_method = "polens",
-    amount_polens = null,
+    payment_method = "flames",
+    amount_flames = null,
     amount_cents = null,
     stripe_session_id = null,
     stripe_payment_intent = null,
@@ -580,7 +580,7 @@ class ManifestationStorage {
     const { rows } = await conn.query(
       `INSERT INTO public.user_manifestations
          (user_id, product_id, acquired_at, expires_at, is_active, payment_method,
-          amount_polens, amount_cents, stripe_session_id, stripe_payment_intent)
+          amount_flames, amount_cents, stripe_session_id, stripe_payment_intent)
        VALUES ($1, $2, NOW(), NULL, FALSE, $3, $4, $5, $6, $7)
        ON CONFLICT (user_id, product_id) DO NOTHING
        RETURNING *`,
@@ -588,7 +588,7 @@ class ManifestationStorage {
         user_id,
         product_id,
         payment_method,
-        amount_polens,
+        amount_flames,
         amount_cents,
         stripe_session_id,
         stripe_payment_intent,
@@ -643,7 +643,7 @@ class ManifestationStorage {
     const { rows } = await conn.query(
       `INSERT INTO public.user_manifestations
          (user_id, product_id, acquired_at, expires_at, is_active, payment_method,
-          stripe_session_id, stripe_payment_intent, amount_cents, amount_polens)
+          stripe_session_id, stripe_payment_intent, amount_cents, amount_flames)
        VALUES ($1,$2,NOW(),NOW() + ($3::int * INTERVAL '1 day'),TRUE,$4,$5,$6,$7,$8)
        RETURNING *`,
       [
@@ -654,7 +654,7 @@ class ManifestationStorage {
         data.stripe_session_id || null,
         data.stripe_payment_intent || null,
         data.amount_cents ?? null,
-        data.amount_polens ?? null,
+        data.amount_flames ?? null,
       ]
     );
     return rows[0];

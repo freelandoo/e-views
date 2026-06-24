@@ -24,7 +24,7 @@ const sections = [
       "Conteúdo publicado: posts, stories, vídeos, transmissões ao vivo, comentários e arquivos enviados.",
       "Mídia enviada (fotos e vídeos) pode ser processada e otimizada automaticamente — incluindo geração de versões, compressão e transcodificação. Arquivos temporários gerados nesse processamento são descartados após a conclusão.",
       "Comunicações: mensagens privadas, áudios e interações em salas de chat e transmissões ao vivo.",
-      "Dados de transações: histórico de ativações, compras na Loja, cursos, Poléns e dados parciais de pagamento.",
+      "Dados de transações: histórico de ativações, compras na Loja, cursos, Flames e dados parciais de pagamento.",
       "Dados de uso e dispositivo: endereço IP, navegador, sistema, páginas visitadas, cliques e preferências.",
       "Dados de localização: cidade e região informadas ou inferidas, usadas na vitrine e na busca.",
       "Dados de login social: nome, e-mail e foto, quando o acesso é feito via Google ou Apple.",

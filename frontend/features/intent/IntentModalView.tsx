@@ -264,7 +264,7 @@ function Header({ reduced }: { reduced: boolean }) {
           <Hexagon className="h-3 w-3 fill-amber-300 text-amber-300 md:h-3.5 md:w-3.5" />
         </motion.span>
         <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-100 md:text-[11px] md:tracking-[0.24em]">
-          E-Views · Pollens
+          E-Views · Flames
         </span>
       </motion.div>
 

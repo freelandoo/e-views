@@ -4,9 +4,9 @@
 // dinheiro que a plataforma GANHA e fica. Repasses (payout de terceiros) NÃO
 // entram aqui — ficam na seção Repasses.
 //
-// ⚠️ Poléns gasto em Premium/Manifestação NÃO conta como receita: a receita já
-// foi contada na compra dos poléns (venda_polens). Por isso Premium e
-// Manifestação filtram payment_method = 'stripe' (paga em R$), nunca 'polens'.
+// ⚠️ Flames gasto em Premium/Manifestação NÃO conta como receita: a receita já
+// foi contada na compra dos flames (venda_flames). Por isso Premium e
+// Manifestação filtram payment_method = 'stripe' (paga em R$), nunca 'flames'.
 module.exports = {
   /**
    * @param {import('pg').Pool} db
@@ -78,8 +78,8 @@ module.exports = {
           AND o.refunded_at IS NULL
           AND COALESCE(o.service_fee_cents, 0) > 0
       ),
-      polens AS (
-        -- 4) Venda de Poléns (Stripe). É AQUI que a receita de poléns entra.
+      flames AS (
+        -- 4) Venda de Flames (Stripe). É AQUI que a receita de flames entra.
         SELECT
           pp.paid_at                      AS occurred_at,
           tu.id_user                      AS id_user,
@@ -88,15 +88,15 @@ module.exports = {
           NULL::uuid                      AS id_profile,
           NULL::text                      AS profile_name,
           NULL::text                      AS profile_category,
-          'venda_polens'                  AS tipo,
+          'venda_flames'                  AS tipo,
           pp.amount_cents                 AS amount_cents
-        FROM polen_purchases pp
+        FROM flame_purchases pp
         JOIN tb_user tu ON tu.id_user = pp.user_id
         WHERE pp.status = 'paid'
           AND pp.refunded_at IS NULL
       ),
       premium AS (
-        -- 5) Premium pago em R$ (NÃO os pagos em poléns — senão dobra).
+        -- 5) Premium pago em R$ (NÃO os pagos em flames — senão dobra).
         SELECT
           COALESCE(ppr.activated_at, ppr.created_at) AS occurred_at,
           tu.id_user                      AS id_user,
@@ -117,7 +117,7 @@ module.exports = {
           AND ppr.status IN ('active', 'expired')
       ),
       manifestation AS (
-        -- 6) Manifestação paga em R$ (NÃO as pagas em poléns).
+        -- 6) Manifestação paga em R$ (NÃO as pagas em flames).
         SELECT
           um.acquired_at                  AS occurred_at,
           tu.id_user                      AS id_user,
@@ -161,7 +161,7 @@ module.exports = {
         SELECT * FROM subs
         UNION ALL SELECT * FROM fees
         UNION ALL SELECT * FROM store
-        UNION ALL SELECT * FROM polens
+        UNION ALL SELECT * FROM flames
         UNION ALL SELECT * FROM premium
         UNION ALL SELECT * FROM manifestation
         UNION ALL SELECT * FROM courses

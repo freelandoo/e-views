@@ -1,6 +1,6 @@
 const pool = require("../databases");
 const ManifestationStorage = require("../storages/ManifestationStorage");
-const PolenStorage = require("../storages/PolenStorage");
+const FlameStorage = require("../storages/FlameStorage");
 const StripeService = require("./StripeService");
 const uploadManifestationBannerToR2 = require("../integrations/r2/uploadManifestationBanner");
 const { slugify } = require("../utils/slug");
@@ -38,7 +38,7 @@ function toCsv(rows) {
     "email",
     "payment_method",
     "amount_cents",
-    "amount_polens",
+    "amount_flames",
     "acquired_at",
     "expires_at",
     "is_active",
@@ -55,7 +55,7 @@ function toCsv(rows) {
       row.email,
       row.payment_method,
       row.amount_cents,
-      row.amount_polens,
+      row.amount_flames,
       row.acquired_at ? new Date(row.acquired_at).toISOString() : "",
       row.expires_at ? new Date(row.expires_at).toISOString() : "",
       row.is_active,
@@ -66,8 +66,8 @@ function toCsv(rows) {
 }
 
 async function checkManifestationEligibility(conn, userId) {
-  const settings = await PolenStorage.getSettings(conn);
-  const eligibility = await PolenStorage.getUserManifestationEligibility(conn, userId);
+  const settings = await FlameStorage.getSettings(conn);
+  const eligibility = await FlameStorage.getUserManifestationEligibility(conn, userId);
   const isAdmin = !!eligibility.is_admin;
   const maxLevel = Number(eligibility.max_xp_level) || 0;
   const minLevel = Number(settings?.manifestation_min_xp_level) || 0;
@@ -136,15 +136,15 @@ class ManifestationService {
     });
   }
 
-  // Desbloqueio com Poléns (modelo biblioteca): debita uma vez e cria o
+  // Desbloqueio com Flames (modelo biblioteca): debita uma vez e cria o
   // desbloqueio permanente NÃO aplicado. "Usar" é uma ação separada (applyManifestation).
-  static async checkoutWithPolens(user, body = {}) {
-    return runWithLogs(log, "checkoutWithPolens", () => ({ id_user: user?.id_user, product_id: body?.product_id }), async () => {
+  static async checkoutWithFlames(user, body = {}) {
+    return runWithLogs(log, "checkoutWithFlames", () => ({ id_user: user?.id_user, product_id: body?.product_id }), async () => {
       if (!user?.id_user) return { error: "Não autenticado" };
       const product = await ManifestationStorage.getProductById(pool, body.product_id);
       if (!product || !product.is_active) return { error: "Manifestação não encontrada ou indisponível" };
-      // Preço 0 é válido: o admin pode liberar uma manifestação grátis via Poléns.
-      const amount = Math.max(0, Number(product.price_polens) || 0);
+      // Preço 0 é válido: o admin pode liberar uma manifestação grátis via Flames.
+      const amount = Math.max(0, Number(product.price_flames) || 0);
 
       // Já desbloqueada? Não debita de novo (idempotência — critério de aceite 11).
       const already = await ManifestationStorage.getOwnedUnlock(pool, user.id_user, product.id);
@@ -159,7 +159,7 @@ class ManifestationService {
         const settings = gate.settings;
         if (!settings?.is_active) {
           await client.query("ROLLBACK");
-          return { error: "Sistema de Poléns inativo" };
+          return { error: "Sistema de Flames inativo" };
         }
         if (!gate.ok) {
           await client.query("ROLLBACK");
@@ -171,11 +171,11 @@ class ManifestationService {
           await client.query("ROLLBACK");
           return { error: "Manifestação indisponível" };
         }
-        const wallet = await PolenStorage.getOrCreateWallet(client, user.id_user);
+        const wallet = await FlameStorage.getOrCreateWallet(client, user.id_user);
         // amount === 0 => resgate grátis: não debita, não cria transação.
         let debit = null;
         if (amount > 0) {
-          debit = await PolenStorage.debit(client, {
+          debit = await FlameStorage.debit(client, {
             user_id: user.id_user,
             wallet_id: wallet.id,
             amount,
@@ -195,8 +195,8 @@ class ManifestationService {
         const unlock = await ManifestationStorage.createUnlock(client, {
           user_id: user.id_user,
           product_id: product.id,
-          payment_method: amount > 0 ? "polens" : "free",
-          amount_polens: amount,
+          payment_method: amount > 0 ? "flames" : "free",
+          amount_flames: amount,
         });
         if (!unlock) {
           // Corrida: desbloqueado entre o pré-check e o INSERT.
@@ -326,7 +326,7 @@ class ManifestationService {
           ? session.payment_intent
           : session.payment_intent?.id || null;
       // Desbloqueio permanente (não aplicado). Se o user já possuía a
-      // manifestação (ex.: comprou com Poléns antes), createUnlock devolve null.
+      // manifestação (ex.: comprou com Flames antes), createUnlock devolve null.
       const unlock = await ManifestationStorage.createUnlock(client, {
         user_id: meta.user_id,
         product_id: product.id,
@@ -538,7 +538,7 @@ class ManifestationService {
         tag_color,
         tag_icon: sanitizeText(body?.tag_icon, 60),
         price_cents: clampInt(body?.price_cents, { fallback: 0 }),
-        price_polens: clampInt(body?.price_polens, { fallback: 0 }),
+        price_flames: clampInt(body?.price_flames, { fallback: 0 }),
         duration_days: clampInt(body?.duration_days, { min: 1, fallback: 365 }),
         stock: body?.stock != null && body.stock !== "" ? clampInt(body.stock, { min: 0, fallback: 0 }) : null,
         is_featured: body?.is_featured === true || body?.is_featured === "true",
@@ -591,7 +591,7 @@ class ManifestationService {
       if (body?.tag_icon !== undefined) patch.tag_icon = sanitizeText(body.tag_icon, 60);
       if (body?.banner_thumb_url !== undefined) patch.banner_thumb_url = sanitizeText(body.banner_thumb_url, 600);
       if (body?.price_cents !== undefined) patch.price_cents = clampInt(body.price_cents);
-      if (body?.price_polens !== undefined) patch.price_polens = clampInt(body.price_polens);
+      if (body?.price_flames !== undefined) patch.price_flames = clampInt(body.price_flames);
       if (body?.duration_days !== undefined) patch.duration_days = clampInt(body.duration_days, { min: 1, fallback: 365 });
       if (body?.stock !== undefined) {
         patch.stock = body.stock == null || body.stock === ""

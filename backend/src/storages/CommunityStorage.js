@@ -339,7 +339,7 @@ class CommunityStorage {
 
   static async getActiveGoalRow(conn, id_community) {
     const r = await conn.query(
-      `SELECT id, id_community_profile, title, metric, target_value, prize_polens,
+      `SELECT id, id_community_profile, title, metric, target_value, prize_flames,
               status, winner_user_id, prize_paid, starts_at, ends_at, closed_at, created_at
          FROM public.tb_community_goal
         WHERE id_community_profile = $1 AND is_active = TRUE
@@ -437,7 +437,7 @@ class CommunityStorage {
   }
 
   // Cria/substitui a temporada ativa (desativa a anterior, paga ou não).
-  static async setGoal(conn, id_community, { title, metric, target_value, ends_at, prize_polens, created_by_user }) {
+  static async setGoal(conn, id_community, { title, metric, target_value, ends_at, prize_flames, created_by_user }) {
     const m = this.GOAL_METRICS.includes(metric) ? metric : "xp";
     await conn.query(
       `UPDATE public.tb_community_goal SET is_active = FALSE, updated_at = NOW()
@@ -447,10 +447,10 @@ class CommunityStorage {
     const r = await conn.query(
       `INSERT INTO public.tb_community_goal
          (id_community_profile, title, metric, target_value, baseline_value,
-          ends_at, prize_polens, status, starts_at, created_by_user)
+          ends_at, prize_flames, status, starts_at, created_by_user)
        VALUES ($1, $2, $3, $4, 0, $5, $6, 'active', NOW(), $7)
        RETURNING id`,
-      [id_community, title, m, target_value ?? null, ends_at, prize_polens, created_by_user || null]
+      [id_community, title, m, target_value ?? null, ends_at, prize_flames, created_by_user || null]
     );
     const id_goal = r.rows[0].id;
     await this.seedGoalBaselines(conn, id_goal, id_community);

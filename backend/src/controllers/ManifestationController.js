@@ -16,8 +16,8 @@ class ManifestationController {
     return sendServiceResult(res, await ManifestationService.getMine(req.user, req.query || {}));
   }
 
-  static async checkoutPolens(req, res) {
-    return sendServiceResult(res, await ManifestationService.checkoutWithPolens(req.user, req.body || {}), 201);
+  static async checkoutFlames(req, res) {
+    return sendServiceResult(res, await ManifestationService.checkoutWithFlames(req.user, req.body || {}), 201);
   }
 
   static async checkoutStripe(req, res) {

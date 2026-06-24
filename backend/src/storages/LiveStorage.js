@@ -2,7 +2,7 @@
 // Acesso a dados das Lives. Por enquanto cobre o catálogo de presentes (loja
 // gerenciável no admin). Os métodos de sessão de live entram nos próximos slices.
 const GIFT_COLUMNS = `
-  id_live_gift, name, emoji, color, animation, price_polens,
+  id_live_gift, name, emoji, color, animation, price_flames,
   sort_order, is_active, created_at, updated_at
 `;
 
@@ -116,14 +116,14 @@ module.exports = {
     return rows.length > 0;
   },
 
-  // Registra um presente enviado durante a live (após o débito de Poléns).
-  async insertGiftEvent(db, { id_live, id_live_gift, id_sender_user, polens_spent, message }) {
+  // Registra um presente enviado durante a live (após o débito de Flames).
+  async insertGiftEvent(db, { id_live, id_live_gift, id_sender_user, flames_spent, message }) {
     const { rows } = await db.query(
       `INSERT INTO public.tb_live_gift_event
-         (id_live, id_live_gift, id_sender_user, polens_spent, message)
+         (id_live, id_live_gift, id_sender_user, flames_spent, message)
        VALUES ($1, $2, $3, $4, $5)
        RETURNING id, created_at`,
-      [id_live, id_live_gift, id_sender_user, polens_spent, message || null]
+      [id_live, id_live_gift, id_sender_user, flames_spent, message || null]
     );
     return rows[0];
   },
@@ -151,7 +151,7 @@ module.exports = {
   async createGift(db, data) {
     const { rows } = await db.query(
       `INSERT INTO public.tb_live_gift
-         (name, emoji, color, animation, price_polens, sort_order, is_active)
+         (name, emoji, color, animation, price_flames, sort_order, is_active)
        VALUES ($1, $2, $3, $4, $5, $6, COALESCE($7, TRUE))
        RETURNING ${GIFT_COLUMNS}`,
       [
@@ -159,7 +159,7 @@ module.exports = {
         data.emoji || "🎁",
         data.color || "#F2B705",
         data.animation || "float",
-        Number.isFinite(data.price_polens) ? data.price_polens : 10,
+        Number.isFinite(data.price_flames) ? data.price_flames : 10,
         Number.isFinite(data.sort_order) ? data.sort_order : 0,
         data.is_active,
       ]
@@ -179,7 +179,7 @@ module.exports = {
     if (data.emoji != null) set("emoji", String(data.emoji));
     if (data.color != null) set("color", String(data.color));
     if (data.animation != null) set("animation", String(data.animation));
-    if (data.price_polens != null) set("price_polens", Number(data.price_polens));
+    if (data.price_flames != null) set("price_flames", Number(data.price_flames));
     if (data.sort_order != null) set("sort_order", Number(data.sort_order));
     if (data.is_active != null) set("is_active", !!data.is_active);
     if (!fields.length) return this.getGiftById(db, id_live_gift);

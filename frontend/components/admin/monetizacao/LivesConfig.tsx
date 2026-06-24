@@ -2,7 +2,7 @@
 
 /**
  * Loja de presentes das Lives (admin). Cada presente é leve: emoji + cor +
- * animação (preset CSS/GSAP) + preço em Poléns. Nada de mídia pesada.
+ * animação (preset CSS/GSAP) + preço em Flames. Nada de mídia pesada.
  * CRUD em /api/admin/lives/gifts.
  */
 import { useCallback, useEffect, useState } from "react"
@@ -19,7 +19,7 @@ type Gift = {
   emoji: string
   color: string
   animation: string
-  price_polens: number
+  price_flames: number
   sort_order: number
   is_active: boolean
 }
@@ -85,7 +85,7 @@ function GiftRow({ gift, onSaved, onDeleted }: {
         emoji: form.emoji,
         color: form.color,
         animation: form.animation,
-        price_polens: Number(form.price_polens) || 0,
+        price_flames: Number(form.price_flames) || 0,
         sort_order: Number(form.sort_order) || 0,
         is_active: form.is_active,
       })
@@ -130,8 +130,8 @@ function GiftRow({ gift, onSaved, onDeleted }: {
           <Input value={form.name} onChange={(e) => patch("name", e.target.value)} placeholder="Coração" className="h-9" />
         </div>
         <div className="w-28">
-          <Label className="text-[10px] text-muted-foreground">Preço (Poléns)</Label>
-          <Input type="number" min={0} value={form.price_polens} onChange={(e) => patch("price_polens", Number(e.target.value))} className="h-9" />
+          <Label className="text-[10px] text-muted-foreground">Preço (Flames)</Label>
+          <Input type="number" min={0} value={form.price_flames} onChange={(e) => patch("price_flames", Number(e.target.value))} className="h-9" />
         </div>
         <div className="w-36">
           <Label className="text-[10px] text-muted-foreground">Animação</Label>
@@ -190,7 +190,7 @@ export function LivesConfig() {
 
   function addDraft() {
     setGifts((g) => [
-      { id_live_gift: "__new__", name: "", emoji: "🎁", color: "#C8102E", animation: "float", price_polens: 10, sort_order: (g[g.length - 1]?.sort_order ?? 0) + 1, is_active: true },
+      { id_live_gift: "__new__", name: "", emoji: "🎁", color: "#C8102E", animation: "float", price_flames: 10, sort_order: (g[g.length - 1]?.sort_order ?? 0) + 1, is_active: true },
       ...g,
     ])
   }
@@ -217,7 +217,7 @@ export function LivesConfig() {
         <div className="flex-1">
           <h2 className="text-xl font-bold">Lives — Loja de presentes</h2>
           <p className="text-sm text-muted-foreground">
-            Presentes que os espectadores enviam ao vivo (gastam Poléns). Leves: só emoji, cor e animação.
+            Presentes que os espectadores enviam ao vivo (gastam Flames). Leves: só emoji, cor e animação.
           </p>
         </div>
         <Button onClick={addDraft} size="sm">

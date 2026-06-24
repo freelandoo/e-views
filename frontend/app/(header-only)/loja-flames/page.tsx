@@ -1,0 +1,537 @@
+"use client"
+
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react"
+import { useSearchParams } from "next/navigation"
+import { CheckCircle2, CreditCard, Hexagon, Loader2, Rocket, Search, Sparkles, XCircle } from "lucide-react"
+import { cn } from "@/lib/utils"
+import { getCapturedCoupon } from "@/lib/share-coupon"
+import { getStoredUser } from "@/lib/auth"
+import { PageShell, EmptyState, ErrorState } from "@/components/tabloide"
+import { useLocale, useTranslations } from "@/components/i18n/I18nProvider"
+import { useActionConsent } from "@/hooks/use-action-consent"
+
+type Product = {
+  id: string
+  name: string
+  description: string | null
+  image_url: string | null
+  price_cents: number
+  flames_amount: number
+  bonus_flames: number
+}
+
+type Wallet = { balance: number; lifetime_earned?: number; lifetime_spent?: number }
+
+type BoostProfile = { id_profile: string; display_name: string; xp_level: number; is_clan?: boolean; is_active?: boolean }
+
+const BOOST_TARGET_LEVEL = 5
+
+function fmtBRL(cents: number, locale = "pt-BR") {
+  return new Intl.NumberFormat(locale, { style: "currency", currency: "BRL" }).format((cents || 0) / 100)
+}
+
+function fmtNumber(n: number, locale = "pt-BR") {
+  return n.toLocaleString(locale)
+}
+
+export default function LojaFlamesPage() {
+  return (
+    <Suspense fallback={<div className="fl-root fl-paper-texture min-h-[100dvh]" />}>
+      <LojaFlamesContent />
+    </Suspense>
+  )
+}
+
+function LojaFlamesContent() {
+  const t = useTranslations("Flames")
+  const locale = useLocale()
+  const { ensureConsent } = useActionConsent()
+  const params = useSearchParams()
+  const checkout = params.get("flames_checkout")
+  const xpBoostReturn = params.get("xp_boost")
+
+  // Booster de XP (nível 5)
+  const [boostProfiles, setBoostProfiles] = useState<BoostProfile[]>([])
+  const [boostProfileId, setBoostProfileId] = useState<string>("")
+  const [boostBuying, setBoostBuying] = useState(false)
+
+  const [products, setProducts] = useState<Product[]>([])
+  const [wallet, setWallet] = useState<Wallet | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState("")
+  const [query, setQuery] = useState("")
+  const [buyingId, setBuyingId] = useState<string | null>(null)
+  const [selected, setSelected] = useState<Product | null>(null)
+  const [feedback, setFeedback] = useState<{ kind: "success" | "error" | "cancel"; title: string; message: string } | null>(null)
+
+  const token = typeof window !== "undefined" ? localStorage.getItem("token") : null
+
+  const loadWallet = useCallback(async () => {
+    if (!token) return
+    try {
+      const res = await fetch("/api/flames/wallet", { headers: { Authorization: `Bearer ${token}` }, cache: "no-store" })
+      if (res.ok) {
+        const data = await res.json()
+        setWallet(data.wallet || null)
+      }
+    } catch {
+      /* ignore */
+    }
+  }, [token])
+
+  const loadBoostProfiles = useCallback(async () => {
+    if (!token) return
+    const u = getStoredUser()
+    if (!u?.id_user) return
+    try {
+      const res = await fetch(`/api/profile/user/${encodeURIComponent(u.id_user)}`, {
+        headers: { Authorization: `Bearer ${token}` },
+        cache: "no-store",
+      })
+      if (!res.ok) return
+      const data = await res.json()
+      const list: BoostProfile[] = (Array.isArray(data?.profiles) ? data.profiles : []).filter(
+        (p: BoostProfile) => !p.is_clan && p.is_active !== false && Number(p.xp_level) < BOOST_TARGET_LEVEL,
+      )
+      setBoostProfiles(list)
+      setBoostProfileId((cur) => (cur && list.some((p) => p.id_profile === cur) ? cur : list[0]?.id_profile || ""))
+    } catch {
+      /* ignore */
+    }
+  }, [token])
+
+  const loadProducts = useCallback(async () => {
+    setLoading(true)
+    setError("")
+    try {
+      const res = await fetch("/api/flames/products", { cache: "no-store" })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || t("loadStoreError", "Não foi possível carregar a loja"))
+      setProducts(data.products || [])
+    } catch (err) {
+      setError(err instanceof Error ? err.message : t("loadError", "Erro ao carregar"))
+    } finally {
+      setLoading(false)
+    }
+  }, [t])
+
+  useEffect(() => {
+    void loadProducts()
+    void loadWallet()
+    void loadBoostProfiles()
+  }, [loadProducts, loadWallet, loadBoostProfiles])
+
+  useEffect(() => {
+    if (checkout === "success") {
+      setFeedback({
+        kind: "success",
+        title: t("paymentConfirmed", "Pagamento confirmado"),
+        message: t("paymentConfirmedMsg", "Seus Flames foram creditados na sua carteira. O saldo aparece em instantes."),
+      })
+      // Recarrega o saldo periodicamente até refletir o crédito (webhook async).
+      let attempts = 0
+      const id = setInterval(() => {
+        void loadWallet()
+        attempts += 1
+        if (attempts >= 6) clearInterval(id)
+      }, 1500)
+      return () => clearInterval(id)
+    }
+    if (checkout === "cancel") {
+      setFeedback({
+        kind: "cancel",
+        title: t("purchaseCanceled", "Compra cancelada"),
+        message: t("purchaseCanceledMsg", "Você voltou sem concluir o pagamento. Tente novamente quando quiser."),
+      })
+    }
+  }, [checkout, loadWallet, t])
+
+  useEffect(() => {
+    if (xpBoostReturn === "success") {
+      setFeedback({
+        kind: "success",
+        title: t("boostSuccessTitle", "Perfil impulsionado!"),
+        message: t("boostSuccessMsg", "Seu subperfil foi levado ao nível 5. O nível atualiza em instantes."),
+      })
+      void loadBoostProfiles()
+    } else if (xpBoostReturn === "cancel") {
+      setFeedback({
+        kind: "cancel",
+        title: t("purchaseCanceled", "Compra cancelada"),
+        message: t("purchaseCanceledMsg", "Você voltou sem concluir o pagamento. Tente novamente quando quiser."),
+      })
+    }
+  }, [xpBoostReturn, loadBoostProfiles, t])
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase()
+    if (!q) return products
+    return products.filter((p) => `${p.name} ${p.description || ""}`.toLowerCase().includes(q))
+  }, [products, query])
+
+  const featured = useMemo(() => {
+    if (selected) return selected
+    return filtered[0] || products[0] || null
+  }, [filtered, products, selected])
+
+  async function buy(product: Product) {
+    if (!token) {
+      window.location.href = "/login?next=/loja-flames"
+      return
+    }
+    if (!(await ensureConsent("platform_purchase"))) return
+    setBuyingId(product.id)
+    setError("")
+    try {
+      const sharedCoupon = getCapturedCoupon()
+      const res = await fetch(`/api/flames/products/${product.id}/checkout`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+        body: JSON.stringify(sharedCoupon?.code ? { coupon_code: sharedCoupon.code } : {}),
+      })
+      const data = await res.json()
+      if (!res.ok || !data.checkout_url) throw new Error(data.error || t("openCheckoutError", "Não foi possível abrir o checkout"))
+      window.location.href = data.checkout_url
+    } catch (err) {
+      setFeedback({
+        kind: "error",
+        title: t("purchaseNotCompleted", "Compra não concluída"),
+        message: err instanceof Error ? err.message : t("openCheckoutErrorShort", "Erro ao abrir checkout"),
+      })
+      setBuyingId(null)
+    }
+  }
+
+  async function buyBooster() {
+    if (!token) {
+      window.location.href = "/login?next=/loja-flames"
+      return
+    }
+    if (!boostProfileId) {
+      setFeedback({
+        kind: "error",
+        title: t("purchaseNotCompleted", "Compra não concluída"),
+        message: t("boosterPickFirst", "Escolha um subperfil primeiro."),
+      })
+      return
+    }
+    if (!(await ensureConsent("platform_purchase"))) return
+    setBoostBuying(true)
+    try {
+      const res = await fetch("/api/xp-boost/checkout", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ id_profile: boostProfileId }),
+      })
+      const data = await res.json()
+      if (!res.ok || !data.checkout_url) throw new Error(data.error || t("openCheckoutError", "Não foi possível abrir o checkout"))
+      window.location.href = data.checkout_url
+    } catch (err) {
+      setFeedback({
+        kind: "error",
+        title: t("purchaseNotCompleted", "Compra não concluída"),
+        message: err instanceof Error ? err.message : t("openCheckoutErrorShort", "Erro ao abrir checkout"),
+      })
+      setBoostBuying(false)
+    }
+  }
+
+  return (
+    <PageShell>
+      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-10 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-14">
+        <div className="flex min-h-[480px] flex-col justify-between">
+          <div>
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#C8102E]">
+              <Sparkles className="h-3.5 w-3.5" />
+              {t("eyebrow", "Pacotes de Flames")}
+            </div>
+            <h1 className="fl-display mt-5 text-5xl leading-[0.95] text-[#F5F1E8] md:text-7xl">
+              {t("storeTitle", "Loja de Flame")}
+            </h1>
+            <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-[#C9C2B6]">
+              {t("storeIntro", "Compre Flames para usar dentro da E-Views: ative perfis, destaque-se na vitrine e adquira recursos exclusivos.")}
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-2xl border-2 border-[#F5F1E8]/10 bg-[#1D1810] p-5">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#9A938A]">{t("currentBalance", "Saldo atual")}</p>
+              <div className="mt-2 flex items-baseline gap-2">
+                <Hexagon className="h-5 w-5 fill-[#C8102E] text-[#C8102E]" />
+                <span className="text-3xl font-black tabular-nums tracking-tight text-[#F5F1E8]">
+                  {wallet ? fmtNumber(wallet.balance, locale) : "—"}
+                </span>
+                <span className="text-sm text-[#9A938A]">{t("flames", "Flames")}</span>
+              </div>
+            </div>
+            <div className="rounded-2xl border-2 border-[#F5F1E8]/10 bg-[#1D1810] p-5">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#9A938A]">{t("activePackages", "Pacotes ativos")}</p>
+              <p className="mt-2 text-3xl font-black tabular-nums tracking-tight text-[#F5F1E8]">{products.length}</p>
+              <p className="mt-1 text-xs text-[#9A938A]">{t("availableNow", "Disponíveis para compra agora.")}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative min-h-[480px] overflow-hidden rounded-[2rem] border-2 border-[#F5F1E8]/10 bg-[#1D1810]">
+          {featured?.image_url ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={featured.image_url}
+              alt={featured.name}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          ) : (
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_15%,rgba(200, 16, 46,0.32),transparent_38%),linear-gradient(135deg,#141009,#2a2212)]" />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#141009]/85 via-[#141009]/45 to-[#141009]/10" />
+          <div className="absolute inset-x-5 top-5 rounded-2xl border border-[#F5F1E8]/12 bg-[#0b0804]/45 p-4 text-[#F5F1E8] backdrop-blur">
+            <div className="flex items-center gap-3">
+              <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl border border-[#C8102E]/25 bg-[#C8102E]/12 text-[#C8102E]">
+                <Hexagon className="h-7 w-7 fill-[#C8102E] text-[#C8102E]" />
+              </div>
+              <div className="min-w-0">
+                <p className="truncate text-lg font-bold">{featured?.name || t("featuredPackage", "Pacote em destaque")}</p>
+                <p className="text-xs text-[#C9C2B6]">
+                  {featured ? t("totalFlames", "{n} Flames no total").replace("{n}", fmtNumber(featured.flames_amount + featured.bonus_flames, locale)) : t("selectPackage", "Selecione um pacote")}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 p-6 text-[#F5F1E8]">
+            {featured ? (
+              <>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#C8102E]/40 bg-[#C8102E]/15 px-3 py-1 text-xs font-bold text-[#C8102E] backdrop-blur">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  {fmtBRL(featured.price_cents)}
+                </span>
+                <h2 className="fl-display mt-3 text-3xl text-[#F5F1E8]">{featured.name}</h2>
+                <p className="mt-1 max-w-[40ch] text-sm text-[#C9C2B6]">
+                  {featured.description || t("featuredDesc", "Pague com cartão e receba os Flames na carteira em segundos.")}
+                </p>
+              </>
+            ) : (
+              <>
+                <h2 className="fl-display text-3xl text-[#F5F1E8]">{t("noPackagesNow", "Sem pacotes no momento")}</h2>
+                <p className="mt-1 max-w-[40ch] text-sm text-[#C9C2B6]">
+                  {t("noPackagesNowDesc", "Volte em breve. Novos pacotes aparecem aqui assim que forem cadastrados.")}
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Booster de XP (nível 5) — UI nova nasce reta (.fl-sharp) */}
+      <section className="fl-sharp mx-auto max-w-7xl px-4 pb-4 md:px-8">
+        <div className="overflow-hidden border-2 border-[#C8102E]/40 bg-[#1D1810]">
+          <div className="grid gap-6 p-6 md:grid-cols-[1.2fr_1fr] md:p-8">
+            <div>
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[#C8102E]">
+                <Rocket className="h-3.5 w-3.5" />
+                {t("boosterEyebrow", "Atalho")}
+              </div>
+              <h2 className="fl-display mt-3 text-3xl text-[#F5F1E8]">
+                {t("boosterTitle", "Booster de Nível 5")}
+              </h2>
+              <p className="mt-2 max-w-[52ch] text-sm leading-relaxed text-[#C9C2B6]">
+                {t("boosterDesc", "Leve um subperfil direto ao nível 5 — desbloqueia criar comunidade e muito mais.")}
+              </p>
+              <p className="mt-3 text-xs text-[#9A938A]">
+                {t("boosterPriceNote", "Pagamento único de {price} via Stripe.").replace("{price}", fmtBRL(1000, locale))}
+              </p>
+            </div>
+
+            <div className="flex flex-col justify-center gap-3">
+              {boostProfiles.length === 0 ? (
+                <p className="text-sm text-[#9A938A]">
+                  {t("boosterNoProfiles", "Você não tem subperfis elegíveis (abaixo do nível 5).")}
+                </p>
+              ) : (
+                <>
+                  <label htmlFor="boost-profile" className="text-xs font-bold uppercase tracking-[0.18em] text-[#9A938A]">
+                    {t("boosterSelectProfile", "Escolha o subperfil")}
+                  </label>
+                  <select
+                    id="boost-profile"
+                    value={boostProfileId}
+                    onChange={(e) => setBoostProfileId(e.target.value)}
+                    className="h-11 w-full border-2 border-[#F5F1E8]/12 bg-[#141009] px-3 text-sm text-[#F5F1E8] outline-none transition focus:border-[#C8102E]"
+                  >
+                    {boostProfiles.map((p) => (
+                      <option key={p.id_profile} value={p.id_profile}>
+                        {p.display_name} · {t("boosterLevel", "Nível {n}").replace("{n}", String(p.xp_level))}
+                      </option>
+                    ))}
+                  </select>
+                  <button
+                    type="button"
+                    onClick={() => void buyBooster()}
+                    disabled={boostBuying}
+                    className="inline-flex items-center justify-center gap-2 bg-[#C8102E] px-5 py-3 text-sm font-bold text-[#1A1505] transition hover:bg-[#E03250] active:scale-[0.99] disabled:opacity-60"
+                  >
+                    {boostBuying ? <Loader2 className="h-4 w-4 animate-spin" /> : <Rocket className="h-4 w-4" />}
+                    {t("boosterCta", "Impulsionar ao nível 5")} · {fmtBRL(1000, locale)}
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-20 md:px-8">
+        <div className="flex flex-col gap-3 border-y border-[#F5F1E8]/10 py-4 md:flex-row md:items-center md:justify-between">
+          <div className="relative md:w-[360px]">
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#9A938A]" />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={t("searchPackage", "Buscar pacote")}
+              className="h-11 w-full rounded-full border-2 border-[#F5F1E8]/12 bg-[#1D1810] pl-10 pr-4 text-sm text-[#F5F1E8] placeholder:text-[#9A938A] outline-none transition focus:border-[#C8102E]"
+            />
+          </div>
+          <p className="text-xs text-[#9A938A]">
+            {t("securePaymentNote", "Pagamento seguro via Stripe. Os Flames são creditados automaticamente após a confirmação.")}
+          </p>
+        </div>
+
+        {loading ? (
+          <div className="grid grid-cols-2 gap-5 py-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+              <div key={i} className="aspect-[9/16] animate-pulse rounded-[1.5rem] bg-[#F5F1E8]/8" />
+            ))}
+          </div>
+        ) : error ? (
+          <div className="py-16">
+            <ErrorState description={error} onRetry={() => void loadProducts()} />
+          </div>
+        ) : filtered.length === 0 ? (
+          <div className="py-16">
+            <EmptyState
+              icon={<Hexagon className="h-6 w-6" />}
+              title={products.length === 0 ? t("noPackagesYet", "Sem pacotes ainda") : t("nothingFound", "Nada encontrado")}
+              description={
+                products.length === 0
+                  ? t("noPackagesYetDesc", "Nenhum pacote disponível ainda. Volte em breve.")
+                  : t("noMatch", "Nenhum pacote corresponde à busca.")
+              }
+            />
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 gap-5 py-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {filtered.map((p, index) => {
+              const total = p.flames_amount + (p.bonus_flames || 0)
+              const isSelected = selected?.id === p.id
+              return (
+                <article
+                  key={p.id}
+                  onClick={() => setSelected(p)}
+                  className={cn(
+                    "group relative cursor-pointer overflow-hidden rounded-[1.5rem] border-2 bg-[#1D1810] transition active:scale-[0.99]",
+                    "aspect-[9/16]",
+                    isSelected ? "border-[#C8102E] ring-2 ring-[#C8102E]/30" : "border-[#F5F1E8]/10 hover:border-[#F5F1E8]/30"
+                  )}
+                  style={{ animation: `fade-in .42s cubic-bezier(.16,1,.3,1) both ${index * 55}ms` }}
+                >
+                  {p.image_url ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={p.image_url}
+                      alt={p.name}
+                      className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center bg-[linear-gradient(135deg,#141009,#2a2212)]">
+                      <Hexagon className="h-20 w-20 fill-[#C8102E]/80 text-[#C8102E]" />
+                    </div>
+                  )}
+
+                  {/* Gradient pra legibilidade do overlay inferior */}
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-[#141009]/90 via-[#141009]/55 to-transparent" />
+
+                  {p.bonus_flames > 0 && (
+                    <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full border border-[#C8102E]/50 bg-[#C8102E] px-2.5 py-1 text-xs font-bold text-[#1A1505] shadow-sm">
+                      <Sparkles className="h-3 w-3" />
+                      +{fmtNumber(p.bonus_flames, locale)} {t("bonus", "bônus")}
+                    </span>
+                  )}
+
+                  <div className="absolute inset-x-0 bottom-0 p-4 text-[#F5F1E8]">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="min-w-0">
+                        <h3 className="truncate text-lg font-bold tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">{p.name}</h3>
+                        <p className="mt-1 line-clamp-2 text-xs text-[#F5F1E8]/75">
+                          {p.description || t("cardDefaultDesc", "Receba os Flames direto na sua carteira.")}
+                        </p>
+                      </div>
+                      <div className="shrink-0 text-right">
+                        <div className="flex items-center gap-1 text-[#C8102E]">
+                          <Hexagon className="h-4 w-4 fill-[#C8102E] text-[#C8102E]" />
+                          <span className="text-base font-black tabular-nums tracking-tight">{fmtNumber(total, locale)}</span>
+                        </div>
+                        <p className="mt-0.5 text-[10px] uppercase tracking-wide text-[#F5F1E8]/60">{t("flames", "Flames")}</p>
+                      </div>
+                    </div>
+                    <div className="mt-3 flex items-center justify-between gap-2">
+                      <span className="text-base font-black tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">{fmtBRL(p.price_cents, locale)}</span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          setSelected(p)
+                          void buy(p)
+                        }}
+                        disabled={buyingId !== null}
+                        className="inline-flex items-center rounded-full bg-[#C8102E] px-3 py-1.5 text-sm font-bold text-[#1A1505] transition hover:bg-[#E03250] active:scale-[0.98] disabled:opacity-60"
+                      >
+                        {buyingId === p.id ? (
+                          <Loader2 className="mr-1.5 h-4 w-4 animate-spin" />
+                        ) : (
+                          <CreditCard className="mr-1.5 h-4 w-4" />
+                        )}
+                        {t("buy", "Comprar")}
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              )
+            })}
+          </div>
+        )}
+      </section>
+
+      {feedback && (
+        <div className="fixed inset-0 z-50 grid place-items-center bg-black/60 px-4">
+          <div className="fl-card w-full max-w-sm rounded-2xl p-6">
+            <div
+              className={cn(
+                "grid h-11 w-11 place-items-center rounded-full",
+                feedback.kind === "success" ? "bg-[#16a34a] text-white" : "bg-[#dc2626] text-white"
+              )}
+            >
+              {feedback.kind === "success" ? <CheckCircle2 className="h-5 w-5" /> : <XCircle className="h-5 w-5" />}
+            </div>
+            <h3 className="fl-display mt-4 text-2xl text-[var(--fl-ink)]">{feedback.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-[#5b554b]">{feedback.message}</p>
+            <div className="mt-5 flex justify-end">
+              <button
+                type="button"
+                onClick={() => setFeedback(null)}
+                className="fl-btn-gold inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-bold"
+              >
+                {t("gotIt", "Entendi")}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from { opacity: 0; transform: translateY(8px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </PageShell>
+  )
+}

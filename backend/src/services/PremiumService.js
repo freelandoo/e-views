@@ -1,7 +1,7 @@
 const crypto = require("crypto");
 const pool = require("../databases");
 const PremiumStorage = require("../storages/PremiumStorage");
-const PolenStorage = require("../storages/PolenStorage");
+const FlameStorage = require("../storages/FlameStorage");
 const ProfileStorage = require("../storages/ProfileStorage");
 const StripeService = require("./StripeService");
 const { isFullRefund } = require("../utils/refunds");
@@ -61,7 +61,7 @@ class PremiumService {
         pricing: {
           duration_days: pricing.duration_days,
           price_cents: pricing.price_cents,
-          price_polens: pricing.price_polens,
+          price_flames: pricing.price_flames,
         },
         slots: {
           total: pricing.slots,
@@ -80,10 +80,10 @@ class PremiumService {
   }
 
   /**
-   * Compra com Poléns (transação atômica: debita + cria registro ativo).
+   * Compra com Flames (transação atômica: debita + cria registro ativo).
    */
-  static async checkoutWithPolens(user, profileId) {
-    return runWithLogs(log, "checkoutWithPolens", () => ({
+  static async checkoutWithFlames(user, profileId) {
+    return runWithLogs(log, "checkoutWithFlames", () => ({
       id_user: user?.id_user,
       profileId,
     }), async () => {
@@ -119,12 +119,12 @@ class PremiumService {
           return { error: "Cidade lotada — sem vagas premium disponíveis" };
         }
 
-        const wallet = await PolenStorage.getOrCreateWallet(client, user.id_user);
+        const wallet = await FlameStorage.getOrCreateWallet(client, user.id_user);
         const sourceId = `premium:${profile.id_profile}:${crypto.randomUUID()}`;
-        const debit = await PolenStorage.debit(client, {
+        const debit = await FlameStorage.debit(client, {
           user_id: user.id_user,
           wallet_id: wallet.id,
-          amount: pricing.price_polens,
+          amount: pricing.price_flames,
           type: "spend_premium",
           source: "premium",
           source_id: sourceId,
@@ -132,13 +132,13 @@ class PremiumService {
         });
         if (!debit) {
           await client.query("ROLLBACK");
-          return { error: "Saldo de Poléns insuficiente" };
+          return { error: "Saldo de Flames insuficiente" };
         }
 
         const pending = await PremiumStorage.createPending(client, {
           profile_id: profile.id_profile,
-          payment_method: "polens",
-          amount_polens: pricing.price_polens,
+          payment_method: "flames",
+          amount_flames: pricing.price_flames,
           uf: profile.estado,
           city_name: profile.municipio,
         });
@@ -242,7 +242,7 @@ class PremiumService {
         : session.payment_intent?.id || null;
 
       // Cota e regra "1 ativo por perfil" são checadas de novo no webhook
-      // (defesa em profundidade — usuário pode ter ativo via Poléns enquanto Stripe processava).
+      // (defesa em profundidade — usuário pode ter ativo via Flames enquanto Stripe processava).
       if (await PremiumStorage.hasActiveForProfile(client, meta.profile_id)) {
         // Se já está ativo por outro caminho, marca esta sessão como failed pra não confundir.
         if (existing?.id) await PremiumStorage.markFailed(client, existing.id);
@@ -355,10 +355,10 @@ class PremiumService {
         if (v <= 0) return { error: "price_cents deve ser maior que zero" };
         patch.price_cents = v;
       }
-      if (body.price_polens !== undefined) {
-        const v = clampInt(body.price_polens, { min: 1, fallback: 0 });
-        if (v <= 0) return { error: "price_polens deve ser maior que zero" };
-        patch.price_polens = v;
+      if (body.price_flames !== undefined) {
+        const v = clampInt(body.price_flames, { min: 1, fallback: 0 });
+        if (v <= 0) return { error: "price_flames deve ser maior que zero" };
+        patch.price_flames = v;
       }
       if (body.slots_per_city !== undefined) {
         patch.slots_per_city = clampInt(body.slots_per_city, { min: 0, fallback: 0 });
@@ -385,21 +385,21 @@ class PremiumService {
       const price_cents = body.price_cents != null && body.price_cents !== ""
         ? clampInt(body.price_cents, { min: 1, fallback: 0 })
         : null;
-      const price_polens = body.price_polens != null && body.price_polens !== ""
-        ? clampInt(body.price_polens, { min: 1, fallback: 0 })
+      const price_flames = body.price_flames != null && body.price_flames !== ""
+        ? clampInt(body.price_flames, { min: 1, fallback: 0 })
         : null;
       const slots = body.slots != null && body.slots !== ""
         ? clampInt(body.slots, { min: 0, fallback: 0 })
         : null;
 
       if (price_cents === 0) return { error: "price_cents deve ser maior que zero" };
-      if (price_polens === 0) return { error: "price_polens deve ser maior que zero" };
+      if (price_flames === 0) return { error: "price_flames deve ser maior que zero" };
 
       const override = await PremiumStorage.upsertCityOverride(pool, {
         uf,
         city_name,
         price_cents,
-        price_polens,
+        price_flames,
         slots,
       });
       return { override };

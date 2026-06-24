@@ -17,7 +17,7 @@ import {
 type Settings = {
   duration_days: number
   price_cents: number
-  price_polens: number
+  price_flames: number
   slots_per_city: number
   is_active: boolean
 }
@@ -27,7 +27,7 @@ type CityOverride = {
   uf: string
   city_name: string
   price_cents: number | null
-  price_polens: number | null
+  price_flames: number | null
   slots: number | null
 }
 
@@ -41,7 +41,7 @@ type ActiveItem = {
   city_name: string
   payment_method: string
   amount_cents: number | null
-  amount_polens: number | null
+  amount_flames: number | null
   activated_at: string
   expires_at: string
 }
@@ -68,7 +68,7 @@ export function PremiumConfig() {
   const [settingsForm, setSettingsForm] = useState({
     duration_days: "7",
     price_brl: "50,00",
-    price_polens: "500",
+    price_flames: "500",
     slots_per_city: "5",
     is_active: true,
   })
@@ -82,7 +82,7 @@ export function PremiumConfig() {
     uf: "",
     city_name: "",
     price_brl: "",
-    price_polens: "",
+    price_flames: "",
     slots: "",
   })
   const [savingOverride, setSavingOverride] = useState(false)
@@ -105,7 +105,7 @@ export function PremiumConfig() {
       setSettingsForm({
         duration_days: String(data.settings.duration_days),
         price_brl: (data.settings.price_cents / 100).toFixed(2).replace(".", ","),
-        price_polens: String(data.settings.price_polens),
+        price_flames: String(data.settings.price_flames),
         slots_per_city: String(data.settings.slots_per_city),
         is_active: data.settings.is_active,
       })
@@ -149,19 +149,19 @@ export function PremiumConfig() {
     setSettingsError(null)
     try {
       const price_cents = parseBrl(settingsForm.price_brl)
-      const polens = Number(settingsForm.price_polens)
+      const flames = Number(settingsForm.price_flames)
       const days = Number(settingsForm.duration_days)
       const slots = Number(settingsForm.slots_per_city)
       if (!days || days <= 0) throw new Error("Dias deve ser > 0")
       if (price_cents <= 0) throw new Error("Preço deve ser > 0")
-      if (!Number.isFinite(polens) || polens <= 0) throw new Error("Poléns deve ser > 0")
+      if (!Number.isFinite(flames) || flames <= 0) throw new Error("Flames deve ser > 0")
       const res = await fetch("/api/admin/premium/settings", {
         method: "PUT",
         headers: { Authorization: `Bearer ${t}`, "Content-Type": "application/json" },
         body: JSON.stringify({
           duration_days: days,
           price_cents,
-          price_polens: polens,
+          price_flames: flames,
           slots_per_city: Number.isFinite(slots) ? slots : 0,
           is_active: settingsForm.is_active,
         }),
@@ -177,7 +177,7 @@ export function PremiumConfig() {
   }
 
   function openOverrideCreate() {
-    setOverrideForm({ uf: "", city_name: "", price_brl: "", price_polens: "", slots: "" })
+    setOverrideForm({ uf: "", city_name: "", price_brl: "", price_flames: "", slots: "" })
     setOverrideError(null)
     setOverrideOpen(true)
   }
@@ -187,7 +187,7 @@ export function PremiumConfig() {
       uf: o.uf,
       city_name: o.city_name,
       price_brl: o.price_cents != null ? (o.price_cents / 100).toFixed(2).replace(".", ",") : "",
-      price_polens: o.price_polens != null ? String(o.price_polens) : "",
+      price_flames: o.price_flames != null ? String(o.price_flames) : "",
       slots: o.slots != null ? String(o.slots) : "",
     })
     setOverrideError(null)
@@ -212,10 +212,10 @@ export function PremiumConfig() {
         if (cents <= 0) throw new Error("Preço inválido")
         body.price_cents = cents
       }
-      if (overrideForm.price_polens) {
-        const p = Number(overrideForm.price_polens)
-        if (!Number.isFinite(p) || p <= 0) throw new Error("Poléns inválido")
-        body.price_polens = p
+      if (overrideForm.price_flames) {
+        const p = Number(overrideForm.price_flames)
+        if (!Number.isFinite(p) || p <= 0) throw new Error("Flames inválido")
+        body.price_flames = p
       }
       if (overrideForm.slots) {
         const s = Number(overrideForm.slots)
@@ -287,11 +287,11 @@ export function PremiumConfig() {
                 />
               </div>
               <div>
-                <Label>Preço em Poléns</Label>
+                <Label>Preço em Flames</Label>
                 <Input
                   inputMode="numeric"
-                  value={settingsForm.price_polens}
-                  onChange={(e) => setSettingsForm((f) => ({ ...f, price_polens: e.target.value.replace(/\D/g, "") }))}
+                  value={settingsForm.price_flames}
+                  onChange={(e) => setSettingsForm((f) => ({ ...f, price_flames: e.target.value.replace(/\D/g, "") }))}
                 />
               </div>
               <div>
@@ -319,7 +319,7 @@ export function PremiumConfig() {
               </Button>
               {settings && (
                 <span className="ml-3 text-xs text-muted-foreground">
-                  Atual: {fmtBRL(settings.price_cents)} · {settings.price_polens} Poléns ·{" "}
+                  Atual: {fmtBRL(settings.price_cents)} · {settings.price_flames} Flames ·{" "}
                   {settings.duration_days}d · {settings.slots_per_city} vagas/cidade ·{" "}
                   {settings.is_active ? "ativo" : "desabilitado"}
                 </span>
@@ -352,7 +352,7 @@ export function PremiumConfig() {
                     <tr className="text-left text-xs uppercase tracking-wider text-muted-foreground">
                       <th className="py-2">Cidade</th>
                       <th className="py-2">Preço</th>
-                      <th className="py-2">Poléns</th>
+                      <th className="py-2">Flames</th>
                       <th className="py-2">Vagas</th>
                       <th className="py-2"></th>
                     </tr>
@@ -362,7 +362,7 @@ export function PremiumConfig() {
                       <tr key={o.id} className="border-t border-white/5">
                         <td className="py-2">{o.city_name}/{o.uf}</td>
                         <td className="py-2">{fmtBRL(o.price_cents)}</td>
-                        <td className="py-2">{o.price_polens ?? "—"}</td>
+                        <td className="py-2">{o.price_flames ?? "—"}</td>
                         <td className="py-2">{o.slots ?? "—"}</td>
                         <td className="py-2 text-right">
                           <Button size="sm" variant="ghost" onClick={() => openOverrideEdit(o)}>
@@ -431,7 +431,7 @@ export function PremiumConfig() {
                         <td className="py-2">
                           {a.payment_method === "stripe"
                             ? `Cartão · ${fmtBRL(a.amount_cents)}`
-                            : `Poléns · ${a.amount_polens ?? "—"}`}
+                            : `Flames · ${a.amount_flames ?? "—"}`}
                         </td>
                         <td className="py-2">
                           {new Date(a.expires_at).toLocaleDateString("pt-BR")}
@@ -485,12 +485,12 @@ export function PremiumConfig() {
                 />
               </div>
               <div>
-                <Label>Poléns</Label>
+                <Label>Flames</Label>
                 <Input
                   inputMode="numeric"
-                  value={overrideForm.price_polens}
+                  value={overrideForm.price_flames}
                   onChange={(e) =>
-                    setOverrideForm((f) => ({ ...f, price_polens: e.target.value.replace(/\D/g, "") }))
+                    setOverrideForm((f) => ({ ...f, price_flames: e.target.value.replace(/\D/g, "") }))
                   }
                   placeholder="default"
                 />

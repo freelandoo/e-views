@@ -130,8 +130,8 @@ export function UserDropside({ open, onClose, user, unreadServiceRequest, onLogo
   // Itens abaixo do "Abrir chamado".
   const actionsBottom: Action[] = [
     {
-      href: "/loja-polens",
-      label: tAcc("polenLabel", "Seus Pólens"),
+      href: "/loja-flames",
+      label: tAcc("flameLabel", "Seus Pólens"),
       icon: Coins,
     },
     {
@@ -162,8 +162,8 @@ export function UserDropside({ open, onClose, user, unreadServiceRequest, onLogo
         ? "dropside-manifestation"
         : a.href === "/account/afiliado"
           ? "dropside-earnings"
-          : a.href === "/loja-polens"
-            ? "dropside-pollens"
+          : a.href === "/loja-flames"
+            ? "dropside-flames"
             : a.href.startsWith("/account?edit")
               ? "dropside-edit"
               : undefined

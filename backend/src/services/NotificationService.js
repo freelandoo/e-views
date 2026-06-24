@@ -522,7 +522,7 @@ class NotificationService {
     sender_user_id,
     id_live,
     gift_name,
-    polens,
+    flames,
   }) {
     if (!host_user_id || !id_live) return null;
     return safeNotify({
@@ -534,7 +534,7 @@ class NotificationService {
       entity_id: id_live,
       payload: {
         preview: typeof gift_name === "string" ? gift_name.slice(0, 60) : null,
-        polens: Number.isFinite(polens) ? polens : null,
+        flames: Number.isFinite(flames) ? flames : null,
       },
     });
   }
