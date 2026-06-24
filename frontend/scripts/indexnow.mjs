@@ -11,9 +11,9 @@
 //       BACKEND_API_URL=... SITE_ORIGIN=... node scripts/indexnow.mjs
 
 const KEY = "35d3ae59d2b3fc88df995a771fcc96e9"
-const SITE_ORIGIN = (process.env.SITE_ORIGIN || "https://www.freelandoo.com.br").replace(/\/$/, "")
+const SITE_ORIGIN = (process.env.SITE_ORIGIN || "https://e-views.com").replace(/\/$/, "")
 const BACKEND =
-  (process.env.BACKEND_API_URL || "https://freelandoo-backend-production.up.railway.app").replace(/\/$/, "")
+  (process.env.BACKEND_API_URL || "https://backend-production-1032.up.railway.app").replace(/\/$/, "")
 
 async function fetchAllSlugs() {
   const slugs = []

@@ -1,10 +1,13 @@
-# F5.S2 — smoke pós-deploy: após push na main, espera o deploy do Railway
+# Smoke pós-deploy do backend (Railway): após push na main, espera o deploy
 # subir e confere /health + rotas públicas chave. Falha = e-mail do GitHub.
-name: smoke-pos-deploy
+name: backend-smoke
 
 on:
   push:
     branches: [main]
+    paths:
+      - "backend/**"
+      - ".github/workflows/backend-smoke.yml"
 
 jobs:
   smoke:
@@ -13,10 +16,9 @@ jobs:
     steps:
       - name: Espera o deploy e valida /health + rotas chave
         env:
-          BASE: https://freelandoo-backend-production.up.railway.app
+          BASE: https://backend-production-1032.up.railway.app
         run: |
           set -u
-          # O Railway builda + roda migrations no boot — dá tempo antes de cobrar.
           echo "aguardando 90s pro deploy iniciar…"
           sleep 90
 

@@ -6,9 +6,9 @@
  * (mantém token fora do bundle e centraliza logging).
  *
  * Define-se via `NEXT_PUBLIC_BACKEND_URL`. CORS no backend já aceita
- * *.vercel.app, freelandoo.com.br e localhost.
+ * *.vercel.app, e-views.com e localhost.
  */
-const DEFAULT_BACKEND_PUBLIC_URL = "https://freelandoo-backend-production.up.railway.app"
+const DEFAULT_BACKEND_PUBLIC_URL = "https://backend-production-1032.up.railway.app"
 
 export function getPublicBackendUrl(): string {
   const raw = process.env.NEXT_PUBLIC_BACKEND_URL?.trim()

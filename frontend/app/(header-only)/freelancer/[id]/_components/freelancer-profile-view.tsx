@@ -270,7 +270,7 @@ export default function FreelancerProfileView({
       // Vídeos vão direto ao backend pra escapar do limite de body do Vercel.
       const isVideo = file.type.startsWith("video/")
       const uploadUrl = isVideo
-        ? `https://freelandoo-backend-production.up.railway.app/profile/${profileId}/portfolio/${itemId}/upload`
+        ? `https://backend-production-1032.up.railway.app/profile/${profileId}/portfolio/${itemId}/upload`
         : `/api/profile/${profileId}/portfolio/${itemId}/upload`
       const res = await fetch(uploadUrl, {
         method: "POST",
@@ -526,7 +526,7 @@ export default function FreelancerProfileView({
         fd.append("file", pendingFile)
         const isVideo = pendingFile.type.startsWith("video/")
         const uploadUrl = isVideo
-          ? `https://freelandoo-backend-production.up.railway.app/profile/${profileId}/portfolio/${newItemId}/upload`
+          ? `https://backend-production-1032.up.railway.app/profile/${profileId}/portfolio/${newItemId}/upload`
           : `/api/profile/${profileId}/portfolio/${newItemId}/upload`
         const uploadRes = await fetch(uploadUrl, {
           method: "POST",

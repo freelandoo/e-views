@@ -1,10 +1,13 @@
-# F5.S2 — smoke pós-deploy: após push na main, espera o deploy da Vercel
-# propagar e confere 5 rotas chave em produção. Falha = e-mail do GitHub.
-name: smoke-pos-deploy
+# Smoke pós-deploy do frontend (Vercel): após push na main, espera o build
+# propagar e confere rotas chave em produção. Falha = e-mail do GitHub.
+name: frontend-smoke
 
 on:
   push:
     branches: [main]
+    paths:
+      - "frontend/**"
+      - ".github/workflows/frontend-smoke.yml"
 
 jobs:
   smoke:
@@ -13,7 +16,7 @@ jobs:
     steps:
       - name: Espera o deploy e valida rotas chave
         env:
-          BASE: https://www.freelandoo.com.br
+          BASE: https://e-views.vercel.app
         run: |
           set -u
           echo "aguardando 120s pro build da Vercel…"

@@ -9,7 +9,7 @@
 import type { Socket } from "socket.io-client"
 import { getToken } from "@/lib/auth"
 
-const DEFAULT_BACKEND = "https://freelandoo-backend-production.up.railway.app"
+const DEFAULT_BACKEND = "https://backend-production-1032.up.railway.app"
 
 // Quanto tempo a aba pode ficar em background antes de a gente fechar o
 // WebSocket pra liberar memória residual no Railway. Volta a conectar

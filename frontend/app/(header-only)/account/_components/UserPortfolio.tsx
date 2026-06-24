@@ -75,7 +75,7 @@ function token() {
   return typeof window !== "undefined" ? localStorage.getItem("token") : null
 }
 
-const BACKEND_DIRECT = "https://freelandoo-backend-production.up.railway.app"
+const BACKEND_DIRECT = "https://backend-production-1032.up.railway.app"
 
 /**
  * Portfólio do user-account (perfil-fantasma).

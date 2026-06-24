@@ -19,18 +19,18 @@ app.set("trust proxy", 1);
 const allowedOrigins = [
   "https://v0.dev",
   "http://localhost:3000",
-  "https://freelandoo.com.br",
-  "https://www.freelandoo.com.br",
+  "https://e-views.com",
+  "https://www.e-views.com",
 ];
 
 const allowedOriginPatterns = [
   /^https:\/\/([a-z0-9-]+\.)*v0\.dev$/i,
   // Vercel: só o alias do projeto e os previews do time freelandoos-projects
-  // (ex.: freelandoo-frontend-<hash>-freelandoos-projects.vercel.app).
+  // (ex.: e-views-<hash>-freelandoos-projects.vercel.app).
   // Nunca *.vercel.app inteiro — qualquer conta Vercel poderia chamar a API.
-  /^https:\/\/freelandoo-frontend\.vercel\.app$/i,
+  /^https:\/\/e-views\.vercel\.app$/i,
   /^https:\/\/[a-z0-9-]+-freelandoos-projects\.vercel\.app$/i,
-  /^https:\/\/([a-z0-9-]+\.)*freelandoo\.com\.br$/i,
+  /^https:\/\/([a-z0-9-]+\.)*e-views\.com$/i,
 ];
 
 const corsOptions = {
