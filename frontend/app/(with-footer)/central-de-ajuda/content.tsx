@@ -155,8 +155,8 @@ export function CentralDeAjudaContent() {
               <a href="https://wa.me/5511962757599" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-[#C8102E] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#C8102E]/90 hover:shadow-[0_0_20px_rgba(242,196,9,0.35)] transition-all">
                 {t("support.ctaWhatsapp", "WhatsApp (11) 96275-7599")}
               </a>
-              <a href="mailto:e-viewsgroup@gmail.com" className="inline-flex items-center border border-[#2A2218] text-[#F5F1E8] font-semibold px-6 py-3 rounded-lg hover:border-[#C8102E]/50 transition-all">
-                {t("support.ctaEmail", "e-viewsgroup@gmail.com")}
+              <a href="mailto:freelandoogroup@gmail.com" className="inline-flex items-center border border-[#2A2218] text-[#F5F1E8] font-semibold px-6 py-3 rounded-lg hover:border-[#C8102E]/50 transition-all">
+                {t("support.ctaEmail", "freelandoogroup@gmail.com")}
               </a>
             </div>
           </div>

@@ -22,7 +22,7 @@ const proTips = [
   { title: "Mantenha seu perfil verdadeiro", text: "Informações falsas podem prejudicar sua reputação e levar à remoção da plataforma." },
 ]
 
-const e-viewsDoes = [
+const eviewsDoes = [
   "ajudamos na descoberta",
   "organizamos perfis e filtros",
   "facilitamos contato direto",
@@ -105,7 +105,7 @@ export function DicasDeSegurancaContent() {
             {t("role.description", "A E-Views atua como plataforma de divulgação, conexão e, em algumas funcionalidades, intermediação. Em contratações diretas, não participa da negociação, do pagamento nem da entrega. Em transações realizadas dentro da plataforma — Loja, agendamentos pagos e cursos —, processa o pagamento e aplica o período de garantia previsto nos Termos do Marketplace.")}
           </p>
           <div className="flex flex-wrap gap-3" data-stagger>
-            {e-viewsDoes.map((item, i) => (
+            {eviewsDoes.map((item, i) => (
               <div key={item} className="flex items-center gap-2 bg-[#1D1810] border border-[#2A2218] rounded-full px-4 py-2" data-card>
                 <span className="text-[#C8102E] font-bold text-xs">✓</span>
                 <span className="text-sm text-[#F5F1E8]">{t(`role.items.${i}`, item)}</span>

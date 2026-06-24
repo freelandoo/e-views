@@ -105,8 +105,8 @@ export function SiteFooter() {
             <h3 className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-[#C8102E]">{tFooter("contact", "Contato")}</h3>
             <ul className="mt-4 space-y-2.5">
               <li>
-                <a href="mailto:e-viewsgroup@gmail.com" className="text-sm text-[#C9C2B6] transition hover:text-[#F5F1E8]">
-                  e-viewsgroup@gmail.com
+                <a href="mailto:freelandoogroup@gmail.com" className="text-sm text-[#C9C2B6] transition hover:text-[#F5F1E8]">
+                  freelandoogroup@gmail.com
                 </a>
               </li>
               <li>

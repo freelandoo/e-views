@@ -66,12 +66,12 @@ const sections = [
   {
     title: "8. Conteúdo dos anúncios",
     paragraphs: [
-      "Os anúncios de terceiros são selecionados por redes de publicidade, e o seu conteúdo não reflete necessariamente a opinião da E-Views. Anúncios impróprios podem ser reportados para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "Os anúncios de terceiros são selecionados por redes de publicidade, e o seu conteúdo não reflete necessariamente a opinião da E-Views. Anúncios impróprios podem ser reportados para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
     ],
   },
   {
     title: "9. Contato",
-    paragraphs: ["Dúvidas sobre publicidade podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
+    paragraphs: ["Dúvidas sobre publicidade podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
   },
 ]
 

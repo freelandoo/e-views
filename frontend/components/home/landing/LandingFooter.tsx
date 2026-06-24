@@ -98,7 +98,7 @@ export function LandingFooter() {
           ))}
 
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-[#C8102E]">{t("footerSigaE-Views", "Siga a E-Views")}</h3>
+            <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-[#C8102E]">{t("footerSigaEViews", "Siga a E-Views")}</h3>
             <div className="mt-4 flex flex-wrap gap-2">
               <a
                 href="https://www.instagram.com/printtei_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @printtei_"
@@ -110,8 +110,8 @@ export function LandingFooter() {
             <h3 className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-[#C8102E]">{t("footerContato", "Contato")}</h3>
             <ul className="mt-4 space-y-2.5">
               <li>
-                <a href="mailto:e-viewsgroup@gmail.com" className="text-sm text-[#C9C2B6] transition hover:text-[#F5F1E8]">
-                  e-viewsgroup@gmail.com
+                <a href="mailto:freelandoogroup@gmail.com" className="text-sm text-[#C9C2B6] transition hover:text-[#F5F1E8]">
+                  freelandoogroup@gmail.com
                 </a>
               </li>
               <li>

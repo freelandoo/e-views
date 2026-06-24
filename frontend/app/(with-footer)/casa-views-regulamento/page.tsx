@@ -79,7 +79,7 @@ const sections = [
   {
     title: "9. Contato",
     paragraphs: [
-      "Dúvidas sobre a Casa Views podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "Dúvidas sobre a Casa Views podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
     ],
   },
 ]

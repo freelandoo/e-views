@@ -77,7 +77,7 @@ const sections = [
   {
     title: "8. Recurso e contestação",
     items: [
-      "O usuário afetado por uma medida de moderação pode contestá-la pelo e-mail e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "O usuário afetado por uma medida de moderação pode contestá-la pelo e-mail freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
       "A contestação deve indicar o conteúdo ou a conta e os motivos da discordância.",
       "A E-Views reavalia a decisão e comunica o resultado.",
     ],
@@ -100,7 +100,7 @@ const sections = [
   },
   {
     title: "11. Contato",
-    paragraphs: ["Dúvidas sobre moderação e denúncias podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
+    paragraphs: ["Dúvidas sobre moderação e denúncias podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599."],
   },
 ]
 

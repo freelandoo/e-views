@@ -12,7 +12,7 @@ const sections = [
     title: "1. Controlador dos dados e Encarregado",
     items: [
       legalControllerLine(),
-      "O Encarregado pelo Tratamento de Dados Pessoais (DPO) pode ser contatado em e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "O Encarregado pelo Tratamento de Dados Pessoais (DPO) pode ser contatado em freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
       "Esta política observa a Lei Geral de Proteção de Dados (Lei nº 13.709/2018) e o Marco Civil da Internet.",
     ],
   },
@@ -103,7 +103,7 @@ const sections = [
       "Solicitar anonimização, bloqueio ou eliminação de dados desnecessários.",
       "Solicitar a portabilidade dos dados.",
       "Revogar o consentimento e se opor a tratamentos baseados em legítimo interesse.",
-      "Exercer esses direitos por meio do contato com o Encarregado em e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "Exercer esses direitos por meio do contato com o Encarregado em freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
     ],
   },
   {
@@ -123,7 +123,7 @@ const sections = [
   {
     title: "13. Contato",
     paragraphs: [
-      "Dúvidas sobre privacidade, ou contato com o Encarregado de Proteção de Dados, podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599. O titular também pode peticionar à Autoridade Nacional de Proteção de Dados (ANPD).",
+      "Dúvidas sobre privacidade, ou contato com o Encarregado de Proteção de Dados, podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599. O titular também pode peticionar à Autoridade Nacional de Proteção de Dados (ANPD).",
     ],
   },
 ]

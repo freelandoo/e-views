@@ -176,7 +176,7 @@ const sections = [
   {
     title: "18. Contato",
     paragraphs: [
-      "Dúvidas sobre estes termos, ou contato com o Encarregado de Proteção de Dados, podem ser enviadas para e-viewsgroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
+      "Dúvidas sobre estes termos, ou contato com o Encarregado de Proteção de Dados, podem ser enviadas para freelandoogroup@gmail.com ou pelo WhatsApp (11) 96275-7599.",
     ],
   },
 ]
